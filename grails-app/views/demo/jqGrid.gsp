@@ -12,7 +12,11 @@
   <meta name="layout" content="oros">
   <title></title>
 
-
+   <r:script>
+        $(document).ready(function(){
+           alert("Hello");
+        });
+   </r:script>
 
 </head>
 <body>

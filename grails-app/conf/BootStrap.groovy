@@ -143,6 +143,45 @@ class BootStrap {
                 coreBank.addToFeature(dashboard)
             }
 
+            Feature settingsMgmt = Feature.findByName('SETTINGS_MGMT')
+            if(!settingsMgmt){
+                settingsMgmt = new Feature(name: 'SETTINGS_MGMT',description:'Manage User with role and access',fmenuText:'Settings',controllerName: 'manageUser',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                coreBank.addToFeature(userMgmt)
+            }
+
+                Events createCountry = Events.findByName('CREATE_COUNTRY')
+                if(!createCountry){
+                    createCountry = new Events(name: 'CREATE_COUNTRY',description:'Create Country',fmenuText:'Create Country',controllerName: 'country',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createCountry)
+                }
+                Events createCountrySubmit = Events.findByName('SAVE_CREATE_COUNTRY')
+                if(!createCountrySubmit){
+                    createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createCountrySubmit)
+                }
+
+                Events createCurrency = Events.findByName('CREATE_CURRENCY')
+                if(!createCurrency){
+                    createCurrency = new Events(name: 'CREATE_CURRENCY',description:'Create Currency',fmenuText:'Create Currency',controllerName: 'currency',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createCurrency)
+                }
+                Events createCurrencySubmit = Events.findByName('SAVE_CREATE_CURRENCY')
+                if(!createCurrencySubmit){
+                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createCurrencySubmit)
+                }
+
+                Events createExchangeRate = Events.findByName('CREATE_EXCHANGE_RATE')
+                if(!createExchangeRate){
+                    createExchangeRate = new Events(name: 'CREATE_EXCHANGE_RATE',description:'Create Exchange Rate',fmenuText:'Exchange Rate',controllerName: 'ExchangeRate',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createExchangeRate)
+                }
+                Events createExchangeRateSubmit = Events.findByName('SAVE_EXCHANGE_RATE')
+                if(!createExchangeRateSubmit){
+                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createExchangeRateSubmit)
+                }
+
 
 
         //3.    Insurance part here
