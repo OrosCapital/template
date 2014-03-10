@@ -11,6 +11,11 @@
 <head>
     <meta name="layout" content="oros">
     <title></title>
+    <style type="text/css">
+    .form-horizontal .control-label{
+        text-align :left;
+    }
+    </style>
 </head>
 <body>
 <div class="row">
@@ -40,6 +45,7 @@
                 </div>
             </div>
         </div>
+        <hr>
         <div class="row">
         <div id="accordion" class="accordion-style1 panel-group">
 
@@ -50,15 +56,31 @@
                            href="#collapseOne">
                             <i class="icon-angle-down bigger-110" data-icon-hide="icon-angle-down"
                                data-icon-show="icon-angle-right"></i>
-                            &nbsp;General Information
+                            &nbsp;Right Map for ${forAuthority}
                         </a>
                     </h4>
                 </div>
 
                 <div class="panel-collapse collapse in" id="collapseOne">
                     <div class="panel-body">
-                        %{--<g:each in="${bankSetupData}" var="bankSetting">--}%
-                        <p>some text hrere</p>
+                        <g:form class="form-horizontal" method="post" id="roleRightMap" url="[action:'saveRoleRight',controller:'manageRole']">
+                            <g:each in="${resultList}" var="roleRight">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label text-left">${roleRight.menuText} </label>
+                                <div class="col-sm-1">
+                                        <label class="middle">
+                                            <g:checkBox class="ace roleRigntchk" name="myCheckbox" value="${roleRight.id}" checked="${roleRight.hasAccess}" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                </div>
+                                <label class="col-sm-8 control-label">${roleRight.description} </label>
+                            </div>
+                            </g:each>
+                            <button type="submit" class="btn btn-info btn-sm">
+                                <i class="icon-key bigger-110"></i>
+                                Load
+                            </button>
+                        </g:form>
 
                     </div>
                 </div>
@@ -70,6 +92,20 @@
 </div><!-- /.row -->
 <r:script>
     $(".chosen-select").chosen();
+    $(document).ready(function() {
+        $('.roleRigntchk').change(function() {
+            if(!$(this).hasClass('rightRightChange')) {
+                $(this).addClass('rightRightChange');
+            }
+        });
+        $("#roleRightMap").on("click",function(e) {
+            $(".rightRightChange").each(function(){
+                var eValue =$(this).val();
+                alert(eValue);
+            });
+        });
+
+     });
 </r:script>
 </body>
 </html>

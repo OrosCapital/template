@@ -7,8 +7,11 @@ class RequestMap {
 	String url
 	String configAttribute
 	HttpMethod httpMethod
-    Long referenceId        //ModuleId, FeatureId, FeventsId
-    String referenceType    //[Module, Feature, Events]
+    Long moduleId = 0L        //ModuleId, FeatureId, FeventsId
+    Long featureId = 0L        //ModuleId, FeatureId, FeventsId
+    Long eventsId = 0L        //ModuleId, FeatureId, FeventsId
+    String menuText
+    String description
 
 	static mapping = {
 		cache true
@@ -18,7 +21,7 @@ class RequestMap {
 		url blank: false, unique: 'httpMethod'
 		configAttribute blank: false
 		httpMethod nullable: true
-        referenceId nullable: true
-        referenceType nullable: true
+        menuText nullable: true
+        description nullable: true
 	}
 }

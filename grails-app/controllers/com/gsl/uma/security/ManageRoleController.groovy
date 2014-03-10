@@ -1,5 +1,8 @@
 package com.gsl.uma.security
 
+import com.gsl.uma.saas.Events
+import com.gsl.uma.saas.Feature
+
 class ManageRoleController {
 
     def index() {
@@ -36,17 +39,34 @@ class ManageRoleController {
     def listShowOnly() { }
     def roleRight(Long roleId){
         println params
+        Role role = null
         if (request.method == 'POST') {
             if(params.roleId){
-                Role role = Role.read(roleId)
+                role = Role.read(roleId)
                 if (role){
-                    println role
+                   def requestMap = RequestMap.withCriteria{
+                       ne('configAttribute','permitAll')
+                       and{
+                           order('moduleId','asc')
+                           order('featureId','desc')
+                           order('eventsId','desc')
+                       }
+                   }
+                    List resultList = new ArrayList()
+                    requestMap.each {RequestMap requestMap1 ->
+                        boolean hasAccess = requestMap1.configAttribute.contains(role.authority)
+                        resultList.add([id:requestMap1.id,menuText:requestMap1.menuText, description:requestMap1.description, hasAccess:hasAccess])
+                    }
+                    render (view: 'mapRoleRight', model: [forAuthority:role?.authority,resultList:resultList])
+                    return
                 }
             }
         }
         render (view: 'mapRoleRight')
     }
     def saveRoleRight(){
+        println params
+        println params
 
     }
 }

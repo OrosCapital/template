@@ -145,8 +145,8 @@ class BootStrap {
 
             Feature settingsMgmt = Feature.findByName('SETTINGS_MGMT')
             if(!settingsMgmt){
-                settingsMgmt = new Feature(name: 'SETTINGS_MGMT',description:'Manage User with role and access',fmenuText:'Settings',controllerName: 'manageUser',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
-                coreBank.addToFeature(userMgmt)
+                settingsMgmt = new Feature(name: 'SETTINGS_MGMT',description:'Manage Different Admin settings',fmenuText:'Settings',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                coreBank.addToFeature(settingsMgmt)
             }
 
                 Events createCountry = Events.findByName('CREATE_COUNTRY')
@@ -209,11 +209,21 @@ class BootStrap {
                 '/login', '/login/**', '/logout', '/logout/**']) {
             Requestmap.newInstance(url: url, configAttribute: 'permitAll').save(flush: true, failOnError: true)
         }
-        def featureList = Feature.list()
-        featureList.each {Feature feature ->
-            Requestmap.newInstance(url: "/"+feature.controllerName+"/"+feature.actionName,referenceId:feature.id, referenceType:'Feature', configAttribute: 'ROLE_SUPER_ADMIN,ROLE_ADMIN').save(flush: true, failOnError: true)
+        def modules = Module.list()
+        modules.each {Module module ->
+            module.feature.each {Feature feature ->
+                Requestmap.newInstance(url: "/"+feature.controllerName+"/"+feature.actionName,menuText:feature.fmenuText,description:feature.description,moduleId:module.id,featureId:feature.id, configAttribute: 'ROLE_SUPER_ADMIN').save(flush: true, failOnError: true)
+                feature.events.each {Events events ->
+                    if(events.isPermitToAll){
+                        Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,configAttribute: 'permitAll').save(flush: true, failOnError: true)
+                    } else {
+                        Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,menuText:events.fmenuText,description:events.description,moduleId:module.id,featureId:feature.id,eventsId:events.id, configAttribute: 'ROLE_SUPER_ADMIN').save(flush: true, failOnError: true)
+                    }
+                }
+            }
         }
-        def eventList = Events.list()
+
+        /*def eventList = Events.list()
         eventList.each {Events events ->
             if(events.isPermitToAll){
                 Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,referenceId:events.id, referenceType:'Events', configAttribute: 'permitAll').save(flush: true, failOnError: true)
@@ -221,7 +231,7 @@ class BootStrap {
                 Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,referenceId:events.id, referenceType:'Events', configAttribute: 'ROLE_SUPER_ADMIN').save(flush: true, failOnError: true)
             }
         }
-
+*/
         println "Request Map code complete"
 
 
