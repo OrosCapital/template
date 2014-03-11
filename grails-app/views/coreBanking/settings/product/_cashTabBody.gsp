@@ -55,6 +55,6 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/transferFeesTable'/>
+        <g:render template='/coreBanking/settings/product/transferFeesTable'/>
     </div>
 </div>
