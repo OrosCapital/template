@@ -16,7 +16,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "createGeneralAddress-drop" // one of 'createGeneralAddress', 'createGeneralAddress-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/orostemplate"
             logSql = true
             username = "root"

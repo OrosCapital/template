@@ -150,7 +150,7 @@
     <div class="col-md-offset-9 col-md-3">
         <button class="btn btn-primary btn-sm" type="submit" name="update" id="button-update">Update</button>
 
-        <g:actionSubmit class="btn btn-primary btn-sm"  name="next" value="Next" id="button-next" controller="com.oros.custom.vendorMaster" action="save" />
+        <g:actionSubmit class="btn btn-primary btn-sm"  name="next" value="Next" id="button-next" controller="vendor" action="saveBasic" />
 
     </div>
 </div>

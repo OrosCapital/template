@@ -36,7 +36,7 @@
                         </div>
                     </g:hasErrors>
                     <!-- PAGE CONTENT BEGINS -->
-                    <g:form class="form-horizontal" method="post" role="form" url="[action:'create',controller:'manageRole']">
+                    <g:form class="form-horizontal" method="post" role="form" url="[action:'createGeneralAddress',controller:'manageRole']">
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="authority"> Role Name </label>
 

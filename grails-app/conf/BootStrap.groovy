@@ -46,12 +46,12 @@ class BootStrap {
                     // 1.1.1    Create User
                     Events createUser = Events.findByName('CREATE_USER')
                     if(!createUser){
-                        createUser = new Events(name: 'CREATE_USER',description:'Create user with user List at bottom',fmenuText:'Create User',controllerName: 'manageUser',actionName:'create', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                        createUser = new Events(name: 'CREATE_USER',description:'Create user with user List at bottom',fmenuText:'Create User',controllerName: 'manageUser',actionName:'createGeneralAddress', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                         userMgmt.addToEvents(createUser)
                     }
                     Events createUserSubmit = Events.findByName('SAVE_CREATE_USER')
                     if(!createUserSubmit){
-                        createUserSubmit = new Events(name: 'SAVE_CREATE_USER',description:'Create user with user List at bottom',fmenuText:'Save',controllerName: 'manageUser',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                        createUserSubmit = new Events(name: 'SAVE_CREATE_USER',description:'Create user with user List at bottom',fmenuText:'Save',controllerName: 'manageUser',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                         userMgmt.addToEvents(createUserSubmit)
                     }
                     // 1.1.2    Update User
@@ -83,7 +83,7 @@ class BootStrap {
                 // 1.2  role CURD
                 /*Feature roleMgmt = Feature.findByName('ROLE_MGMT')
                 if(!roleMgmt){
-                    roleMgmt = new Feature(name: 'ROLE_MGMT',description:'Manage Role CURD',fmenuText:'Manage Role',controllerName: 'manageRole',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                    roleMgmt = new Feature(name: 'ROLE_MGMT',description:'Manage Role CURD',fmenuText:'Manage Role',controllerName: 'manageRole',actionName:'index', showOnMenu: true, status: true).saveBasic(failOnError: true)
                     userMgmtModule.addToFeature(roleMgmt)
                 }*/
                     // 1.2.1    Create User
@@ -94,7 +94,7 @@ class BootStrap {
                     }
                     Events createRoleSubmit = Events.findByName('SAVE_CREATE_ROLE')
                     if(!createRoleSubmit){
-                        createRoleSubmit = new Events(name: 'SAVE_CREATE_ROLE',description:'Create role with role List at bottom',fmenuText:'Save',controllerName: 'manageRole',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                        createRoleSubmit = new Events(name: 'SAVE_CREATE_ROLE',description:'Create role with role List at bottom',fmenuText:'Save',controllerName: 'manageRole',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                         userMgmt.addToEvents(createRoleSubmit)
                     }
 
@@ -156,7 +156,7 @@ class BootStrap {
                 }
                 Events createCountrySubmit = Events.findByName('SAVE_CREATE_COUNTRY')
                 if(!createCountrySubmit){
-                    createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
 
@@ -167,7 +167,7 @@ class BootStrap {
                 }
                 Events createCurrencySubmit = Events.findByName('SAVE_CREATE_CURRENCY')
                 if(!createCurrencySubmit){
-                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCurrencySubmit)
                 }
 
@@ -178,7 +178,7 @@ class BootStrap {
                 }
                 Events createExchangeRateSubmit = Events.findByName('SAVE_EXCHANGE_RATE')
                 if(!createExchangeRateSubmit){
-                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
 
@@ -189,12 +189,12 @@ class BootStrap {
             }
                 Events createCustomer = Events.findByName('CREATE_CUSTOMER')
                 if(!createCustomer){
-                    createCustomer = new Events(name: 'CREATE_CUSTOMER',description:'Create Customer',fmenuText:'Create Customer',controllerName: 'customer',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    createCustomer = new Events(name: 'CREATE_CUSTOMER',description:'Create Customer',fmenuText:'Create Customer',controllerName: 'customer',actionName:'createGeneralAddress', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createCustomer)
                 }
                 Events createRetailClient = Events.findByName('CREATE_RETAIL_CLIENT')
                 if(!createRetailClient){
-                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'createGeneralAddress', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createRetailClient)
                 }
 
@@ -208,6 +208,19 @@ class BootStrap {
                 if(!createVendor){
                     createVendor = new Events(name: 'CREATE_VENDOR',description:'Create Vendor',fmenuText:'Create Vendor',controllerName: 'vendor',actionName:'index', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createVendor)
+                }
+
+
+                Events createGeneralAddress = Events.findByName('CREATE_GENERAL_ADDRESS')
+                if(!createGeneralAddress){
+                    createGeneralAddress  = new Events(name: 'CREATE_GENERAL_ADDRESS',description:'Create General Address',fmenuText:'Create General Address',controllerName: 'vendor',actionName:'createGeneralAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createGeneralAddress )
+                }
+
+                Events saveBasic = Events.findByName('SAVE_BASIC')
+                if(!saveBasic){
+                    saveBasic  = new Events(name: 'SAVE_BASIC',description:'Save Basic Address',fmenuText:'Save Basic Address',controllerName: 'vendor',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveBasic )
                 }
 
 
@@ -268,9 +281,9 @@ class BootStrap {
         /*def eventList = Events.list()
         eventList.each {Events events ->
             if(events.isPermitToAll){
-                Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,referenceId:events.id, referenceType:'Events', configAttribute: 'permitAll').save(flush: true, failOnError: true)
+                Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,referenceId:events.id, referenceType:'Events', configAttribute: 'permitAll').saveBasic(flush: true, failOnError: true)
             } else {
-                Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,referenceId:events.id, referenceType:'Events', configAttribute: 'ROLE_SUPER_ADMIN').save(flush: true, failOnError: true)
+                Requestmap.newInstance(url: "/"+events.controllerName+"/"+events.actionName,referenceId:events.id, referenceType:'Events', configAttribute: 'ROLE_SUPER_ADMIN').saveBasic(flush: true, failOnError: true)
             }
         }
 */
