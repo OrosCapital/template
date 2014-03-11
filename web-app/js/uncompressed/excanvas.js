@@ -616,7 +616,7 @@ if (!document.createElement('canvas').getContext) {
   };
 
   contextPrototype.beginPath = function() {
-    // TODO: Branch current matrix so that save/restore has no effect
+    // TODO: Branch current matrix so that saveBasic/restore has no effect
     //       as per safari docs.
     this.currentPath_ = [];
   };
@@ -828,8 +828,8 @@ if (!document.createElement('canvas').getContext) {
                 ' coordorigin="0,0"' ,
                 ' style="width:', W, 'px;height:', H, 'px;position:absolute;');
 
-    // If filters are necessary (rotation exists), create them
-    // filters are bog-slow, so only create them if abbsolutely necessary
+    // If filters are necessary (rotation exists), createGeneralAddress them
+    // filters are bog-slow, so only createGeneralAddress them if abbsolutely necessary
     // The following check doesn't account for skews (which don't exist
     // in the canvas spec (yet) anyway.
 

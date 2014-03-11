@@ -198,7 +198,7 @@ jQuery(function() {
 			if(ret instanceof Array || (hasFileList && ret instanceof FileList)) files = ret;
 			
 			
-			self.$element.data('ace_input_files', files);//save files data to be used later by user
+			self.$element.data('ace_input_files', files);//saveBasic files data to be used later by user
 			self.$element.data('ace_input_method', 'drop');
 
 

@@ -163,7 +163,7 @@
           height: o.height
         });
 
-        // create scrollbar rail
+        // createGeneralAddress scrollbar rail
         var rail = $(divS)
           .addClass(o.railClass)
           .css({
@@ -178,7 +178,7 @@
             zIndex: 90
           });
 
-        // create scrollbar
+        // createGeneralAddress scrollbar
         var bar = $(divS)
           .addClass(o.barClass)
           .css({

@@ -176,7 +176,7 @@ ace.settings.check = function(item, val) {
 
 
 
-//save/retrieve data using localStorage or cookie
+//saveBasic/retrieve data using localStorage or cookie
 //method == 1, use localStorage
 //method == 2, use cookies
 //method not specified, use localStorage if available, otherwise cookies

@@ -974,7 +974,7 @@
 						}
 		
 						// If the nested object doesn't currently exist - since we are
-						// trying to set the value - create it
+						// trying to set the value - createGeneralAddress it
 						if ( data[ a[i] ] === null || data[ a[i] ] === undefined )
 						{
 							data[ a[i] ] = {};
@@ -1197,7 +1197,7 @@
 			}
 			else
 			{
-				/* We don't have a header in the DOM - so we are going to have to create one */
+				/* We don't have a header in the DOM - so we are going to have to createGeneralAddress one */
 				var nTr = document.createElement( "tr" );
 				
 				for ( i=0, iLen=oSettings.aoColumns.length ; i<iLen ; i++ )
@@ -1487,7 +1487,7 @@
 			}
 			else
 			{
-				/* Table is empty - create a row with an empty message in it */
+				/* Table is empty - createGeneralAddress a row with an empty message in it */
 				anRows[ 0 ] = document.createElement( 'tr' );
 				
 				if ( oSettings.asStripeClasses[0] )
@@ -1765,8 +1765,8 @@
 		
 		
 		/**
-		 * Use the DOM source to create up an array of header cells. The idea here is to
-		 * create a layout grid (array) of rows x columns, which contains a reference
+		 * Use the DOM source to createGeneralAddress up an array of header cells. The idea here is to
+		 * createGeneralAddress a layout grid (array) of rows x columns, which contains a reference
 		 * to the cell that that point in the grid (regardless of col/rowspan), such that
 		 * any column / row could be removed and the new grid constructed
 		 *  @param array {object} aLayout Array to store the calculated layout in
@@ -2039,7 +2039,7 @@
 			{
 				if ( bReOrder )
 				{
-					/* If we need to re-order, then create a new array with the correct order and add it */
+					/* If we need to re-order, then createGeneralAddress a new array with the correct order and add it */
 					var aDataSorted = [];
 					for ( var j=0, jLen=oSettings.aoColumns.length ; j<jLen ; j++ )
 					{
@@ -3184,7 +3184,7 @@
 		/**
 		 * Update the various tables for resizing. It's a bit of a pig this function, but
 		 * basically the idea to:
-		 *   1. Re-create the table inside the scrolling div
+		 *   1. Re-createGeneralAddress the table inside the scrolling div
 		 *   2. Take live measurements from the DOM
 		 *   3. Apply the measurements
 		 *   4. Clean up
@@ -3214,7 +3214,7 @@
 				};
 			
 			/*
-			 * 1. Re-create the table inside the scrolling div
+			 * 1. Re-createGeneralAddress the table inside the scrolling div
 			 */
 			
 			/* Remove the old minimised thead and tfoot elements in the inner table */
@@ -4472,7 +4472,7 @@
 		
 		/**
 		 * Create a new cookie with a value to store the state of a table
-		 *  @param {string} sName name of the cookie to create
+		 *  @param {string} sName name of the cookie to createGeneralAddress
 		 *  @param {string} sValue the value the cookie should take
 		 *  @param {int} iSecs duration of the cookie
 		 *  @param {string} sBaseName sName is made up of the base + file name - this is the base
@@ -4546,7 +4546,7 @@
 				// Eliminate as many old DataTables cookies as we need to
 				while ( iNewCookieLen + document.cookie.length + 10 > 4096 ) {
 					if ( aOldCookies.length === 0 ) {
-						// Deleted all DT cookies and still not enough space. Can't state save
+						// Deleted all DT cookies and still not enough space. Can't state saveBasic
 						return;
 					}
 					
@@ -5070,7 +5070,7 @@
 		 * rows - as such, the jQuery selector used should match TR row nodes or TD/TH cell nodes
 		 * rather than any descendants, so the data can be obtained for the row/cell. If matching
 		 * rows are found, the data returned is the original data array/object that was used to  
-		 * create the row (or a generated array if from a DOM source).
+		 * createGeneralAddress the row (or a generated array if from a DOM source).
 		 *
 		 * This method is often useful in-combination with $ where both functions are given the
 		 * same parameters and the array indexes will match identically.
@@ -6546,7 +6546,7 @@
 			
 			if ( oSettings.iInitDisplayStart === undefined )
 			{
-				/* Display start point, taking into account the save saving */
+				/* Display start point, taking into account the saveBasic saving */
 				oSettings.iInitDisplayStart = oInit.iDisplayStart;
 				oSettings._iDisplayStart = oInit.iDisplayStart;
 			}
@@ -6753,7 +6753,7 @@
 			var tfoot = $(this).children('tfoot');
 			if ( tfoot.length === 0 && captions.length > 0 && (oSettings.oScroll.sX !== "" || oSettings.oScroll.sY !== "") )
 			{
-				// If we are a scrolling table, and no footer has been given, then we need to create
+				// If we are a scrolling table, and no footer has been given, then we need to createGeneralAddress
 				// a tfoot element for the caption element to be appended to
 				tfoot = [ document.createElement( 'tfoot' ) ];
 				this.appendChild( tfoot[0] );
@@ -6999,7 +6999,7 @@
 		 * based sorting that DataTables does automatically, allowing much greater control over the
 		 * the data that is being used to sort a column. This is useful if you want to do sorting
 		 * based on live data (for example the contents of an 'input' element) rather than just the
-		 * static string that DataTables knows of. The way these plug-ins work is that you create
+		 * static string that DataTables knows of. The way these plug-ins work is that you createGeneralAddress
 		 * an array of the values you wish to be sorted for the column in question and then return
 		 * that array. Which pre-sorting function is run here depends on the sSortDataType parameter
 		 * that is used for the column (if any). This is the corollary of <i>ofnSearch</i> for sort 
@@ -8397,7 +8397,7 @@
 	
 	
 		/**
-		 * Enable or disable state saving. When enabled a cookie will be used to save
+		 * Enable or disable state saving. When enabled a cookie will be used to saveBasic
 		 * table display information such as pagination information, display length,
 		 * filtering and sorting. As such when the end user reloads the page the
 		 * display display will match what thy had previously set up.
@@ -8939,10 +8939,10 @@
 	
 		/**
 		 * Callback which allows modification of the state to be saved. Called when the table 
-		 * has changed state a new state save is required. This method allows modification of
-		 * the state saving object prior to actually doing the save, including addition or 
+		 * has changed state a new state saveBasic is required. This method allows modification of
+		 * the state saving object prior to actually doing the saveBasic, including addition or
 		 * other state properties or modification. Note that for plug-in authors, you should 
-		 * use the 'stateSaveParams' event to save parameters for a plug-in.
+		 * use the 'stateSaveParams' event to saveBasic parameters for a plug-in.
 		 *  @type function
 		 *  @param {object} oSettings DataTables settings object
 		 *  @param {object} oData The state object to be saved
@@ -10196,7 +10196,7 @@
 		 *    } );
 		 * 
 		 *  @example
-		 *    // Use as a function to create a link from the data source
+		 *    // Use as a function to createGeneralAddress a link from the data source
 		 *    $(document).ready( function() {
 		 *      var oTable = $('#example').dataTable( {
 		 *        "aoColumnDefs": [
@@ -10549,8 +10549,8 @@
 	 * through the initialisation options.
 	 *  @namespace
 	 *  @todo Really should attach the settings object to individual instances so we
-	 *    don't need to create new instances on each $().dataTable() call (if the
-	 *    table already exists). It would also save passing oSettings around and
+	 *    don't need to createGeneralAddress new instances on each $().dataTable() call (if the
+	 *    table already exists). It would also saveBasic passing oSettings around and
 	 *    into every single function. However, this is a very significant 
 	 *    architecture change for DataTables and will almost certainly break
 	 *    backwards compatibility with older installations. This is something that
@@ -11102,7 +11102,7 @@
 		 * object with the following parameters:
 		 *   <ul>
 		 *     <li>function:fn - function to call. Takes two parameters, oSettings
-		 *       and the JSON string to save that has been thus far created. Returns
+		 *       and the JSON string to saveBasic that has been thus far created. Returns
 		 *       a JSON string to be inserted into a json object 
 		 *       (i.e. '"param": [ 0, 1, 2]')</li>
 		 *     <li>string:sName - name of callback</li>
@@ -12029,9 +12029,9 @@
 	 */
 
 	/**
-	 * State save event, fired when the table has changed state a new state save is required.
+	 * State saveBasic event, fired when the table has changed state a new state saveBasic is required.
 	 * This method allows modification of the state saving object prior to actually doing the
-	 * save, including addition or other state properties (for plug-ins) or modification
+	 * saveBasic, including addition or other state properties (for plug-ins) or modification
 	 * of a DataTables core property.
 	 *  @name DataTable#stateSaveParams
 	 *  @event

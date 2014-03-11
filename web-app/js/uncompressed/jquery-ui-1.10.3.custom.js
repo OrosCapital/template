@@ -343,7 +343,7 @@ $.widget = function( name, base, prototype ) {
 		base = $.Widget;
 	}
 
-	// create selector for plugin
+	// createGeneralAddress selector for plugin
 	$.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
 		return !!$.data( elem, fullName );
 	};
@@ -365,7 +365,7 @@ $.widget = function( name, base, prototype ) {
 	// extend with the existing constructor to carry over any static properties
 	$.extend( constructor, existingConstructor, {
 		version: prototype.version,
-		// copy the object used to create the prototype in case we need to
+		// copy the object used to createGeneralAddress the prototype in case we need to
 		// redefine the widget later
 		_proto: $.extend( {}, prototype ),
 		// track widgets that inherit from this widget in case this widget is
@@ -558,7 +558,7 @@ $.Widget.prototype = {
 		}
 
 		this._create();
-		this._trigger( "create", null, this._getCreateEventData() );
+		this._trigger( "createGeneralAddress", null, this._getCreateEventData() );
 		this._init();
 	},
 	_getCreateOptions: $.noop,
@@ -1642,7 +1642,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 					this.instance.isOver = 1;
 					//Now we fake the start of dragging for the sortable instance,
 					//by cloning the list group item, appending it to the sortable and using it as inst.currentItem
-					//We can then fire the start event of the sortable with our passed browser event, and our own helper (so it doesn't create a new one)
+					//We can then fire the start event of the sortable with our passed browser event, and our own helper (so it doesn't createGeneralAddress a new one)
 					this.instance.currentItem = $(that).clone().removeAttr("id").appendTo(this.instance.element).data("ui-sortable-item", true);
 					this.instance.options._helper = this.instance.options.helper; //Store helper option to later restore it
 					this.instance.options.helper = function() { return ui.helper[0]; };
@@ -2692,7 +2692,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		};
 
 		if(this._aspectRatio || forceAspectRatio) {
-			// We want to create an enclosing box whose aspect ration is the requested one
+			// We want to createGeneralAddress an enclosing box whose aspect ration is the requested one
 			// First, compute the "projected" size for each dimension based on the aspect ratio and other dimension
 			pMinWidth = b.minHeight * this.aspectRatio;
 			pMinHeight = b.minWidth / this.aspectRatio;
@@ -4622,7 +4622,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		a ? a[0].appendChild(this.placeholder[0]) : i.item[0].parentNode.insertBefore(this.placeholder[0], (this.direction === "down" ? i.item[0] : i.item[0].nextSibling));
 
 		//Various things done here to improve the performance:
-		// 1. we create a setTimeout, that calls refreshPositions
+		// 1. we createGeneralAddress a setTimeout, that calls refreshPositions
 		// 2. on the instance, we have a counter variable, that get's higher after every append
 		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
 		// 4. this lets only the last addition to the timeout stack through
