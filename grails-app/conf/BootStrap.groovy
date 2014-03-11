@@ -353,6 +353,36 @@ class BootStrap {
                     clientsMgmt.addToEvents(saveBasic )
                 }
 
+                Events saveVendorGeneralAddress = Events.findByName('SAVE_VENDOR_GENERAL_ADDRESS')
+                if(!saveVendorGeneralAddress){
+                    saveVendorGeneralAddress  = new Events(name: 'SAVE_VENDOR_GENERAL_ADDRESS',description:'Save Vendor General Address',fmenuText:'Save Vendor General Address',controllerName: 'vendor',actionName:'saveGeneralAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveVendorGeneralAddress )
+                }
+
+                Events saveVendorPostalAddress = Events.findByName('SAVE_VENDOR_POSTAL_ADDRESS')
+                if(!saveVendorPostalAddress){
+                    saveVendorPostalAddress  = new Events(name: 'SAVE_VENDOR_POSTAL_ADDRESS',description:'Save Vendor Postal Address',fmenuText:'Save Vendor Postal Address',controllerName: 'vendor',actionName:'savePostalAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveVendorPostalAddress )
+                }
+
+                Events saveBankAccountInfo = Events.findByName('SAVE_BANK_ACCOUNT_INFO')
+                if(!saveBankAccountInfo){
+                    saveBankAccountInfo  = new Events(name: 'SAVE_BANK_ACCOUNT_INFO',description:'SAVE_BANK_ACCOUNT_INFO',fmenuText:'SAVE_BANK_ACCOUNT_INFO',controllerName: 'vendor',actionName:'saveBankAccountInfo', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveBankAccountInfo )
+                }
+
+                Events createPostalAddress = Events.findByName('CREATE_POSTAL_ADDRESS')
+                if(!createPostalAddress){
+                    createPostalAddress  = new Events(name: 'CREATE_POSTAL_ADDRESS',description:'CREATE_POSTAL_ADDRESS',fmenuText:'CREATE_POSTAL_ADDRESS',controllerName: 'vendor',actionName:'createPostalAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createPostalAddress )
+                }
+
+                Events createBankAccountInfo = Events.findByName('CREATE_BANK_ACCOUNT_INFO')
+                if(!createBankAccountInfo){
+                    createBankAccountInfo  = new Events(name: 'CREATE_BANK_ACCOUNT_INFO',description:'CREATE_BANK_ACCOUNT_INFO',fmenuText:'CREATE_BANK_ACCOUNT_INFO',controllerName: 'vendor',actionName:'createBankAccountInfo', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createBankAccountInfo )
+                }
+
 
                 Feature productMgmt = Feature.findByName('PRODUCT_MGMT')
                 if(!productMgmt){

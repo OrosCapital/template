@@ -77,7 +77,7 @@
 
 <div class="clearfix form-actions">
     <div class="col-md-offset-10 col-md-2">
-        <g:actionSubmit class="btn btn-primary btn-sm"  name="create" value="Create" id="button-create" controller="com.oros.custom.vendorPostalAddress" action="save" />
+        <g:actionSubmit class="btn btn-primary btn-sm"  name="create" value="Create" id="button-create" controller="vendor" action="savePostalAddress" />
 
     </div>
 </div>

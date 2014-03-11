@@ -120,7 +120,7 @@
 
 <div class="clearfix form-actions">
     <div class="col-md-offset-10 col-md-2">
-        <g:actionSubmit class="btn btn-primary btn-sm"  name="create" value="Create" id="create" controller="com.oros.custom.vendorGeneralAddress" action="save" />
+        <g:actionSubmit class="btn btn-primary btn-sm"  name="create" value="Create" id="create" controller="vendor" action="saveGeneralAddress" />
 
     </div>
 </div>
