@@ -181,6 +181,46 @@ class BootStrap {
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
 
+        // Core banking operation ie deposit, withdraw,transfer, etc..
+            Feature bankMgmt = Feature.findByName('BANK_MGMT')
+            if(!bankMgmt){
+                bankMgmt = new Feature(name: 'BANK_MGMT',description:'Manage banking operation ie Deposit, Withdraw, Trasfer',fmenuText:'Banking Operation',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                coreBank.addToFeature(bankMgmt)
+            }
+
+                Events createBankDeposit = Events.findByName('BANK_DEPOSIT')
+                if(!createBankDeposit){
+                    createBankDeposit = new Events(name: 'BANK_DEPOSIT',description:'Create Bank Deposit',fmenuText:'Deposit',controllerName: 'bankDeposit',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(createBankDeposit)
+                }
+
+
+                Events createAccountOpen = Events.findByName('CREATE_ACCOUNT')
+                if(!createAccountOpen){
+                    createAccountOpen = new Events(name: 'CREATE_ACCOUNT',description:'Create Account Open',fmenuText:'Account Open',controllerName: 'accountOpen',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(createAccountOpen)
+                }
+
+                Events checkDeposit = Events.findByName('CHECK_DEPOSIT')
+                if(!checkDeposit){
+                    checkDeposit = new Events(name: 'CHECK_DEPOSIT',description:'Create Check Deposit',fmenuText:'Check Deposit',controllerName: 'bankDeposit',actionName:'check', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(checkDeposit)
+                }
+
+                Events banktransferDeposit = Events.findByName('BankTransfer_DEPOSIT')
+                if(!banktransferDeposit){
+                    banktransferDeposit = new Events(name: 'BankTransfer_DEPOSIT',description:'Create Bank Transfer Deposit',fmenuText:'Bank Transfer Deposit',controllerName: 'bankDeposit',actionName:'bankTransfer', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(banktransferDeposit)
+                }
+
+                Events creditCard = Events.findByName('CreditCard_DEPOSIT')
+                if(!creditCard){
+                    creditCard = new Events(name: 'CreditCard_DEPOSIT',description:'Create Credit Card Deposit',fmenuText:'Credit Card Deposit',controllerName: 'bankDeposit',actionName:'creditCard', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(creditCard)
+                }
+
+
+
         // Accounting
         Feature accountingMgmt = Feature.findByName('ACCOUNTING_MGMT')
         if (!accountingMgmt) {
