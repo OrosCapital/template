@@ -182,6 +182,22 @@ class BootStrap {
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
 
+            Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
+            if(!clientsMgmt){
+                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for Clients',fmenuText:'Clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                coreBank.addToFeature(clientsMgmt)
+            }
+                Events createCustomer = Events.findByName('CREATE_CUSTOMER')
+                if(!createCustomer){
+                    createCustomer = new Events(name: 'CREATE_CUSTOMER',description:'Create Customer',fmenuText:'Create Customer',controllerName: 'customer',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createCustomer)
+                }
+                Events createRetailClient = Events.findByName('CREATE_RETAIL_CLIENT')
+                if(!createRetailClient){
+                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createRetailClient)
+                }
+
 
 
         //3.    Insurance part here
