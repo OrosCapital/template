@@ -1,4 +1,3 @@
-import com.gsl.uma.saas.Events
 import com.gsl.uma.saas.Feature
 import com.gsl.uma.saas.Events
 import com.gsl.uma.saas.Module
@@ -182,9 +181,100 @@ class BootStrap {
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
 
+        // Accounting
+        Feature accountingMgmt = Feature.findByName('ACCOUNTING_MGMT')
+        if (!accountingMgmt) {
+            accountingMgmt = new Feature(name: 'ACCOUNTING_MGMT', description: 'Manage accounting', fmenuText: 'Accounting', controllerName: 'coreBanking', actionName: 'index', showOnMenu: true, status: true).save(failOnError: true)
+            coreBank.addToFeature(accountingMgmt)
+        }
+            // .:: chart class create ::.
+            Events createChartClass = Events.findByName('CREATE_CHART_CLASS')
+            if(!createChartClass){
+                createChartClass= new Events(name: 'CREATE_CHART_CLASS',description:'Create Chart Class',fmenuText:'Create Chart Class',controllerName: 'chartClass',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartClass)
+            }
+            // .:: chart class save ::.
+            Events createChartClassSubmit = Events.findByName('SAVE_CREATE_CHART_CLASS')
+            if(!createChartClassSubmit ){
+                createChartClassSubmit  = new Events(name: 'SAVE_CREATE_CHART_CLASS',description:'Save Chart Class',fmenuText:'Save',controllerName: 'chartClass',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartClassSubmit )
+            }
+            // .:: chart class edit ::.
+            Events createChartClassEdit = Events.findByName('EDIT_CHART_CLASS')
+            if(!createChartClassEdit ){
+                createChartClassEdit  = new Events(name: 'EDIT_CHART_CLASS',description:'Edit Chart Class',fmenuText:'Edit',controllerName: 'chartClass',actionName:'edit', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartClassEdit )
+            }
+            // .:: chart class edit/** ::.
+            Events createChartClassEditWithParams = Events.findByName('EDIT_CHART_CLASS_WITH_PARAMS')
+            if(!createChartClassEditWithParams ){
+                createChartClassEditWithParams  = new Events(name: 'EDIT_CHART_CLASS_WITH_PARAMS',description:'Edit Chart Class',fmenuText:'Edit',controllerName: 'chartClass',actionName:'edit/**', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartClassEditWithParams )
+            }
+            // __ end chart class __
+
+            // .:: chart group create ::.
+            Events createChartGroup = Events.findByName('CREATE_CHART_GROUP')
+            if(!createChartGroup){
+                createChartGroup= new Events(name: 'CREATE_CHART_GROUP',description:'Create Chart Group',fmenuText:'Create Chart Group',controllerName: 'chartGroup',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartGroup)
+            }
+            // .:: chart group save ::.
+            Events createChartGroupSubmit = Events.findByName('SAVE_CREATE_CHART_GROUP')
+            if(!createChartGroupSubmit ){
+                createChartGroupSubmit  = new Events(name: 'SAVE_CREATE_CHART_GROUP',description:'Save Chart Group',fmenuText:'Save',controllerName: 'chartGroup',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartGroupSubmit )
+            }
+            // .:: chart group edit ::.
+            Events createChartGroupEdit = Events.findByName('EDIT_CHART_GROUP')
+            if(!createChartGroupEdit ){
+                createChartGroupEdit  = new Events(name: 'EDIT_CHART_GROUP',description:'Edit Chart Group',fmenuText:'Edit',controllerName: 'chartGroup',actionName:'edit', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartGroupEdit )
+            }
+            // .:: chart group edit/** ::.
+            Events createChartGroupEditWithParams = Events.findByName('EDIT_CHART_GROUP_WITH_PARAMS')
+            if(!createChartGroupEditWithParams ){
+                createChartGroupEditWithParams  = new Events(name: 'EDIT_CHART_GROUP_WITH_PARAMS',description:'Edit Chart Group',fmenuText:'Edit',controllerName: 'chartGroup',actionName:'edit/**', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartGroupEditWithParams )
+            }
+            // __ End chart Group __
+
+            // .:: chart master create ::.
+            Events createChartMaster = Events.findByName('CREATE_CHART_MASTER')
+            if(!createChartMaster){
+                createChartMaster= new Events(name: 'CREATE_CHART_MASTER',description:'Create Chart Master',fmenuText:'Create Chart Master',controllerName: 'chartMaster',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartMaster)
+            }
+            // .:: chart master save ::.
+            Events createChartMasterSubmit = Events.findByName('SAVE_CREATE_CHART_MASTER')
+            if(!createChartMasterSubmit ){
+                createChartMasterSubmit  = new Events(name: 'SAVE_CREATE_CHART_MASTER',description:'Save Chart Master',fmenuText:'Save',controllerName: 'chartMaster',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartMasterSubmit )
+            }
+            // .:: chart master edit ::.
+            Events createChartMasterEdit = Events.findByName('EDIT_CHART_MASTER')
+            if(!createChartMasterEdit ){
+                createChartMasterEdit  = new Events(name: 'EDIT_CHART_MASTER',description:'Edit Chart Master',fmenuText:'Edit',controllerName: 'chartMaster',actionName:'edit', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartMasterEdit )
+            }
+            // .:: chart master edit/** ::.
+            Events createChartMasterEditWithParams = Events.findByName('EDIT_CHART_MASTER_WITH_PARAMS')
+            if(!createChartMasterEditWithParams ){
+                createChartMasterEditWithParams  = new Events(name: 'EDIT_CHART_MASTER_WITH_PARAMS',description:'Edit Chart Master',fmenuText:'Edit',controllerName: 'chartMaster',actionName:'edit/**', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartMasterEditWithParams )
+            }
+            // __ End chart Group __
+
+            // .:: chart treeView ::.
+            Events chartTreeView = Events.findByName('CHART_TREE_VIEW')
+            if(!chartTreeView ){
+                chartTreeView  = new Events(name: 'CHART_TREE_VIEW',description:'Chart Tree View',fmenuText:'Chart Tree View',controllerName: 'chartMaster',actionName:'treeView', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(chartTreeView )
+            }
+
             Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
             if(!clientsMgmt){
-                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for clients',fmenuText:'Clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for clients',fmenuText:'clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
                 coreBank.addToFeature(clientsMgmt)
             }
                 Events createCustomer = Events.findByName('CREATE_CUSTOMER')
