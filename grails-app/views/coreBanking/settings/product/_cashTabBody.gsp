@@ -14,7 +14,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/cashFees'/>
+        <g:render template='/coreBanking/settings/product/cashFees'/>
     </div>
 </div>
 
@@ -35,7 +35,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/withdrawalFeesTable'/>
+        <g:render template='/coreBanking/settings/product/withdrawalFeesTable'/>
     </div>
 </div>
 
