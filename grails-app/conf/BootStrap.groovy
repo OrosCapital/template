@@ -199,6 +199,20 @@ class BootStrap {
                 }
 
 
+                Feature productMgmt = Feature.findByName('PRODUCT_MGMT')
+                if(!productMgmt){
+                    productMgmt = new Feature(name: 'PRODUCT_MGMT',description:'Manage Different products',fmenuText:'Products',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                    coreBank.addToFeature(productMgmt)
+                }
+
+                Events createProduct = Events.findByName('CREATE_PRODUCT')
+                if(!createProduct){
+                    createProduct = new Events(name: 'CREATE_PRODUCT',description:'Create Product',fmenuText:'Create Product',controllerName: 'product',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    productMgmt.addToEvents(createProduct)
+                }
+
+
+
 
         //3.    Insurance part here
         Module insurance = Module.findByName('INSURANCE') ?: new Module(name: 'INSURANCE',description:'All Insurance here',menuText:'Insurance',status: true).save(failOnError: true)
