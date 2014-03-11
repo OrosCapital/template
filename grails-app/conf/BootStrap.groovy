@@ -198,6 +198,12 @@ class BootStrap {
                     clientsMgmt.addToEvents(createRetailClient)
                 }
 
+                Events createVendor = Events.findByName('CREATE_VENDOR')
+                if(!createVendor){
+                    createVendor = new Events(name: 'CREATE_VENDOR',description:'Create Vendor',fmenuText:'Create Vendor',controllerName: 'vendor',actionName:'index', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createVendor)
+                }
+
 
                 Feature productMgmt = Feature.findByName('PRODUCT_MGMT')
                 if(!productMgmt){
