@@ -198,6 +198,12 @@ class BootStrap {
                     clientsMgmt.addToEvents(createRetailClient)
                 }
 
+                Events createRetailAgent = Events.findByName('CREATE_RETAIL_AGENT')
+                if(!createRetailAgent){
+                    createRetailAgent = new Events(name: 'CREATE_RETAIL_AGENT',description:'Create  Retail Agent',fmenuText:'Create Retail Agent',controllerName: 'agent',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createRetailAgent)
+                }
+
                 Events createVendor = Events.findByName('CREATE_VENDOR')
                 if(!createVendor){
                     createVendor = new Events(name: 'CREATE_VENDOR',description:'Create Vendor',fmenuText:'Create Vendor',controllerName: 'vendor',actionName:'index', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
