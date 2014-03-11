@@ -232,7 +232,7 @@ class BootStrap {
 
                 Events createProduct = Events.findByName('CREATE_PRODUCT')
                 if(!createProduct){
-                    createProduct = new Events(name: 'CREATE_PRODUCT',description:'Create Product',fmenuText:'Create Product',controllerName: 'product',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    createProduct = new Events(name: 'CREATE_PRODUCT',description:'Create Product',fmenuText:'Create Savings Product',controllerName: 'product',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     productMgmt.addToEvents(createProduct)
                 }
 
