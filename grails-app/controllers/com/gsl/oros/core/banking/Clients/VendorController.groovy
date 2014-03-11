@@ -1,4 +1,4 @@
-package com.gsl.oros.core.banking.Clients
+package com.gsl.oros.core.banking.clients
 
 import com.gsl.oros.core.banking.settings.clients.vendor.VendorMaster
 
