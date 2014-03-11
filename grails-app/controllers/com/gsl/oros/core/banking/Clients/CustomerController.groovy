@@ -1,6 +1,8 @@
-package com.gsl.oros.core.banking.Clients
+package com.gsl.oros.core.banking.clients
 
 class CustomerController {
 
-    def index() {}
+    def index() {
+        redirect(controller: 'customerMaster', action: 'create')
+    }
 }
