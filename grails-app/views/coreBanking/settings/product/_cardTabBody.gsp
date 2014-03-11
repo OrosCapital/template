@@ -14,7 +14,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/cardFees'/>
+        <g:render template='/coreBanking/settings/product/cardFees'/>
     </div>
 </div>
 
@@ -35,7 +35,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/cardWithdrawalFeesTable'/>
+        <g:render template='/coreBanking/settings/product/cardWithdrawalFeesTable'/>
     </div>
 </div>
 
@@ -55,6 +55,6 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/cardTransferFeesTable'/>
+        <g:render template='/coreBanking/settings/product/cardTransferFeesTable'/>
     </div>
 </div>

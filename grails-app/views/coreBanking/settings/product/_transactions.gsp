@@ -206,18 +206,18 @@
 
 <div class="tab-content">
     <div id="cashTab" class="tab-pane active" style="display: none">
-        <g:render template='/savingsProduct/cashTabBody'/>
+        <g:render template='/coreBanking/settings/product/cashTabBody'/>
     </div>
 
 
     <div id="chequeTab" class="tab-pane " style="display: none">
-        <g:render template='/savingsProduct/chequeTabBody'/>
+        <g:render template='/coreBanking/settings/product/chequeTabBody'/>
     </div>
 
 
     <div id="cardTab" class="tab-pane " style="display: none">
 
-        <g:render template='/savingsProduct/cardTabBody'/>
+        <g:render template='/coreBanking/settings/product/cardTabBody'/>
     </div>
 
 </div>

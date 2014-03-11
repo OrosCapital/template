@@ -14,7 +14,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/chequeFees'/>
+        <g:render template='/coreBanking/settings/product/chequeFees'/>
     </div>
 </div>
 
@@ -35,7 +35,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/chequeWithdrawalFeesTable'/>
+        <g:render template='/coreBanking/settings/product/chequeWithdrawalFeesTable'/>
     </div>
 </div>
 
@@ -55,7 +55,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/savingsProduct/chequeTransferFeesTable'/>
+        <g:render template='/coreBanking/settings/product/chequeTransferFeesTable'/>
     </div>
 </div>
 

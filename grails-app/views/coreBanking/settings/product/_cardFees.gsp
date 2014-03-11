@@ -56,6 +56,6 @@
     });
 </script>
 
-<g:render template='/savingsProduct/cardFeesTable'/>
+<g:render template='/coreBanking/settings/product/cardFeesTable'/>
 %{--}<g:render template='/savingsProduct/withdrawalFeesTable'/>
 <g:render template='/savingsProduct/transferFeesTable'/> --}%
