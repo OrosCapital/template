@@ -1,5 +1,5 @@
 <g:form name="customerBasicForm" method="post" role="form" class="form-horizontal"
-        controller="customerMaster" action="save">
+        controller="customer" action="saveCustomerMaster">
     <div class="row">
         <!-- PAGE CONTENT BEGINS -->
 

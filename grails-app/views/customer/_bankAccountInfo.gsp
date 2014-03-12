@@ -1,4 +1,4 @@
-<g:form name="customerForm" method="post" role="form" class="form-horizontal" controller="customerBankAccount" action="save">
+<g:form name="customerForm" method="post" role="form" class="form-horizontal" controller="customer" action="saveBankAccount">
     <div class="row">
         <!-- PAGE CONTENT BEGINS -->
 

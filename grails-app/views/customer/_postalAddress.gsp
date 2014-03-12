@@ -1,4 +1,4 @@
-<g:form name="customerForm" method="post" role="form" class="form-horizontal" controller="customerPostalAddress" action="save">
+<g:form name="customerForm" method="post" role="form" class="form-horizontal" controller="customer" action="savePostalAddress">
     <div class="row">
         <!-- PAGE CONTENT BEGINS -->
         <div class="col-xs-4">
@@ -27,8 +27,8 @@
                 <div class="col-sm-7">
                     <select name="postalCountry" id="postalCountry" class="form-control" required="required">
                         <option value="">- Choose One -</option>
-                        <g:each var="postalCountryId" in="${countryList}">
-                            <option value="${postalCountryId.id}">${postalCountryId.countryName}</option>
+                        <g:each var="postalCountry" in="${countryList}">
+                            <option value="${postalCountry.id}">${postalCountry.name}</option>
                         </g:each>
                     </select>
                 </div>
