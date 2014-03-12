@@ -127,9 +127,6 @@
     </div> %{-- main 12 md.xs--}%
 
 
-    <div class="space-2"></div>
-
-
 </div>
 
 

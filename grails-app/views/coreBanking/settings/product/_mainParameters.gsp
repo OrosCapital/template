@@ -1,13 +1,12 @@
 <div class="row">
 
-
 <div class="col-md-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="col-md-4">
         <div class="form-group">
-            <label for="form-field-1" class="col-md-4 control-label no-padding-right">Name</label>
+            <label for="form-field-1" class="col-md-3 control-label no-padding-right">Name</label>
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <input type="text" placeholder="Name" name="name">
             </div>
         </div>
@@ -15,9 +14,9 @@
 
     <div class="col-md-4">
         <div class="form-group">
-            <label for="form-field-1" class="col-sm-4 control-label no-padding-right">Code</label>
+            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">Code</label>
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <input type="text" placeholder="Code" name="code">
             </div>
         </div>
@@ -251,7 +250,7 @@
 %{-- end table --}%
 
 
-<div class="space-2"></div>
+%{--<div class="space-2"></div>--}%
 
 
 </div>
