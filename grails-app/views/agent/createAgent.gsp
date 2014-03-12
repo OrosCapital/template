@@ -64,9 +64,12 @@
 
 
 <body>
+
+<div class="row">
+    <div class="col-md-12">
 <g:form name="accountInfoForm" method="post" id="accountInfo" role="form" class="form-horizontal">
 
-    <div class="tabbable" >
+    <div class="tabbable">
         <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
             <li class="active">
                 <a href="#personal" data-toggle="tab">Personal Info</a>
@@ -143,5 +146,7 @@
     </div>
 
 </g:form>
+    </div>
+</div>
 </body>
 </html>
