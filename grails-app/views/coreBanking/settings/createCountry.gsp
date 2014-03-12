@@ -30,6 +30,7 @@
                 sortname: 'name',
                 sortorder: "asc",
                 sortableRows:true,
+                altRows:true,
                 caption: "All Countries",
                 viewrecords: true,
                 	loadComplete : function() {
@@ -171,7 +172,7 @@
                 <hr/>
 
                 <div class="row">
-                    <table id="grid" class="scroll"></table>
+                    <table id="grid"></table>
                     <div id="pager"></div>
                 </div>
             </div>
