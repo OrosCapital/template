@@ -34,7 +34,8 @@ class ChartMasterController {
                     redirect(action: 'treeView')
                 }
                 else{
-                    def id = params.id
+                    //def id = params.id
+                    Long id = params.getLong('id')
                     flash.error = "Not validate , Update again!"
                     redirect(action: "edit", id: id)
                 }
@@ -57,7 +58,8 @@ class ChartMasterController {
 
 
     def edit(){
-        def id = params.id
+        //def id = params.id
+        Long id = params.getLong('id')
         def aChartMaster = ChartMaster.get(id)
         def chartGroupList = ChartGroup.list()
         render (view: "/coreBanking/settings/accounting/chart/createChartMaster", model: [aChartMaster : aChartMaster,chartGroupList : chartGroupList])

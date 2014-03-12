@@ -5,6 +5,7 @@ import com.gsl.oros.core.banking.settings.accounting.ChartClass
 
 // import chart group
 import com.gsl.oros.core.banking.settings.accounting.ChartGroup
+import grails.converters.JSON
 
 
 class ChartGroupController {
@@ -46,7 +47,8 @@ class ChartGroupController {
                     redirect(controller: 'chartMaster', action: "treeView")
                 }
                 else{
-                    def id = params.id
+                    //def id = params.id
+                    Long id = params.getLong('id')
                     flash.error = "Not validate , Update again!"
                     redirect(action: "edit", id: id)
                 }
@@ -66,11 +68,35 @@ class ChartGroupController {
     }
 
     def edit(){
-        def id = params.id
+        //def id = params.id
+        Long id = params.getLong('id')
         def aChartGroup = ChartGroup.get(id)
         def chartClassList = ChartClass.list()
-        def chartGroupList = ChartGroup.list()
-        render (view: "/coreBanking/settings/accounting/chart/createChartGroup", model: [aChartGroup : aChartGroup,chartClassList : chartClassList, chartGroupList: chartGroupList])
+        //def chartGroupList = ChartGroup.list()
+
+        //Long id = params.getLong('chartClassId')
+        //ChartClass chartClass = ChartClass.read(id)
+
+         /*def chartGroupList = ChartGroup.findAllByIdNotEqual(id)*/
+
+
+        render (view: "/coreBanking/settings/accounting/chart/createChartGroup", model: [aChartGroup : aChartGroup,chartClassList : chartClassList])
+    }
+
+    // parent group
+    def checkGroup(){
+        // chart class id
+        Long id = params.getLong('chartClassId')
+        ChartClass chartClass = ChartClass.read(id)
+        // chart group id
+        Long chartGroupId = params.getLong('chartGroupId')
+
+        //def result = ChartGroup.findByChartClassId(id)
+        def chartGroupList = ChartGroup.findAllByChartClassAndIdNotEqual(chartClass,chartGroupId)
+
+        def chart=[success:true,value:chartGroupList]
+        render chart as JSON
+
     }
 }
 
