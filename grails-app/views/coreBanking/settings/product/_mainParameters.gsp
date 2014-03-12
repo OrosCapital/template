@@ -79,11 +79,9 @@
                 <div class="clearfix">
                     <select name="" class="input-medium">
                         <option value="">Select currency...</option>
-                        <option value="linux">Linux</option>
-                        <option value="windows">Windows</option>
-                        <option value="mac">Mac OS</option>
-                        <option value="ios">iOS</option>
-                        <option value="android">Android</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="INR">INR - Indian Rupee</option>
                     </select>
                 </div>
 

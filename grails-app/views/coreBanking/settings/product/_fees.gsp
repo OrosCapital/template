@@ -217,6 +217,7 @@
                 <div class="col-md-12">
                     <select class="form-control" name="" required>
                         <option value="1">Monthly</option>
+                        <option value="2">Yearly</option>
                     </select>
                 </div>
 
