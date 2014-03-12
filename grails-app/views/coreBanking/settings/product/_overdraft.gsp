@@ -13,12 +13,12 @@
                         <label class="control-label col-md-4">Type:</label>
 
                         <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="">
+                            <input type="radio" class="ace" value="1" name="fixedOverDraftFeesType">
                             <span class="lbl"> Flat</span>
                         </div>
 
                         <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="">
+                            <input type="radio" class="ace" value="1" name="fixedOverDraftFeesType">
                             <span class="lbl"> Rate</span>
                         </div>
                     </div>
@@ -67,12 +67,12 @@
                         <label class="control-label col-md-4">Type:</label>
 
                         <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="">
+                            <input type="radio" class="ace" value="1" name="agioFeesType">
                             <span class="lbl"> Flat</span>
                         </div>
 
                         <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="">
+                            <input type="radio" class="ace" value="1" name="agioFeesType">
                             <span class="lbl"> Rate</span>
                         </div>
                     </div>
@@ -110,6 +110,9 @@
                         <div class="col-md-12">
                             <select class="form-control" name="" required>
                                 <option value="1">Daily</option>
+                                <option value="1">Weekly</option>
+                                <option value="1">Monthly</option>
+                                <option value="1">Yearly</option>
                             </select>
                         </div>
 
