@@ -14,7 +14,7 @@
                 colModel:[
                     {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
                     {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
-                    {name:'Country Name',index:'name', width:175, sortable:true, editable:false},
+                    {name:'Country Name',index:'name', width:175, sortable:false, editable:false},
                     {name:'Code',index:'', width:75,editable:false,sortable:false, align:'center'},
                     {name:'ISO-2',index:'', width:75,editable:false,sortable:false, align:'center'},
                     {name:'ISO-3',index:'', width:75,editable:false,sortable:false,align:'center'},
