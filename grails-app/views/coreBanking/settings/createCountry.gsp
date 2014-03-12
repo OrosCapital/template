@@ -1,10 +1,7 @@
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="oros">
-    %{--<script src="${resource(dir: 'js/resource', file: 'jquery-1.10.2.min.js')}"></script>--}%
-
     <title></title>
     <r:script>
         jQuery(document).ready(function(){
@@ -12,29 +9,28 @@
                 url:'${createLink(controller: 'country', action: 'list')}',
                 datatype: "json",
                 mtype: 'GET',
-                height: 'auto',
-                autowidth: 750,
-                scrollerbar:false,
-                colNames:['Country Name', 'Printable Name', 'ISO2' ,'ISO3','NumCode'],
+                height:326,
+                width: 750,
                 colModel:[
-                    {name:'name',index:'', width:200, sortable:true, editable:false, fixed:true},
-                    {name:'printablename',index:'', width:200,editable:false,sortable:false},
-                    {name:'iso2',index:'', width:80,editable:false,sortable:false},
-                    {name:'iso3',index:'', width:80,editable:false,sortable:false},
-                    {name:'numcode',index:'', width:80,editable:false,sortable:false}
+                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
+                    {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'Country Name',index:'name', width:175, sortable:true, editable:false},
+                    {name:'Code',index:'', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'ISO-2',index:'', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'ISO-3',index:'', width:75,editable:false,sortable:false,align:'center'},
+                    {name:'Printable Name',index:'', width:175,editable:false,sortable:false}
                 ],
                 jsonReader : {
-                    repeatitems:false
+                 repeatitems:true
                 },
-                loadonce: true,
-                align: 'center',
-                rowNum:5,
-                rowList:[5,10,15],
+                loadonce: false,
+                rowNum:10,
+                rowList:[10,15,20],
                 pager :'#pager',
                 sortname: 'name',
-                sortorder: "desc",
+                sortorder: "asc",
                 sortableRows:true,
-                caption: "List of Country",
+                caption: "All Countries",
                 viewrecords: true,
                 	loadComplete : function() {
 						var table = this;
@@ -74,6 +70,7 @@
         }
     </r:script>
 </head>
+
 <body>
 
 <div class="col-md-12">
@@ -84,8 +81,7 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <form class="form-horizontal" action="${createLink(controller: 'country',action: 'save')}">
-
+                <form class="form-horizontal" action="${createLink(controller: 'country', action: 'save')}">
 
                     <div class="form-group">
                         <label class="control-label col-md-3 no-padding-right"
@@ -93,9 +89,10 @@
 
                         <div class="col-md-4 col-sm-4">
                             <div class="clearfix">
-                                <input type="text"  required=""
+                                <input type="text" required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.name',default: 'Please Enter Country Name')}')"
-                                       oninput="setCustomValidity('')" title="${message(code: 'country.addCountry.name', default: 'Please Enter Country Name')}"
+                                       oninput="setCustomValidity('')"
+                                       title="${message(code: 'country.addCountry.name', default: 'Please Enter Country Name')}"
                                        id="name" name="name" class="form-control"
                                        placeholder="Country Name">
                             </div>
@@ -109,9 +106,10 @@
 
                         <div class="col-md-4 col-sm-4">
                             <div class="clearfix">
-                                <input type="text"  required=""
+                                <input type="text" required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.printablename',default: 'Please Enter Printable Name')}')"
-                                       oninput="setCustomValidity('')" title="${message(code: 'country.addCountry.printablename', default: 'Please Enter Printable Name')}"
+                                       oninput="setCustomValidity('')"
+                                       title="${message(code: 'country.addCountry.printablename', default: 'Please Enter Printable Name')}"
                                        id="printablename" name="printablename" class="form-control"
                                        placeholder="Printable Name">
                             </div>
@@ -124,9 +122,10 @@
 
                         <div class="col-md-4 col-sm-4">
                             <div class="clearfix">
-                                <input type="text"  required=""
+                                <input type="text" required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.iso2',default: 'Please Enter ISO2 Name')}')"
-                                       oninput="setCustomValidity('')" title="${message(code: 'country.addCountry.iso2', default: 'Please Enter ISO2 Name')}"
+                                       oninput="setCustomValidity('')"
+                                       title="${message(code: 'country.addCountry.iso2', default: 'Please Enter ISO2 Name')}"
                                        id="iso2" name="iso2" class="form-control"
                                        placeholder="ISO2 Name">
                             </div>
@@ -139,9 +138,10 @@
 
                         <div class="col-md-4 col-sm-4">
                             <div class="clearfix">
-                                <input type="text"  required=""
+                                <input type="text" required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.iso3',default: 'Please Enter ISO3 Name')}')"
-                                       oninput="setCustomValidity('')" title="${message(code: 'country.addCountry.iso3', default: 'Please Enter ISO3 Name')}"
+                                       oninput="setCustomValidity('')"
+                                       title="${message(code: 'country.addCountry.iso3', default: 'Please Enter ISO3 Name')}"
                                        id="iso3" name="iso3" class="form-control"
                                        placeholder="ISO3 Name">
                             </div>
@@ -154,9 +154,10 @@
 
                         <div class="col-md-4 col-sm-4">
                             <div class="clearfix">
-                                <input type="number"  required=""
+                                <input type="number" required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.numcode',default: 'Please Enter NumCode')}')"
-                                       oninput="setCustomValidity('')" title="${message(code: 'country.addCountry.numcode', default: 'Please Enter NumCode')}"
+                                       oninput="setCustomValidity('')"
+                                       title="${message(code: 'country.addCountry.numcode', default: 'Please Enter NumCode')}"
                                        id="numcode" name="numcode" class="form-control"
                                        placeholder="NumCode">
                             </div>
@@ -169,22 +170,15 @@
                 </form>
                 <hr/>
 
-                <div>
-                    <div class="row ">
-                        <table id="grid" ></table>
-                        <table id="pager" ></table>
-                    </div>
+                <div class="row">
+                    <table id="grid" class="scroll"></table>
+                    <div id="pager"></div>
                 </div>
             </div>
-
-
         </div>
     </div>
 
-
 </div><!-- /span -->
-
-
 
 </body>
 </html>

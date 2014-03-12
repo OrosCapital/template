@@ -203,6 +203,12 @@ class BootStrap {
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
 
+                Events showListOfCountry = Events.findByName('SHOW_LIST_COUNTRY')
+                if(!showListOfCountry){
+                    showListOfCountry = new Events(name: 'SHOW_LIST_COUNTRY',description:'Show list of Country',fmenuText:'Show',controllerName: 'country',actionName:'list', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(showListOfCountry)
+                }
+
             //  Country List
                 Events showCountryList = Events.findByName('SHOW_COUNTRY_LIST')
                 if(!showCountryList){
@@ -395,7 +401,7 @@ class BootStrap {
                 accountingMgmt.addToEvents(saveFiscalYear )
             }
 
-            // Clients
+            // clients
             Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
             if(!clientsMgmt){
                 clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for clients',fmenuText:'clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
