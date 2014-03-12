@@ -8,7 +8,7 @@ import grails.converters.JSON
 class BankDepositController {
 
     def index() {
-        render (view: '/coreBanking/settings/operation/bankDeposit')
+        render (view: '/coreBanking/settings/operation/deposit')
     }
 
     def check() {
