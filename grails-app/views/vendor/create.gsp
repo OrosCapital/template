@@ -11,13 +11,24 @@
     <r:script>
         var $tabs = $('.tabbable li');
         $(document).ready(function () {
+            $('#vendorBankAccountInfo').hide();
+            $('#accountInfoButton').click(function(){
+                var bankAccountName = $( "#vendorBankAccountName" ).val();
+                var ibanPrefix = $( "#vendorIbanPrefix" ).val();
+                var bankAccountNo = $( "#vendorBankAccountNo" ).val();
+                var status = $( "#vendorStatus" ).val();
+                $('#td1').html($('#vendorBankAccountName').val());
+                $('#td2').html($('#vendorIbanPrefix').val());
+                $('#td3').html($('#vendorBankAccountNo').val());
+                $('#td4').html($("#vendorStatus option:selected").text());
+                $('#vendorBankAccountInfo').show();
 
+            });
         });
 
     </r:script>
 </head>
 <body>
-<g:form name="vendorForm" method="post" id="vendor" role="form" class="form-horizontal">
 
     <div class="tabbable">
         <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
@@ -52,6 +63,6 @@
         </div>
     </div>
 
-</g:form>
+
 </body>
 </html>

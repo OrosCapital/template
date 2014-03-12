@@ -1,12 +1,31 @@
+<g:form name="vendorBankAccountInfoForm" method="post" role="form" class="form-horizontal">
 <div class="row">
     <div class="col-md-12">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
 
             <div class="form-group">
                 <label for="vendorBankAccountName" class="col-sm-5 control-label">Bank Account Name*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountName"
                        name="bankAccountName">
+            </div>
+
+            <div class="form-group">
+                <label for="vendorBankAccountNo" class="col-sm-5 control-label">Bank Account No*</label>
+                <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountNo"
+                       name="bankAccountNo">
+            </div>
+
+
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="vendorIbanPrefix" class="col-sm-5 control-label">Iban Prefix*</label>
+                <input type="text" class="col-sm-7" placeholder="" id="vendorIbanPrefix"
+                       name="ibanPrefix">
             </div>
 
             <div class="form-group">
@@ -23,27 +42,6 @@
 
         </div>
 
-        <div class="col-md-4">
-
-            <div class="form-group">
-                <label for="vendorIbanPrefix" class="col-sm-5 control-label">Iban Prefix*</label>
-                <input type="text" class="col-sm-7" placeholder="" id="vendorIbanPrefix"
-                       name="ibanPrefix">
-            </div>
-
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="form-group">
-                <label for="vendorBankAccountNo" class="col-sm-5 control-label">Bank Account No*</label>
-                <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountNo"
-                       name="bankAccountNo">
-            </div>
-
-
-
-        </div>
         <div class="form-group">
             <div class="col-md-offset-10 col-md-2">
 
@@ -51,7 +49,7 @@
 
             </div>
         </div>
-        <table class="table" id="accountInfo">
+        <table class="table" id="vendorBankAccountInfo">
             <thead>
             <tr style="background: #dceefc">
                 <th>Bank Account Name</th>
@@ -74,5 +72,5 @@
     </div>
 </div>
 
-
+</g:form>
 
