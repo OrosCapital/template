@@ -8,6 +8,7 @@ class ExchangeRateController {
     }
 
     def save() {
+        def currencyList = Currency.list()
         def theDate = params.date
         ExchangeRate exchangeRate = new ExchangeRate()
         exchangeRate.currency = Currency.read(params.currencyId)
@@ -15,6 +16,6 @@ class ExchangeRateController {
         exchangeRate.sellPrice = params.sellPrice as Double
         exchangeRate.date=Date.parse("d/M/yyyy",theDate)
         exchangeRate.save(failOnError: true)
-
+        render(view: '/coreBanking/settings/createExchangeRate', model: [currencyList: currencyList,myobj:Country.list()])
     }
 }

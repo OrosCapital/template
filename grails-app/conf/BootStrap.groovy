@@ -148,36 +148,106 @@ class BootStrap {
                 coreBank.addToFeature(settingsMgmt)
             }
 
+            //  Bank Settings Show on Menu
+                Events bankSetting = Events.findByName('BANK_SETTING')
+                if(!bankSetting){
+                    bankSetting = new Events(name: 'BANK_SETTING',description:'Bank Setting',fmenuText:'Bank Settings',controllerName: 'bankSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(bankSetting)
+                }
+
+            //Update Bank Settings
+                Events updateBankSettings = Events.findByName('UPDATE_BANK_SETTINGS')
+                if(!updateBankSettings){
+                    updateBankSettings = new Events(name: 'UPDATE_BANK_SETTINGS',description:'Update Bank Settings',fmenuText:'Update',controllerName: 'bankSettings',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(updateBankSettings)
+                }
+
+            //  Bank Settings Show on Menu
+                Events branchSetting = Events.findByName('BRANCH_SETTING')
+                if(!branchSetting){
+                    branchSetting = new Events(name: 'BRANCH_SETTING',description:'Branch Setting',fmenuText:'Branch Settings',controllerName: 'branchSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(branchSetting)
+                }
+
+            //Update Bank Settings
+                Events saveBranchSettings = Events.findByName('SAVE_BRANCH_SETTINGS')
+                if(!saveBranchSettings){
+                    saveBranchSettings = new Events(name: 'SAVE_BRANCH_SETTINGS',description:'Save Branch Settings',fmenuText:'Save',controllerName: 'branchSettings',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(saveBranchSettings)
+                }
+
+            //  Retailer Settings Show on Menu
+                Events RetailerSetting = Events.findByName('RETAILER_SETTING')
+                if(!RetailerSetting){
+                    RetailerSetting = new Events(name: 'RETAILER_SETTING',description:'Retailer Setting',fmenuText:'Retailer Settings',controllerName: 'retailerSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(RetailerSetting)
+                }
+
+            //  Save Retailer Settings
+                Events saveRetailerSettings = Events.findByName('SAVE_RETAILER_SETTINGS')
+                if(!saveRetailerSettings){
+                    saveRetailerSettings = new Events(name: 'SAVE_RETAILER_SETTINGS',description:'Save Retailer Settings',fmenuText:'Save',controllerName: 'retailerSettings',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(saveRetailerSettings)
+                }
+
+            //  Create Country Event show on Menu
                 Events createCountry = Events.findByName('CREATE_COUNTRY')
                 if(!createCountry){
                     createCountry = new Events(name: 'CREATE_COUNTRY',description:'Create Country',fmenuText:'Create Country',controllerName: 'country',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountry)
                 }
+            //  Save Country
                 Events createCountrySubmit = Events.findByName('SAVE_CREATE_COUNTRY')
                 if(!createCountrySubmit){
                     createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
 
+            //  Country List
+                Events showCountryList = Events.findByName('SHOW_COUNTRY_LIST')
+                if(!showCountryList){
+                    showCountryList = new Events(name: 'SHOW_COUNTRY_LIST',description:'Country List',fmenuText:'list',controllerName: 'country',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(showCountryList)
+                }
+
+            //  Create Currency Event Show on Menu
                 Events createCurrency = Events.findByName('CREATE_CURRENCY')
                 if(!createCurrency){
                     createCurrency = new Events(name: 'CREATE_CURRENCY',description:'Create Currency',fmenuText:'Create Currency',controllerName: 'currency',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCurrency)
                 }
+
+             //  Save Currency
                 Events createCurrencySubmit = Events.findByName('SAVE_CREATE_CURRENCY')
                 if(!createCurrencySubmit){
                     createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCurrencySubmit)
                 }
 
+             //  Internal currency symbol validation.Permit unique symbol only
+                Events checkCurrencySymbol = Events.findByName('CHECK_CURRENCY_SYMBOL')
+                if(!checkCurrencySymbol){
+                    checkCurrencySymbol = new Events(name: 'CHECK_CURRENCY_SYMBOL',description:'Internal currency symbol validation',fmenuText:'Save',controllerName: 'currency',actionName:'checkCurrencySymbol', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(checkCurrencySymbol)
+                }
+            //  Internal currency name validation.Permit unique name only
+                Events checkCurrencyName = Events.findByName('CHECK_CURRENCY_NAME')
+                if(!checkCurrencyName){
+                    checkCurrencyName = new Events(name: 'CHECK_CURRENCY_NAME',description:'Internal currency name validation',fmenuText:'Save',controllerName: 'currency',actionName:'checkCurrencyName', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(checkCurrencyName)
+                }
+
+
+        //  Create Exchange Rate Show on Menu
                 Events createExchangeRate = Events.findByName('CREATE_EXCHANGE_RATE')
                 if(!createExchangeRate){
                     createExchangeRate = new Events(name: 'CREATE_EXCHANGE_RATE',description:'Create Exchange Rate',fmenuText:'Exchange Rate',controllerName: 'ExchangeRate',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRate)
                 }
+            //  Save Exchange Rate
                 Events createExchangeRateSubmit = Events.findByName('SAVE_EXCHANGE_RATE')
                 if(!createExchangeRateSubmit){
-                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
 
@@ -310,6 +380,19 @@ class BootStrap {
             if(!chartTreeView ){
                 chartTreeView  = new Events(name: 'CHART_TREE_VIEW',description:'Chart Tree View',fmenuText:'Chart Tree View',controllerName: 'chartMaster',actionName:'treeView', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                 accountingMgmt.addToEvents(chartTreeView )
+            }
+
+           // Create Fiscal Year Show on Menu
+            Events createFiscalYear = Events.findByName('CREATE_FISCAL_YEAR')
+            if(!createFiscalYear){
+                createFiscalYear= new Events(name: 'CREATE_FISCAL_YEAR',description:'Create Fiscal Year',fmenuText:'Create Fiscal Year',controllerName: 'fiscalYear',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createFiscalYear)
+            }
+            // Save Fiscal Year
+            Events saveFiscalYear = Events.findByName('SAVE_FISCAL_YEAR')
+            if(!saveFiscalYear ){
+                saveFiscalYear  = new Events(name: 'SAVE_FISCAL_YEAR',description:'Save Fiscal Year',fmenuText:'Save',controllerName: 'fiscalYear',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(saveFiscalYear )
             }
 
             // Clients
