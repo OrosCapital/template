@@ -139,8 +139,7 @@
 <r:script>
     $(document).ready(function(){
         //alert("welcome!!");
-
-        $("#cashAdd").click(function(){
+        $("#addMore").click(function(){
             var startAmount = $( "#startAmount" ).val();
             var endAmount = $( "#endAmount" ).val();
             var circleName = $( "#circleName" ).val();
@@ -149,20 +148,21 @@
             var amountBasedOn = $( "#amountBasedOn" ).val();
             $("#interestRangeTable tbody").append(
                 "<tr>"+
-                    "<td>"+startAmount+"</td>"+
-                    "<td>"+endAmount+"</td>"+
-                    "<td>"+circleName+"</td>"+
-                    "<td>"+rate+"</td>"+
-                    "<td>"+rateType+"</td>"+
-                    "<td>"+amountBasedOn+"</td>"+
+                    "<td>"+ startAmount +"</td>"+
+                    "<td>"+ endAmount +"</td>"+
+                    "<td>"+ circleName +"</td>"+
+                    "<td>"+ rate +"</td>"+
+                    "<td>"+ rateType +"</td>"+
+                    "<td>"+ amountBasedOn +"</td>"+
                     "<td>" +
                         "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
                             "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
                             "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
                         "</div>"+
                     "</td>"+
-                "</tr>");
-            });
+                "</tr>"
+            );
+        });
     });
 </r:script>
 
@@ -224,7 +224,7 @@
                                 </td>
                                 %{-- Action --}%
                                 <td class="center">
-                                    <button id="cashAdd" class="btn btn-default navbar-btn" type="button">Add</button>
+                                    <button id="addMore" class="btn btn-default navbar-btn" type="button">Add</button>
                                 </td>
                             </tr>
                         </tbody>
