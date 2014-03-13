@@ -147,7 +147,7 @@
             var rate = $( "#rate" ).val();
             var rateType = $( "#rateType" ).val();
             var amountBasedOn = $( "#amountBasedOn" ).val();
-            $("#journalTable tbody").append(
+            $("#interestRangeForm tbody").append(
                     "<tr>"+
                         "<td>"+startAmount+"</td>"+
                         "<td>"+endAmount+"</td>"+
@@ -177,7 +177,7 @@
         <div class="col-md-12">
             <legend class="blue"><small>Interest rate</small></legend>
             <span class="text-primary">Interest Range</span>
-            <form name="journalForm" role="form" class="form-horizontal">
+            <form name="interestRangeForm" role="form" class="form-horizontal">
                 %{--<div class="table-header">Add Item</div>--}%
                 <div class="table-responsive">
                     <table id="journalTable" class="display dataTable table table-striped table-bordered table-hover">
