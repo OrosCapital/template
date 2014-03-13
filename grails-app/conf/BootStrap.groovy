@@ -295,6 +295,12 @@ class BootStrap {
                     bankMgmt.addToEvents(creditCard)
                 }
 
+                Events signatureUpload = Events.findByName('SIGNATURE_UPLOAD')
+                if(!signatureUpload){
+                    signatureUpload = new Events(name: 'SIGNATURE_UPLOAD',description:'Signature Upload',fmenuText:'Signature Upload',controllerName: 'accountOpen',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(signatureUpload)
+                }
+
 
 
         // Accounting

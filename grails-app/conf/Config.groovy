@@ -86,6 +86,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        images.location = "web-app/images/userImages/"
     }
     production {
         grails.logging.jul.usebridge = false
