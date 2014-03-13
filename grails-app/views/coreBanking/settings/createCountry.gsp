@@ -94,7 +94,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.name',default: 'Please Enter Country Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.name', default: 'Please Enter Country Name')}"
-                                       id="name" name="name" class="form-control"
+                                       id="name" name="name" value="" class="form-control"
                                        placeholder="Country Name">
                             </div>
                         </div>
