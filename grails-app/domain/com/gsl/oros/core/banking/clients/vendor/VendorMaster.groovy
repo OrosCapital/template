@@ -1,4 +1,4 @@
-package com.gsl.oros.core.banking.settings.clients.vendor
+package com.gsl.oros.core.banking.clients.vendor
 
 class VendorMaster {
 
@@ -29,7 +29,7 @@ class VendorMaster {
 
     static constraints = {
         chamOfCommerce nullable: true
-        creditStatus nullable: true
+        creditStatus nullable: false
         comments nullable: true
         defaultGlAccount nullable: true
         email nullable: true
@@ -40,13 +40,13 @@ class VendorMaster {
         currCode nullable: true
         momentOfSending nullable: true
         middleName nullable: true
-        paymentTermId nullable: true
+        paymentTermId nullable: false
         companyName nullable: true
-        status nullable: true
+        status nullable: false
         vat nullable: true
-        vendorCode nullable: true
-        vendorName nullable: true
+        vendorCode nullable: false
+        vendorName nullable: false
         vendorType nullable: true
-        byShop nullable: true
+        byShop nullable: false
     }
 }

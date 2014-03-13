@@ -151,7 +151,7 @@ class BootStrap {
             //  Bank Settings Show on Menu
                 Events bankSetting = Events.findByName('BANK_SETTING')
                 if(!bankSetting){
-                    bankSetting = new Events(name: 'BANK_SETTING',description:'Bank Setting',fmenuText:'Bank Settings',controllerName: 'bankSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankSetting = new Events(name: 'BANK_SETTING',description:'Bank Setting',fmenuText:'Bank',controllerName: 'bankSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(bankSetting)
                 }
 
@@ -162,14 +162,14 @@ class BootStrap {
                     settingsMgmt.addToEvents(updateBankSettings)
                 }
 
-            //  Bank Settings Show on Menu
+            //  Branch Settings Show on Menu
                 Events branchSetting = Events.findByName('BRANCH_SETTING')
                 if(!branchSetting){
-                    branchSetting = new Events(name: 'BRANCH_SETTING',description:'Branch Setting',fmenuText:'Branch Settings',controllerName: 'branchSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    branchSetting = new Events(name: 'BRANCH_SETTING',description:'Branch Setting',fmenuText:'Branch',controllerName: 'branchSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(branchSetting)
                 }
 
-            //Update Bank Settings
+            //Save branch Settings Info
                 Events saveBranchSettings = Events.findByName('SAVE_BRANCH_SETTINGS')
                 if(!saveBranchSettings){
                     saveBranchSettings = new Events(name: 'SAVE_BRANCH_SETTINGS',description:'Save Branch Settings',fmenuText:'Save',controllerName: 'branchSettings',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
@@ -179,7 +179,7 @@ class BootStrap {
             //  Retailer Settings Show on Menu
                 Events RetailerSetting = Events.findByName('RETAILER_SETTING')
                 if(!RetailerSetting){
-                    RetailerSetting = new Events(name: 'RETAILER_SETTING',description:'Retailer Setting',fmenuText:'Retailer Settings',controllerName: 'retailerSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    RetailerSetting = new Events(name: 'RETAILER_SETTING',description:'Retailer Setting',fmenuText:'Retailer',controllerName: 'retailerSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(RetailerSetting)
                 }
 
@@ -199,7 +199,7 @@ class BootStrap {
             //  Save Country
                 Events createCountrySubmit = Events.findByName('SAVE_CREATE_COUNTRY')
                 if(!createCountrySubmit){
-                    createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
 
@@ -226,7 +226,7 @@ class BootStrap {
              //  Save Currency
                 Events createCurrencySubmit = Events.findByName('SAVE_CREATE_CURRENCY')
                 if(!createCurrencySubmit){
-                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCurrencySubmit)
                 }
 
@@ -242,6 +242,12 @@ class BootStrap {
                     checkCurrencyName = new Events(name: 'CHECK_CURRENCY_NAME',description:'Internal currency name validation',fmenuText:'Save',controllerName: 'currency',actionName:'checkCurrencyName', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(checkCurrencyName)
                 }
+             //  Currency List
+                Events  showCurrencyList= Events.findByName('SHOW_CURRENCY_LIST')
+                if(!showCurrencyList){
+                    showCurrencyList = new Events(name: 'SHOW_CURRENCY_LIST',description:'Currency List',fmenuText:'list',controllerName: 'currency',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(showCurrencyList)
+                }
 
 
         //  Create Exchange Rate Show on Menu
@@ -255,6 +261,12 @@ class BootStrap {
                 if(!createExchangeRateSubmit){
                     createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
+                }
+           //  Exchange Rate List
+                Events  showExchangeRateList= Events.findByName('SHOW_EXCHANGE_RATE_LIST')
+                if(!showExchangeRateList){
+                    showExchangeRateList = new Events(name: 'SHOW_EXCHANGE_RATE_LIST',description:'Exchange Rate List',fmenuText:'list',controllerName: 'exchangeRate',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(showExchangeRateList)
                 }
 
         // Core banking operation ie deposit, withdraw,transfer, etc..
@@ -293,6 +305,12 @@ class BootStrap {
                 if(!creditCard){
                     creditCard = new Events(name: 'CreditCard_DEPOSIT',description:'Create Credit Card Deposit',fmenuText:'Credit Card Deposit',controllerName: 'bankDeposit',actionName:'creditCard', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     bankMgmt.addToEvents(creditCard)
+                }
+
+                Events signatureUpload = Events.findByName('SIGNATURE_UPLOAD')
+                if(!signatureUpload){
+                    signatureUpload = new Events(name: 'SIGNATURE_UPLOAD',description:'Signature Upload',fmenuText:'Signature Upload',controllerName: 'accountOpen',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(signatureUpload)
                 }
 
 
@@ -404,7 +422,7 @@ class BootStrap {
             // clients
             Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
             if(!clientsMgmt){
-                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for Clients',fmenuText:'Clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for clients',fmenuText:'clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
                 coreBank.addToFeature(clientsMgmt)
             }
                 // <-- create account holder info start -->

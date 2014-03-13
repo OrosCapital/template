@@ -8,12 +8,10 @@ class ChartMasterController {
 
     def index() {}
 
-
     def create(){
         def chartGroupList = ChartGroup.list()
         render (view: '/coreBanking/settings/accounting/chart/createChartMaster', model: [chartGroupList: chartGroupList])
     }
-
 
     def save() {
         try{
@@ -26,21 +24,18 @@ class ChartMasterController {
             // :::: Update ::::
             else if (params.id != ''){
                 //println params.id
-                def aChartMasterEdit = aChartMaster.get(params.id)
+                Long id = params.getLong('id')
+                def aChartMasterEdit = aChartMaster.get(id)
                 aChartMasterEdit.properties = aChartMaster
-                if (aChartMasterEdit.validate()){
-                    aChartMasterEdit.save(flush: true)
+                if (aChartMasterEdit.save(flush: true)){
                     flash.success = "Chart Master Update Successfully"
                     redirect(action: 'treeView')
                 }
                 else{
-                    //def id = params.id
-                    Long id = params.getLong('id')
                     flash.error = "Not validate , Update again!"
                     redirect(action: "edit", id: id)
                 }
             }
-
             else {
                 flash.error = "Chart Master not added, Account code must be Unique!"
                 redirect(action: "create")
@@ -52,10 +47,7 @@ class ChartMasterController {
             flash.error = ex.getMessage()
             redirect(action: 'treeView')
         }
-
-
     }
-
 
     def edit(){
         //def id = params.id
@@ -65,11 +57,8 @@ class ChartMasterController {
         render (view: "/coreBanking/settings/accounting/chart/createChartMaster", model: [aChartMaster : aChartMaster,chartGroupList : chartGroupList])
     }
 
-
-
     def treeView(){
         def chartClassLists = ChartClass.list()
         render (view: "/coreBanking/settings/accounting/chart/chartTreeView", model: [chartClassLists : chartClassLists])
-        //[chartClassLists : chartClassLists]
     }
 }

@@ -41,8 +41,75 @@
                  */
             });
 
+            $(".chosen-select").chosen();
         });
 
+    </r:script>
+    <r:script>
+        jQuery(document).ready(function(){
+            jQuery("#grid").jqGrid({
+                url:'${createLink(controller: 'exchangeRate', action: 'list')}',
+                datatype: "json",
+                mtype: 'GET',
+                height:326,
+                width: 750,
+                colModel:[
+                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
+                    {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'Currency',index:'currency', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'Buy Price',index:'', width:175, sortable:false, editable:false},
+                    {name:'Sell Price',index:'', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'Date',index:'', width:75,editable:false,sortable:false, align:'center'}
+
+                ],
+                jsonReader : {
+                 repeatitems:true
+                },
+                loadonce: false,
+                rowNum:10,
+                rowList:[10,15,20],
+                pager :'#pager',
+                sortname: 'currency',
+                sortorder: "asc",
+                sortableRows:true,
+                caption: "Exchange Rate",
+                viewrecords: true,
+                	loadComplete : function() {
+						var table = this;
+						setTimeout(function()
+						{
+							updatePagerIcons(table);
+						}, 0);
+					}
+
+            }).navGrid('#pager',{
+            	        edit: false,
+						del: false,
+						search: false,
+						searchicon : 'icon-search orange',
+						refresh: true,
+						refreshicon : 'icon-refresh green',
+						gridview: true,
+						autoencode: true
+            });
+
+        });
+
+        function updatePagerIcons(table) {
+            var replacement =
+            {
+                'ui-icon-seek-first' : 'icon-double-angle-left bigger-140',
+                'ui-icon-seek-prev' : 'icon-angle-left bigger-140',
+                'ui-icon-seek-next' : 'icon-angle-right bigger-140',
+                'ui-icon-seek-end' : 'icon-double-angle-right bigger-140'
+            };
+            $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function(){
+                var icon = $(this);
+                var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+
+                if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
+            })
+        }
     </r:script>
 
 </head>
@@ -63,7 +130,7 @@
                     %{--</div>--}%
                 %{--</g:if>--}%
                 <form class="form-horizontal"
-                      id="exchangeRate" action="${createLink(controller: 'exchangeRate', action: 'save')}"><!-- -->
+                      id="exchangeRate" action="${createLink(controller: 'exchangeRate', action: 'save')}" method="post"><!-- -->
 
                     <div class="form-group">
                         <label class="control-label col-md-3 no-padding-right"
@@ -97,7 +164,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'exchangeRate.addExchangeRate.buyPrice',default: 'Please Enter Currency Buy Price')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'exchangeRate.addExchangeRate.buyPrice', default: 'Please Enter Currency Buy Price')}"
-                                       id="buyPrice" name="buyPrice" class="form-control"
+                                       id="buyPrice" name="buyPrice" value="${exchangeRtData?.buyPrice}" class="form-control"
                                        placeholder="Currency Buy Price">
                             </div>
                         </div>
@@ -113,7 +180,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'exchangeRate.addExchangeRate.sellPrice',default: 'Please Enter Currency Sell Price')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'exchangeRate.addExchangeRate.sellPrice', default: 'Please Enter Currency Sell Price')}"
-                                       id="sellPrice" name="sellPrice" class="form-control"
+                                       id="sellPrice" name="sellPrice" value="${exchangeRtData?.sellPrice}" class="form-control"
                                        placeholder="Currency Sell Price">
                             </div>
                         </div>
@@ -131,7 +198,7 @@
                                     %{--oninvalid="this.setCustomValidity('${message(code: 'exchangeRate.addExchangeRate.date',default: 'Please Enter Date')}')"--}%
                                     %{--oninput="setCustomValidity('')"--}%
                                     %{--title="${message(code: 'exchangeRate.addExchangeRate.date', default: 'Please Enter Date')}"--}%
-                                           id="date" name="date" class="form-control"/>
+                                           id="date" name="date" value="${exchangeRtData?.date}"  class="form-control"/>
                                     <span class="input-group-addon">
                                         <i class="icon-calendar"></i>
                                     </span>
@@ -145,21 +212,13 @@
                     </div>
 
                 </form>
+                <hr/>
 
-                <table class="table table-responsive table-bordered">
-                    <thead>
-                    <tr>
-                        <td>Currency</td>
-                        <td>Buy Price</td>
-                        <td>Sell Price</td>
-                        <td>Date</td>
-                    </tr>
-                    </thead>
-                    <tbody id="exchangeRateList">
+                <div class="row">
+                    <table id="grid"></table>
+                    <div id="pager"></div>
+                </div>
 
-                    </tbody>
-
-                </table>
             </div>
         </div>
     </div>

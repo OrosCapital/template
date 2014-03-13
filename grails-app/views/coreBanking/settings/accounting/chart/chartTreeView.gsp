@@ -83,7 +83,7 @@
                                                         %{-- group -> sub group -> sub sub group --}%
                                                             <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k]}" var="parentGrouP" status="n">
                                                                 <ul>
-                                                                    <li><g:link controller="chartMaster" action="edit" id="${parentGrouP.id}">${parentGrouP.name}</g:link>
+                                                                    <li><g:link controller="chartGroup" action="edit" id="${parentGrouP.id}">${parentGrouP.name}</g:link>
                                                                         <ul>%{-- group -> sub group -> sub sub group -> master --}%
                                                                             <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k].chartMasters[n]}" var="chartMaster">
                                                                                 <li><g:link controller="chartMaster" action="edit" id="${chartMaster.id}">${chartMaster?.accountantName}</g:link></li>

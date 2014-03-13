@@ -1,19 +1,20 @@
 package com.gsl.oros.core.banking.clients
 
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorBankAccountInfo
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorGeneralAddress
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorMaster
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorPostalAddress
+import com.gsl.oros.core.banking.clients.vendor.VendorBankAccountInfo
+import com.gsl.oros.core.banking.clients.vendor.VendorGeneralAddress
+import com.gsl.oros.core.banking.clients.vendor.VendorMaster
+import com.gsl.oros.core.banking.clients.vendor.VendorPostalAddress
+
 
 class VendorController {
 
     def index() {
         def vendorMasterList = VendorMaster.list()
-        render(view: 'create', model: [vendorMasterList:vendorMasterList])
+        render(view: '/vendor/create', model: [vendorMasterList:vendorMasterList])
 
     }
 
-    def saveBasic(){
+    def saveVendorBasic(){
         if(request.method=="POST"){
             println "Vendor Code"+ params.vendorCode
             println "Vendor Vat"+ params.vat
@@ -24,6 +25,9 @@ class VendorController {
             vendorMaster.frequencyOfInvoice="monthly"
             vendorMaster.byShop = 1
             vendorMaster.creditStatus = "Good History"
+            /*vendorMaster.vat = "2"
+            vendorMaster.defaultGlAccount = "4000"
+            vendorMaster.vendorType = "2"  */
 
             vendorMaster.save(flush: true)
             println "VendorMaster ID"+ vendorMaster.id
@@ -33,20 +37,20 @@ class VendorController {
                 }
             }
             else {
-                redirect(controller: 'vendor', action: 'createGeneralAddress' , params: [ id :vendorMaster.id] )
+                redirect(controller: 'vendor', action: 'createVendorGeneralAddress' , params: [ id :vendorMaster.id] )
             }
         }
     }
 
-    def createGeneralAddress(){
+    def createVendorGeneralAddress(){
         println "ID"+params.id
         long id = Long.parseLong(params.id)
         VendorMaster avendorMaster = VendorMaster.get(id)
         //model: [avendorMaster:avendorMaster]
-        render(view: '/vendor/_vendorGeneralAddress', model: [avendorMaster:avendorMaster] )
+        render(view: '/vendor/create', model: [avendorMaster:avendorMaster] )
     }
 
-    def saveGeneralAddress(){
+    def saveVendorGeneralAddress(){
         if(request.method=="POST"){
             println "Contact Person Name "+ params.contactPersonName
             println "Country Id "+ params.countryId
@@ -62,27 +66,27 @@ class VendorController {
                 }
             }
             else {
-                redirect(controller: 'vendor', action: 'createPostalAddress', params: [ id :vendorGeneralAddress.id] )
+                redirect(controller: 'vendor', action: 'createVendorPostalAddress', params: [ id :vendorGeneralAddress.id] )
             }
         }
     }
 
-    def createPostalAddress(){
+    def createVendorPostalAddress(){
         println "ID"+params.id
         long id = Long.parseLong(params.id)
         VendorGeneralAddress anGeneralAddress = VendorGeneralAddress.get(id)
         VendorMaster avendorMaster = VendorMaster.get(anGeneralAddress.vendorId)
         //model: [avendorMaster:avendorMaster]
-        render(view: '/vendor/_vendorPostalAddress', model: [anGeneralAddress:anGeneralAddress,avendorMaster:avendorMaster])
+        render(view: '/vendor/create', model: [anGeneralAddress:anGeneralAddress,avendorMaster:avendorMaster])
 
     }
 
-    def savePostalAddress(){
+    def saveVendorPostalAddress(){
         if(request.method=="POST"){
 
             VendorPostalAddress vendorPostalAddress = new VendorPostalAddress(params)
 
-            vendorPostalAddress.vendorMasterId = 2
+
             vendorPostalAddress.save(flush: true)
             println "VendorPostalAddress ID"+ vendorPostalAddress.id
             if(!vendorPostalAddress.save()){
@@ -91,20 +95,20 @@ class VendorController {
                 }
             }
             else {
-                redirect(controller: 'vendor', action: 'createBankAccountInfo', params: [ id :vendorPostalAddress.id] )
+                redirect(controller: 'vendor', action: 'createVendorBankAccountInfo', params: [ id :vendorPostalAddress.id] )
             }
         }
     }
 
-    def createBankAccountInfo(){
+    def createVendorBankAccountInfo(){
         println "ID"+params.id
         long id = Long.parseLong(params.id)
         //VendorMaster avendorMaster = VendorMaster.get(id)
         //model: [avendorMaster:avendorMaster]
-        render(view: '/vendor/_vendorBankAccountInfo' )
+        render(view: '/vendor/create' )
     }
 
-    def saveBankAccountInfo(){
+    def saveVendorBankAccountInfo(){
         if(request.method=="POST"){
             println "Contact Person Name "+ params.contactPersonName
             println "Country Id "+ params.countryId
@@ -120,7 +124,7 @@ class VendorController {
                 }
             }
             else {
-                redirect(controller: 'vendor', action: 'createBankAccountInfo', params: [ id :vendorBankAccountInfo.id] )
+                redirect(controller: 'vendor', action: 'createVendorBankAccountInfo', params: [ id :vendorBankAccountInfo.id] )
             }
         }
     }
