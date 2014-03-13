@@ -16,9 +16,7 @@ class ChartClassController {
     def create(){
         def chartClassTypeList = ChartClassType.list()
         render (view: '/coreBanking/settings/accounting/chart/createChartClass', model: [chartClassTypeList: chartClassTypeList])
-
     }
-
 
     def save() {
         try{
@@ -31,16 +29,14 @@ class ChartClassController {
             // :::: Update ::::
             else if (params.id != ''){
                 //println params.id
+                Long id = params.getLong('id')
                 def aChartClassEdit = aChartClass.get(params.id)
                 aChartClassEdit.properties = aChartClass
-                if (aChartClassEdit.validate()){
-                    aChartClassEdit.save(flush: true)
+                if (aChartClassEdit.save(flush: true)){
                     flash.success = "Chart Class Update Successfully"
                     redirect(controller: 'chartMaster', action: "treeView")
                 }
                 else{
-                    //def id = params.id
-                    Long id = params.getLong('id')
                     flash.error = "Not validate , Update again!"
                     redirect(action: "edit", id: id)
                 }

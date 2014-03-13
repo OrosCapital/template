@@ -22,33 +22,23 @@ class ChartGroupController {
 
     def save() {
         try{
-            // :::: Save ::::
-            /*if(params.parentGroup != ''){
-                params.position = "child"
-            }
-            else{
-                params.position = "parent"
-            }*/
-
             def aChartGroup = new ChartGroup(params)
 
+            // ::: Save  :::
             if (params.id == '' && aChartGroup.save(flush: true)){
                 flash.success = "Chart Group Add Successfully"
                 redirect(controller: 'chartMaster', action: "treeView")
             }
             // :::: Update ::::
             else if (params.id != ''){
-                //println params.id
+                Long id = params.getLong('id')
                 def aChartGroupEdit = aChartGroup.get(params.id)
                 aChartGroupEdit.properties = aChartGroup
-                if (aChartGroupEdit.validate()){
-                    aChartGroupEdit.save(flush: true)
+                if (aChartGroupEdit.save(flush: true)){
                     flash.success = "Chart Group Update Successfully"
                     redirect(controller: 'chartMaster', action: "treeView")
                 }
                 else{
-                    //def id = params.id
-                    Long id = params.getLong('id')
                     flash.error = "Not validate , Update again!"
                     redirect(action: "edit", id: id)
                 }
@@ -68,35 +58,30 @@ class ChartGroupController {
     }
 
     def edit(){
-        //def id = params.id
         Long id = params.getLong('id')
         def aChartGroup = ChartGroup.get(id)
         def chartClassList = ChartClass.list()
-        //def chartGroupList = ChartGroup.list()
-
-        //Long id = params.getLong('chartClassId')
-        //ChartClass chartClass = ChartClass.read(id)
-
-         /*def chartGroupList = ChartGroup.findAllByIdNotEqual(id)*/
-
-
+        /*
+        def chartGroupList = ChartGroup.list()
+        Long id = params.getLong('chartClassId')
+        ChartClass chartClass = ChartClass.read(id)
+        def chartGroupList = ChartGroup.findAllByIdNotEqual(id)
+        */
         render (view: "/coreBanking/settings/accounting/chart/createChartGroup", model: [aChartGroup : aChartGroup,chartClassList : chartClassList])
     }
 
-    // parent group
+    // parent group check
     def checkGroup(){
         // chart class id
-        Long id = params.getLong('chartClassId')
-        ChartClass chartClass = ChartClass.read(id)
+        Long chartClassId = params.getLong('chartClassId')
+        ChartClass chartClass = ChartClass.read(chartClassId)
         // chart group id
         Long chartGroupId = params.getLong('chartGroupId')
-
         //def result = ChartGroup.findByChartClassId(id)
         def chartGroupList = ChartGroup.findAllByChartClassAndIdNotEqual(chartClass,chartGroupId)
 
         def chart=[success:true,value:chartGroupList]
         render chart as JSON
-
     }
 }
 

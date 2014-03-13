@@ -8,32 +8,21 @@
     <title>OrosCapital - Client</title>
     <r:script>
         $(document).ready(function(){
-            //alert("welcome");
-
-            /*$('#chartGroup').prop('disabled', 'disabled');*/
             $("#chartClassId").change(function(){
                 var chartClassId = $(this).val();
-
                 var chartGroupId = $('#chartGroupId').val();
-                //alert(chartGroupId);
-
-                $.ajax({
+                 $.ajax({
                     type:"POST",
                     dataType:'json',
                     url:"${createLink(controller: 'chartGroup', action: 'checkGroup')}",
                     data:{chartClassId:chartClassId, chartGroupId:chartGroupId},
                     success: function (data) {
-                    //alert(data.value[0].name);
-                    /*$('#chartGroup').prop('disabled', false);*/
-
-                    var row="";
-                    row+="<option value=''> -Select- </option>";
-                    for(var i=0;i<(data.value.length);i++){
-                       row+="<option value='"+data.value[i].id+"'>"+data.value[i].name+"</option>";
-                    }
-
-                    $("#chartGroup").html(row);
-
+                        var row="";
+                        row+="<option value=''> -Select- </option>";
+                        for(var i=0;i<(data.value.length);i++){
+                           row+="<option value='"+data.value[i].id+"'>"+data.value[i].name+"</option>";
+                        }
+                        $("#chartGroup").html(row);
                     }
                 });
             });
@@ -97,9 +86,6 @@
                     <div class="col-sm-6" id="chartGroupId">
                         <select class="form-control" name="parentGroup" id="chartGroup">
                             <option value="" selected>-Select-</option>
-                                %{--<g:each var="chartGroup" in="${chartGroupList}">
-                                <option value="${chartGroup.id}">${chartGroup.name}</option>
-                            </g:each>--}%
                         </select>
                     </div>
                 </div>
