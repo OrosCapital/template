@@ -94,7 +94,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.name',default: 'Please Enter Country Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.name', default: 'Please Enter Country Name')}"
-                                       id="name" name="name" value="" class="form-control"
+                                       id="name" name="name" value="${countryData?.name}" class="form-control"
                                        placeholder="Country Name">
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.printablename',default: 'Please Enter Printable Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.printablename', default: 'Please Enter Printable Name')}"
-                                       id="printablename" name="printablename" class="form-control"
+                                       id="printablename" name="printablename" value="${countryData?.printablename}" class="form-control"
                                        placeholder="Printable Name">
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.iso2',default: 'Please Enter ISO2 Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.iso2', default: 'Please Enter ISO2 Name')}"
-                                       id="iso2" name="iso2" class="form-control"
+                                       id="iso2" name="iso2" value="${countryData?.iso2}" class="form-control"
                                        placeholder="ISO2 Name">
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.iso3',default: 'Please Enter ISO3 Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.iso3', default: 'Please Enter ISO3 Name')}"
-                                       id="iso3" name="iso3" class="form-control"
+                                       id="iso3" name="iso3" value="${countryData?.iso3}" class="form-control"
                                        placeholder="ISO3 Name">
                             </div>
                         </div>
@@ -159,7 +159,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.numcode',default: 'Please Enter NumCode')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.numcode', default: 'Please Enter NumCode')}"
-                                       id="numcode" name="numcode" class="form-control"
+                                       id="numcode" name="numcode" value="${countryData?.numcode}" class="form-control"
                                        placeholder="NumCode">
                             </div>
                         </div>

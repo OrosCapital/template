@@ -164,7 +164,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'exchangeRate.addExchangeRate.buyPrice',default: 'Please Enter Currency Buy Price')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'exchangeRate.addExchangeRate.buyPrice', default: 'Please Enter Currency Buy Price')}"
-                                       id="buyPrice" name="buyPrice" class="form-control"
+                                       id="buyPrice" name="buyPrice" value="${exchangeRtData?.buyPrice}" class="form-control"
                                        placeholder="Currency Buy Price">
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'exchangeRate.addExchangeRate.sellPrice',default: 'Please Enter Currency Sell Price')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'exchangeRate.addExchangeRate.sellPrice', default: 'Please Enter Currency Sell Price')}"
-                                       id="sellPrice" name="sellPrice" class="form-control"
+                                       id="sellPrice" name="sellPrice" value="${exchangeRtData?.sellPrice}" class="form-control"
                                        placeholder="Currency Sell Price">
                             </div>
                         </div>
@@ -198,7 +198,7 @@
                                     %{--oninvalid="this.setCustomValidity('${message(code: 'exchangeRate.addExchangeRate.date',default: 'Please Enter Date')}')"--}%
                                     %{--oninput="setCustomValidity('')"--}%
                                     %{--title="${message(code: 'exchangeRate.addExchangeRate.date', default: 'Please Enter Date')}"--}%
-                                           id="date" name="date" class="form-control"/>
+                                           id="date" name="date" value="${exchangeRtData?.date}"  class="form-control"/>
                                     <span class="input-group-addon">
                                         <i class="icon-calendar"></i>
                                     </span>

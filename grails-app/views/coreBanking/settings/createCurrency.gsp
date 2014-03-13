@@ -176,7 +176,7 @@
                                 <input type="text"  required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'currency.addCurrency.name',default: 'Please Enter Currency Name')}')"
                                        oninput="setCustomValidity('')" title="${message(code: 'currency.addCurrency.name', default: 'Please Enter Currency Name')}"
-                                       id="name" name="name" class="form-control"
+                                       id="name" name="name" value="${currencyData?.name}" class="form-control"
                                        placeholder="Currency Name"><span class="red" id="currencyName"> </span>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
                                 <input type="text"  required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'currency.addCurrency.abbreviation',default: 'Please Enter Currency Abbreviation')}')"
                                        oninput="setCustomValidity('')" title="${message(code: 'currency.addCurrency.abbreviation', default: 'Please Enter Currency Abbreviation')}"
-                                       id="abbreviation" name="abbreviation" class="form-control"
+                                       id="abbreviation" name="abbreviation" value="${currencyData?.abbreviation}" class="form-control"
                                        placeholder="Currency Abbreviation">
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                                 <input type="text"  required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'currency.addCurrency.symbol',default: 'Please Enter Currency Symbol')}')"
                                        oninput="setCustomValidity('')" title="${message(code: 'currency.addCurrency.symbol', default: 'Please Enter Currency Symbol')}"
-                                       id="symbol" name="symbol" class="form-control"
+                                       id="symbol" name="symbol" value="${currencyData?.symbol}" class="form-control"
                                        placeholder="Currency Symbol"> <span class="red" id="currencySymbol"> </span>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                                 <input type="text"  required=""
                                        oninvalid="this.setCustomValidity('${message(code: 'currency.addCurrency.hundredName',default: 'Please Enter Currency Hundred Name')}')"
                                        oninput="setCustomValidity('')" title="${message(code: 'currency.addCurrency.hundredName', default: 'Please Enter Currency Hundred Name')}"
-                                       id="hundredName" name="hundredName" class="form-control"
+                                       id="hundredName" name="hundredName" value="${currencyData?.hundredName}" class="form-control"
                                        placeholder="Currency Hundred Name">
                             </div>
                         </div>
