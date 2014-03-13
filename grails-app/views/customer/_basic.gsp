@@ -1,5 +1,7 @@
 <g:form name="customerBasicForm" method="post" role="form" class="form-horizontal"
         controller="customer" action="saveCustomerMaster">
+%{--<g:formRemote name="customerBasicForm" id="customerBasicForm" method="post" role="form" class="form-horizontal"--}%
+        %{--url="[controller: 'customer', action:'saveCustomerMaster']" >--}%
     <div class="row">
         <!-- PAGE CONTENT BEGINS -->
 
@@ -178,6 +180,8 @@
             <button type="submit" name="customerBasicSubmit" id="customerBasicSubmit" class="btn btn-info">
                 <i class="icon-ok bigger-110"></i>Update
             </button>
+            %{--<g:submitToRemote name="customerBasicSubmit" id="customerBasicSubmit" class="btn btn-info"--}%
+                              %{--url="[action: 'newGeneralAddress']" update="customerBasicForm" value="Create" />--}%
         </div>
     </div>
 
