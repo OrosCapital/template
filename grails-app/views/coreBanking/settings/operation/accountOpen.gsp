@@ -8,11 +8,27 @@
     <meta name="layout" content="oros">
     <title>Current Account</title>
     <r:script>
-        $(document).ready( function() {
+          $(document).ready(function(){
+           $("#multiform").submit(function(e)  {
+                var formObj = $(this);
+                var formURL = formObj.attr("save");
+                var formData = new FormData(this);
+                $.ajax({
+                    url:"${createLink(controller: 'accountOpen', action: 'save')}",
+                    type: 'POST',
+                    data:  formData,
+                    mimeType:"multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function (data) {}
 
-        });
+                });
+                 e.preventDefault();
+                e.unbind();
+            });
 
-
+          });
     </r:script>
 </head>
 
@@ -81,11 +97,9 @@
                         <td><img src="/oros/static/images/avatar.png" height="20" width="30"></td>
 
                         <td>
-                            <form name="signUploadForm" id="signUploadForm" method="">
-
-                                <input type="text" name="fname"/>
-                                <input type="file" name="clientImage"/>
-                                <input type="button" id="uploadImage" value="Save"/>
+                            <form name="multiform" id="multiform" action="" method="POST" enctype="multipart/form-data">
+                                Image :<input type="file" name="photo" id="imgId"/><br/>
+                                <input type="submit" value="Upload" id="upload"/><br/>
                             </form>
 
                         </td>
