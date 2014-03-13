@@ -136,6 +136,39 @@
 
 %{-- table --}%
 
+<r:script>
+    $(document).ready(function(){
+        //alert("welcome!!");
+
+        $("#cashAdd").click(function(){
+            var startAmount = $( "#startAmount" ).val();
+            var endAmount = $( "#endAmount" ).val();
+            var circleName = $( "#circleName" ).val();
+            var rate = $( "#rate" ).val();
+            var rateType = $( "#rateType" ).val();
+            var amountBasedOn = $( "#amountBasedOn" ).val();
+            $("#journalTable tbody").append(
+                    "<tr>"+
+                        "<td>"+startAmount+"</td>"+
+                        "<td>"+endAmount+"</td>"+
+                        "<td>"+circleName+"</td>"+
+                        "<td>"+rate+"</td>"+
+                        "<td>"+rateType+"</td>"+
+                        "<td>"+amountBasedOn+"</td>"+
+                        "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                                "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                                "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                        "</td>"+
+                    "</tr>");
+
+
+
+        });
+    });
+</r:script>
+
 <div class="col-md-12">
 
 
@@ -159,85 +192,85 @@
                             <th>Action</th>
                         </tr>
                         </thead>
+                        <tbody>
+                            <tr class="odd">
+                                <td class="sorting_1">
+                                    <input type="text" id="startAmount" name="startAmount" value="" placeholder="Start Amount" class="input-small" required="true">
+                                </td>
+                                <td class="">
+                                    <input type="text" id="endAmount" name="endAmount" placeholder="End Amount" class="input-small">
+                                </td>
+                                <td class="">
+                                    <select id="circleName" class="form-control" name="circleName">
+                                        <option value="">- Select -</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </td>
+                                <td class="">
+                                    <input type="text" id="rate" name="rate" placeholder="0.00" class="input-small">
+                                </td>
+                                <td class="">
+                                    <select id="rateType" class="form-control" name="rateType">
+                                        <option value="">- Select -</option>
+                                        <option value="1">Percentage</option>
+                                        <option value="2">Flat</option>
+                                    </select>
+                                </td>
+                                <td class="">
+                                    <select id="amountBasedOn" class="form-control" name="amountBasedOn">
+                                        <option value="">- Select -</option>
+                                        <option value="1">Minimum</option>
+                                        <option value="2">Maximum</option>
+                                    </select>
+                                </td>
 
-                        <tr class="odd">
-                            <td class="sorting_1">
-                                <input type="text" id="startAmount" name="startAmount" value="" placeholder="Start Amount" class="input-small" required="true">
-                            </td>
-                            <td class="">
-                                <input type="text" id="endAmount" name="endAmount" placeholder="End Amount" class="input-small">
-                            </td>
-                            <td class="">
-                                <select id="circleName" class="form-control" name="circleName">
-                                    <option value="">- Select -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </td>
-                            <td class="">
-                                <input type="text" id="rate" name="rate" placeholder="0.00" class="input-small">
-                            </td>
-                            <td class="">
-                                <select id="" class="form-control" name="accountName">
-                                    <option value="">- Select -</option>
-                                    <option value="1">Percentage</option>
-                                    <option value="2">Flat</option>
-                                </select>
-                            </td>
-                            <td class="">
-                                <select id="amountBasedOn" class="form-control" name="amountBasedOn">
-                                    <option value="">- Select -</option>
-                                    <option value="1">Minimum</option>
-                                    <option value="2">Maximum</option>
-                                </select>
-                            </td>
+                                %{--<td class="">
+                                    <span id="addNew" style="cursor:pointer;">
+                                        <i class="icon-pencil bigger-125" title="Add New"></i>
+                                    </span>
 
-                            %{--<td class="">
-                                <span id="addNew" style="cursor:pointer;">
-                                    <i class="icon-pencil bigger-125" title="Add New"></i>
-                                </span>
+                                    <span id="clear" onclick="clearForm();" style="cursor:pointer;">
+                                        <i class="icon-refresh bigger-130" title="Clear Input"></i>
+                                    </span>
 
-                                <span id="clear" onclick="clearForm();" style="cursor:pointer;">
-                                    <i class="icon-refresh bigger-130" title="Clear Input"></i>
-                                </span>
+                                    <a class="green" href="#">
+                                        <i class="icon-pencil bigger-130"></i>
+                                    </a>
+                                    <a class="red" href="#">
+                                        <i class="icon-trash bigger-130"></i>
+                                    </a>
+                                </td>--}%
 
-                                <a class="green" href="#">
-                                    <i class="icon-pencil bigger-130"></i>
-                                </a>
-                                <a class="red" href="#">
-                                    <i class="icon-trash bigger-130"></i>
-                                </a>
-                            </td>--}%
+                                %{-- Action --}%
+                                <td class="center">
+                                    %{--<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                        <a  href="#"><i class="icon-pencil bigger-130 green"></i></a>
+                                        <a class="red" href="#"><i class="icon-trash bigger-130"></i></a>
+                                    </div>--}%
+                                    %{-- hover icon--}%
+                                    %{--<div class="visible-xs visible-sm hidden-md hidden-lg">
+                                        <div class="inline position-relative">
+                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                <li>
+                                                    <a data-original-title="Edit" href="#" class="tooltip-success" data-rel="tooltip" title="">
+                                                        <span class="green"><i class="icon-edit bigger-120"></i></span>
+                                                    </a>
+                                                </li>
 
-                            %{-- Action --}%
-                            <td class="center">
-                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                    <a  href="#"><i class="icon-pencil bigger-130 green"></i></a>
-                                    <a class="red" href="#"><i class="icon-trash bigger-130"></i></a>
-                                </div>
-
-                                %{-- hover icon--}%
-                                <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                    <div class="inline position-relative">
-                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                            <li>
-                                                <a data-original-title="Edit" href="#" class="tooltip-success" data-rel="tooltip" title="">
-                                                    <span class="green"><i class="icon-edit bigger-120"></i></span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a data-original-title="Delete" href="#" class="tooltip-error" data-rel="tooltip" title="">
-                                                    <span class="red"><i class="icon-trash bigger-120"></i></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </td>
-
-                        </tr>
+                                                <li>
+                                                    <a data-original-title="Delete" href="#" class="tooltip-error" data-rel="tooltip" title="">
+                                                        <span class="red"><i class="icon-trash bigger-120"></i></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>--}%
+                                    <button id="cashAdd" class="btn btn-default navbar-btn" type="button">Add</button>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
 
@@ -262,3 +295,4 @@
         <button class="btn" type="reset"><i class="icon-undo bigger-110"></i>Reset</button>
     </div>
 </div>
+
