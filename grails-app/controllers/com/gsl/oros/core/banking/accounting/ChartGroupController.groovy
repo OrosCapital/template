@@ -60,14 +60,18 @@ class ChartGroupController {
     def edit(){
         Long id = params.getLong('id')
         def aChartGroup = ChartGroup.get(id)
+
         def chartClassList = ChartClass.list()
+
+        //def chartClass = aChartGroup.parentGroup.id
+        //def chartGroupList = ChartGroup.findAllByChartClassAndIdNotEqual(chartClass,chartGroupId)
         /*
-        def chartGroupList = ChartGroup.list()
         Long id = params.getLong('chartClassId')
         ChartClass chartClass = ChartClass.read(id)
         def chartGroupList = ChartGroup.findAllByIdNotEqual(id)
         */
         render (view: "/coreBanking/settings/accounting/chart/createChartGroup", model: [aChartGroup : aChartGroup,chartClassList : chartClassList])
+        //render (view: "/coreBanking/settings/accounting/chart/createChartGroup")
     }
 
     // parent group check

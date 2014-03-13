@@ -83,10 +83,11 @@
                 </div>
                 <div class="form-group">
                     <label for="chartClassType" class="control-label col-sm-6" >Parent Group</label>
-                    <div class="col-sm-6" id="chartGroupId">
+                    <div class="col-sm-6">
                         <select class="form-control" name="parentGroup" id="chartGroup">
-                            <option value="" selected>-Select-</option>
-                        </select>
+                            <option value="">-Select-</option>
+                            <option value="${aChartGroup?.parentGroup?.id}" ${aChartGroup?.parentGroup?.name ? 'selected' : ''}>${aChartGroup?.parentGroup?.name}</option>
+                      </select>
                     </div>
                 </div>
             </div>
