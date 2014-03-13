@@ -25,9 +25,6 @@ class VendorController {
             vendorMaster.frequencyOfInvoice="monthly"
             vendorMaster.byShop = 1
             vendorMaster.creditStatus = "Good History"
-            /*vendorMaster.vat = "2"
-            vendorMaster.defaultGlAccount = "4000"
-            vendorMaster.vendorType = "2"  */
 
             vendorMaster.save(flush: true)
             println "VendorMaster ID"+ vendorMaster.id
@@ -44,8 +41,8 @@ class VendorController {
 
     def createVendorGeneralAddress(){
         println "ID"+params.id
-        long id = Long.parseLong(params.id)
-        VendorMaster avendorMaster = VendorMaster.get(id)
+        long vendorMasterID = Long.parseLong(params.id)
+        VendorMaster avendorMaster = VendorMaster.get(vendorMasterID)
         //model: [avendorMaster:avendorMaster]
         render(view: '/vendor/create', model: [avendorMaster:avendorMaster] )
     }
@@ -59,7 +56,8 @@ class VendorController {
 
 
             vendorGeneralAddress.save(flush: true)
-            println "VendorMGeneralAddress ID"+ vendorGeneralAddress.vendorId
+            println "VendorMaster ID"+ vendorGeneralAddress.vendorId
+            println "VendorGeneralAddress ID"+ vendorGeneralAddress.id
             if(!vendorGeneralAddress.save()){
                 vendorGeneralAddress.errors.each {
                     println it
@@ -85,8 +83,6 @@ class VendorController {
         if(request.method=="POST"){
 
             VendorPostalAddress vendorPostalAddress = new VendorPostalAddress(params)
-
-
             vendorPostalAddress.save(flush: true)
             println "VendorPostalAddress ID"+ vendorPostalAddress.id
             if(!vendorPostalAddress.save()){
@@ -103,9 +99,11 @@ class VendorController {
     def createVendorBankAccountInfo(){
         println "ID"+params.id
         long id = Long.parseLong(params.id)
-        //VendorMaster avendorMaster = VendorMaster.get(id)
-        //model: [avendorMaster:avendorMaster]
-        render(view: '/vendor/create' )
+        VendorPostalAddress aPostalAddress = VendorPostalAddress.get(id)
+        VendorMaster avendorMaster = VendorMaster.get(aPostalAddress.vendorId)
+        VendorGeneralAddress anGeneralAddress = VendorGeneralAddress.findByVendorId(aPostalAddress.vendorId)
+
+        render(view: '/vendor/create', model: [aPostalAddress:aPostalAddress, avendorMaster: avendorMaster, anGeneralAddress: anGeneralAddress])
     }
 
     def saveVendorBankAccountInfo(){
@@ -117,7 +115,7 @@ class VendorController {
 
 
             vendorBankAccountInfo.save(flush: true)
-            println "VendorMGeneralAddress ID"+ vendorBankAccountInfo.vendorId
+            println "VendorGeneralAddress ID"+ vendorBankAccountInfo.vendorId
             if(!vendorBankAccountInfo.save()){
                 vendorBankAccountInfo.errors.each {
                     println it
