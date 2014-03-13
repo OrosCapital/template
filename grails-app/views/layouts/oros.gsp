@@ -11,7 +11,7 @@
 
     <link href="${resource(dir: 'css/uncompressed', file: 'bootstrap.css')}" rel="stylesheet"/>
     <link rel="stylesheet" href="${resource(dir: 'css/uncompressed', file: 'font-awesome.css')}"/>
-
+    <link rel="stylesheet" href="${resource(dir: 'css/jqGrid', file: 'ui.jqgrid.css')}"/>
     <link rel="stylesheet" href="${resource(dir: 'css/compressed', file: 'jquery-ui-1.10.3.full.min.css')}"/>
     <link rel="stylesheet" href="${resource(dir: 'css/compressed', file: 'datepicker.css')}"/>
 
@@ -155,6 +155,10 @@
  window.jQuery || document.write("<script src='${resource(dir: 'js/compressed', file: 'jquery-1.10.2.min.js')}'>"+"<"+"/script>");
 </script>
 <![endif]-->
+
+
+<script src="${resource(dir: 'js/jqGrid', file: 'jquery.jqGrid.min.js')}"></script>
+<script src="${resource(dir: 'js/jqGrid/i18n', file: 'grid.locale-en.js')}"></script>
 
 <script type="text/javascript">
     if ("ontouchend" in document) document.write("<script src='${resource(dir: 'js/uncompressed',file: 'jquery.mobile.custom.js')}'>" + "<" + "/script>");

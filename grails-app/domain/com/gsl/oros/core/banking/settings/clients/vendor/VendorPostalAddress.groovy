@@ -10,7 +10,6 @@ class VendorPostalAddress {
     String postalState
     Integer status
     Integer vendorId
-    Integer vendorMasterId
     static belongsTo = [VendorMaster]
     static constraints = {
     }

@@ -1,5 +1,5 @@
 <g:form name="customerGeneralAddressForm" method="post" role="form"
-        class="form-horizontal" controller="CustomerGeneralAddress" action="save">
+        class="form-horizontal" controller="customer" action="saveGeneralAddress">
     <div class="row">
         <!-- PAGE CONTENT BEGINS -->
 
@@ -51,7 +51,7 @@
                     <select name="country" id="country" class="form-control" required="required">
                         <option value="">- Choose One -</option>
                         <g:each var="country" in="${countryList}">
-                            <option value="${country.id}">${country.countryName}</option>
+                            <option value="${country.id}">${country.name}</option>
                         </g:each>
                     </select>
                 </div>

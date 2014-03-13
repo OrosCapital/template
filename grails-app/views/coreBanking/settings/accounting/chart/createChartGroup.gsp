@@ -6,6 +6,39 @@
 <head>
     <meta name="layout" content="oros">
     <title>OrosCapital - Client</title>
+    <r:script>
+        $(document).ready(function(){
+            //alert("welcome");
+
+            /*$('#chartGroup').prop('disabled', 'disabled');*/
+            $("#chartClassId").change(function(){
+                var chartClassId = $(this).val();
+
+                var chartGroupId = $('#chartGroupId').val();
+                //alert(chartGroupId);
+
+                $.ajax({
+                    type:"POST",
+                    dataType:'json',
+                    url:"${createLink(controller: 'chartGroup', action: 'checkGroup')}",
+                    data:{chartClassId:chartClassId, chartGroupId:chartGroupId},
+                    success: function (data) {
+                    //alert(data.value[0].name);
+                    /*$('#chartGroup').prop('disabled', false);*/
+
+                    var row="";
+                    row+="<option value=''> -Select- </option>";
+                    for(var i=0;i<(data.value.length);i++){
+                       row+="<option value='"+data.value[i].id+"'>"+data.value[i].name+"</option>";
+                    }
+
+                    $("#chartGroup").html(row);
+
+                    }
+                });
+            });
+        });
+    </r:script>
 </head>
 <body>
 <div class="page-header">
@@ -29,7 +62,7 @@
 <form class="form-horizontal" action="${createLink(controller: 'chartGroup', action: 'save')}">
 
     %{-- hidden field --}%
-    <input type="hidden" name="id" value="${aChartGroup?.id}">
+    <input type="hidden" name="id" id="chartGroupId" value="${aChartGroup?.id}">
 
     <div class="tabbable">
         <div class="col-md-12">
@@ -37,7 +70,7 @@
                 <div class="form-group">
                     <label for="name" class="control-label col-sm-4">Name<sup class="red">*</sup></label>
                     <div class="col-sm-8">
-                        <input type="text"  class="form-control" name="name" value="${aChartGroup?.name}" />
+                        <input type="text"  class="form-control" name="name"  value="${aChartGroup?.name}" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -61,12 +94,12 @@
                 </div>
                 <div class="form-group">
                     <label for="chartClassType" class="control-label col-sm-6" >Parent Group</label>
-                    <div class="col-sm-6">
-                        <select class="form-control" name="parentGroup">
+                    <div class="col-sm-6" id="chartGroupId">
+                        <select class="form-control" name="parentGroup" id="chartGroup">
                             <option value="" selected>-Select-</option>
-                            <g:each var="chartGroup" in="${chartGroupList}">
+                                %{--<g:each var="chartGroup" in="${chartGroupList}">
                                 <option value="${chartGroup.id}">${chartGroup.name}</option>
-                            </g:each>
+                            </g:each>--}%
                         </select>
                     </div>
                 </div>
@@ -76,7 +109,7 @@
                 <div class="form-group">
                     <label for="chartClassType" class="control-label col-sm-6" >Chart Class<sup class="red">*</sup></label>
                     <div class="col-sm-5">
-                        <select class="form-control" name="chartClass">
+                        <select class="form-control" name="chartClass" id="chartClassId">
                             <option>-Select-</option>
                             <g:each var="chartClass" in="${chartClassList}">
                                 <option value="${chartClass.id}"

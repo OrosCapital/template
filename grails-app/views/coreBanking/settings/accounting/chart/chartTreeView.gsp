@@ -210,5 +210,8 @@
 <script src="${resource(dir: 'js/tree', file: 'jquery.treeview.js')}" type="text/javascript"></script>
 <script type="text/javascript" src="${resource(dir: 'js/tree', file: 'demo.js')}"></script>
 
+
+%{-- main tree viwe--}%
+
 </body>
 </html>

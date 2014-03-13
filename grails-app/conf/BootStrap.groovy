@@ -148,36 +148,112 @@ class BootStrap {
                 coreBank.addToFeature(settingsMgmt)
             }
 
+            //  Bank Settings Show on Menu
+                Events bankSetting = Events.findByName('BANK_SETTING')
+                if(!bankSetting){
+                    bankSetting = new Events(name: 'BANK_SETTING',description:'Bank Setting',fmenuText:'Bank Settings',controllerName: 'bankSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(bankSetting)
+                }
+
+            //Update Bank Settings
+                Events updateBankSettings = Events.findByName('UPDATE_BANK_SETTINGS')
+                if(!updateBankSettings){
+                    updateBankSettings = new Events(name: 'UPDATE_BANK_SETTINGS',description:'Update Bank Settings',fmenuText:'Update',controllerName: 'bankSettings',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(updateBankSettings)
+                }
+
+            //  Bank Settings Show on Menu
+                Events branchSetting = Events.findByName('BRANCH_SETTING')
+                if(!branchSetting){
+                    branchSetting = new Events(name: 'BRANCH_SETTING',description:'Branch Setting',fmenuText:'Branch Settings',controllerName: 'branchSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(branchSetting)
+                }
+
+            //Update Bank Settings
+                Events saveBranchSettings = Events.findByName('SAVE_BRANCH_SETTINGS')
+                if(!saveBranchSettings){
+                    saveBranchSettings = new Events(name: 'SAVE_BRANCH_SETTINGS',description:'Save Branch Settings',fmenuText:'Save',controllerName: 'branchSettings',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(saveBranchSettings)
+                }
+
+            //  Retailer Settings Show on Menu
+                Events RetailerSetting = Events.findByName('RETAILER_SETTING')
+                if(!RetailerSetting){
+                    RetailerSetting = new Events(name: 'RETAILER_SETTING',description:'Retailer Setting',fmenuText:'Retailer Settings',controllerName: 'retailerSettings',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(RetailerSetting)
+                }
+
+            //  Save Retailer Settings
+                Events saveRetailerSettings = Events.findByName('SAVE_RETAILER_SETTINGS')
+                if(!saveRetailerSettings){
+                    saveRetailerSettings = new Events(name: 'SAVE_RETAILER_SETTINGS',description:'Save Retailer Settings',fmenuText:'Save',controllerName: 'retailerSettings',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(saveRetailerSettings)
+                }
+
+            //  Create Country Event show on Menu
                 Events createCountry = Events.findByName('CREATE_COUNTRY')
                 if(!createCountry){
                     createCountry = new Events(name: 'CREATE_COUNTRY',description:'Create Country',fmenuText:'Create Country',controllerName: 'country',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountry)
                 }
+            //  Save Country
                 Events createCountrySubmit = Events.findByName('SAVE_CREATE_COUNTRY')
                 if(!createCountrySubmit){
                     createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
 
+                Events showListOfCountry = Events.findByName('SHOW_LIST_COUNTRY')
+                if(!showListOfCountry){
+                    showListOfCountry = new Events(name: 'SHOW_LIST_COUNTRY',description:'Show list of Country',fmenuText:'Show',controllerName: 'country',actionName:'list', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(showListOfCountry)
+                }
+
+            //  Country List
+                Events showCountryList = Events.findByName('SHOW_COUNTRY_LIST')
+                if(!showCountryList){
+                    showCountryList = new Events(name: 'SHOW_COUNTRY_LIST',description:'Country List',fmenuText:'list',controllerName: 'country',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(showCountryList)
+                }
+
+            //  Create Currency Event Show on Menu
                 Events createCurrency = Events.findByName('CREATE_CURRENCY')
                 if(!createCurrency){
                     createCurrency = new Events(name: 'CREATE_CURRENCY',description:'Create Currency',fmenuText:'Create Currency',controllerName: 'currency',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCurrency)
                 }
+
+             //  Save Currency
                 Events createCurrencySubmit = Events.findByName('SAVE_CREATE_CURRENCY')
                 if(!createCurrencySubmit){
                     createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCurrencySubmit)
                 }
 
+             //  Internal currency symbol validation.Permit unique symbol only
+                Events checkCurrencySymbol = Events.findByName('CHECK_CURRENCY_SYMBOL')
+                if(!checkCurrencySymbol){
+                    checkCurrencySymbol = new Events(name: 'CHECK_CURRENCY_SYMBOL',description:'Internal currency symbol validation',fmenuText:'Save',controllerName: 'currency',actionName:'checkCurrencySymbol', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(checkCurrencySymbol)
+                }
+            //  Internal currency name validation.Permit unique name only
+                Events checkCurrencyName = Events.findByName('CHECK_CURRENCY_NAME')
+                if(!checkCurrencyName){
+                    checkCurrencyName = new Events(name: 'CHECK_CURRENCY_NAME',description:'Internal currency name validation',fmenuText:'Save',controllerName: 'currency',actionName:'checkCurrencyName', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(checkCurrencyName)
+                }
+
+
+        //  Create Exchange Rate Show on Menu
                 Events createExchangeRate = Events.findByName('CREATE_EXCHANGE_RATE')
                 if(!createExchangeRate){
                     createExchangeRate = new Events(name: 'CREATE_EXCHANGE_RATE',description:'Create Exchange Rate',fmenuText:'Exchange Rate',controllerName: 'ExchangeRate',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRate)
                 }
+            //  Save Exchange Rate
                 Events createExchangeRateSubmit = Events.findByName('SAVE_EXCHANGE_RATE')
                 if(!createExchangeRateSubmit){
-                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'saveBasic', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
 
@@ -318,21 +394,111 @@ class BootStrap {
                 accountingMgmt.addToEvents(chartTreeView )
             }
 
+           // Create Fiscal Year Show on Menu
+            Events createFiscalYear = Events.findByName('CREATE_FISCAL_YEAR')
+            if(!createFiscalYear){
+                createFiscalYear= new Events(name: 'CREATE_FISCAL_YEAR',description:'Create Fiscal Year',fmenuText:'Create Fiscal Year',controllerName: 'fiscalYear',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createFiscalYear)
+            }
+            // Save Fiscal Year
+            Events saveFiscalYear = Events.findByName('SAVE_FISCAL_YEAR')
+            if(!saveFiscalYear ){
+                saveFiscalYear  = new Events(name: 'SAVE_FISCAL_YEAR',description:'Save Fiscal Year',fmenuText:'Save',controllerName: 'fiscalYear',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(saveFiscalYear )
+            }
+
+            // clients
             Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
             if(!clientsMgmt){
-                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for clients',fmenuText:'clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for Clients',fmenuText:'Clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
                 coreBank.addToFeature(clientsMgmt)
             }
+                // <-- create account holder info start -->
+                Events createAccountHolderInfo = Events.findByName('CREATE_ACCOUNT_HOLDER_INFO')
+                if(!createAccountHolderInfo){
+                    createAccountHolderInfo = new Events(name: 'CREATE_ACCOUNT_HOLDER_INFO',description:'Create Account Holder Info',fmenuText:'Create Account Info',controllerName:'accountHolderInfo', actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createAccountHolderInfo)
+                }
+                // <-- create account holder info end -->
+
+                // <-- create customer start -->
                 Events createCustomer = Events.findByName('CREATE_CUSTOMER')
                 if(!createCustomer){
-                    createCustomer = new Events(name: 'CREATE_CUSTOMER',description:'Create Customer',fmenuText:'Create Customer',controllerName: 'customer',actionName:'createGeneralAddress', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    createCustomer = new Events(name: 'CREATE_CUSTOMER',description:'Create Customer',fmenuText:'Create Customer',controllerName: 'customer',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createCustomer)
                 }
+
+                // <-- customer basic info save -->
+                Events customerBasicInfoSubmit = Events.findByName('SAVE_CUSTOMER_MASTER')
+                if(!customerBasicInfoSubmit){
+                    customerBasicInfoSubmit = new Events(name: 'SAVE_CUSTOMER_MASTER',description:'Save Customer Master',fmenuText:'Save Customer Master',controllerName: 'customer',actionName:'saveCustomerMaster', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(customerBasicInfoSubmit)
+                }
+
+                // <-- customer general address create -->
+                Events newCustomerGeneralAddress = Events.findByName('CREATE_CUSTOMER_GENERAL_ADDRESS')
+                if(!newCustomerGeneralAddress){
+                    newCustomerGeneralAddress = new Events(name: 'CREATE_CUSTOMER_GENERAL_ADDRESS',description:'Create Customer General Address',fmenuText:'Create Customer General Address',controllerName: 'customer',actionName:'newGeneralAddress/**', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(newCustomerGeneralAddress)
+                }
+
+                // <-- customer general address save -->
+                Events customerGeneralAddressSubmit = Events.findByName('SAVE_CUSTOMER_GENERAL_ADDRESS')
+                if(!customerGeneralAddressSubmit){
+                    customerGeneralAddressSubmit = new Events(name: 'SAVE_CUSTOMER_GENERAL_ADDRESS',description:'Save Customer General Address',fmenuText:'Save Customer General Address',controllerName: 'customer',actionName:'saveGeneralAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(customerGeneralAddressSubmit)
+                }
+
+                // <-- customer postal address create -->
+                Events newCustomerPostalAddress = Events.findByName('CREATE_CUSTOMER_POSTAL_ADDRESS')
+                if(!newCustomerPostalAddress){
+                    newCustomerPostalAddress = new Events(name: 'CREATE_CUSTOMER_POSTAL_ADDRESS',description:'Create Customer Postal Address',fmenuText:'Create Customer Postal Address',controllerName: 'customer',actionName:'newPostalAddress/**', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(newCustomerPostalAddress)
+                }
+
+                // <-- customer postal address save -->
+                Events customerPostalAddressSubmit = Events.findByName('SAVE_CUSTOMER_POSTAL_ADDRESS')
+                if(!customerPostalAddressSubmit){
+                    customerPostalAddressSubmit = new Events(name: 'SAVE_CUSTOMER_POSTAL_ADDRESS',description:'Save Customer Postal Address',fmenuText:'Save Customer Postal Address',controllerName: 'customer',actionName:'savePostalAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(customerPostalAddressSubmit)
+                }
+
+                // <-- customer shipment address create -->
+                Events newCustomerShipmentAddress = Events.findByName('CREATE_CUSTOMER_SHIPMENT_ADDRESS')
+                if(!newCustomerShipmentAddress){
+                    newCustomerShipmentAddress = new Events(name: 'CREATE_CUSTOMER_SHIPMENT_ADDRESS',description:'Create Customer Shipment Address',fmenuText:'Create Customer Shipment Address',controllerName: 'customer',actionName:'newShipmentAddress/**', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(newCustomerShipmentAddress)
+                }
+
+                // <-- customer shipment address save -->
+                Events customerShipmentAddressSubmit = Events.findByName('SAVE_CUSTOMER_SHIPMENT_ADDRESS')
+                if(!customerShipmentAddressSubmit){
+                    customerShipmentAddressSubmit = new Events(name: 'SAVE_CUSTOMER_SHIPMENT_ADDRESS',description:'Save Customer Shipment Address',fmenuText:'Save Customer Shipment Address',controllerName: 'customer',actionName:'saveShipmentAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(customerShipmentAddressSubmit)
+                }
+
+                // <-- customer bank account info create -->
+                Events newCustomerBankAccount = Events.findByName('CREATE_CUSTOMER_BANK_ACCOUNT')
+                if(!newCustomerBankAccount){
+                    newCustomerBankAccount = new Events(name: 'CREATE_CUSTOMER_BANK_ACCOUNT',description:'Create Customer Bank Account',fmenuText:'Create Customer Bank Account',controllerName: 'customer',actionName:'newBankAccount/**', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(newCustomerBankAccount)
+                }
+
+                // <-- customer bank account info save -->
+                Events customerBankAccountSubmit = Events.findByName('SAVE_CUSTOMER_BANK_ACCOUNT')
+                if(!customerBankAccountSubmit){
+                    customerBankAccountSubmit = new Events(name: 'SAVE_CUSTOMER_BANK_ACCOUNT',description:'Save Customer Bank Account',fmenuText:'Save Customer Bank Account',controllerName: 'customer',actionName:'saveBankAccount', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(customerBankAccountSubmit)
+                }
+                // <-- create customer end -->
+
+                // <-- create retail account for client start -->
                 Events createRetailClient = Events.findByName('CREATE_RETAIL_CLIENT')
                 if(!createRetailClient){
-                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'createGeneralAddress', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createRetailClient)
                 }
+                // <-- create retail account for client end -->
 
                 Events createRetailAgent = Events.findByName('CREATE_RETAIL_AGENT')
                 if(!createRetailAgent){
@@ -340,24 +506,64 @@ class BootStrap {
                     clientsMgmt.addToEvents(createRetailAgent)
                 }
 
+                // Create Basic Info of Vendor
                 Events createVendor = Events.findByName('CREATE_VENDOR')
                 if(!createVendor){
                     createVendor = new Events(name: 'CREATE_VENDOR',description:'Create Vendor',fmenuText:'Create Vendor',controllerName: 'vendor',actionName:'index', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createVendor)
                 }
 
-
-                Events createGeneralAddress = Events.findByName('CREATE_GENERAL_ADDRESS')
-                if(!createGeneralAddress){
-                    createGeneralAddress  = new Events(name: 'CREATE_GENERAL_ADDRESS',description:'Create General Address',fmenuText:'Create General Address',controllerName: 'vendor',actionName:'createGeneralAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
-                    clientsMgmt.addToEvents(createGeneralAddress )
+                // Create General Address of Vendor
+                Events createVendorGeneralAddress = Events.findByName('CREATE_GENERAL_ADDRESS')
+                if(!createVendorGeneralAddress){
+                    createVendorGeneralAddress  = new Events(name: 'CREATE_GENERAL_ADDRESS',description:'Create General Address',fmenuText:'Create General Address',controllerName: 'vendor',actionName:'createVendorGeneralAddress/**', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createVendorGeneralAddress)
                 }
 
-                Events saveBasic = Events.findByName('SAVE_BASIC')
-                if(!saveBasic){
-                    saveBasic  = new Events(name: 'SAVE_BASIC',description:'Save Basic Address',fmenuText:'Save Basic Address',controllerName: 'vendor',actionName:'saveBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
-                    clientsMgmt.addToEvents(saveBasic )
+                // Create Postal Address of Vendor
+                Events createPostalAddress = Events.findByName('CREATE_POSTAL_ADDRESS')
+                if(!createPostalAddress){
+                    createPostalAddress  = new Events(name: 'CREATE_POSTAL_ADDRESS',description:'Create Postal Address',fmenuText:'CREATE_POSTAL_ADDRESS',controllerName: 'vendor',actionName:'createVendorPostalAddress/**', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createPostalAddress )
                 }
+
+                // Create Bank Account Info of Vendor
+                Events createBankAccountInfo = Events.findByName('CREATE_BANK_ACCOUNT_INFO')
+                if(!createBankAccountInfo){
+                    createBankAccountInfo  = new Events(name: 'CREATE_BANK_ACCOUNT_INFO',description:'Create Bank Account Info',fmenuText:'CREATE_BANK_ACCOUNT_INFO',controllerName: 'vendor',actionName:'createVendorBankAccountInfo/**', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(createBankAccountInfo )
+                }
+                // Save Basic Info of Vendor
+                Events saveVendorBasicInfo = Events.findByName('SAVE_VENDOR_BASIC')
+                if(!saveVendorBasicInfo){
+                    saveVendorBasicInfo  = new Events(name: 'SAVE_VENDOR_BASIC',description:'Save Basic Address',fmenuText:'Save Basic Address',controllerName: 'vendor',actionName:'saveVendorBasic', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveVendorBasicInfo )
+                }
+
+                // Save General Address of Vendor
+                Events saveVendorGeneralAddress = Events.findByName('SAVE_VENDOR_GENERAL_ADDRESS')
+                if(!saveVendorGeneralAddress){
+                    saveVendorGeneralAddress  = new Events(name: 'SAVE_VENDOR_GENERAL_ADDRESS',description:'Save Vendor General Address',fmenuText:'Save Vendor General Address',controllerName: 'vendor',actionName:'saveVendorGeneralAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveVendorGeneralAddress )
+                }
+
+                // Save Postal Address of Vendor
+                Events saveVendorPostalAddress = Events.findByName('SAVE_VENDOR_POSTAL_ADDRESS')
+                if(!saveVendorPostalAddress){
+                    saveVendorPostalAddress  = new Events(name: 'SAVE_VENDOR_POSTAL_ADDRESS',description:'Save Vendor Postal Address',fmenuText:'Save Vendor Postal Address',controllerName: 'vendor',actionName:'saveVendorPostalAddress', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveVendorPostalAddress )
+                }
+
+                // Save Bank Account Info of Vendor
+                Events saveBankAccountInfo = Events.findByName('SAVE_BANK_ACCOUNT_INFO')
+                if(!saveBankAccountInfo){
+                    saveBankAccountInfo  = new Events(name: 'SAVE_BANK_ACCOUNT_INFO',description:'Save Bank Account Info',fmenuText:'SAVE_BANK_ACCOUNT_INFO',controllerName: 'vendor',actionName:'saveVendorBankAccountInfo', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveBankAccountInfo )
+                }
+
+
+
+
 
 
                 Feature productMgmt = Feature.findByName('PRODUCT_MGMT')

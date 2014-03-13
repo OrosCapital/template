@@ -2,9 +2,11 @@ package com.gsl.uma.security
 
 import com.gsl.uma.saas.Events
 import com.gsl.uma.saas.Feature
+import grails.converters.JSON
+import org.apache.commons.lang.StringUtils
 
 class ManageRoleController {
-
+    def springSecurityService
     def index() {
     render (view: 'createRole')
     }
@@ -57,7 +59,7 @@ class ManageRoleController {
                         boolean hasAccess = requestMap1.configAttribute.contains(role.authority)
                         resultList.add([id:requestMap1.id,menuText:requestMap1.menuText, description:requestMap1.description, hasAccess:hasAccess])
                     }
-                    render (view: 'mapRoleRight', model: [forAuthority:role?.authority,resultList:resultList])
+                    render (view: 'mapRoleRight', model: [authority:role?.authority,resultList:resultList])
                     return
                 }
             }
@@ -65,8 +67,39 @@ class ManageRoleController {
         render (view: 'mapRoleRight')
     }
     def saveRoleRight(){
-        println params
-        println params
 
+        boolean available = false
+        if (request.method == 'POST') {
+            String accessMapping = params.accessMapping
+            String authority = params.authority
+            Role forRole = Role.findByAuthority(authority)
+            if(!forRole){
+                String output = [available:true] as JSON
+                render output
+                return
+            }
+            if(StringUtils.isNotEmpty(accessMapping)){
+               String[] requestObjs = StringUtils.split(accessMapping,"^")
+                Long reObjId
+                Boolean accessRight
+                RequestMap domainObj
+                for(int i=0; i<requestObjs.length; i++){
+                    String[] requestObj = StringUtils.split(requestObjs[i],"_")
+                    reObjId = requestObj[0].toLong()
+                    accessRight = requestObj[1].toBoolean()
+                    domainObj = RequestMap.get(reObjId)
+//                  //Code to replace the authority
+                      domainObj.configAttribute = UmaUtility.buildAccessUrl(domainObj.configAttribute,accessRight,forRole.authority)
+                    domainObj.save()
+                }
+                springSecurityService.clearCachedRequestmaps()
+            }
+            String output = [available:true,message:"Updated Access Right for ${authority} successfully"] as JSON
+            render output
+            return
+        }
+        String output = [available:false] as JSON
+        render output
     }
+
 }

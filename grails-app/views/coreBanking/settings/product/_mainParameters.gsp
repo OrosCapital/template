@@ -1,13 +1,12 @@
 <div class="row">
 
-
 <div class="col-md-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="col-md-4">
         <div class="form-group">
-            <label for="form-field-1" class="col-md-4 control-label no-padding-right">Name</label>
+            <label for="form-field-1" class="col-md-3 control-label no-padding-right">Name</label>
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <input type="text" placeholder="Name" name="name">
             </div>
         </div>
@@ -15,9 +14,9 @@
 
     <div class="col-md-4">
         <div class="form-group">
-            <label for="form-field-1" class="col-sm-4 control-label no-padding-right">Code</label>
+            <label for="form-field-1" class="col-sm-3 control-label no-padding-right">Code</label>
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <input type="text" placeholder="Code" name="code">
             </div>
         </div>
@@ -79,11 +78,9 @@
                 <div class="clearfix">
                     <select name="" class="input-medium">
                         <option value="">Select currency...</option>
-                        <option value="linux">Linux</option>
-                        <option value="windows">Windows</option>
-                        <option value="mac">Mac OS</option>
-                        <option value="ios">iOS</option>
-                        <option value="android">Android</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="INR">INR - Indian Rupee</option>
                     </select>
                 </div>
 
@@ -253,7 +250,7 @@
 %{-- end table --}%
 
 
-<div class="space-2"></div>
+%{--<div class="space-2"></div>--}%
 
 
 </div>
