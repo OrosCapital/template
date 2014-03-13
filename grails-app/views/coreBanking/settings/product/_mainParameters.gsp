@@ -147,25 +147,22 @@
             var rate = $( "#rate" ).val();
             var rateType = $( "#rateType" ).val();
             var amountBasedOn = $( "#amountBasedOn" ).val();
-            $("#interestRangeForm tbody").append(
-                    "<tr>"+
-                        "<td>"+startAmount+"</td>"+
-                        "<td>"+endAmount+"</td>"+
-                        "<td>"+circleName+"</td>"+
-                        "<td>"+rate+"</td>"+
-                        "<td>"+rateType+"</td>"+
-                        "<td>"+amountBasedOn+"</td>"+
-                        "<td>" +
-                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
-                                "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
-                                "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
-                            "</div>"+
-                        "</td>"+
-                    "</tr>");
-
-
-
-        });
+            $("#interestRangeTable tbody").append(
+                "<tr>"+
+                    "<td>"+startAmount+"</td>"+
+                    "<td>"+endAmount+"</td>"+
+                    "<td>"+circleName+"</td>"+
+                    "<td>"+rate+"</td>"+
+                    "<td>"+rateType+"</td>"+
+                    "<td>"+amountBasedOn+"</td>"+
+                    "<td>" +
+                        "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                        "</div>"+
+                    "</td>"+
+                "</tr>");
+            });
     });
 </r:script>
 
@@ -177,10 +174,10 @@
         <div class="col-md-12">
             <legend class="blue"><small>Interest rate</small></legend>
             <span class="text-primary">Interest Range</span>
-            <form name="interestRangeForm" role="form" class="form-horizontal">
+            <form name="journalForm" role="form" class="form-horizontal">
                 %{--<div class="table-header">Add Item</div>--}%
                 <div class="table-responsive">
-                    <table id="journalTable" class="display dataTable table table-striped table-bordered table-hover">
+                    <table id="interestRangeTable" class="display dataTable table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>Start Amount</th>
@@ -225,48 +222,8 @@
                                         <option value="2">Maximum</option>
                                     </select>
                                 </td>
-
-                                %{--<td class="">
-                                    <span id="addNew" style="cursor:pointer;">
-                                        <i class="icon-pencil bigger-125" title="Add New"></i>
-                                    </span>
-
-                                    <span id="clear" onclick="clearForm();" style="cursor:pointer;">
-                                        <i class="icon-refresh bigger-130" title="Clear Input"></i>
-                                    </span>
-
-                                    <a class="green" href="#">
-                                        <i class="icon-pencil bigger-130"></i>
-                                    </a>
-                                    <a class="red" href="#">
-                                        <i class="icon-trash bigger-130"></i>
-                                    </a>
-                                </td>--}%
-
                                 %{-- Action --}%
                                 <td class="center">
-                                    %{--<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                        <a  href="#"><i class="icon-pencil bigger-130 green"></i></a>
-                                        <a class="red" href="#"><i class="icon-trash bigger-130"></i></a>
-                                    </div>--}%
-                                    %{-- hover icon--}%
-                                    %{--<div class="visible-xs visible-sm hidden-md hidden-lg">
-                                        <div class="inline position-relative">
-                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                                <li>
-                                                    <a data-original-title="Edit" href="#" class="tooltip-success" data-rel="tooltip" title="">
-                                                        <span class="green"><i class="icon-edit bigger-120"></i></span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a data-original-title="Delete" href="#" class="tooltip-error" data-rel="tooltip" title="">
-                                                        <span class="red"><i class="icon-trash bigger-120"></i></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>--}%
                                     <button id="cashAdd" class="btn btn-default navbar-btn" type="button">Add</button>
                                 </td>
                             </tr>
