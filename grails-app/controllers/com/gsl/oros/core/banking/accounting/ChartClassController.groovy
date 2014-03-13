@@ -3,10 +3,12 @@ package com.gsl.oros.core.banking.accounting
 import com.gsl.oros.core.banking.settings.accounting.ChartClass
 import com.gsl.oros.core.banking.settings.accounting.ChartClassType
 
-// import chart class
-
 
 class ChartClassController {
+
+    private static final String ID = 'id'
+    private static final String CLASS_TYPE = 'classType'
+    private static final String ASC = 'asc'
 
     def index() {
         render(view: '/coreBanking/settings/accounting/chart/createChartClass')
@@ -14,14 +16,35 @@ class ChartClassController {
 
 
     def create(){
-        def chartClassTypeList = ChartClassType.list()
+        // @todo-all ChartClassType.list(readonly:true)
+        // @todo-rumee question about dirty check
+        /*
+        insert  into `chart_class_type`(`id`,`version`,`class_type`,`status`)
+		values 	(1,0,'Assets',1),
+				(2,0,'Liabilities',1),
+				(3,0,'Equity',1),
+				(4,0,'Income',1),
+				(5,0,'Cost of Goods Sold',1),
+				(6,0,'Expanse',1),
+				(7,0,'Financial income and expenses',1);
+        * */
+        if(ChartClassType.list().size() <1){
+            new ChartClassType(classType: 'Assets',status: 1).save(flush: true)
+            new ChartClassType(classType: 'Liabilities',status: 1).save(flush: true)
+            new ChartClassType(classType: 'Equity',status: 1).save(flush: true)
+            new ChartClassType(classType: 'Income',status: 1).save(flush: true)
+            new ChartClassType(classType: 'Cost of Goods Sold',status: 1).save(flush: true)
+            new ChartClassType(classType: 'Expanse',status: 1).save(flush: true)
+        }
+
+        def chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
         render (view: '/coreBanking/settings/accounting/chart/createChartClass', model: [chartClassTypeList: chartClassTypeList])
     }
 
     def save() {
         try{
             // :::: Save ::::
-            def aChartClass = new ChartClass(params)
+            def aChartClass = new ChartClass(params)  // rename var accordingly
             if (params.id == '' && aChartClass.save(flush: true)){
                 flash.success = "Chart Class Add Successfully"
                 redirect(controller: 'chartMaster', action: "treeView")
@@ -29,27 +52,22 @@ class ChartClassController {
             // :::: Update ::::
             else if (params.id != ''){
                 //println params.id
-                Long id = params.getLong('id')
-                def aChartClassEdit = aChartClass.get(params.id)
+                Long id = params.getLong(ID)
+                def aChartClassEdit = aChartClass.get(id)
                 aChartClassEdit.properties = aChartClass
                 if (aChartClassEdit.save(flush: true)){
                     flash.success = "Chart Class Update Successfully"
                     redirect(controller: 'chartMaster', action: "treeView")
-                }
-                else{
+                } else {
                     flash.error = "Not validate , Update again!"
                     redirect(action: "edit", id: id)
                 }
-            }
-
-            else {
+            } else {
                 flash.error = "Chart Class not added!"
                 redirect(action: "create")
             }
 
-
-        }
-        catch (Exception ex){
+        } catch (Exception ex){
             flash.error = ex.getMessage()
             redirect( controller: 'chartMaster', action: 'treeView')
         }
@@ -57,10 +75,11 @@ class ChartClassController {
 
 
     def edit(){
-        //def id = params.id
-        Long id = params.getLong('id')
-        def aChartClass = ChartClass.get(id)
-        def chartClassTypeList = ChartClassType.list()
-        render (view: "/coreBanking/settings/accounting/chart/createChartClass", model: [aChartClass : aChartClass,chartClassTypeList : chartClassTypeList])
+        Long id = params.getLong(ID) // use constant
+        ChartClass chartClass = ChartClass.get(id)
+        List<ChartClassType> chartClassTypeList = ChartClassType.list(order : 'asc', readOnly :true)
+        render (view: "/coreBanking/settings/accounting/chart/createChartClass",
+                model: [chartClass: chartClass, chartClassTypeList : chartClassTypeList ])
+
     }
 }
