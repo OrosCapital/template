@@ -15,7 +15,7 @@
                 var chartClassId = $(this).val();
 
                 var chartGroupId = $('#chartGroupId').val();
-                alert(chartGroupId);
+                //alert(chartGroupId);
 
                 $.ajax({
                     type:"POST",
