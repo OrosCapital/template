@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta name="layout" content="oros">
     <title></title>
@@ -24,6 +24,7 @@
                  repeatitems:true
                 },
                 loadonce: false,
+                scrollOffset:1,
                 rowNum:10,
                 rowList:[10,15,20],
                 pager :'#pager',
@@ -52,7 +53,54 @@
 						autoencode: true
             });
 
+            $("#grid").navGrid("#pager").navButtonAdd("#pager",
+            {caption:'', buttonicon:"icon-pencil blue", onClickButton:function(){editCountry();}, title:"Edit", cursor: "pointer"}
+            ).navButtonAdd('#pager',
+            {caption:"",buttonicon:"icon-trash red",onClickButton: function(){deleteCountry();},position:"last"}
+            ).navSeparatorAdd("#pager",{sepclass : 'ui-separator'});
+
+      $('#countryForm').submit(function (e) {
+            updateCountry();
+            return false;
         });
+            clearForm();
+ });
+
+    function editCountry(){
+        var gridEntity = $('#grid');
+        var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
+        $.ajax({
+            url: "${createLink(controller: 'country', action: 'edit')}?id=" + countryId,
+            success: afterSuccessEditEvent,
+            dataType:'json',
+            type:'post'
+        });
+    }
+
+    function afterSuccessEditEvent(data) {
+        if(data.isError){
+           $('span.country-error-message').text(data.message).show();
+           $('div#error-message-div').show();
+        }
+        var countryEntity = data.entity;
+        $('#id').val(countryEntity.id);
+        $('#version').val(data.version);
+        $('#name').val(countryEntity.name);
+        $('#printablename').val(countryEntity.printablename);
+        $('#iso2').val(countryEntity.iso2);
+        $('#iso3').val(countryEntity.iso3);
+        $('#numcode').val(countryEntity.numcode);
+
+//        var updateUrl = "${createLink(controller: 'country', action: 'update')}";
+         $("#countryForm").removeAttr('action');
+         $("#countryForm").removeAttr('method');
+        $('#submitCountry').text("Update");
+    }
+
+    function deleteCountry(){
+        alert("Click Delete Button");
+    }
 
         function updatePagerIcons(table) {
             var replacement =
@@ -69,6 +117,29 @@
                 if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
             })
         }
+
+        function clearForm(){
+            $("#id").val('');
+            $("#version").val('');
+            $("input[type=text],input[type=number], textarea").val('');
+            $('#submitCountry').text("Create");
+            var createUrl = "${createLink(controller: 'country', action: 'create')}";
+            $("#countryForm").attr('action', createUrl);
+        }
+
+        function updateCountry(){
+            $.ajax({
+            url: "${createLink(controller: 'country', action: 'update')}",
+            dataType:'json',
+            type:'post',
+            data:jQuery("#countryForm").serialize(),
+            success:function (data, textStatus) {
+            $("#grid").jqGrid('setGridParam',{ datatype: 'json' }).trigger('reloadGrid');
+                clearForm();
+            }
+        });
+    }
+
     </r:script>
 </head>
 
@@ -82,7 +153,15 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <form class="form-horizontal" action="${createLink(controller: 'country', action: 'save')}" method="post">
+                %{--<div class="alert alert-error err-message"  id="error-message-div">
+                    <a class="close" onclick="$('div#error-message-div').hide();">×</a>
+                    <span class="country-error-message">&nbsp;</span>
+                </div>--}%
+                <g:form class="form-horizontal" method="post" name="countryForm" id="countryForm"
+                      action="${createLink(controller: 'country', action: 'save')}">
+
+                    <g:hiddenField name="id" value=""/>
+                    <g:hiddenField name="version" value=""/>
 
                     <div class="form-group">
                         <label class="control-label col-md-3 no-padding-right"
@@ -94,7 +173,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.name',default: 'Please Enter Country Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.name', default: 'Please Enter Country Name')}"
-                                       id="name" name="name"  class="form-control"
+                                       id="name" name="name" class="form-control"
                                        placeholder="Country Name">
                             </div>
                         </div>
@@ -111,7 +190,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.printablename',default: 'Please Enter Printable Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.printablename', default: 'Please Enter Printable Name')}"
-                                       id="printablename" name="printablename"  class="form-control"
+                                       id="printablename" name="printablename" class="form-control"
                                        placeholder="Printable Name">
                             </div>
                         </div>
@@ -127,7 +206,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.iso2',default: 'Please Enter ISO2 Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.iso2', default: 'Please Enter ISO2 Name')}"
-                                       id="iso2" name="iso2"  class="form-control"
+                                       id="iso2" name="iso2" class="form-control"
                                        placeholder="ISO2 Name">
                             </div>
                         </div>
@@ -143,7 +222,7 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.iso3',default: 'Please Enter ISO3 Name')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.iso3', default: 'Please Enter ISO3 Name')}"
-                                       id="iso3" name="iso3"  class="form-control"
+                                       id="iso3" name="iso3" class="form-control"
                                        placeholder="ISO3 Name">
                             </div>
                         </div>
@@ -159,16 +238,18 @@
                                        oninvalid="this.setCustomValidity('${message(code: 'country.addCountry.numcode',default: 'Please Enter NumCode')}')"
                                        oninput="setCustomValidity('')"
                                        title="${message(code: 'country.addCountry.numcode', default: 'Please Enter NumCode')}"
-                                       id="numcode" name="numcode" value="${countryData?.numcode}" class="form-control"
+                                       id="numcode" name="numcode" class="form-control"
                                        placeholder="NumCode">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-offset-1">
-                        <input type="submit" class="btn btn-danger" id="submit" value="Add Country"/>
-                    </div>
-                </form>
+                <div class="buttons">
+                        <button type="submit" class="btn btn-sm btn-success" id="submitCountry" name="Create">Create</button>
+                        <button type="button" class="btn btn-light btn-white" id="reset" onclick="clearForm();" name="reset">Reset</button>
+                </div>
+
+                </g:form>
                 <hr/>
 
                 <div class="row">

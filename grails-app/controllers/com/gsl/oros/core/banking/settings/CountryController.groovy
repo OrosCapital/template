@@ -26,7 +26,7 @@ class CountryController {
         // set grid params
         (start, resultPerPage, pageNumber) = initGridParams(params)
 
-        List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order:sortOrder ])
+        List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order: sortOrder])
 
         List<Country> resultList = wrapGridEntityList(lstCountry, start)
         int recordsCount = Country.count()
@@ -82,5 +82,43 @@ class CountryController {
             counter++
         }
         return lstCountry
+    }
+
+    def edit() {
+        Map result
+        long countryId = Long.parseLong(params.id.toString())
+        Country country = Country.read(countryId)
+        if (!country) {
+            result = [isError: true, message: "Country not found to edit or someone deleted."]
+            render result as JSON
+            return
+        }
+        result = [entity: country, version: country.version]
+        String output = result as JSON
+        println "result as JSON > " + output
+        render(result as JSON)
+    }
+
+    def update() {
+        Map result
+        long countryId = Long.parseLong(params.id.toString())
+        Country country = Country.get(countryId)
+        country.name = params.name
+        country.version = country.version + 1
+        country.save(flush: true)
+        GridEntity object = new GridEntity()
+        object.id = country.id
+        object.cell = [
+                country.id,
+                country.name,
+                country.numcode,
+                country.iso2,
+                country.iso3,
+                country.printablename
+        ]
+        result = [updateEntity: object]
+        String  output = result as JSON
+        println "output :" + output
+        render(output)
     }
 }
