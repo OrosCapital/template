@@ -94,7 +94,7 @@
                                     %{--oninvalid="this.setCustomValidity('${message(code: 'fiscalYear.addFiscalYear.begin',default: 'Please Enter Begin Date')}')"--}%
                                     %{--oninput="setCustomValidity('')"--}%
                                     %{--title="${message(code: 'fiscalYear.addFiscalYear.begin', default: 'Please Enter Begin Date')}"--}%
-                                           id="begin" name="begin" class="form-control"/>
+                                           id="begin" name="begin" value="${fiscalYearData?.begin}" class="form-control"/>
                                     <span class="input-group-addon">
                                         <i class="icon-calendar"></i>
                                     </span>
@@ -115,7 +115,7 @@
                                     %{--oninvalid="this.setCustomValidity('${message(code: 'fiscalYear.addFiscalYear.end',default: 'Please Enter Ending Date')}')"--}%
                                     %{--oninput="setCustomValidity('')"--}%
                                     %{--title="${message(code: 'fiscalYear.addFiscalYear.end', default: 'Please Enter Ending Date')}"--}%
-                                           id="end" name="end" class="form-control"/>
+                                           id="end" name="end" value="${fiscalYearData?.end}" class="form-control"/>
                                     <span class="input-group-addon">
                                         <i class="icon-calendar"></i>
                                     </span>
