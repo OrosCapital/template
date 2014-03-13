@@ -82,7 +82,7 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <form class="form-horizontal" action="${createLink(controller: 'country', action: 'save')}">
+                <form class="form-horizontal" action="${createLink(controller: 'country', action: 'save')}" method="post">
 
                     <div class="form-group">
                         <label class="control-label col-md-3 no-padding-right"

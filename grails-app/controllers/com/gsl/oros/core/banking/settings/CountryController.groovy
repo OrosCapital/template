@@ -19,6 +19,7 @@ class CountryController {
         println(params)
         Country country = new Country(params)
         country.save(failOnError: true)
+        render(view: '/coreBanking/settings/createCountry')
     }
 
     def list() {

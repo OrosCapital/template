@@ -40,12 +40,13 @@
                  }
                  */
             });
+            $(".chosen-select").chosen();
 
             $("#name").focusout(function(){
 
                     var name=$(this).val();
                         $.ajax({
-                            url:"${createLink(controller: 'currency', action: 'findCurrencyName')}",
+                            url:"${createLink(controller: 'currency', action: 'checkCurrencyName')}",
                             type:'post',
                             dataType:'json',
                             data:{currencyName:name},
@@ -65,7 +66,7 @@
 
                     var symbol=$(this).val();
                         $.ajax({
-                            url:"${createLink(controller: 'currency', action: 'findCurrencySymbol')}",
+                            url:"${createLink(controller: 'currency', action: 'checkCurrencySymbol')}",
                             type:'post',
                             dataType:'json',
                             data:{currencySymbol:symbol},
@@ -163,7 +164,7 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <form class="form-horizontal" action="${createLink(controller: 'currency',action: 'save')}">
+                <form class="form-horizontal" action="${createLink(controller: 'currency',action: 'save')}" method="post">
 
 
                     <div class="form-group">
@@ -218,9 +219,10 @@
 
                         <div class="col-md-4 col-sm-4">
                             <div class="clearfix">
-                                <select required="" class=" form-control" oninvalid="this.setCustomValidity('${message(code: 'currency.addCurrency.country',default: 'Please Select Country Name')}')" oninput="setCustomValidity('')" title="${message(code: 'currency.addCurrency.country',default: 'Please Select Country Name')}" name="country" id="country">
+
+                                <select required="" class="width-90 chosen-select form-control" oninvalid="this.setCustomValidity('${message(code: 'currency.addCurrency.country',default: 'Please Select Country Name')}')" oninput="setCustomValidity('')" title="${message(code: 'currency.addCurrency.country',default: 'Please Select Country Name')}" name="country" id="country" data-placeholder="Choose a Country...">
                                     <option value="">Chose Country</option>
-                                    <g:each in="${myobj}" var="country" >
+                                    <g:each in="${countryList}" var="country" >
                                         <option value="${country.id}">${country.name}</option>
                                     </g:each>
                                 </select>

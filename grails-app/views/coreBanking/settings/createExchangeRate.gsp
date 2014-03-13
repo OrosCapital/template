@@ -41,6 +41,7 @@
                  */
             });
 
+            $(".chosen-select").chosen();
         });
 
     </r:script>
@@ -129,7 +130,7 @@
                     %{--</div>--}%
                 %{--</g:if>--}%
                 <form class="form-horizontal"
-                      id="exchangeRate" action="${createLink(controller: 'exchangeRate', action: 'save')}"><!-- -->
+                      id="exchangeRate" action="${createLink(controller: 'exchangeRate', action: 'save')}" method="post"><!-- -->
 
                     <div class="form-group">
                         <label class="control-label col-md-3 no-padding-right"
