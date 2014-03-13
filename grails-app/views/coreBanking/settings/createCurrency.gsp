@@ -85,6 +85,72 @@
         });
 
     </r:script>
+    <r:script>
+        jQuery(document).ready(function(){
+            jQuery("#grid").jqGrid({
+                url:'${createLink(controller: 'currency', action: 'list')}',
+                datatype: "json",
+                mtype: 'GET',
+                height:326,
+                width: 750,
+                colModel:[
+                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
+                    {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'Name',index:'name', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'Abbreviation',index:'', width:175, sortable:false, editable:false},
+                    {name:'Country',index:'', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'Symbol',index:'', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'Hundred Name',index:'', width:75,editable:false,sortable:false,align:'center'}
+                ],
+                jsonReader : {
+                 repeatitems:true
+                },
+                loadonce: false,
+                rowNum:10,
+                rowList:[10,15,20],
+                pager :'#pager',
+                sortname: 'name',
+                sortorder: "asc",
+                sortableRows:true,
+                caption: "All Currency",
+                viewrecords: true,
+                	loadComplete : function() {
+						var table = this;
+						setTimeout(function()
+						{
+							updatePagerIcons(table);
+						}, 0);
+					}
+
+            }).navGrid('#pager',{
+            	        edit: false,
+						del: false,
+						search: false,
+						searchicon : 'icon-search orange',
+						refresh: true,
+						refreshicon : 'icon-refresh green',
+						gridview: true,
+						autoencode: true
+            });
+
+        });
+
+        function updatePagerIcons(table) {
+            var replacement =
+            {
+                'ui-icon-seek-first' : 'icon-double-angle-left bigger-140',
+                'ui-icon-seek-prev' : 'icon-angle-left bigger-140',
+                'ui-icon-seek-next' : 'icon-angle-right bigger-140',
+                'ui-icon-seek-end' : 'icon-double-angle-right bigger-140'
+            };
+            $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function(){
+                var icon = $(this);
+                var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+
+                if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
+            })
+        }
+    </r:script>
 </head>
 
 <body>
@@ -183,6 +249,12 @@
                     </div>
 
                 </form>
+                <hr/>
+
+                <div class="row">
+                    <table id="grid"></table>
+                    <div id="pager"></div>
+                </div>
 
             </div>
         </div>

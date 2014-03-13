@@ -1,9 +1,13 @@
 package com.gsl.oros.core.banking.clients
 
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorBankAccountInfo
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorGeneralAddress
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorMaster
-import com.gsl.oros.core.banking.settings.clients.vendor.VendorPostalAddress
+import com.gsl.oros.core.banking.clients.vendor.VendorBankAccountInfo
+import com.gsl.oros.core.banking.clients.vendor.VendorGeneralAddress
+import com.gsl.oros.core.banking.clients.vendor.VendorMaster
+import com.gsl.oros.core.banking.clients.vendor.VendorPostalAddress
+//import com.gsl.oros.core.banking.settings.clients.vendor.VendorBankAccountInfo
+//import com.gsl.oros.core.banking.settings.clients.vendor.VendorGeneralAddress
+//import com.gsl.oros.core.banking.settings.clients.vendor.VendorMaster
+//import com.gsl.oros.core.banking.settings.clients.vendor.VendorPostalAddress
 
 class VendorController {
 
