@@ -216,9 +216,14 @@
 
 
     <div id="cardTab" class="tab-pane " style="display: none">
-
         <g:render template='/coreBanking/settings/product/cardTabBody'/>
     </div>
+  %{--}  <div class="align-right">
+    <button class="btn btn-info " type="submit">
+        <i class="icon-ok bigger-110"></i>
+        Submit
+    </button>
+    </div>  --}%
 
 </div>
 

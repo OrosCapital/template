@@ -20,7 +20,7 @@ environments {
             url = "jdbc:mysql://localhost:3306/orostemplate"
             logSql = true
             username = "root"
-            password = "root"
+            password = ""
         }
     }
     test {
