@@ -523,6 +523,12 @@ class BootStrap {
                     createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createRetailClient)
                 }
+
+                Events saveRetailClientSignature = Events.findByName('SAVE_RETAIL_CLIENT_SIGNATURE')
+                if(!saveRetailClientSignature){
+                    saveRetailClientSignature = new Events(name: 'SAVE_RETAIL_CLIENT_SIGNATURE',description:'Save New Retail Client Signature',fmenuText:'Save Retail Client Signature',controllerName: 'retailClient',actionName:'saveRetailClientSignature', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveRetailClientSignature)
+                }
                 // <-- create retail account for client end -->
 
                 Events createRetailAgent = Events.findByName('CREATE_RETAIL_AGENT')

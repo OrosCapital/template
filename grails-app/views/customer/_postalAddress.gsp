@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label for="postalCountry"
-                       class="col-sm-5 control-label no-padding-right no-padding-left">Postal Country</label>
+                       class="col-sm-5 control-label no-padding-right no-padding-left">Postal Country*</label>
                 <div class="col-sm-7">
                     <select name="postalCountry" id="postalCountry" class="form-control" required="required">
                         <option value="">- Choose One -</option>

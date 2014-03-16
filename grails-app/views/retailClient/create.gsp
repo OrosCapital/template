@@ -61,7 +61,7 @@
                     <div class="tab-pane active" id="retailAccountInformation">
                         <g:render template='accountInformation'/>
                     </div>
-                    <div class="tab-pane active" id="necessaryPersonalInfo">
+                    <div class="tab-pane" id="necessaryPersonalInfo">
                         <g:render template='necessaryPersonalInfo'/>
                     </div>
                     <div class="tab-pane" id="retailIntroducerInformation">
