@@ -6,27 +6,31 @@ import com.gsl.oros.core.banking.settings.accounting.ChartMaster
 
 class ChartMasterController {
 
+    private static final String ID = 'id'
+    private static final String CHART_GROUP = 'name'
+    private static final String ASC = 'asc'
+
     def index() {}
 
     def create(){
-        def chartGroupList = ChartGroup.list()
+        List<ChartGroup> chartGroupList = ChartGroup.list(sort :CHART_GROUP, order : ASC, readOnly :true)
         render (view: '/coreBanking/settings/accounting/chart/createChartMaster', model: [chartGroupList: chartGroupList])
     }
 
     def save() {
         try{
             // :::: Save ::::
-            def aChartMaster = new ChartMaster(params)
-            if (params.id == '' && aChartMaster.save(flush: true)){
+            def chartMaster = new ChartMaster(params)
+            if (params.id == '' && chartMaster.save(flush: true)){
                 flash.success = "Chart Master Add Successfully"
                 redirect(action: "treeView")
             }
             // :::: Update ::::
             else if (params.id != ''){
                 //println params.id
-                Long id = params.getLong('id')
-                def aChartMasterEdit = aChartMaster.get(id)
-                aChartMasterEdit.properties = aChartMaster
+                Long id = params.getLong(ID)
+                def aChartMasterEdit = chartMaster.get(id)
+                aChartMasterEdit.properties = chartMaster
                 if (aChartMasterEdit.save(flush: true)){
                     flash.success = "Chart Master Update Successfully"
                     redirect(action: 'treeView')
@@ -51,14 +55,16 @@ class ChartMasterController {
 
     def edit(){
         //def id = params.id
-        Long id = params.getLong('id')
-        def aChartMaster = ChartMaster.get(id)
-        def chartGroupList = ChartGroup.list()
-        render (view: "/coreBanking/settings/accounting/chart/createChartMaster", model: [aChartMaster : aChartMaster,chartGroupList : chartGroupList])
+        Long id = params.getLong(ID)
+        ChartMaster chartMaster = ChartMaster.get(id)
+        List<ChartGroup> chartGroupList = ChartGroup.list(sort :CHART_GROUP, order : ASC, readOnly :true)
+        render (view: "/coreBanking/settings/accounting/chart/createChartMaster",
+                model: [aChartMaster : chartMaster,chartGroupList : chartGroupList])
     }
 
     def treeView(){
-        def chartClassLists = ChartClass.list()
-        render (view: "/coreBanking/settings/accounting/chart/chartTreeView", model: [chartClassLists : chartClassLists])
+        List<ChartClass> chartClassLists = ChartClass.list(sort :CHART_GROUP, order : ASC, readOnly :true)
+        render (view: "/coreBanking/settings/accounting/chart/chartTreeView",
+                model: [chartClassLists : chartClassLists])
     }
 }
