@@ -170,7 +170,7 @@
 </script>
 
 
-<p>Deposit Parameters</p>
+<legend class="blue"><small>Deposit Parameters</small></legend>
 
 <p>Transaction in :
 
