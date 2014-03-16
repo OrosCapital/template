@@ -11,35 +11,35 @@
 
 
             <div class="form-group">
-                <label for="horizon" class="col-sm-5 control-label">Investment Time horizon</label>
-                <input type="checkbox" name="timeType"  value="1">
+                <label  class="col-sm-5 control-label">Investment Time horizon</label>
+                <input type="checkbox" name="timeType"  value="1" id="horizon1">
                 <span >1-3 years</span>
 
 
-                <input type="checkbox" name="timeType"  value="2">
+                <input type="checkbox" name="timeType"  value="2" id="horizon2">
                 <span>3-5 years</span>
 
 
-                <input type="checkbox" name="timeType"  value="3">
+                <input type="checkbox" name="timeType"  value="3" id="horizon3">
                 <span>5-10 years</span>
 
-                <input type="checkbox" name="timeType"  value="4">
+                <input type="checkbox" name="timeType"  value="4" id="horizon4">
                 <span>10+ years</span>
 
 
             </div>
 
             <div class="form-group">
-                <label for="risk" class="col-sm-5 control-label">Investment Objectives <br/> & Risk Classification</label>
-                <div><input type="checkbox" name="riskType"  value="1">
+                <label class="col-sm-5 control-label">Investment Objectives <br/> & Risk Classification</label>
+                <div><input type="checkbox" name="riskType"  value="1" id="risk1">
                     <span >Income Return</span>  </div>
 
 
-                <div><input type="checkbox" name="riskType"  value="2">
+                <div><input type="checkbox" name="riskType"  value="2" id="risk2">
                     <span>Aggressive Total Return</span>  </div>
 
 
-                <div><input type="checkbox" name="riskType"  value="3">
+                <div><input type="checkbox" name="riskType"  value="3" id="risk3">
                     <span>Income and Growth Return</span>   </div>
 
             </div>

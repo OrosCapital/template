@@ -170,42 +170,43 @@
 </script>
 
 
-<p>Deposit Parameters</p>
+<legend class="blue"><small>Deposit Parameters</small></legend>
 
 <p>Transaction in :
 
-    <input type="checkbox" name="payType" id="cash" value="1">
-    <span>Cash</span>
+<input class="ace" type="checkbox"  name="payType" id="cash" value="1">
+    <span class="lbl">Cash</span>
 
 
-    <input type="checkbox" name="payType" id="cheque" value="2">
-    <span>Cheque</span>
+
+<input type="checkbox" class="ace" name="payType" id="cheque" value="2">
+    <span class="lbl">Cheque</span>
 
 
-    <input type="checkbox" name="payType" id="card" value="3">
-    <span>Card</span>
+<input type="checkbox" class="ace" name="payType" id="card" value="3">
+    <span class="lbl">Card</span>
 </p>
 
 
 <div class="tabbable" id="transTab">
-    <ul id="myTab2" class="nav nav-tabs padding-12 tab-color-blue background-blue">
+<ul id="myTab2" class="nav nav-tabs padding-12 tab-color-blue background-blue">
 
-        <li class="" id="cashList" style="display: none">
-            <a href="#cashTab" data-toggle="tab">Cash</a>
-        </li>
+  <li class="" id="cashList" style="display: none">
+      <a href="#cashTab" data-toggle="tab">Cash</a>
+  </li>
 
-        <li class="" id="chequeList" style="display: none">
-            <a href="#chequeTab" data-toggle="tab">Cheque</a>
-        </li>
-        <li class="" id="cardList" style="display: none">
-            <a href="#cardTab" data-toggle="tab">Card</a>
-        </li>
+  <li class="" id="chequeList" style="display: none">
+      <a href="#chequeTab" data-toggle="tab">Cheque</a>
+  </li>
+  <li class="" id="cardList" style="display: none">
+      <a href="#cardTab" data-toggle="tab">Card</a>
+  </li>
 
-    </ul>
+</ul>
 </div>
 
 <div class="tab-content">
-    <div id="cashTab" class="tab-pane active" style="display: none">
+<div id="cashTab" class="tab-pane active" style="display: none">
         <g:render template='/coreBanking/settings/product/cashTabBody'/>
     </div>
 

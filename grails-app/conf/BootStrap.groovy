@@ -202,6 +202,19 @@ class BootStrap {
                     createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
+                // edit country
+                Events editCountrySubmit = Events.findByName('EDIT_COUNTRY')
+                if(!editCountrySubmit){
+                    editCountrySubmit = new Events(name: 'EDIT_COUNTRY',description:'Edit country event',fmenuText:'Edit',controllerName: 'country',actionName:'edit', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(editCountrySubmit )
+                }
+
+                 // udpate country
+                Events updateCountrySubmit = Events.findByName('UPDATE_COUNTRY')
+                if(!updateCountrySubmit ){
+                    updateCountrySubmit  = new Events(name: 'UPDATE_COUNTRY',description:'Update Country',fmenuText:'Update',controllerName: 'country',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(updateCountrySubmit )
+                }
 
                 Events showListOfCountry = Events.findByName('SHOW_LIST_COUNTRY')
                 if(!showListOfCountry){

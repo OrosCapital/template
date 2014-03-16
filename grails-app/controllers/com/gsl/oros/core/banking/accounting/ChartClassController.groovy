@@ -37,7 +37,7 @@ class ChartClassController {
             new ChartClassType(classType: 'Expanse',status: 1).save(flush: true)
         }
 
-        def chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
+        List<ChartClass> chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
         render (view: '/coreBanking/settings/accounting/chart/createChartClass', model: [chartClassTypeList: chartClassTypeList])
     }
 
@@ -77,7 +77,7 @@ class ChartClassController {
     def edit(){
         Long id = params.getLong(ID) // use constant
         ChartClass chartClass = ChartClass.get(id)
-        List<ChartClassType> chartClassTypeList = ChartClassType.list(order : 'asc', readOnly :true)
+        List<ChartClassType> chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
         render (view: "/coreBanking/settings/accounting/chart/createChartClass",
                 model: [chartClass: chartClass, chartClassTypeList : chartClassTypeList ])
 

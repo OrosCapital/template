@@ -57,4 +57,13 @@
     <div class="col-sm-8">
         <g:render template='/coreBanking/settings/product/transferFeesTable'/>
     </div>
+
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-11 ">
+            <button class="btn btn-info" type="button">
+                <i class="icon-ok bigger-110"></i>
+                Save
+            </button>
+            </div>
+        </div>
 </div>
