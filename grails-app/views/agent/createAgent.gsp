@@ -49,7 +49,7 @@
                 $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
             });
 
-
+            $('input:checkbox').removeAttr('checked');
             $('#horizon1').attr('checked', true).click(function () {
                 $('#horizon2').attr('checked', false);
                 $('#horizon3').attr('checked', false);
