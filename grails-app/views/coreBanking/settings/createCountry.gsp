@@ -63,7 +63,7 @@
             updateCountry();
             return false;
         });
-            clearForm();
+    clearForm();
  });
 
     function editCountry(){
@@ -76,6 +76,16 @@
             dataType:'json',
             type:'post'
         });
+    }
+
+    function deleteCountry(){
+        alert("Click Delete");
+        var gridEntity = $('#grid');
+        var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
+        var countryName = gridEntity.jqGrid ('getCell', selRowId, 'Country Name');
+        $("#countryId").val(countryId);
+        $("#countryName").text(countryName);
     }
 
     function afterSuccessEditEvent(data) {
@@ -134,6 +144,8 @@
                       $('div#error-message-div').show();
                      } else {
                       $("#grid").jqGrid('setGridParam',{ datatype: 'json' }).trigger('reloadGrid');
+                      $('span.country-error-message').text('').hide();
+                      $('div#error-message-div').hide();
                        clearForm();
                     }
             }
