@@ -97,11 +97,6 @@
          $("#countryForm").removeAttr('method');
         $('#submitCountry').text("Update");
     }
-
-    function deleteCountry(){
-        alert("Click Delete Button");
-    }
-
         function updatePagerIcons(table) {
             var replacement =
             {
@@ -134,8 +129,13 @@
             type:'post',
             data:jQuery("#countryForm").serialize(),
             success:function (data, textStatus) {
-            $("#grid").jqGrid('setGridParam',{ datatype: 'json' }).trigger('reloadGrid');
-                clearForm();
+                    if(data.isError){
+                      $('span.country-error-message').html(data.message).show();
+                      $('div#error-message-div').show();
+                     } else {
+                      $("#grid").jqGrid('setGridParam',{ datatype: 'json' }).trigger('reloadGrid');
+                       clearForm();
+                    }
             }
         });
     }
@@ -153,12 +153,12 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                %{--<div class="alert alert-error err-message"  id="error-message-div">
+                <div class="alert alert-danger" id="error-message-div" style="display: none">
                     <a class="close" onclick="$('div#error-message-div').hide();">×</a>
                     <span class="country-error-message">&nbsp;</span>
-                </div>--}%
+                </div>
                 <g:form class="form-horizontal" method="post" name="countryForm" id="countryForm"
-                      action="${createLink(controller: 'country', action: 'save')}">
+                        action="${createLink(controller: 'country', action: 'save')}">
 
                     <g:hiddenField name="id" value=""/>
                     <g:hiddenField name="version" value=""/>
@@ -244,10 +244,12 @@
                         </div>
                     </div>
 
-                <div class="buttons">
-                        <button type="submit" class="btn btn-sm btn-success" id="submitCountry" name="Create">Create</button>
-                        <button type="button" class="btn btn-light btn-white" id="reset" onclick="clearForm();" name="reset">Reset</button>
-                </div>
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-sm btn-success" id="submitCountry"
+                                name="Create">Create</button>
+                        <button type="button" class="btn btn-light btn-white" id="reset" onclick="clearForm();"
+                                name="reset">Reset</button>
+                    </div>
 
                 </g:form>
                 <hr/>

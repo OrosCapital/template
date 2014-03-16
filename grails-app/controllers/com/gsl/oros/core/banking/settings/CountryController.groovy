@@ -62,26 +62,26 @@ class CountryController {
     }
 
     private List<Country> wrapGridEntityList(List<Country> countryList, int start) {
-        List<Country> lstCountry = []
+            List<Country> lstCountry = []
 
-        int counter = start + 1
-        for (int i = 0; i < countryList.size(); i++) {
-            GridEntity obj = new GridEntity()
-            Country country = countryList[i]
-            obj.id = country.id
-            obj.cell = [
-                    counter,
-                    country.id,
-                    country.name,
-                    country.numcode,
-                    country.iso2,
-                    country.iso3,
-                    country.printablename
-            ]
-            lstCountry << obj
-            counter++
-        }
-        return lstCountry
+            int counter = start + 1
+            for (int i = 0; i < countryList.size(); i++) {
+                GridEntity obj = new GridEntity()
+                Country country = countryList[i]
+                obj.id = country.id
+                obj.cell = [
+                        counter,
+                        country.id,
+                        country.name,
+                        country.numcode,
+                        country.iso2,
+                        country.iso3,
+                        country.printablename
+                ]
+                lstCountry << obj
+                counter++
+            }
+            return lstCountry
     }
 
     def edit() {
@@ -102,8 +102,24 @@ class CountryController {
     def update() {
         Map result
         long countryId = Long.parseLong(params.id.toString())
+        int countName = Country.countByNameIlikeAndIdNotEqual(params.name, countryId)
+        if (countName > 0) {
+            result = [isError: true, message: params.name + ' name already exist.']
+            render(result as JSON)
+            return
+        }
+        int countIso2 = Country.countByIso2IlikeAndIdNotEqual(params.iso2, countryId)
+        if (countIso2 > 0) {
+            result = [isError: true, message: params.iso2 + ' already exist']
+            render(result as JSON)
+            return
+        }
         Country country = Country.get(countryId)
         country.name = params.name
+        country.printablename = params.printablename
+        country.iso2 = params.iso2
+        country.iso3 = params.iso3
+        country.numcode = Long.parseLong(params.numcode.toString())
         country.version = country.version + 1
         country.save(flush: true)
         GridEntity object = new GridEntity()
@@ -117,8 +133,7 @@ class CountryController {
                 country.printablename
         ]
         result = [updateEntity: object]
-        String  output = result as JSON
-        println "output :" + output
+        String output = result as JSON
         render(output)
     }
 }
