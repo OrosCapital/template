@@ -7,43 +7,43 @@
             <div class="form-group">
                 <label for="contactPersonName" class="col-sm-5 control-label">Contact Person Name*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="contactPersonName"
-                       name="contactPersonName">
+                       name="contactPersonName" required/>
             </div>
 
             <div class="form-group">
                 <label for="contactDealType" class="col-sm-5 control-label">Contact Deal Type</label>
                 <input type="text" class="col-sm-7" placeholder="" id="contactDealType"
-                       name="contactDealType">
+                       name="contactDealType" required/>
             </div>
 
             <div class="form-group">
                 <label for="phoneNo" class="col-sm-5 control-label">Phone No</label>
                 <input type="text" class="col-sm-7" placeholder="" id="phoneNo"
-                       name="phoneNo">
+                       name="phoneNo" required/>
             </div>
 
             <div class="form-group">
                 <label for="websiteAddress" class="col-sm-5 control-label">Website Address</label>
                 <input type="text" class="col-sm-7" placeholder="" id="websiteAddress"
-                       name="websiteAddress">
+                       name="websiteAddress" required/>
             </div>
 
             <div class="form-group">
                 <label for="addressLine1" class="col-sm-5 control-label">Address Line1</label>
                 <input type="text" class="col-sm-7" placeholder="" id="addressLine1"
-                       name="addressLine1">
+                       name="addressLine1" required/>
             </div>
 
             <div class="form-group">
                 <label for="postalCode" class="col-sm-5 control-label">Postal Code*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="postalCode"
-                       name="postalCode">
+                       name="postalCode" required/>
             </div>
 
             <div class="form-group">
                 <label for="state" class="col-sm-5 control-label">State</label>
                 <input type="text" class="col-sm-7" placeholder="" id="state"
-                       name="state">
+                       name="state" required/>
             </div>
 
             <div class="form-group">
@@ -52,7 +52,6 @@
                 <div class="col-sm-7">
                     <select id="status" class="form-control" name="status">
                         <option>-Select-</option>
-
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
 
@@ -67,37 +66,37 @@
             <div class="form-group">
                 <label for="contactPersonReference" class="col-sm-5 control-label">Contact Person Reference</label>
                 <input type="text" class="col-sm-7" placeholder="" id="contactPersonReference"
-                       name="contactPersonReference">
+                       name="contactPersonReference" required/>
             </div>
 
             <div class="form-group">
                 <label for="mobileNo" class="col-sm-5 control-label">Mobile No</label>
                 <input type="text" class="col-sm-7" placeholder="" id="mobileNo"
-                       name="mobileNo">
+                       name="mobileNo" required/>
             </div>
 
             <div class="form-group">
                 <label for="secondEmail" class="col-sm-5 control-label">Second Email</label>
                 <input type="email" class="col-sm-7" placeholder="" id="secondEmail"
-                       name="secondEmail">
+                       name="secondEmail" required/>
             </div>
 
             <div class="form-group">
                 <label for="fax" class="col-sm-5 control-label">Fax</label>
                 <input type="text" class="col-sm-7" placeholder="" id="fax"
-                       name="fax">
+                       name="fax" required/>
             </div>
 
             <div class="form-group">
                 <label for="addressLine2" class="col-sm-5 control-label">Address Line2</label>
                 <input type="text" class="col-sm-7" placeholder="" id="addressLine2"
-                       name="addressLine2">
+                       name="addressLine2" required/>
             </div>
 
             <div class="form-group">
                 <label for="city" class="col-sm-5 control-label">City</label>
                 <input type="text" class="col-sm-7" placeholder="" id="city"
-                       name="city">
+                       name="city" required/>
             </div>
 
             <div class="form-group">

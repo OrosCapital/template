@@ -7,13 +7,13 @@
             <div class="form-group">
                 <label for="vendorBankAccountName" class="col-sm-5 control-label">Bank Account Name*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountName"
-                       name="bankAccountName">
+                       name="bankAccountName" required/>
             </div>
 
             <div class="form-group">
                 <label for="vendorBankAccountNo" class="col-sm-5 control-label">Bank Account No*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountNo"
-                       name="bankAccountNo">
+                       name="bankAccountNo" required/>
             </div>
 
 
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="vendorIbanPrefix" class="col-sm-5 control-label">Iban Prefix*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="vendorIbanPrefix"
-                       name="ibanPrefix">
+                       name="ibanPrefix" required/>
             </div>
 
             <div class="form-group">
@@ -49,7 +49,7 @@
 
             </div>
         </div>
-        <table class="table" id="vendorBankAccountInfo">
+        <table class="table" id="vendorBankAccountInfoTable">
             <thead>
             <tr style="background: #dceefc">
                 <th>Bank Account Name</th>

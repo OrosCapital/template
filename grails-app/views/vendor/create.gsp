@@ -29,8 +29,10 @@
     </r:script>
 </head>
 <body>
+
 <div class="row">
     <div class="col-md-12">
+
         <div class="tabbable">
             <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
                 <li class="active" id="ba">
