@@ -16,10 +16,29 @@ class CountryController {
     }
 
     def save() {
-        println(params)
-        Country country = new Country(params)
-        country.save(failOnError: true)
-        render(view: '/coreBanking/settings/createCountry')
+        Map result
+        long countCountry = Country.countByName(params.name)
+        if (countCountry > 0) {
+            result = [isError: true, message: "Country name " + params.name + ' already exist.']
+            render(result as JSON)
+            return
+        } else {
+            Country country = new Country(params)
+            country.save(failOnError: true)
+            GridEntity object = new GridEntity()
+            object.id = country.id
+            object.cell = [
+                    country.id,
+                    country.name,
+                    country.numcode,
+                    country.iso2,
+                    country.iso3,
+                    country.printablename
+            ]
+            result = [updateEntity: object]
+            String output = result as JSON
+            render(output)
+        }
     }
 
     def list() {
@@ -62,26 +81,26 @@ class CountryController {
     }
 
     private List<Country> wrapGridEntityList(List<Country> countryList, int start) {
-            List<Country> lstCountry = []
+        List<Country> lstCountry = []
 
-            int counter = start + 1
-            for (int i = 0; i < countryList.size(); i++) {
-                GridEntity obj = new GridEntity()
-                Country country = countryList[i]
-                obj.id = country.id
-                obj.cell = [
-                        counter,
-                        country.id,
-                        country.name,
-                        country.numcode,
-                        country.iso2,
-                        country.iso3,
-                        country.printablename
-                ]
-                lstCountry << obj
-                counter++
-            }
-            return lstCountry
+        int counter = start + 1
+        for (int i = 0; i < countryList.size(); i++) {
+            GridEntity obj = new GridEntity()
+            Country country = countryList[i]
+            obj.id = country.id
+            obj.cell = [
+                    counter,
+                    country.id,
+                    country.name,
+                    country.numcode,
+                    country.iso2,
+                    country.iso3,
+                    country.printablename
+            ]
+            lstCountry << obj
+            counter++
+        }
+        return lstCountry
     }
 
     def edit() {

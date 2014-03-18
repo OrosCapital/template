@@ -60,7 +60,7 @@
             ).navSeparatorAdd("#pager",{sepclass : 'ui-separator'});
 
       $('#countryForm').submit(function (e) {
-            updateCountry();
+            onSubmitCountry();
             return false;
         });
     clearForm();
@@ -128,13 +128,18 @@
             $("#version").val('');
             $("input[type=text],input[type=number], textarea").val('');
             $('#submitCountry').text("Create");
-            var createUrl = "${createLink(controller: 'country', action: 'create')}";
-            $("#countryForm").attr('action', createUrl);
+//            var createUrl = "${createLink(controller: 'country', action: 'save')}";
+//            $("#countryForm").attr('action', createUrl);
         }
 
-        function updateCountry(){
+        function onSubmitCountry(){
+            var actionUrl = "${createLink(controller: 'country', action: 'save')}";
+            var id = $("#id").val();
+            if(id >0){
+              actionUrl =  "${createLink(controller: 'country', action: 'update')}";
+            }
             $.ajax({
-            url: "${createLink(controller: 'country', action: 'update')}",
+            url:actionUrl,
             dataType:'json',
             type:'post',
             data:jQuery("#countryForm").serialize(),
@@ -169,8 +174,7 @@
                     <a class="close" onclick="$('div#error-message-div').hide();">×</a>
                     <span class="country-error-message">&nbsp;</span>
                 </div>
-                <g:form class="form-horizontal" method="post" name="countryForm" id="countryForm"
-                        action="${createLink(controller: 'country', action: 'save')}">
+                <form class="form-horizontal" method="post" name="countryForm" id="countryForm">
 
                     <g:hiddenField name="id" value=""/>
                     <g:hiddenField name="version" value=""/>
@@ -263,7 +267,7 @@
                                 name="reset">Reset</button>
                     </div>
 
-                </g:form>
+                </form>
                 <hr/>
 
                 <div class="row">
