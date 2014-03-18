@@ -18,9 +18,11 @@ environments {
         dataSource {
             dbCreate = "create-drop" // one of 'createVendorGeneralAddress', 'createVendorGeneralAddress-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/orostemplate"
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:mysql://localhost:3306/oros"
             logSql = true
             username = "root"
-            password = "root"
+            password = "123"
         }
     }
     test {
