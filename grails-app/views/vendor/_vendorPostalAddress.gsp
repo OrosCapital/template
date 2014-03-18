@@ -7,7 +7,7 @@
             <div class="form-group">
                 <label for="postalContactPersonName" class="col-sm-5 control-label">Contact Person Name*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="postalContactPersonName"
-                       name="postalContactPersonName" value="${aPostalAddress?.postalContactPersonName}">
+                       name="postalContactPersonName" value="${aPostalAddress?.postalContactPersonName}" required/>
             </div>
 
 
@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="postalCity" class="col-sm-5 control-label">Postal City</label>
                 <input type="text" class="col-sm-7" placeholder="" id="postalCity"
-                       name="postalCity" value="${aPostalAddress?.postalCity}">
+                       name="postalCity" value="${aPostalAddress?.postalCity}" required/>
             </div>
 
             <div class="form-group">
@@ -46,13 +46,13 @@
             <div class="form-group">
                 <label for="postalPostcode" class="col-sm-5 control-label">Postal Postcode</label>
                 <input type="text" class="col-sm-7" placeholder="" id="postalPostcode"
-                       name="postalPostcode" value="${aPostalAddress?.postalPostcode}">
+                       name="postalPostcode" value="${aPostalAddress?.postalPostcode}" required/>
             </div>
 
             <div class="form-group">
                 <label for="postalState" class="col-sm-5 control-label">Postal State</label>
                 <input type="text" class="col-sm-7" placeholder="" id="postalState"
-                       name="postalState" value="${aPostalAddress?.postalState}">
+                       name="postalState" value="${aPostalAddress?.postalState}" required/>
             </div>
 
             <div class="form-group">

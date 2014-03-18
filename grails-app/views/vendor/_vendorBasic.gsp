@@ -7,25 +7,25 @@
 
             <div class="form-group">
                 <label for="vendorCode" class="col-sm-5 control-label">Vendor Code</label>
-                <input type="text" class="col-sm-7" placeholder="" id="vendorCode" name="vendorCode" value="${avendorMaster?.vendorCode}">
+                <input type="text" class="col-sm-7" placeholder="" id="vendorCode" name="vendorCode" value="${avendorMaster?.vendorCode}" required/>
             </div>
 
             <div class="form-group">
                 <label for="firstName" class="col-sm-5 control-label">First Name</label>
                 <input type="text" class="col-sm-7" placeholder="" id="firstName"
-                       name="firstName" value="${avendorMaster?.firstName}">
+                       name="firstName" value="${avendorMaster?.firstName}" required/>
             </div>
 
             <div class="form-group">
                 <label for="lastName" class="col-sm-5 control-label">Last Name</label>
                 <input type="text" class="col-sm-7" placeholder="" id="lastName"
-                       name="lastName" value="${avendorMaster?.lastName}">
+                       name="lastName" value="${avendorMaster?.lastName}" required/>
             </div>
 
             <div class="form-group">
                 <label for="email" class="col-sm-5 control-label">Email</label>
                 <input type="email" class="col-sm-7" placeholder="" id="email"
-                       name="email" value="${avendorMaster?.email}">
+                       name="email" value="${avendorMaster?.email}" required/>
             </div>
 
 
@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="chamberOfCommerce" class="col-sm-5 control-label">Chamber of Commerce</label>
                 <input type="text" class="col-sm-7" placeholder="" id="chamberOfCommerce"
-                       name="chamOfCommerce" value="${avendorMaster?.chamOfCommerce}">
+                       name="chamOfCommerce" value="${avendorMaster?.chamOfCommerce}" required/>
             </div>
 
             <div class="form-group">
@@ -65,20 +65,20 @@
             <div class="form-group">
                 <label for="vendorName" class="col-sm-5 control-label">Vendor Name*</label>
                 <input type="text" class="col-sm-7" placeholder="" id="vendorName"
-                       name="vendorName" value="${avendorMaster?.vendorName}">
+                       name="vendorName" value="${avendorMaster?.vendorName}" required/>
             </div>
 
             <div class="form-group">
                 <label for="middleName" class="col-sm-5 control-label">Middle Name</label>
                 <input type="text" class="col-sm-7" placeholder="" id="middleName"
-                       name="middleName" value="${avendorMaster?.middleName}">
+                       name="middleName" value="${avendorMaster?.middleName}" required/>
             </div>
 
             <div class="form-group">
                 <label for="gender"
                        class="col-sm-5 control-label">Gender</label>
                 <div class="col-sm-7">
-                    <select id="gender" class="form-control" name="gender" >
+                    <select id="gender" class="form-control" name="gender">
                         <option value="Male" selected>Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -134,7 +134,7 @@
                 <div class="col-sm-7">
                     <select id="status" class="form-control" name="status">
 
-
+                        <option>-Select-</option>
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
 

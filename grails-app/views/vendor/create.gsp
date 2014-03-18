@@ -30,38 +30,43 @@
 </head>
 <body>
 
-    <div class="tabbable">
-        <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
-            <li class="active" id="ba">
-                <a href="#basic" data-toggle="tab">Basic</a>
-            </li>
-            <li class="disabled" id="ga">
-                <a href="#generalAddress" data-toggle="tab">General Address</a>
-            </li>
-            <li class="disabled" id="pa">
-                <a href="#postalAddress" data-toggle="tab">Postal Address</a>
-            </li>
-            <li class="disabled" id="bai">
-                <a href="#bankAccountInfo" data-toggle="tab">Bank Account Info</a>
-            </li>
-        </ul>
+<div class="row">
+    <div class="col-md-12">
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="basic">
-                <g:render template='/vendor/vendorBasic'/>
-            </div>
+        <div class="tabbable">
+            <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
+                <li class="active" id="ba">
+                    <a href="#basic" data-toggle="tab">Basic</a>
+                </li>
+                <li class="disabled" id="ga">
+                    <a href="#generalAddress" data-toggle="tab">General Address</a>
+                </li>
+                <li class="disabled" id="pa">
+                    <a href="#postalAddress" data-toggle="tab">Postal Address</a>
+                </li>
+                <li class="disabled" id="bai">
+                    <a href="#bankAccountInfo" data-toggle="tab">Bank Account Info</a>
+                </li>
+            </ul>
 
-            <div class="tab-pane" id="generalAddress">
-                <g:render template='/vendor/vendorGeneralAddress'/>
-            </div>
-            <div class="tab-pane" id="postalAddress">
-                <g:render template='/vendor/vendorPostalAddress'/>
-            </div>
-            <div class="tab-pane" id="bankAccountInfo">
-                <g:render template='/vendor/vendorBankAccountInfo'/>
+            <div class="tab-content">
+                <div class="tab-pane active" id="basic">
+                    <g:render template='/vendor/vendorBasic'/>
+                </div>
+
+                <div class="tab-pane" id="generalAddress">
+                    <g:render template='/vendor/vendorGeneralAddress'/>
+                </div>
+                <div class="tab-pane" id="postalAddress">
+                    <g:render template='/vendor/vendorPostalAddress'/>
+                </div>
+                <div class="tab-pane" id="bankAccountInfo">
+                    <g:render template='/vendor/vendorBankAccountInfo'/>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 
 </body>

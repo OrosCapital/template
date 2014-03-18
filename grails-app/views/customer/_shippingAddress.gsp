@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="note" class="col-sm-5 control-label no-padding-right no-padding-left">
-                    Note
+                    Note*
                 </label>
                 <div class="col-sm-7">
                     <textarea name="note" id="note" class="col-xs-10 col-sm-12" required
