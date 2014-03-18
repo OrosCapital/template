@@ -19,15 +19,17 @@
     <script>
 
         $(document).ready(function () {
+
             $("#datepicker").datepicker();
 
 
-            $.datepicker.setDefaults({
+
+           %{-- $.datepicker.setDefaults({
                 showOn: "both",
                 buttonImageOnly: true,
-                buttonImage: "/template/static/images/date.jpg",
+                buttonImage: "/template/static/images/date.png",
                 buttonText: "Calendar"
-            });
+            });  --}%
 
 
             $("#recipt").blur(function () {
@@ -206,7 +208,7 @@
     <label for="recipt" class="col-md-6 control-label">Recipt Account no</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="recipt" placeholder="" required="required">
+        <input type="text" class="form-control" id="recipt" placeholder="Recipt Account no" required="required">
     </div>
 </div>
 
@@ -214,7 +216,7 @@
     <label for="bId" class="col-md-6 control-label">Branch ID</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="bId" placeholder="" required="required">
+        <input type="text" class="form-control" id="bId" placeholder="Branch ID" required="required">
     </div>
 </div>
 
@@ -235,17 +237,12 @@
 
     <div class="col-md-6 ">
         <input type="text" id="datepicker">
-    </div>
-    %{--  <label for="datepicker" class="col-md-6 control-label">Date of Deposit</label>
+         <img src="/template/static/images/date.png">
 
-
-    %{--   <div class="input-group date date col-md-6" id="datepicker">
-    <input type='text' class="form-control"  placeholder="27-02-2014" readonly>
-    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-    </span>
     </div>
 
-    <g:datePicker name="myDate" value="${new Date()}"  precision="day" noSelection="['':'-Choose-']"/>  --}%
+
+   %{-- <g:datePicker name="myDate" value="${new Date()}"  precision="day" noSelection="['':'-Choose-']"/>  --}%
 </div>
 
     <div class="form-group">
@@ -272,7 +269,7 @@
         <label for="dAmount" class="col-md-6 control-label">Deposit Amount</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" id="dAmount" placeholder="" required="required">
+            <input type="text" class="form-control" id="dAmount" placeholder="Deposit Amount" required="required">
         </div>
     </div>
 
@@ -294,7 +291,7 @@
                 <label for="pacc" class="col-md-6 control-label">Paid Account no</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="pacc" placeholder="" required="required">
+                    <input type="text" class="form-control" id="pacc" placeholder="Account no" required="required">
                 </div>
             </div>
 
@@ -302,7 +299,7 @@
                 <label for="pname" class="col-md-6 control-label">Name</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="pname" placeholder="" required="required">
+                    <input type="text" class="form-control" id="pname" placeholder="Name" required="required">
                 </div>
             </div>
 
@@ -310,7 +307,7 @@
                 <label for="add" class="col-md-6 control-label">Address</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="add" placeholder="" required="required">
+                    <input type="text" class="form-control" id="add" placeholder="Address" required="required">
                 </div>
             </div>
 
