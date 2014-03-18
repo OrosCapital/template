@@ -23,6 +23,36 @@
         <r:script>
             $(document).ready(function () {
                 // alert("jquery is working");
+                $("#signaturePreview").hide();
+                $("#retailClientSignature").submit(function(e)  {
+                    //var formObj = $(this);
+                    //var formURL = formObj.attr("save");
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url:"${createLink(controller: 'retailClient', action: 'saveRetailClientSignature')}",
+                        type: 'POST',
+                        data:  formData,
+                        dataType:'json',
+                        mimeType:"multipart/form-data",
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                        success: function (data) {
+                            $("#signaturePreview").show();
+                            $("#retailClientSignature").hide();
+                            var signatureName = data.imgPath;
+                            var imagePath="/template/static/images/userImages/clients/retailClients/signatures/1/" + signatureName;
+                            //alert(imagePath);
+                            $("#signatureId").attr({src:imagePath})
+                        }
+                    });
+                    e.preventDefault();
+                    e.unbind();
+                });
+                $('#editSignature').click(function(){
+                    $("#signaturePreview").hide();
+                    $("#retailClientSignature").show();
+                });
             });
         </r:script>
     </head>
