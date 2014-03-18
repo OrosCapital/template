@@ -38,21 +38,22 @@ class ChartClassController {
         }
 
         List<ChartClass> chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
-        render (view: '/coreBanking/settings/accounting/chart/createChartClass', model: [chartClassTypeList: chartClassTypeList])
+        render (view: '/coreBanking/settings/accounting/chart/createChartClass',
+                model: [chartClassTypeList: chartClassTypeList])
     }
 
     def save() {
         try{
-            // :::: Save ::::
             def aChartClass = new ChartClass(params)  // rename var accordingly
-            if (params.id == '' && aChartClass.save(flush: true)){
+            Long id = params.getLong(ID)
+
+            // :::: Save ::::
+            if (id == null && aChartClass.save(flush: true)){
                 flash.success = "Chart Class Add Successfully"
                 redirect(controller: 'chartMaster', action: "treeView")
             }
             // :::: Update ::::
-            else if (params.id != ''){
-                //println params.id
-                Long id = params.getLong(ID)
+            else if (id != null){
                 def aChartClassEdit = aChartClass.get(id)
                 aChartClassEdit.properties = aChartClass
                 if (aChartClassEdit.save(flush: true)){

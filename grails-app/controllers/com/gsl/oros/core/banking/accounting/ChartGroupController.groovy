@@ -11,15 +11,15 @@ import grails.converters.JSON
 class ChartGroupController {
 
     private static final String ID = 'id'
-    private static final String CHART_CLASS = 'name'
-    //private static final String CHART_GROUP = 'name'
+    private static final String sortColumn = 'name'
+    //private static final String sortColumn = 'name'
     private static final String ASC = 'asc'
 
     def index() {}
 
 
     def create(){
-        List<ChartClass> chartClassList = ChartClass.list(sort :CHART_CLASS, order : ASC, readOnly :true)
+        List<ChartClass> chartClassList = ChartClass.list(sort :sortColumn, order : ASC, readOnly :true)
         List<ChartGroup> chartGroupList = ChartGroup.list(sort :'name', order : ASC, readOnly :true)
         render (view: '/coreBanking/settings/accounting/chart/createChartGroup', model: [chartClassList: chartClassList, chartGroupList :chartGroupList])
     }
@@ -27,16 +27,16 @@ class ChartGroupController {
 
     def save() {
         try{
+            Long id = params.getLong(ID)
             def aChartGroup = new ChartGroup(params)
 
             // ::: Save  :::
-            if (params.id == '' && aChartGroup.save(flush: true)){
+            if (id == null && aChartGroup.save(flush: true)){
                 flash.success = "Chart Group Add Successfully"
                 redirect(controller: 'chartMaster', action: "treeView")
             }
             // :::: Update ::::
-            else if (params.id != ''){
-                Long id = params.getLong(ID)
+            else if (id != null){
                 def aChartGroupEdit = aChartGroup.get(id)
                 aChartGroupEdit.properties = aChartGroup
                 if (aChartGroupEdit.save(flush: true)){
@@ -65,7 +65,7 @@ class ChartGroupController {
     def edit(){
         Long id = params.getLong(ID)
         ChartGroup chartGroup = ChartGroup.get(id)
-        List<ChartClass> chartClassList = ChartClass.list(sort: CHART_CLASS, order : ASC, readOnly :true)
+        List<ChartClass> chartClassList = ChartClass.list(sort: sortColumn, order : ASC, readOnly :true)
         render (view: "/coreBanking/settings/accounting/chart/createChartGroup",
                 model: [chartGroup: chartGroup,chartClassList : chartClassList])
     }
