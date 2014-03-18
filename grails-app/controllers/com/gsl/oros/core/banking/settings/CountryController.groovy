@@ -42,17 +42,55 @@ class CountryController {
     }
 
     def list() {
-        // set grid params
         (start, resultPerPage, pageNumber) = initGridParams(params)
 
-        List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order: sortOrder])
+        if (params._search == "true") {
+            long numcode = 0
+            if (params.numcode) {
+                numcode = Long.parseLong(params.numcode)
+            }
+            List<Country> lstCountry = Country.withCriteria {
+                if (params.name) ilike('name', '%' + params.name + '%')
+                if (params.numcode) {
+                    eq('numcode', numcode )
+                }
+                if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
+                if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
+                if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
 
-        List<Country> resultList = wrapGridEntityList(lstCountry, start)
-        int recordsCount = Country.count()
-        def maxRows = Integer.valueOf(params.rows ?: resultPerPage)
-        def numberOfPages = Math.ceil(recordsCount / maxRows)
-        Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
-        render(gridOutput as JSON)
+                maxResults(resultPerPage)
+                firstResult(start)
+                order(sortColumn, sortOrder)
+                setReadOnly(true)
+            }
+
+            List counts = Country.withCriteria {
+                if (params.name) ilike('name', '%' + params.name + '%')
+                if (params.numcode) {
+                    eq('numcode', numcode)
+                }
+                if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
+                if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
+                if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
+                projections { rowCount() }
+            }
+            List<Country> resultList = wrapGridEntityList(lstCountry, start)
+            int recordsCount = counts[0] as int
+            int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
+            int numberOfPages = Math.ceil(recordsCount / maxRows)
+            Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
+            render(gridOutput as JSON)
+            return
+        } else {
+            List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order: sortOrder])
+
+            List<Country> resultList = wrapGridEntityList(lstCountry, start)
+            int recordsCount = Country.count()
+            int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
+            int numberOfPages = Math.ceil(recordsCount / maxRows)
+            Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
+            render(gridOutput as JSON)
+        }
     }
 
     private List initGridParams(def params) {
@@ -75,7 +113,8 @@ class CountryController {
         // calculating the start offset
         start = ((pageNumber - 1) * resultPerPage);
         if (start > 0) {
-            start = start - (resultPerPage - resultPerPage);
+//            start = start - (resultPerPage - resultPerPage);
+            start = start - resultPerPage;
         }
         return [start, resultPerPage, pageNumber]
     }
@@ -89,7 +128,6 @@ class CountryController {
             Country country = countryList[i]
             obj.id = country.id
             obj.cell = [
-                    counter,
                     country.id,
                     country.name,
                     country.numcode,
