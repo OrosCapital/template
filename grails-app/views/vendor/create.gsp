@@ -16,13 +16,13 @@
 
             if(tabSelector == 1){
             $('#vendorBasicInfo').addClass( "active" );
-            $('#basic').addClass( "active" );
+            $('#vendorBasic').addClass( "active" );
             $('#vendorBasicInfo').show();
 
             $('#vendorGeneralAdd').removeClass( "active" );
             $('#vendorPostalAdd').removeClass( "active" );
             $('#vendorAccountInfo').removeClass( "active" );
-            //$('#basic').hide();
+
             }
             else if(tabSelector == 2){
             $('#vendorGeneralAdd').addClass( "active" );
@@ -32,7 +32,7 @@
             $('#vendorBasicInfo').removeClass( "active" );
             $('#vendorPostalAdd').removeClass( "active" );
             $('#vendorAccountInfo').removeClass( "active" );
-            //$('#basic').hide();
+
             }
 
             else if(tabSelector == 3){
@@ -43,7 +43,7 @@
             $('#vendorBasicInfo').removeClass( "active" );
             $('#vendorGeneralAdd').removeClass( "active" );
             $('#vendorAccountInfo').removeClass( "active" );
-            //$('#basic').hide();
+
             }
 
             else if(tabSelector == 4){
@@ -54,7 +54,7 @@
             $('#vendorBasicInfo').removeClass( "active" );
             $('#vendorGeneralAdd').removeClass( "active" );
             $('#vendorPostalAdd').removeClass( "active" );
-            //$('#basic').hide();
+
             }
 
 
@@ -89,7 +89,7 @@
     <div class="tabbable" id="tabs_container">
         <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
             <li class="" id="vendorBasicInfo">
-                <a href="#basic" data-toggle="tab">Basic</a>
+                <a href="#vendorBasic" data-toggle="tab">Basic</a>
             </li>
             <li class="" id="vendorGeneralAdd">
                 <a href="#vendorGeneralAddress" data-toggle="tab">General Address</a>
@@ -103,7 +103,7 @@
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane" id="basic">
+            <div class="tab-pane" id="vendorBasic">
                 <g:render template='/vendor/vendorBasic'/>
             </div>
 
