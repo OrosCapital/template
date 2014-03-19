@@ -3,27 +3,47 @@
 <head>
     <meta name="layout" content="oros">
     <title></title>
-    <r:script>
+    <style>
+    .ui-jqgrid .ui-search-table { height: 18px; }
+    .ui-jqgrid .ui-search-table .ui-search-oper { height: 18px; }
+    .ui-jqgrid .ui-jqgrid-htable .ui-search-toolbar th { height: 45px; }
+
+    .ui-jqgrid .ui-jqgrid-view input,
+    .ui-jqgrid .ui-jqgrid-view select,
+    .ui-jqgrid .ui-jqgrid-view textarea,
+    .ui-jqgrid .ui-jqgrid-view button {
+        font-size: 15px;
+    }
+
+    </style>
+
+    %{--<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">--}%
+    %{--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--}%
+    %{--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>--}%
+
+   <r:script>
         jQuery(document).ready(function(){
             jQuery("#grid").jqGrid({
                 url:'${createLink(controller: 'country', action: 'list')}',
                 datatype: "json",
                 mtype: 'GET',
-                height:326,
+                height: 326,
                 width: 750,
                 colModel:[
-                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
                     {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
                     {name:'Country Name',index:'name', width:175, sortable:false, editable:false},
-                    {name:'Code',index:'', width:75,editable:false,sortable:false, align:'center'},
-                    {name:'ISO-2',index:'', width:75,editable:false,sortable:false, align:'center'},
-                    {name:'ISO-3',index:'', width:75,editable:false,sortable:false,align:'center'},
-                    {name:'Printable Name',index:'', width:175,editable:false,sortable:false}
+                    {name:'Code',index:'numcode', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'ISO-2',index:'iso2', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'ISO-3',index:'iso3', width:75,editable:false,sortable:false,align:'center'},
+                    {name:'Printable Name',index:'printablename', width:175,editable:false,sortable:false}
                 ],
                 jsonReader : {
                  repeatitems:true
                 },
                 loadonce: false,
+                gridview: true,
+                rownumbers:true,
+                rownumWidth:35,
                 scrollOffset:1,
                 rowNum:10,
                 rowList:[10,15,20],
@@ -34,6 +54,7 @@
                 altRows:true,
                 caption: "All Countries",
                 viewrecords: true,
+//                filterToolbar:{ searchOnEnter: true, enableClear: false },
                 	loadComplete : function() {
 						var table = this;
 						setTimeout(function()
@@ -49,20 +70,26 @@
 						searchicon : 'icon-search orange',
 						refresh: true,
 						refreshicon : 'icon-refresh green',
-						gridview: true,
 						autoencode: true
             });
 
             $("#grid").navGrid("#pager").navButtonAdd("#pager",
             {caption:'', buttonicon:"icon-pencil blue", onClickButton:function(){editCountry();}, title:"Edit", cursor: "pointer"}
             ).navButtonAdd('#pager',
-            {caption:"",buttonicon:"icon-trash red",onClickButton: function(){deleteCountry();},position:"last"}
+            {caption:"",buttonicon:"/*icon-trash red*/",onClickButton: function(){deleteCountry();},position:"last"}
             ).navSeparatorAdd("#pager",{sepclass : 'ui-separator'});
 
       $('#countryForm').submit(function (e) {
-            updateCountry();
+            onSubmitCountry();
             return false;
         });
+
+      $('#grid').jqGrid('filterToolbar',{ searchOnEnter: true,
+      //       searchOperators: true,
+//        autosearch: true,
+      enableClear: false
+      });
+
     clearForm();
  });
 
@@ -76,16 +103,6 @@
             dataType:'json',
             type:'post'
         });
-    }
-
-    function deleteCountry(){
-        alert("Click Delete");
-        var gridEntity = $('#grid');
-        var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
-        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
-        var countryName = gridEntity.jqGrid ('getCell', selRowId, 'Country Name');
-        $("#countryId").val(countryId);
-        $("#countryName").text(countryName);
     }
 
     function afterSuccessEditEvent(data) {
@@ -126,15 +143,20 @@
         function clearForm(){
             $("#id").val('');
             $("#version").val('');
-            $("input[type=text],input[type=number], textarea").val('');
+            $("input[type=text],input[type=number], input[type=select], textarea").val('');
             $('#submitCountry').text("Create");
-            var createUrl = "${createLink(controller: 'country', action: 'create')}";
-            $("#countryForm").attr('action', createUrl);
+//            var createUrl = "${createLink(controller: 'country', action: 'save')}";
+//            $("#countryForm").attr('action', createUrl);
         }
 
-        function updateCountry(){
+        function onSubmitCountry(){
+            var actionUrl = "${createLink(controller: 'country', action: 'save')}";
+            var id = $("#id").val();
+            if(id >0){
+              actionUrl =  "${createLink(controller: 'country', action: 'update')}";
+            }
             $.ajax({
-            url: "${createLink(controller: 'country', action: 'update')}",
+            url:actionUrl,
             dataType:'json',
             type:'post',
             data:jQuery("#countryForm").serialize(),
@@ -152,11 +174,31 @@
         });
     }
 
+
+    function deleteCountry(){
+        var gridEntity = $('#grid');
+        var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
+        var countryName = gridEntity.jqGrid ('getCell', selRowId, 'Country Name');
+        if (countryId.length>0) {
+    /*    var names = [];
+        for (var i=0, il=ids.length; i < il; i++) {
+            var name = grid.jqGrid('getCell', ids[i], 'Name');
+            names.push(name);
+        }*/
+
+        //alert ("Names: " + names.join(", ") + "; ids: " + ids.join(", "));
+//        $("#names").html(names.join(", "));
+
+
+        $("#countryId").val(countryId);
+        $("#countryName").text(countryName);
+    }
+   }
     </r:script>
 </head>
 
 <body>
-
 <div class="col-md-12">
     <div class="widget-box">
         <div class="widget-header">
@@ -169,8 +211,7 @@
                     <a class="close" onclick="$('div#error-message-div').hide();">×</a>
                     <span class="country-error-message">&nbsp;</span>
                 </div>
-                <g:form class="form-horizontal" method="post" name="countryForm" id="countryForm"
-                        action="${createLink(controller: 'country', action: 'save')}">
+                <form class="form-horizontal" method="post" name="countryForm" id="countryForm">
 
                     <g:hiddenField name="id" value=""/>
                     <g:hiddenField name="version" value=""/>
@@ -263,7 +304,7 @@
                                 name="reset">Reset</button>
                     </div>
 
-                </g:form>
+                </form>
                 <hr/>
 
                 <div class="row">
@@ -275,6 +316,9 @@
     </div>
 
 </div><!-- /span -->
-
+<div id="dialog" title="Delete Country">
+    <span id="countryName"></span>
+</div>
 </body>
+
 </html>
