@@ -5,7 +5,7 @@
                         <label class="col-sm-2 control-label no-padding-right" for="firstName">Name:</label>
 
                         <div class="col-sm-9">
-                            <input id="firstName" class="col-xs-10 col-sm-5" type="text" name="firstName" placeholder="First Name">
+                            <input id="firstName" class="col-xs-10 col-sm-5" type="text" name="firstName" placeholder="First Name" onfocus="this.placeholder=''" onblur="this.placeholder = 'First Nme'">
                         </div>
                     </div>
 
@@ -14,7 +14,7 @@
                         <label class="col-sm-2 control-label no-padding-right" for="address">Address:</label>
 
                         <div class="col-sm-9">
-                            <input id="address" class="col-xs-10 col-sm-5" type="text" name="address" placeholder="Address">
+                            <input id="address" class="col-xs-10 col-sm-5" type="text" name="address" placeholder="Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address'">
                         </div>
                     </div>
 
@@ -23,7 +23,7 @@
                         <label class="col-sm-2 control-label no-padding-right" for="accNo">A/C No:</label>
 
                         <div class="col-sm-9">
-                            <input id="accNo" class="col-xs-10 col-sm-5" type="text" name="accNo" placeholder="A/C No">
+                            <input id="accNo" class="col-xs-10 col-sm-5" type="text" name="accNo" placeholder="A/C No" onfocus="this.placeholder=''" onblur="this.placeholder = 'Account No'">
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
                         <label class="col-sm-2 control-label no-padding-right" for="contactNo">Contact No:</label>
 
                         <div class="col-sm-9">
-                            <input id="contactNo" class="col-xs-10 col-sm-5" type="text" name="contactNo" placeholder="Contact No">
+                            <input id="contactNo" class="col-xs-10 col-sm-5" type="text" name="contactNo" placeholder="Contact No" onfocus="this.placeholder=''" onblur="this.placeholder = 'Contact No'">
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
 
                         <div class="col-sm-9">
                             <input id="relAcNo" class="col-xs-10 col-sm-5" type="text" name="relAcNo"
-                                   placeholder="Relation Of A/C Holder">
+                                   placeholder="Relation Of A/C Holder" onfocus="this.placeholder=''" onblur="this.placeholder = 'Relation Of A/C Holder'">
                         </div>
                     </div>
 

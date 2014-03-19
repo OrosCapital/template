@@ -1,3 +1,5 @@
+
+
 <g:form name="accountOpenForm" method=""
         id="accountOpenForm" role="form"
         class="form-horizontal">
@@ -37,7 +39,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label no-padding-right" for="accountPurpose">Account Purpose:</label>
                 <div class="col-sm-9">
-                    <input id="accountPurpose" class="col-xs-10 col-sm-5" type="text" name="accountPurpose" placeholder="Account Purpose">
+                    <input id="accountPurpose" class="col-xs-10 col-sm-5" type="text" name="accountPurpose" placeholder="Account Purpose" onfocus="this.placeholder=''" onblur="this.placeholder = 'Account Purpose'">
                 </div>
             </div>
 
@@ -55,7 +57,7 @@
                 <label class="col-sm-2 control-label no-padding-right" for="sourceFund">Source Of Fund:</label>
 
                 <div class="col-sm-9">
-                    <input id="sourceFund" class="col-xs-10 col-sm-5" type="text" name="sourceFund" placeholder="Source Of Fund">
+                    <input id="sourceFund" class="col-xs-10 col-sm-5" type="text" name="sourceFund" placeholder="Source Of Fund" onfocus="this.placeholder=''" onblur="this.placeholder = 'Source Of Fund'">
                 </div>
             </div>
 
@@ -65,7 +67,7 @@
 
                 <div class="col-sm-9">
                     <input id="monthlyIncome" class="col-xs-10 col-sm-5" type="text" name="monthlyIncome"
-                           placeholder="Monthly Income">
+                           placeholder="Monthly Income" onfocus="this.placeholder=''" onblur="this.placeholder = 'Monthly Income'">
                 </div>
             </div>
 
@@ -75,7 +77,7 @@
 
                 <div class="col-sm-9">
                     <input id="initialDeposit" class="col-xs-10 col-sm-5" type="text" name="initialDeposit"
-                           placeholder="Initial Deposit">
+                           placeholder="Initial Deposit" onfocus="this.placeholder=''" onblur="this.placeholder = 'Initial Deposit'">
                 </div>
             </div>
 
@@ -85,7 +87,7 @@
                 <div class="col-sm-9">
 
                     <input id="residentialStatus" class="col-xs-10 col-sm-5" type="text" name="residentialStatus"
-                           placeholder="Residential Status">
+                           placeholder="Residential Status" onfocus="this.placeholder=''" onblur="this.placeholder = 'Residential Status'">
                 </div>
             </div>
 
@@ -94,7 +96,7 @@
 
                 <div class="col-sm-9">
 
-                    <input id="acOpenedBy" class="col-xs-10 col-sm-5" type="text" name="acOpenedBy" placeholder="Account Opened By">
+                    <input id="acOpenedBy" class="col-xs-10 col-sm-5" type="text" name="acOpenedBy" placeholder="Account Opened By" onfocus="this.placeholder=''" onblur="this.placeholder = 'Account Opened By'">
                 </div>
             </div>
 
