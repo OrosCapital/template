@@ -41,6 +41,15 @@ class CountryController {
         }
     }
 
+    def delete() {
+        long countryId = Long.parseLong(params.countryId.toString())
+        Country country = Country.get(countryId)
+        country.delete(flush: true)
+        Map result = [isSuccess: true, message: "Country deleted successfully."]
+        render result as JSON
+        return
+    }
+
     def list() {
         (start, resultPerPage, pageNumber) = initGridParams(params)
 
@@ -52,7 +61,7 @@ class CountryController {
             List<Country> lstCountry = Country.withCriteria {
                 if (params.name) ilike('name', '%' + params.name + '%')
                 if (params.numcode) {
-                    eq('numcode', numcode )
+                    eq('numcode', numcode)
                 }
                 if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
                 if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
@@ -152,7 +161,6 @@ class CountryController {
         }
         result = [entity: country, version: country.version]
         String output = result as JSON
-        println "result as JSON > " + output
         render(result as JSON)
     }
 

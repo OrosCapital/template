@@ -1,27 +1,31 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta name="layout" content="oros">
-    <title></title>
-    <style>
-    .ui-jqgrid .ui-search-table { height: 18px; }
-    .ui-jqgrid .ui-search-table .ui-search-oper { height: 18px; }
-    .ui-jqgrid .ui-jqgrid-htable .ui-search-toolbar th { height: 45px; }
+<meta name="layout" content="oros">
+<title></title>
+<style>
+.ui-jqgrid .ui-search-table {
+    height: 18px;
+}
 
-    .ui-jqgrid .ui-jqgrid-view input,
-    .ui-jqgrid .ui-jqgrid-view select,
-    .ui-jqgrid .ui-jqgrid-view textarea,
-    .ui-jqgrid .ui-jqgrid-view button {
-        font-size: 15px;
-    }
+.ui-jqgrid .ui-search-table .ui-search-oper {
+    height: 18px;
+}
 
-    </style>
+.ui-jqgrid .ui-jqgrid-htable .ui-search-toolbar th {
+    height: 45px;
+}
 
-    %{--<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">--}%
-    %{--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--}%
-    %{--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>--}%
+.ui-jqgrid .ui-jqgrid-view input,
+.ui-jqgrid .ui-jqgrid-view select,
+.ui-jqgrid .ui-jqgrid-view textarea,
+.ui-jqgrid .ui-jqgrid-view button {
+    font-size: 15px;
+}
 
-   <r:script>
+</style>
+
+<r:script>
         jQuery(document).ready(function(){
             jQuery("#grid").jqGrid({
                 url:'${createLink(controller: 'country', action: 'list')}',
@@ -54,7 +58,6 @@
                 altRows:true,
                 caption: "All Countries",
                 viewrecords: true,
-//                filterToolbar:{ searchOnEnter: true, enableClear: false },
                 	loadComplete : function() {
 						var table = this;
 						setTimeout(function()
@@ -76,7 +79,7 @@
             $("#grid").navGrid("#pager").navButtonAdd("#pager",
             {caption:'', buttonicon:"icon-pencil blue", onClickButton:function(){editCountry();}, title:"Edit", cursor: "pointer"}
             ).navButtonAdd('#pager',
-            {caption:"",buttonicon:"/*icon-trash red*/",onClickButton: function(){deleteCountry();},position:"last"}
+            {caption:"",buttonicon:"icon-trash red",onClickButton: function(){deleteCountry();},position:"last"}
             ).navSeparatorAdd("#pager",{sepclass : 'ui-separator'});
 
       $('#countryForm').submit(function (e) {
@@ -84,13 +87,8 @@
             return false;
         });
 
-      $('#grid').jqGrid('filterToolbar',{ searchOnEnter: true,
-      //       searchOperators: true,
-//        autosearch: true,
-      enableClear: false
-      });
-
-    clearForm();
+      $('#grid').jqGrid('filterToolbar',{ searchOnEnter: true,enableClear: false});
+      clearForm();
  });
 
     function editCountry(){
@@ -174,28 +172,42 @@
         });
     }
 
+    function returnCountryId(){
+        var gridEntity = $('#grid');
+        var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
+        if(countryId)
+        return countryId;
+        else
+        return null;
+    }
 
     function deleteCountry(){
         var gridEntity = $('#grid');
         var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
         var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
         var countryName = gridEntity.jqGrid ('getCell', selRowId, 'Country Name');
-        if (countryId.length>0) {
-    /*    var names = [];
-        for (var i=0, il=ids.length; i < il; i++) {
-            var name = grid.jqGrid('getCell', ids[i], 'Name');
-            names.push(name);
-        }*/
-
-        //alert ("Names: " + names.join(", ") + "; ids: " + ids.join(", "));
-//        $("#names").html(names.join(", "));
-
-
-        $("#countryId").val(countryId);
-        $("#countryName").text(countryName);
+        var strURL = "${createLink(controller: 'country', action: 'delete')}";
+            strURL = strURL + "?countryId=" + countryId;
+        if( selRowId != null ) $("#grid").jqGrid('delGridRow',selRowId,
+            {url:strURL,reloadAfterSubmit:true, width:350, top:500, left:350, beforeShowForm:function ($form) {
+            $("td.delmsg", $form[0]).html("Do you really want to delete the <b>" + countryName + "</b>?");
+            }});
+        else alert("Please select country to delete!");
     }
-   }
-    </r:script>
+
+    function afterDeleteSuccess(data){
+        if(data.isSuccess){
+         $("#grid").setGridParam({datatype:'json', page:1}).trigger('reloadGrid');
+            $('span.country-success-message').html(data.message).show();
+            $('div#success-message-div').show().delay(2000).fadeOut();
+        }else{
+          $('span.country-error-message').html("Failed to delete").show();
+          $('div#error-message-div').show().delay(2000).fadeOut();
+        }
+        return false;
+    }
+</r:script>
 </head>
 
 <body>
@@ -211,6 +223,12 @@
                     <a class="close" onclick="$('div#error-message-div').hide();">×</a>
                     <span class="country-error-message">&nbsp;</span>
                 </div>
+
+                <div class="alert alert-success" id="success-message-div" style="display: none">
+                    <a class="close" onclick="$('div#success-message-div').hide();">×</a>
+                    <span class="country-success-message">&nbsp;</span>
+                </div>
+
                 <form class="form-horizontal" method="post" name="countryForm" id="countryForm">
 
                     <g:hiddenField name="id" value=""/>
@@ -309,6 +327,7 @@
 
                 <div class="row">
                     <table id="grid"></table>
+
                     <div id="pager"></div>
                 </div>
             </div>
