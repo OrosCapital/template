@@ -6,7 +6,7 @@
 
             <div class="form-group">
                 <label for="phoneNo" class="col-sm-5 control-label">Residency for Tax Purposes</label>
-                <input type="text" class="col-sm-7" placeholder="Residency for Tax Purposes" id="phoneNo"
+                <input type="text" class="col-sm-7" placeholder="Residency for Tax Purposes" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Residency for Tax Purposes'" id="phoneNo"
                        name="phoneNo"  required="required">
             </div>
 
@@ -14,25 +14,25 @@
 
             <div class="form-group">
                 <label for="fax" class="col-sm-5 control-label">Domicile</label>
-                <input type="text" class="col-sm-7" placeholder="Domicile" id="fax"
+                <input type="text" class="col-sm-7" placeholder="Domicile" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Domicile'" id="fax"
                        name="fax"  required="required">
             </div>
 
             <div class="form-group">
                 <label for="mobileNo" class="col-sm-5 control-label">Income Tax Rate</label>
-                <input type="text" class="col-sm-7" placeholder="Income Tax Rate" id="mobileNo"
+                <input type="text" class="col-sm-7" placeholder="Income Tax Rate" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Income Tax Rate'" id="mobileNo"
                        name="mobileNo"  required="required">
             </div>
 
             <div class="form-group">
                 <label for="websiteAddress" class="col-sm-5 control-label">National Insurance Number</label>
-                <input type="text" class="col-sm-7" placeholder="National Insurance Number" id="websiteAddress"
+                <input type="text" class="col-sm-7" placeholder="National Insurance Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'National Insurance Number'" id="websiteAddress"
                        name="websiteAddress"  required="required">
             </div>
 
             <div class="form-group">
                 <label for="taxReference" class="col-sm-5 control-label">Tax Reference</label>
-                <input type="text" class="col-sm-7" placeholder="Tax Reference" id="taxReference"
+                <input type="text" class="col-sm-7" placeholder="Tax Reference" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tax Reference'" id="taxReference"
                        name="taxReference"  required="required">
             </div>
 

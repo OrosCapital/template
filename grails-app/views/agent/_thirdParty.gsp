@@ -6,22 +6,22 @@
 
             <div class="form-group">
                 <label for="Name" class="col-sm-5 control-label">Contact Name</label>
-                <input type="text" class="col-sm-7" placeholder="Contact Name" id="Name" name="Name" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Contact Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Name'" id="Name" name="Name" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="role" class="col-sm-5 control-label">Role</label>
-                <input type="text" class="col-sm-7" placeholder="Role" id="role" name="role" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Role" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Role'" id="role" name="role" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="address" class="col-sm-5 control-label">Address</label>
-                <input type="text" class="col-sm-7" placeholder="Address" id="address" name="address" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" id="address" name="address" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="firm" class="col-sm-5 control-label">Name of Firm</label>
-                <input type="text" class="col-sm-7" placeholder="Name of Firm" id="firm" name="firm" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Name of Firm" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name of Firm'" id="firm" name="firm" value="" required="required">
             </div>
 
             <div class="form-group">
@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 <label for="nationalID" class="col-sm-5 control-label">National ID</label>
-                <input type="text" class="col-sm-7" placeholder="National Identification No" id="nationalID"
+                <input type="text" class="col-sm-7" placeholder="National Identification No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'National Identification No'" id="nationalID"
                        name="nationalID" value="" required="required">
             </div>
 
@@ -58,19 +58,19 @@
 
             <div class="form-group">
                 <label for="email" class="col-sm-5 control-label">Email</label>
-                <input type="text" class="col-sm-7" placeholder="Email" id="email"
+                <input type="text" class="col-sm-7" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" id="email"
                        name="email" value="" required="required">
             </div>
 
             <div class="form-group">
-                <label for="phone" class="col-sm-5 control-label">Phone no</label>
-                <input type="text" class="col-sm-7" placeholder="Phone no" id="phone"
+                <label for="phone" class="col-sm-5 control-label">Phone No</label>
+                <input type="text" class="col-sm-7" placeholder="Phone No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone No'" id="phone"
                        name="phone" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="postCode" class="col-sm-5 control-label">Post Code</label>
-                <input type="text" class="col-sm-7" placeholder="Post Code" id="postCode"
+                <input type="text" class="col-sm-7" placeholder="Post Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Post Code'" id="postCode"
                        name="postCode" value="" required="required">
             </div>
 
@@ -79,7 +79,7 @@
 
             <div class="form-group">
                 <label for="res" class="col-sm-5 control-label">Residency for Tax Purposes</label>
-                <input type="text" class="col-sm-7" placeholder="Residency for Tax Purposes" id="res"
+                <input type="text" class="col-sm-7" placeholder="Residency for Tax Purposes" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Residency for Tax Purposes'" id="res"
                        name="res" value="" required="required">
             </div>
 

@@ -6,19 +6,19 @@
 
             <div class="form-group">
                 <label for="phoneNo" class="col-sm-5 control-label">Phone No</label>
-                <input type="text" class="col-sm-7" placeholder="Phone No" id="phoneNo"
+                <input type="text" class="col-sm-7" placeholder="Phone No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone No'" id="phoneNo"
                        name="phoneNo" required="required" >
             </div>
 
             <div class="form-group">
                 <label for="email" class="col-sm-5 control-label">Email</label>
-                <input type="email" class="col-sm-7" placeholder="Email" id="email"
+                <input type="email" class="col-sm-7" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" id="email"
                        name="email" required="required">
             </div>
 
             <div class="form-group">
                 <label for="fax" class="col-sm-5 control-label">Fax</label>
-                <input type="text" class="col-sm-7" placeholder="Fax No" id="fax"
+                <input type="text" class="col-sm-7" placeholder="Fax No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fax No'" id="fax"
                        name="fax" required="required">
             </div>
 
@@ -30,13 +30,13 @@
 
             <div class="form-group">
                 <label for="mobileNo" class="col-sm-5 control-label">Mobile No</label>
-                <input type="text" class="col-sm-7" placeholder="Mobile No" id="mobileNo"
+                <input type="text" class="col-sm-7" placeholder="Mobile No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mobile No'" id="mobileNo"
                        name="mobileNo"  required="required">
             </div>
 
             <div class="form-group">
                 <label for="websiteAddress" class="col-sm-5 control-label">Website Address</label>
-                <input type="text" class="col-sm-7" placeholder="Website Address" id="websiteAddress"
+                <input type="text" class="col-sm-7" placeholder="Website Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Website Address'" id="websiteAddress"
                        name="websiteAddress" required="required">
             </div>
 

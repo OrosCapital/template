@@ -6,18 +6,18 @@
 
             <div class="form-group">
                 <label for="firstName" class="col-sm-5 control-label">First Name</label>
-                <input type="text" class="col-sm-7" placeholder="First Name" id="firstName" name="firstName" value="">
+                <input type="text" class="col-sm-7" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" id="firstName" name="firstName" value="">
             </div>
 
             <div class="form-group">
                 <label for="lastName" class="col-sm-5 control-label">Last Name</label>
-                <input type="text" class="col-sm-7" placeholder="Last Name" id="lastName"
+                <input type="text" class="col-sm-7" placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" id="lastName"
                        name="lastName" value="">
             </div>
 
             <div class="form-group">
                 <label for="motherName" class="col-sm-5 control-label">Mother's Name</label>
-                <input type="text" class="col-sm-7" placeholder="Mother's Name" id="motherName"
+                <input type="text" class="col-sm-7" placeholder="Mother's Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mother Name'" id="motherName"
                        name="motherName" value="">
             </div>
 
@@ -34,13 +34,13 @@
 
             <div class="form-group">
                 <label for="profession" class="col-sm-5 control-label">Profession</label>
-                <input type="text" class="col-sm-7" placeholder="Profession" id="profession"
+                <input type="text" class="col-sm-7" placeholder="Profession" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Profession'" id="profession"
                        name="profession" value="">
             </div>
 
             <div class="form-group">
                 <label for="nationality" class="col-sm-5 control-label">Nationality</label>
-                <input type="text" class="col-sm-7" placeholder="Nationality" id="nationality"
+                <input type="text" class="col-sm-7" placeholder="Nationality" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nationality'" id="nationality"
                        name="nationality" value="">
             </div>
 
@@ -50,13 +50,13 @@
 
             <div class="form-group">
                 <label for="middleName" class="col-sm-5 control-label">Middle Name</label>
-                <input type="text" class="col-sm-7" placeholder="Middle Name" id="middleName"
+                <input type="text" class="col-sm-7" placeholder="Middle Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Middle Name'" id="middleName"
                        name="middleName" value="">
             </div>
 
             <div class="form-group">
                 <label for="fatherName" class="col-sm-5 control-label">Father's Name</label>
-                <input type="text" class="col-sm-7" placeholder="Father's Name" id="fatherName"
+                <input type="text" class="col-sm-7" placeholder="Father Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Father Name'" id="fatherName"
                        name="fatherName" value="">
             </div>
 
@@ -75,19 +75,19 @@
 
             <div class="form-group">
                 <label for="placeofBirth" class="col-sm-5 control-label">Place of Birth</label>
-                <input type="text" class="col-sm-7" placeholder="Place of Birth" id="placeofBirth"
+                <input type="text" class="col-sm-7" placeholder="Place of Birth" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Place of Birth'" id="placeofBirth"
                        name="placeofBirth" value="">
             </div>
 
             <div class="form-group">
                 <label for="citizenship" class="col-sm-5 control-label">Citizenship</label>
-                <input type="text" class="col-sm-7" placeholder="Citizenship" id="citizenship"
+                <input type="text" class="col-sm-7" placeholder="Citizenship" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Citizenship'" id="citizenship"
                        name="citizenship" value="">
             </div>
 
             <div class="form-group">
                 <label for="nationalID" class="col-sm-5 control-label">National ID</label>
-                <input type="text" class="col-sm-7" placeholder="National Identification No" id="nationalID"
+                <input type="text" class="col-sm-7" placeholder="National Identification No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'National Identification No'" id="nationalID"
                        name="nationalID" value="">
             </div>
 
