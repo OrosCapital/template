@@ -615,11 +615,7 @@ class BootStrap {
                     createProduct = new Events(name: 'CREATE_PRODUCT',description:'Create Product',fmenuText:'Create Savings Product',controllerName: 'product',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     productMgmt.addToEvents(createProduct)
                 }
-        Events showVoucher = Events.findByName('SHOW_VOUCHER')
-        if(!showVoucher){
-            showVoucher = new Events(name: 'SHOW_VOUCHER',description:'Show deposit voucher',fmenuText:'Show Voucher',controllerName: 'product',actionName:'showVoucher', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
-            productMgmt.addToEvents(showVoucher)
-        }
+
 
 
 
