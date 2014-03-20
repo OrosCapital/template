@@ -5,32 +5,32 @@
 
             <div class="form-group">
                 <label for="accName" class="col-sm-5 control-label">Account Name</label>
-                <input type="text" class="col-sm-7" placeholder="Account Name" id="accName" name="accName" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Account Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Account Name'" id="accName" name="accName" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="bankName" class="col-sm-5 control-label">Name of Bank</label>
-                <input type="text" class="col-sm-7" placeholder="Name of Bank" id="bankName" name="bankName" value=""  required="required">
+                <input type="text" class="col-sm-7" placeholder="Name of Bank" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name of Bank'" id="bankName" name="bankName" value=""  required="required">
             </div>
 
             <div class="form-group">
                 <label for="branch" class="col-sm-5 control-label">Branch</label>
-                <input type="text" class="col-sm-7" placeholder="Branch" id="branch" name="branch" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Branch" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Branch'" id="branch" name="branch" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="accNo" class="col-sm-5 control-label">Bank Account Number</label>
-                <input type="text" class="col-sm-7" placeholder="Bank Account Number" id="accNo" name="accNo" value=""  required="required">
+                <input type="text" class="col-sm-7" placeholder="Bank Account Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bank Account Number'" id="accNo" name="accNo" value=""  required="required">
             </div>
 
             <div class="form-group">
                 <label for="sourceFund" class="col-sm-5 control-label">Source of Fund</label>
-                <input type="text" class="col-sm-7" placeholder="Source of Fund" id="sourceFund" name="sourceFund" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Source of Fund" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Source of Fund'" id="sourceFund" name="sourceFund" value="" required="required">
             </div>
 
             <div class="form-group">
                 <label for="sourceWealth" class="col-sm-5 control-label">Source of Wealth</label>
-                <input type="text" class="col-sm-7" placeholder="Source of Wealth" id="sourceWealth" name="sourceWealth" value="" required="required">
+                <input type="text" class="col-sm-7" placeholder="Source of Wealth" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Source of Wealth'" id="sourceWealth" name="sourceWealth" value="" required="required">
             </div>
         </div>
     </div>

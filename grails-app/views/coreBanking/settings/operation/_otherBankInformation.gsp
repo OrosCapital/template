@@ -8,7 +8,7 @@
                     <label class="col-sm-2 control-label no-padding-right" for="titleAccount">Title of the Account:</label>
 
                     <div class="col-sm-9">
-                        <input id="titleAccount" class="col-xs-10 col-sm-5" type="text" name="titleAccount" placeholder="Title of the Account">
+                        <input id="titleAccount" class="col-xs-10 col-sm-5" type="text" name="titleAccount" placeholder="Title of the Account" onfocus="this.placeholder=''" onblur="this.placeholder = 'Title Of The Account'">
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@
                     <label class="col-sm-2 control-label no-padding-right" for="otherBankAcNo">Account No:</label>
 
                     <div class="col-sm-9">
-                        <input id="otherBankAcNo" class="col-xs-10 col-sm-5" type="text" name="otherBankAcNo" placeholder="Account No">
+                        <input id="otherBankAcNo" class="col-xs-10 col-sm-5" type="text" name="otherBankAcNo" placeholder="Account No" onfocus="this.placeholder=''" onblur="this.placeholder = 'Account No'">
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
                     <label class="col-sm-2 control-label no-padding-right" for="otherBankBranch">Branch:</label>
 
                     <div class="col-sm-9">
-                        <input id="otherBankBranch" class="col-xs-10 col-sm-5" type="text" name="otherBankBranch" placeholder="Branch">
+                        <input id="otherBankBranch" class="col-xs-10 col-sm-5" type="text" name="otherBankBranch" placeholder="Branch" onfocus="this.placeholder=''" onblur="this.placeholder = 'Branch'">
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@
                     <label class="col-sm-2 control-label no-padding-right" for="otherBankType">Type:</label>
 
                     <div class="col-sm-9">
-                        <input id="otherBankType" class="col-xs-10 col-sm-5" type="text" name="otherBankType" placeholder="Type">
+                        <input id="otherBankType" class="col-xs-10 col-sm-5" type="text" name="otherBankType" placeholder="Type" onfocus="this.placeholder=''" onblur="this.placeholder = 'Type'">
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
                     <label class="col-sm-2 control-label no-padding-right" for="otherBankSortCode">Sort Code:</label>
 
                     <div class="col-sm-9">
-                        <input id="otherBankSortCode" class="col-xs-10 col-sm-5" type="text" name="otherBankSortCode" placeholder="Sort Code">
+                        <input id="otherBankSortCode" class="col-xs-10 col-sm-5" type="text" name="otherBankSortCode" placeholder="Sort Code" onfocus="this.placeholder=''" onblur="this.placeholder = 'Sort Code'">
                     </div>
                 </div>
 

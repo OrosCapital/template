@@ -209,6 +209,13 @@ class BootStrap {
                     settingsMgmt.addToEvents(editCountrySubmit )
                 }
 
+                // edit country
+                Events deleteCountrySubmit = Events.findByName('DELETE_COUNTRY')
+                if(!deleteCountrySubmit){
+                    deleteCountrySubmit = new Events(name: 'DELETE_COUNTRY',description:'Delete country event',fmenuText:'Delete',controllerName: 'country',actionName:'delete', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(deleteCountrySubmit)
+                }
+
                  // udpate country
                 Events updateCountrySubmit = Events.findByName('UPDATE_COUNTRY')
                 if(!updateCountrySubmit ){

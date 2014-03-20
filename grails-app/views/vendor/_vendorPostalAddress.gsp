@@ -5,8 +5,8 @@
         <div class="col-md-6">
             <g:hiddenField name="vendorId" value="${avendorMaster?.id}"/>
             <div class="form-group">
-                <label for="postalContactPersonName" class="col-sm-5 control-label">Contact Person Name*</label>
-                <input type="text" class="col-sm-7" placeholder="" id="postalContactPersonName"
+                <label for="postalContactPersonName" class="col-sm-5 control-label">Contact Person Name<span class="red">*</span></label>
+                <input type="text" class="col-sm-7" placeholder="Contact Person Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Person Name'" id="postalContactPersonName"
                        name="postalContactPersonName" value="${aPostalAddress?.postalContactPersonName}" required/>
             </div>
 
@@ -14,19 +14,19 @@
 
             <div class="form-group">
                 <label for="postalAddressLine2" class="col-sm-5 control-label">Postal Address Line2</label>
-                <textarea class="col-sm-7" placeholder="" id="postalAddressLine2"
+                <textarea class="col-sm-7" placeholder="Second Postal Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Second Postal Address'" id="postalAddressLine2"
                           name="postalAddressLine2"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="postalCity" class="col-sm-5 control-label">Postal City</label>
-                <input type="text" class="col-sm-7" placeholder="" id="postalCity"
+                <input type="text" class="col-sm-7" placeholder="Postal City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Postal City'" id="postalCity"
                        name="postalCity" value="${aPostalAddress?.postalCity}" required/>
             </div>
 
             <div class="form-group">
                 <label for="postalCountryId"
-                       class="col-sm-5 control-label">Postal Country*</label>
+                       class="col-sm-5 control-label">Postal Country<span class="red">*</span></label>
 
                 <g:countrySelect name="postalCountryId" value="" class="col-sm-7"
                                  noSelection="['':'-Choose your country-']"/>
@@ -39,19 +39,19 @@
 
             <div class="form-group">
                 <label for="postalAddressLine1" class="col-sm-5 control-label">Postal Address Line1</label>
-                <textarea class="col-sm-7" placeholder="" id="postalAddressLine1"
+                <textarea class="col-sm-7" placeholder="First Postal Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Postal Address'" id="postalAddressLine1"
                           name="postalAddressLine1"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="postalPostcode" class="col-sm-5 control-label">Postal Postcode</label>
-                <input type="text" class="col-sm-7" placeholder="" id="postalPostcode"
+                <input type="text" class="col-sm-7" placeholder="Postal Postcode" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Postal Postcode'" id="postalPostcode"
                        name="postalPostcode" value="${aPostalAddress?.postalPostcode}" required/>
             </div>
 
             <div class="form-group">
                 <label for="postalState" class="col-sm-5 control-label">Postal State</label>
-                <input type="text" class="col-sm-7" placeholder="" id="postalState"
+                <input type="text" class="col-sm-7" placeholder="Postal State" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Postal State'" id="postalState"
                        name="postalState" value="${aPostalAddress?.postalState}" required/>
             </div>
 
@@ -59,8 +59,8 @@
                 <label for="status"
                        class="col-sm-5 control-label">Status</label>
                 <div class="col-sm-7">
-                    <select id="status" class="form-control" name="status">
-                        <option>-Select-</option>
+                    <select id="status" class="form-control" name="status" required>
+                        <option value="">-Select-</option>
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
                     </select>

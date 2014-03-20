@@ -8,11 +8,12 @@ import grails.converters.JSON
 class BankDepositController {
 
     def index() {
-        render (view: '/coreBanking/settings/operation/deposit')
+        render (view: '/coreBanking/settings/operation/bankDeposit')
     }
 
     def check() {
         def checkNo = params.checkNo
+        println(checkNo)
         def result=BankDepositCheck.findByAccountNumber(checkNo)
         if(!result) {
             render(contentType: 'text/json') {
@@ -23,11 +24,10 @@ class BankDepositController {
         render accountHolderInfo as JSON
     }
 
-
     def bankTransfer() {
-        def btCheckNo = params.btCheckNo
-        println("the id is  "+btCheckNo)
-        def result=BankDepositBankTransfer.findByCheckNo(btCheckNo)
+        def bankTransferCheckNo = params.bankTransferCheckNo
+        println("the id is  "+bankTransferCheckNo)
+        def result=BankDepositBankTransfer.findByCheckNo(bankTransferCheckNo)
         def bankTransferAccountHolderInfo
         if (!result) {
             bankTransferAccountHolderInfo = [success: false, message:"SORRY,NO FOUND" ,btnErrorMessage:1]
@@ -47,13 +47,11 @@ class BankDepositController {
         def result=CreditCard.findByCreditCardHolderFirstName(creditCardHolderFirstName)
         if(!result) {
             render(contentType: 'text/json') {
-                [success: true, message: 'SORRY !!! THE ENTERED CHECK NUMBER IS NOT FOUND',error: 1]
+                [success: true, message: 'SORRY !!! THE ENTERED Name IS NOT FOUND',error: 1]
             }
         }
         def accountHolderInfo=[success:true,message: 'Some Message Will Display Here', value:result]
         render accountHolderInfo as JSON
-
-
     }
 
 }

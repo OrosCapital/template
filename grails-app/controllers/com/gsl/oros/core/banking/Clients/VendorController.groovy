@@ -10,7 +10,8 @@ class VendorController {
 
     def index() {
         def vendorMasterList = VendorMaster.list()
-        render(view: '/vendor/create', model: [vendorMasterList:vendorMasterList])
+        def tabSelector=1
+        render(view: '/vendor/create', model: [vendorMasterList:vendorMasterList,tabSelectIndicator:tabSelector])
 
     }
 
@@ -44,7 +45,8 @@ class VendorController {
         long vendorMasterID = Long.parseLong(params.id)
         VendorMaster avendorMaster = VendorMaster.get(vendorMasterID)
         //model: [avendorMaster:avendorMaster]
-        render(view: '/vendor/create', model: [avendorMaster:avendorMaster] )
+        def tabSelector=2
+        render(view: '/vendor/create', model: [avendorMaster:avendorMaster, tabSelectIndicator:tabSelector] )
     }
 
     def saveVendorGeneralAddress(){
@@ -75,7 +77,8 @@ class VendorController {
         VendorGeneralAddress anGeneralAddress = VendorGeneralAddress.get(id)
         VendorMaster avendorMaster = VendorMaster.get(anGeneralAddress.vendorId)
         //model: [avendorMaster:avendorMaster]
-        render(view: '/vendor/create', model: [anGeneralAddress:anGeneralAddress,avendorMaster:avendorMaster])
+        def tabSelector=3
+        render(view: '/vendor/create', model: [anGeneralAddress:anGeneralAddress,avendorMaster:avendorMaster, tabSelectIndicator:tabSelector])
 
     }
 
@@ -102,15 +105,14 @@ class VendorController {
         VendorPostalAddress aPostalAddress = VendorPostalAddress.get(id)
         VendorMaster avendorMaster = VendorMaster.get(aPostalAddress.vendorId)
         VendorGeneralAddress anGeneralAddress = VendorGeneralAddress.findByVendorId(aPostalAddress.vendorId)
-
-        render(view: '/vendor/create', model: [aPostalAddress:aPostalAddress, avendorMaster: avendorMaster, anGeneralAddress: anGeneralAddress])
+        def tabSelector=4
+        render(view: '/vendor/create', model: [aPostalAddress:aPostalAddress, avendorMaster: avendorMaster, anGeneralAddress: anGeneralAddress, tabSelectIndicator:tabSelector])
     }
 
     def saveVendorBankAccountInfo(){
         if(request.method=="POST"){
-            println "Contact Person Name "+ params.contactPersonName
-            println "Country Id "+ params.countryId
-            println "Status "+ params.status
+
+            println "bank account name=" + bankAccountName
             VendorBankAccountInfo vendorBankAccountInfo = new VendorBankAccountInfo()
 
 

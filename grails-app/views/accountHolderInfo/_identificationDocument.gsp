@@ -1,4 +1,6 @@
-<div class="row">
+<g:form name="IdentificationDocumentForm" method="post" role="form" class="form-horizontal">
+
+    <div class="row">
     <div class="col-xs-12">
         <!-- PAGE CONTENT BEGINS -->
 
@@ -129,3 +131,4 @@
         </i>Update</button>
     </div>
 </div>
+</g:form>

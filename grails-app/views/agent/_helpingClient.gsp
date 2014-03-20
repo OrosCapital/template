@@ -5,7 +5,7 @@
 
             <div class="form-group">
                 <label for="gross" class="col-sm-5 control-label">Gross amount per year</label>
-                <input type="text" class="col-sm-7" placeholder="Gross amount per year" id="gross" required="required">
+                <input type="text" class="col-sm-7" placeholder="Gross amount per year" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Gross amount per year'" id="gross" required="required">
             </div>
 
 
@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
                 <label for="benchmark" class="col-sm-5 control-label">Benchmark</label>
-                <input type="text" class="col-sm-7" placeholder="Benchmark" id="benchmark" required="required">
+                <input type="text" class="col-sm-7" placeholder="Benchmark" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benchmark'" id="benchmark" required="required">
             </div>
 
         </div>
