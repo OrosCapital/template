@@ -147,7 +147,7 @@
 </div>
 <div class="clearfix form-actions">
     <div class="col-md-offset-9 col-md-3">
-        <button class="btn btn-primary btn-sm" type="submit" name="update" id="button-update">Update</button>
+        %{--<button class="btn btn-primary btn-sm" type="submit" name="update" id="button-update">Update</button>--}%
 
         <g:actionSubmit class="btn btn-primary btn-sm"  name="next" value="Next" id="button-next" controller="vendor" action="saveVendorBasic"/>
 
