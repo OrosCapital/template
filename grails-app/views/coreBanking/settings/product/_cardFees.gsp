@@ -11,8 +11,9 @@
                     "<tr>"+
                             "<td>"+cardStartAm+"</td>"+
                             "<td>"+cardEndAm+"</td>"+
-                            "<td>"+cardRate+"</td>"+
                             "<td>"+cardRateType+"</td>"+
+                            "<td>"+cardRate+"</td>"+
+
                             "</tr>");
 
 
@@ -27,8 +28,9 @@
                     "<tr>"+
                             "<td>"+cardWithdrwlStartAm+"</td>"+
                             "<td>"+cardWithdrwlEndAm+"</td>"+
-                            "<td>"+cardWithdrwlRate+"</td>"+
                             "<td>"+cardWithdrwlRateType+"</td>"+
+                            "<td>"+cardWithdrwlRate+"</td>"+
+
                             "</tr>");
 
 
@@ -43,8 +45,9 @@
                     "<tr>"+
                             "<td>"+cardTransferStartAm +"</td>"+
                             "<td>"+cardTransferEndAm+"</td>"+
-                            "<td>"+cardTransferRate+"</td>"+
                             "<td>"+cardTransferRateType+"</td>"+
+                            "<td>"+cardTransferRate+"</td>"+
+
                             "</tr>");
 
 

@@ -257,7 +257,7 @@
 
 <div class="col-md-12">
     <!-- PAGE CONTENT BEGINS -->
-    <div><input class="clickMe" value="Click Me"/></div>
+    %{--<div><input class="clickMe" value="Click Me"/></div> --}%
     <div class="col-md-4">
         <div class="form-group">
             <label for="form-field-1" class="col-md-3 control-label no-padding-right">Name</label>
@@ -288,36 +288,36 @@
             <div class="col-md-12">
                 <div class="col-md-2">
                     <div class="control-group">
-                        <input name="subscription" value="1" type="checkbox" class="ace"/>
+                        <input name="subscription" value="1" type="checkbox" class="ace"id="all"/>
                         <span class="lbl"> ALL</span>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="control-group">
-                        <input name="subscription" value="1" type="checkbox" class="ace"/>
-                        <span class="lbl"> Sol. group</span>
+                        <input name="subscription"  value="1" type="checkbox" class="ace" id="solCheck"/>
+                        <span class="lbl" id="sol" data-toggle="tooltip" data-placement="right" title="Solidary Group"> Sol. group</span>
                     </div>
                 </div>
 
                 <div class="col-md-2">
                     <div class="control-group">
-                        <input name="subscription" value="1" type="checkbox" class="ace"/>
-                        <span class="lbl"> Ind.</span>
+                        <input name="subscription" value="1" type="checkbox" class="ace"id="indCheck"/>
+                        <span class="lbl" id="ind" data-toggle="tooltip" data-placement="right" title="Individual"> Ind.</span>
                     </div>
                 </div>
 
                 <div class="col-md-2">
                     <div class="control-group">
-                        <input name="subscription" value="1" type="checkbox" class="ace"/>
-                        <span class="lbl"> Corp.</span>
+                        <input name="subscription" value="1" type="checkbox" class="ace" id="corpCheck"/>
+                        <span class="lbl" id="corp" data-toggle="tooltip" data-placement="right" title="Corporate"> Corp.</span>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="control-group">
-                        <input name="subscription" value="1" type="checkbox" class="ace"/>
-                        <span class="lbl"> Non sol. group</span>
+                        <input name="subscription" value="1" type="checkbox" class="ace" id="nonSolCheck"/>
+                        <span class="lbl" id="nonSol" data-toggle="tooltip" data-placement="right" title="Non Solidary Group"> Non sol. group</span>
 
                     </div>
                 </div>
@@ -474,8 +474,8 @@
                             <th>Start Amount</th>
                             <th>End Amount</th>
                             <th>Circle Name</th>
+                            <th>Rate Type</th>
                             <th>Rate</th>
-                            <th>Rate type</th>
                             <th>Cal. Amount Based On</th>
                             <th>Action</th>
                         </tr>
@@ -497,15 +497,16 @@
                                 </select>
                             </td>
                             <td class="">
-                                <input type="text" id="rate" name="rate" placeholder="0.00" class="input-small">
-                            </td>
-                            <td class="">
                                 <select id="rateType" class="form-control" name="rateType">
                                     <option value="">- Select -</option>
                                     <option value="1">Percentage</option>
                                     <option value="2">Flat</option>
                                 </select>
                             </td>
+                            <td class="">
+                                <input type="text" id="rate" name="rate" placeholder="0.00" class="input-small">
+                            </td>
+
                             <td class="">
                                 <select id="amountBasedOn" class="form-control" name="amountBasedOn">
                                     <option value="">- Select -</option>

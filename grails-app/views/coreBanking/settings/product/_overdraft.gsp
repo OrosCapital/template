@@ -5,125 +5,15 @@
         %{-- Fixed overdraft fees --}%
         <fieldset>
             <legend class="blue"><small>Fixed overdraft fees</small></legend>
-
-            %{-- radio button --}%
-            <div class="col-md-8">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Type:</label>
-
-                        <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="fixedOverDraftFeesType">
-                            <span class="lbl"> Flat</span>
-                        </div>
-
-                        <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="fixedOverDraftFeesType">
-                            <span class="lbl"> Rate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            %{----}%
-
-            <div class="col-md-8">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Min :</label>
-                        <div class="col-md-8">
-                            <input type="text"  class="form-control" name="name" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Max :</label>
-                        <div class="col-md-8">
-                            <input type="text"  class="form-control" name="name"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-5" > Or Value :</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" name="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-
-        <div class="clearfix visible-xs"></div>
+        <g:render template='/coreBanking/settings/product/fixedFees'/>
 
 
         %{-- Agio fees --}%
         <fieldset>
             <legend class="blue"><small>Agio fees</small></legend>
 
-            %{-- radio buttob --}%
-            <div class="col-md-12">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Type:</label>
+            <g:render template='/coreBanking/settings/product/agioFees'/>
 
-                        <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="agioFeesType">
-                            <span class="lbl"> Flat</span>
-                        </div>
-
-                        <div class="col-md-4">
-                            <input type="radio" class="ace" value="1" name="agioFeesType">
-                            <span class="lbl"> Rate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            %{----}%
-
-            <div class="col-md-12">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Min :</label>
-                        <div class="col-md-8">
-                            <input type="text"  class="form-control" name="name" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-4">Max :</label>
-                        <div class="col-md-8">
-                            <input type="text"  class="form-control" name="name"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label col-md-5" > Or Value :</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" name="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <select class="form-control" name="" required>
-                                <option value="1">Daily</option>
-                                <option value="1">Weekly</option>
-                                <option value="1">Monthly</option>
-                                <option value="1">Yearly</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </fieldset>
-
-        <div class="clearfix visible-xs"></div>
     </div> %{-- main 12 md.xs--}%
 
 
