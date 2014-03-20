@@ -416,8 +416,9 @@
                     "<td>"+ startAmount +"</td>"+
                     "<td>"+ endAmount +"</td>"+
                     "<td>"+ circleName +"</td>"+
+                     "<td>"+ rateType +"</td>"+
                     "<td>"+ rate +"</td>"+
-                    "<td>"+ rateType +"</td>"+
+
                     "<td>"+ amountBasedOn +"</td>"+
                     "<td>" +
                         "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
