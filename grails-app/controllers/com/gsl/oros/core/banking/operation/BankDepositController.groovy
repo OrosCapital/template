@@ -34,7 +34,6 @@ class BankDepositController {
             render bankTransferAccountHolderInfo as JSON
             return
         }
-
         bankTransferAccountHolderInfo = [success: true, value: result,message:"yes"]
         String output = bankTransferAccountHolderInfo as JSON
         render output
@@ -42,12 +41,11 @@ class BankDepositController {
 
 
     def creditCard() {
-
         def creditCardHolderFirstName = params.creditCardHolderFirstName
         def result=CreditCard.findByCreditCardHolderFirstName(creditCardHolderFirstName)
         if(!result) {
             render(contentType: 'text/json') {
-                [success: true, message: 'SORRY !!! THE ENTERED Name IS NOT FOUND',error: 1]
+                [success: true, message: 'SORRY !!! THE DESIRED NAME IS NOT FOUND',error: 1]
             }
         }
         def accountHolderInfo=[success:true,message: 'Some Message Will Display Here', value:result]
