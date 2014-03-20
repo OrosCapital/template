@@ -1,4 +1,4 @@
-
+<g:form name="AgentAdditionalDetailForm" method="post" role="form" class="form-horizontal">
 <div class="row">
     <div class="col-md-12">
 
@@ -42,140 +42,120 @@
 
 </div>
 
+            <table class="table" id="clientHelp">
+            <div class="row">
+                <div class="col-md-12">
 
-%{--}<div class="form-group">
+                    <thead>
+                    <tr style="background: #dceefc">
+                        <th></th>
+                        <th>Cash</th>
+                        <th>Stock</th>
+                        <th>Total</th>
 
-    <div class="controls span2">
-        <label class="checkbox">
-            <input type="checkbox" value="individual" id="Individual"> Individual
-        </label>
-        <label class="checkbox">
-            <input type="checkbox" value="minor" id="Minor"> Minor
-        </label>
-        <label class="checkbox">
-            <input type="checkbox" value="joint" id="Joint"> Joint
-        </label>
+                    </tr>
+                    </thead>
+                </div>
+            </div>
+            <tbody>
+            <div class="row">
+                <div class="col-md-12">
 
-    </div>
+                    <tr>
+                        <div class="col-md-3">
+                            <label class="control-label">
+                                <td id="td1">Individual/First Account Holder</td>
+                            </label>
+                        </div>
 
+                        <div class="col-md-3">
+                            <td id="td2">
+                                <input class="control-label" type="number" name="cash1" id="cash1">
+                            </td>
+                        </div>
 
-</div>   --}%
+                        <div class="col-md-3">
+                            <td id="td3">
+                                <input class="control-label" type="number" name="stock1" id="stock1">
+                            </td>
+                        </div>
 
+                        <div class="col-md-3">
+                            <td id="td4">
+                                <input class="control-label" type="number" name="total1" id="total1">
+                            </td>
+                        </div>
 
-<table class="table" id="clientHelp">
-<div class="row">
-    <div class="col-md-12">
-
-        <thead>
-        <tr style="background: #dceefc">
-            <th></th>
-            <th>Cash</th>
-            <th>Stock</th>
-            <th>Total</th>
-
-        </tr>
-        </thead>
-    </div>
-</div>
-<tbody>
-<div class="row">
-    <div class="col-md-12">
-
-        <tr>
-            <div class="col-md-3">
-                <label class="control-label">
-                    <td id="td1">Individual/First Account Holder</td>
-                </label>
+                    </tr>
+                </div>
             </div>
 
-            <div class="col-md-3">
-                <td id="td2">
-                    <input class="control-label" type="number" name="cash1" id="cash1">
-                </td>
+            <div class="row">
+                <div class="col-md-12">
+                    <tr>
+
+                        <div class="col-md-3">
+                            <td id="td5">
+                                <label class="control-label">Second/Joint Account Holder</label>
+                            </td>
+                        </div>
+
+                        <div class="col-md-3">
+                            <td id="td6">
+                                <input class="control-label" type="number" name="cash2" id="cash2">
+                            </td>
+                        </div>
+
+                        <div class="col-md-3">
+                            <td id="td7">
+                                <input class="control-label" type="number" name="stock2" id="stock2">
+                            </td>
+                        </div>
+
+                        <div class="col-md-3">
+                            <td id="td8">
+                                <input class="control-label" type="number" name="total2" id="total2">
+                            </td>
+                        </div>
+
+                    </tr>
+                </div>
             </div>
 
-            <div class="col-md-3">
-                <td id="td3">
-                    <input class="control-label" type="number" name="stock1" id="stock1">
-                </td>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <tr>
+
+                        <div class="col-md-3">
+                            <td id="td9">
+                                <label class="control-label">Joint</label>
+                            </td>
+                        </div>
+
+                        <div class="col-md-3">
+                            <td id="td10">
+                                <input class="control-label" type="number" name="cash3" id="cash3">
+                            </td>
+                        </div>
+
+                        <div class="col-md-3">
+                            <td id="td11">
+                                <input class="control-label" type="number" name="stock3" id="stock3">
+                            </td>
+                        </div>
+
+                        <div class="col-md-3">
+                            <td id="td12">
+                                <input class="control-label" type="number" name="total3" id="total3">
+                            </td>
+                        </div>
+
+                    </tr>
+                </div>
             </div>
-
-            <div class="col-md-3">
-                <td id="td4">
-                    <input class="control-label" type="number" name="total1" id="total1">
-                </td>
-            </div>
-
-        </tr>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <tr>
-
-            <div class="col-md-3">
-                <td id="td5">
-                    <label class="control-label">Second/Joint Account Holder</label>
-                </td>
-            </div>
-
-            <div class="col-md-3">
-                <td id="td6">
-                    <input class="control-label" type="number" name="cash2" id="cash2">
-                </td>
-            </div>
-
-            <div class="col-md-3">
-                <td id="td7">
-                    <input class="control-label" type="number" name="stock2" id="stock2">
-                </td>
-            </div>
-
-            <div class="col-md-3">
-                <td id="td8">
-                    <input class="control-label" type="number" name="total2" id="total2">
-                </td>
-            </div>
-
-        </tr>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-
-        <tr>
-
-            <div class="col-md-3">
-                <td id="td9">
-                    <label class="control-label">Joint</label>
-                </td>
-            </div>
-
-            <div class="col-md-3">
-                <td id="td10">
-                    <input class="control-label" type="number" name="cash3" id="cash3">
-                </td>
-            </div>
-
-            <div class="col-md-3">
-                <td id="td11">
-                    <input class="control-label" type="number" name="stock3" id="stock3">
-                </td>
-            </div>
-
-            <div class="col-md-3">
-                <td id="td12">
-                    <input class="control-label" type="number" name="total3" id="total3">
-                </td>
-            </div>
-
-        </tr>
-    </div>
-</div>
-  </tbody>
-</table>
+              </tbody>
+            </table>
 
 
 
@@ -187,5 +167,5 @@
     </div>
 </div>
 
-
+</g:form>
 

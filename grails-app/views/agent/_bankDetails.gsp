@@ -1,3 +1,4 @@
+<g:form name="AgentBankDetailForm" method="post" role="form" class="form-horizontal">
 <div class="row">
     <div class="col-md-12">
 
@@ -43,3 +44,5 @@
 
     </div>
 </div>
+
+</g:form>
