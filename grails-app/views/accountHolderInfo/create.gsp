@@ -14,16 +14,11 @@
         <title>OrosCapital - Account Holder Info</title>
 
         <r:script>
-            //var $tabs = $('.tabbable li');
-            //$(document).ready(function () {
-            /*$('#button-next').on('click', function() {
-             $tabs.filter('.active')
-             .next('li')
-             .find('a[data-toggle="tab"]')
-             .tab('show');
-             });
-             */
-            //});
+
+            $(document).ready(function () {
+                $('#DateOfBirthOfAccountHolder').datepicker();
+                $('#DateOfBirthOfNominee').datepicker();
+           });
         </r:script>
     </head>
 <body>

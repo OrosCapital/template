@@ -33,11 +33,14 @@
             </div>
 
             <div class="form-group">
-                <label for="nomineeDOB"
+                <label for="DateOfBirthOfNominee"
                        class="col-sm-5 control-label">Date of Birth</label>
-
-                <g:datePicker name="nomineeDOB"  id="nomineeDOB" value="${new Date()}"
-                              precision="day"/>
+                <div class="input-append date" id="DateOfBirthOfNominee" data-date="dateValue: AccountHolder.DateOfBirth" data-date-format="dd-mm-yyyy">
+                    <input class="col-sm-6" type="text" data-bind="value: AccountHolder.DateOfBirth" readonly="readonly"/>
+                    <span class="add-on col-sm-1"><i class="icon-calendar"></i></span>
+                </div>
+                %{--<g:datePicker name="nomineeDOB"  id="nomineeDOB" value="${new Date()}"--}%
+                              %{--precision="day"/>--}%
             </div>
 
             <div class="form-group">
@@ -49,7 +52,6 @@
         </div>
 
         <div class="col-md-6">
-
             <div class="form-group">
                 <label for="nomineeMiddleName" class="col-sm-5 control-label">Middle Name</label>
                 <input type="text" class="col-sm-7" placeholder="Middle Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Middle Name'" id="nomineeMiddleName"

@@ -5,13 +5,13 @@
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="vendorBankAccountName" class="col-sm-5 control-label">Bank Account Name*</label>
+                <label for="vendorBankAccountName" class="col-sm-5 control-label">Bank Account Name<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Bank Account Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bank Account Name'" id="vendorBankAccountName"
                        name="bankAccountName" required/>
             </div>
 
             <div class="form-group">
-                <label for="vendorBankAccountNo" class="col-sm-5 control-label">Bank Account No*</label>
+                <label for="vendorBankAccountNo" class="col-sm-5 control-label">Bank Account No<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Bank Account No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bank Account No'" id="vendorBankAccountNo"
                        name="bankAccountNo" required/>
             </div>
@@ -23,7 +23,7 @@
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="vendorIbanPrefix" class="col-sm-5 control-label">Iban Prefix*</label>
+                <label for="vendorIbanPrefix" class="col-sm-5 control-label">Iban Prefix<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Iban Prefix" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Iban Prefix'" id="vendorIbanPrefix"
                        name="ibanPrefix" required/>
             </div>
