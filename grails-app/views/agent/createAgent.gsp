@@ -49,6 +49,8 @@
                 $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
             });
 
+            $('#DateOfBirthOfAgent').datepicker();
+
             $('input:checkbox').removeAttr('checked');
             $('#horizon1').attr('checked', true).click(function () {
                 $('#horizon2').attr('checked', false);
@@ -102,7 +104,6 @@
 
 <div class="row">
     <div class="col-md-12">
-<g:form name="accountInfoForm" method="post" id="accountInfo" role="form" class="form-horizontal">
 
     <div class="tabbable">
         <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
@@ -180,7 +181,7 @@
         </div>
     </div>
 
-</g:form>
+
     </div>
 </div>
 </body>

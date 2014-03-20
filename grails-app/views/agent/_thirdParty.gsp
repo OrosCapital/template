@@ -1,4 +1,4 @@
-
+<g:form name="AgentThirdPartyForm" method="post" role="form" class="form-horizontal">
 <div class="row">
     <div class="col-md-12">
 
@@ -97,6 +97,6 @@
 
     </div>
 </div>
-
+</g:form>
 
 
