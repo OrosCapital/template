@@ -130,7 +130,7 @@
             </li>
 
             <li class="">
-                <a href="#thirdparty" data-toggle="tab">Correspondence & Administration</a>
+                <a href="#thirdParty" data-toggle="tab">Correspondence & Administration</a>
             </li>
 
 
@@ -150,7 +150,7 @@
             </div>
 
             <div class="tab-pane" id="residence">
-                <g:render template='/agent/residentialaddress'/>
+                <g:render template='/agent/residentialAddress'/>
             </div>
 
             <div class="tab-pane" id="additional">
@@ -168,7 +168,7 @@
 
             </div>
 
-            <div class="tab-pane" id="thirdparty">
+            <div class="tab-pane" id="thirdParty">
                 <g:render template='/agent/thirdParty'/>
 
             </div>
