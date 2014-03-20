@@ -209,7 +209,7 @@ class BootStrap {
                     settingsMgmt.addToEvents(editCountrySubmit )
                 }
 
-                // edit country
+                // Delete country
                 Events deleteCountrySubmit = Events.findByName('DELETE_COUNTRY')
                 if(!deleteCountrySubmit){
                     deleteCountrySubmit = new Events(name: 'DELETE_COUNTRY',description:'Delete country event',fmenuText:'Delete',controllerName: 'country',actionName:'delete', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
@@ -243,13 +243,6 @@ class BootStrap {
                     settingsMgmt.addToEvents(createCurrency)
                 }
 
-             //  Save Currency
-                Events createCurrencySubmit = Events.findByName('SAVE_CREATE_CURRENCY')
-                if(!createCurrencySubmit){
-                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'save', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
-                    settingsMgmt.addToEvents(createCurrencySubmit)
-                }
-
              //  Internal currency symbol validation.Permit unique symbol only
                 Events checkCurrencySymbol = Events.findByName('CHECK_CURRENCY_SYMBOL')
                 if(!checkCurrencySymbol){
@@ -262,24 +255,50 @@ class BootStrap {
                     checkCurrencyName = new Events(name: 'CHECK_CURRENCY_NAME',description:'Internal currency name validation',fmenuText:'Save',controllerName: 'currency',actionName:'checkCurrencyName', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(checkCurrencyName)
                 }
+            //  Save Currency
+                Events  createCurrencySubmit= Events.findByName('SAVE_CREATE_CURRENCY')
+                if(!createCurrencySubmit){
+                    createCurrencySubmit = new Events(name: 'SAVE_CREATE_CURRENCY',description:'Currency Save',fmenuText:'Save',controllerName: 'currency',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(createCurrencySubmit)
+                }
+
              //  Currency List
                 Events  showCurrencyList= Events.findByName('SHOW_CURRENCY_LIST')
                 if(!showCurrencyList){
                     showCurrencyList = new Events(name: 'SHOW_CURRENCY_LIST',description:'Currency List',fmenuText:'list',controllerName: 'currency',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(showCurrencyList)
                 }
+                // edit Currency
+                Events editCurrencySubmit = Events.findByName('EDIT_CURRENCY')
+                if(!editCurrencySubmit){
+                    editCurrencySubmit = new Events(name: 'EDIT_CURRENCY',description:'Edit Currency event',fmenuText:'Edit',controllerName: 'currency',actionName:'edit', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(editCurrencySubmit )
+                }
+
+            // Delete country
+                Events  deleteCurrencySubmit= Events.findByName('DELETE_CURRENCY')
+                if(!deleteCurrencySubmit){
+                    deleteCurrencySubmit = new Events(name: 'DELETE_CURRENCY',description:'Delete currency event',fmenuText:'Delete',controllerName: 'currency',actionName:'delete', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(deleteCurrencySubmit)
+                }
+                // update currency
+                Events  updateCurrencySubmit= Events.findByName('UPDATE_CURRENCY')
+                if(!updateCurrencySubmit ){
+                    updateCurrencySubmit  = new Events(name: 'UPDATE_CURRENCY',description:'Update Currency',fmenuText:'Update',controllerName: 'currency',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(updateCurrencySubmit )
+                }
 
 
         //  Create Exchange Rate Show on Menu
                 Events createExchangeRate = Events.findByName('CREATE_EXCHANGE_RATE')
                 if(!createExchangeRate){
-                    createExchangeRate = new Events(name: 'CREATE_EXCHANGE_RATE',description:'Create Exchange Rate',fmenuText:'Exchange Rate',controllerName: 'ExchangeRate',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    createExchangeRate = new Events(name: 'CREATE_EXCHANGE_RATE',description:'Create Exchange Rate',fmenuText:'Exchange Rate',controllerName: 'exchangeRate',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRate)
                 }
             //  Save Exchange Rate
                 Events createExchangeRateSubmit = Events.findByName('SAVE_EXCHANGE_RATE')
                 if(!createExchangeRateSubmit){
-                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'ExchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    createExchangeRateSubmit = new Events(name: 'SAVE_EXCHANGE_RATE',description:'Save Exchange Rate',fmenuText:'Save',controllerName: 'exchangeRate',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createExchangeRateSubmit)
                 }
            //  Exchange Rate List
@@ -287,6 +306,24 @@ class BootStrap {
                 if(!showExchangeRateList){
                     showExchangeRateList = new Events(name: 'SHOW_EXCHANGE_RATE_LIST',description:'Exchange Rate List',fmenuText:'list',controllerName: 'exchangeRate',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(showExchangeRateList)
+                }
+            // edit exchangeRate
+                Events editExchangeRate = Events.findByName('EDIT_EXCHANGERATE')
+                if(!editExchangeRate){
+                    editExchangeRate = new Events(name: 'EDIT_EXCHANGERATE',description:'Edit ExchangeRate event',fmenuText:'Edit',controllerName: 'exchangeRate',actionName:'edit', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(editExchangeRate )
+                }
+            // Delete country
+                Events  deleteExchangeRateSubmit= Events.findByName('DELETE_EXCHANGERATE')
+                if(!deleteExchangeRateSubmit){
+                    deleteExchangeRateSubmit = new Events(name: 'DELETE_EXCHANGERATE',description:'Delete Exchange Rate event',fmenuText:'Delete',controllerName: 'exchangeRate',actionName:'delete', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(deleteExchangeRateSubmit)
+                }
+            // update exchangeRate
+                Events  updateExchangeRate= Events.findByName('UPDATE_EXCHANGERATE')
+                if(!updateExchangeRate ){
+                    updateExchangeRate  = new Events(name: 'UPDATE_EXCHANGERATE',description:'Update ExchangeRate',fmenuText:'Update',controllerName: 'exchangeRate',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(updateExchangeRate )
                 }
 
         // Core banking operation ie deposit, withdraw,transfer, etc..
@@ -442,9 +479,28 @@ class BootStrap {
             // Save Fiscal Year
             Events saveFiscalYear = Events.findByName('SAVE_FISCAL_YEAR')
             if(!saveFiscalYear ){
-                saveFiscalYear  = new Events(name: 'SAVE_FISCAL_YEAR',description:'Save Fiscal Year',fmenuText:'Save',controllerName: 'fiscalYear',actionName:'create', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                saveFiscalYear  = new Events(name: 'SAVE_FISCAL_YEAR',description:'Save Fiscal Year',fmenuText:'Save',controllerName: 'fiscalYear',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                 accountingMgmt.addToEvents(saveFiscalYear )
             }
+
+        //  FiscalYear List
+        Events showFiscalYearList= Events.findByName('SHOW_FISCALYEAR_LIST')
+        if(!showFiscalYearList){
+            showFiscalYearList = new Events(name: 'SHOW_FISCALYEAR_LIST',description:'Fiscal Year List',fmenuText:'list',controllerName: 'fiscalYear',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
+            settingsMgmt.addToEvents(showFiscalYearList)
+        }
+        // edit FiscalYear
+        Events  editFiscalYear= Events.findByName('EDIT_FISCALYEAR')
+        if(!editFiscalYear){
+            editFiscalYear = new Events(name: 'EDIT_FISCALYEAR',description:'Edit Fiscal Year event',fmenuText:'Edit',controllerName: 'fiscalYear',actionName:'edit', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+            settingsMgmt.addToEvents(editFiscalYear )
+        }
+        // update FiscalYear
+        Events updateFiscalYear= Events.findByName('UPDATE_FISCALYEAR')
+        if(!updateFiscalYear ){
+            updateFiscalYear  = new Events(name: 'UPDATE_FISCALYEAR',description:'Update Fiscal Year',fmenuText:'Update',controllerName: 'fiscalYear',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+            settingsMgmt.addToEvents(updateFiscalYear )
+        }
 
             // clients
             Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
