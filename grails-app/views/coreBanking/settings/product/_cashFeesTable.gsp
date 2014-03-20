@@ -1,6 +1,6 @@
 
 <div class="col-md-12">
-   <br/><h5> Cash Fees:</h5>
+   <h5> Cash Fees:</h5>
 
 
 

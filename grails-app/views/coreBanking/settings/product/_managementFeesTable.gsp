@@ -20,10 +20,10 @@
 
             <select class="form-control col-sm-4" name="manageCircleType" id="manageCircleType">
                 <option>-Select-</option>
-                <option value="1">daily</option>
-                <option value="2">weekly</option>
-                <option value="3">half monthly</option>
-                <option value="4">monthly</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Half Monthly">Half Monthly</option>
+                <option value="Monthly">Monthly</option>
 
 
 

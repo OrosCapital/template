@@ -20,10 +20,10 @@
 
             <select class="form-control col-sm-4" name="agioCircleType" id="agioCircleType">
                 <option>-Select-</option>
-                <option value="1">Daily</option>
-                <option value="2">Weekly</option>
-                <option value="3">Half Monthly</option>
-                <option value="4">Monthly</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Half Monthly">Half Monthly</option>
+                <option value="Monthly">Monthly</option>
 
 
 

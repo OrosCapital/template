@@ -492,9 +492,10 @@
                             <td class="">
                                 <select id="circleName" class="form-control" name="circleName">
                                     <option value="">- Select -</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    <option value="Daily">Daily</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Half Monthly">Half Monthly</option>
+                                    <option value="Monthly">Monthly</option>
                                 </select>
                             </td>
                             <td class="">
