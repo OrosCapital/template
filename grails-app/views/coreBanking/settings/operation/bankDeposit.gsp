@@ -95,188 +95,68 @@
                 $("#creditCard"+previous).hide();
 
                  $.ajax({
-                 type:"POST",
+                    type:"POST",
                     cache:false,
                     dataType:'json',
                     url:"${createLink(controller: 'bankDeposit', action: 'creditCard')}",
                     data:{creditCardHolderFirstName:creditCardHolderFirstName},
                     success: function (data) {
-                     var error=data.error;
-                       if(error==1){
-                       $("#creditErrorMessage").html(data.message).show();
-                       } else{
-                       $("#creditErrorMessage").hide();
-                       var info="<h4 id='creditCard"+p+"'>"+data.message+"</h4>";
-                        $('#creditCardResult').append(info);
-                        }
-                        }
-                        });
-                        });
+                    var error=data.error;
+                    if(error==1){
+                    $("#creditErrorMessage").html(data.message).show();
+                    }else{
+                    $("#creditErrorMessage").hide();
+                    var info="<h4 id='creditCard"+p+"'>"+data.message+"</h4>";
+                    $('#creditCardResult').append(info);
+                    }
+                    }
+                    });
+                    });
         });
     </r:script>
 </head>
 
 <body>
 
-
-
 <form name="bankDeposit" method="post" role="form" class="form-horizontal">
-
-    <input type="radio" name="bankDeposit" id="checkParent" value="1"/> Check
-    <input type="radio" name="bankDeposit" id="bankTransParent" value="2"/> Bank Transfer
-    <input type="radio" name="bankDeposit" id="creditCardParent" value="3"/> Credit Card
-
-<!--check start here  -->
-    <div id="checkChild" style="display:none">
-        <div class="col-md-12">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="col-md-5 control-label no-padding-right" for="checkNo">Check Number:</label>
-                    <div class="col-md-7">
-                        <input id="checkNo" class="col-md-10" type="text" name="checkNo" placeholder="Check Number" onfocus="this.placeholder=''" onblur="this.placeholder = 'Check Number'">
-                    </div>
+    <div class="col-md-12">
+        <div class="col-md-8">
+            <div class="form-group">
+                <div class="col-md-2">
+                    <input type="radio" name="bankDeposit" id="checkParent" class="ace" value="1">
+                    <span class="lbl">Check</span>
                 </div>
 
-                <div class="form-group">
-                    <label for="transitno" class="col-md-5 control-label no-padding-right">Transit No:</label>
-                    <div class="col-md-7">
-                        <input type="text" class="col-md-10" id="transitno" placeholder="Transit Number" onfocus="this.placeholder=''" onblur="this.placeholder = 'Transit No'">
-                    </div>
+                <div class="col-md-3">
+                    <input type="radio" name="bankDeposit" id="bankTransParent" class="ace" value="2">
+                    <span class="lbl">Bank Transfer</span>
                 </div>
 
-
-                <div class="form-group">
-                    <label for="acname" class="col-md-5 control-label no-padding-right">Account Holder name:</label>
-                    <div class="col-md-7">
-                        <input type="text" class="col-md-10" id="acname" placeholder="Account Holder name" onfocus="this.placeholder=''" onblur="this.placeholder = 'Account Holder name'">
-                    </div>
+                <div class="col-md-3">
+                    <input type="radio" name="bankDeposit" id="creditCardParent" class="ace" value="3">
+                    <span class="lbl">Credit Card</span>
                 </div>
 
-
-                <div class="form-group">
-                    <label for="address" class="col-md-5 control-label no-padding-right">Address:</label>
-                    <div class="col-md-7">
-                        <input type="text" class="col-md-10" id="address" placeholder="Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address'">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="comments" class="col-md-5 control-label no-padding-right">Comments:</label>
-                    <div class="col-md-7">
-                        <input type="text" class="col-md-10" id="comments" placeholder="Comments" onfocus="this.placeholder=''" onblur="this.placeholder = 'Comments'">
-                    </div>
-                </div>
-            </div>
-
-            <div class="" style="" id="checkResult">
-                <div id="checkErrorMessage"></div>
             </div>
         </div>
+    </div>
+
+    <!--check start here-->
+    <div id="checkChild" style="display:none">
+        <g:render template='/coreBanking/settings/operation/depositCheck'/>
     </div>
     <!--check end here-->
 
     <!--bank transfer start here-->
     <div id="bankTransChild" style="display:none">
-        <div class="col-md-12">
-            <div class="col-md-6">
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="bankTransferCheckNo">Account Number:</label>
-                    <div class="col-md-8">
-                        <input id="bankTransferCheckNo" class="col-md-12" type="text" name="bankTransferCheckNo"
-                               placeholder="Account Number">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="transitNumber">Transit No:</label>
-                    <div class="col-md-8">
-                        <input id="transitNumber" class="col-md-12" type="text" name="transitNo"
-                               placeholder="Transit No" onfocus="this.placeholder=''" onblur="this.placeholder = 'Transit No'">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="accountHolderName">Account Holder Name:</label>
-                    <div class="col-md-8">
-                        <input id="accountHolderName" class="col-md-12" type="text" name="accountHolderName"
-                               placeholder="Ac/Holder Name" onfocus="this.placeholder=''" onblur="this.placeholder = 'Account Holder name'">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="address">Address:</label>
-                    <div class="col-md-8">
-                        <input id="address1" class="col-md-12" type="text" name="address" placeholder="Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Address'">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="comments">Comments:</label>
-                    <div class="col-md-8">
-                        <input id="comments1" class="col-md-12" type="text" name="comments" placeholder="Comments" onfocus="this.placeholder=''" onblur="this.placeholder = 'Comments'">
-                    </div>
-                </div>
-            </div>
-
-            <div id="bankTransferResult">
-                <div id="btErrorMessage"></div>
-            </div>
-        </div>
+        <g:render template='/coreBanking/settings/operation/depositBankTransfer'/>
     </div>
     <!--bankTransfer end here-->
+
     <!--creditCard  start here-->
     <div id="creditCardChild" style="display: none">
-        <div class="col-md-12">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="creditCardHolderFirstName">Credit Card Holder First Name:</label>
-                    <div class="col-md-8">
-                        <input id="creditCardHolderFirstName" class="col-md-12" type="text"
-                               name="creditCardHolderFirstName" placeholder="Credit Card Holder First Name">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="creditCardHolderLastName">Last Name:</label>
-                    <div class="col-md-8">
-                        <input id="creditCardHolderLastName" class="col-md-12" type="text"
-                               name="creditCardHolderLastName" placeholder="Last Name" onfocus="this.placeholder=''" onblur="this.placeholder = 'Last Name'">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="creditCardExpiredDate">Expired Date:</label>
-
-                    <div class="col-md-8">
-                        <input id="creditCardExpiredDate" class="col-md-12" type="text" name="creditCardExpiredDate"
-                               placeholder="Expired Date" onfocus="this.placeholder=''" onblur="this.placeholder = 'Expired Date'">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label no-padding-right" for="creditCardSecurityCode">Security Code:</label>
-                    <div class="col-md-8">
-                        <input id="creditCardSecurityCode" class="col-md-12" type="text" name="creditCardSecurityCode"
-                               placeholder="Security Code" onfocus="this.placeholder=''" onblur="this.placeholder = 'Security Code'">
-                    </div>
-                </div>
-            </div>
-
-            <div class="" style="" id="creditCardResult">
-                <div id="creditErrorMessage">
-                </div>
-            </div>
-        </div>
+        <g:render template='/coreBanking/settings/operation/depositCreditCard'/>
     </div>
-
     <!--creditCard end here-->
 </form>
 </div>
