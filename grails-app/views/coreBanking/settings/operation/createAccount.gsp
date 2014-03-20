@@ -30,7 +30,6 @@
             }
 
         });
-
         function showAccountCategoryInfo() {
             var accountCategoryId = $('select#accountCategoryId option:selected').val();
             if (accountCategoryId == 1) {
@@ -74,7 +73,6 @@
         }
     </r:script>
 </head>
-
 <body>
 <div class="page-header">
     <h1>
