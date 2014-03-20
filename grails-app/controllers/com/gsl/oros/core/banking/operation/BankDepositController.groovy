@@ -47,7 +47,7 @@ class BankDepositController {
         def result=CreditCard.findByCreditCardHolderFirstName(creditCardHolderFirstName)
         if(!result) {
             render(contentType: 'text/json') {
-                [success: true, message: 'SORRY !!! THE ENTERED CHECK NUMBER IS NOT FOUND',error: 1]
+                [success: true, message: 'SORRY !!! THE ENTERED Name IS NOT FOUND',error: 1]
             }
         }
         def accountHolderInfo=[success:true,message: 'Some Message Will Display Here', value:result]
