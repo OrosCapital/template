@@ -6,14 +6,14 @@
 
             <div class="form-group">
                 <label for="vendorBankAccountName" class="col-sm-5 control-label">Bank Account Name*</label>
-                <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountName"
-                       name="bankAccountName">
+                <input type="text" class="col-sm-7" placeholder="Bank Account Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bank Account Name'" id="vendorBankAccountName"
+                       name="bankAccountName" required/>
             </div>
 
             <div class="form-group">
                 <label for="vendorBankAccountNo" class="col-sm-5 control-label">Bank Account No*</label>
-                <input type="text" class="col-sm-7" placeholder="" id="vendorBankAccountNo"
-                       name="bankAccountNo">
+                <input type="text" class="col-sm-7" placeholder="Bank Account No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bank Account No'" id="vendorBankAccountNo"
+                       name="bankAccountNo" required/>
             </div>
 
 
@@ -24,8 +24,8 @@
 
             <div class="form-group">
                 <label for="vendorIbanPrefix" class="col-sm-5 control-label">Iban Prefix*</label>
-                <input type="text" class="col-sm-7" placeholder="" id="vendorIbanPrefix"
-                       name="ibanPrefix">
+                <input type="text" class="col-sm-7" placeholder="Iban Prefix" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Iban Prefix'" id="vendorIbanPrefix"
+                       name="ibanPrefix" required/>
             </div>
 
             <div class="form-group">
@@ -49,7 +49,14 @@
 
             </div>
         </div>
-        <table class="table" id="vendorBankAccountInfo">
+
+    </div>
+</div>
+</g:form>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table" id="vendorBankAccountInfoTable">
             <thead>
             <tr style="background: #dceefc">
                 <th>Bank Account Name</th>
@@ -71,6 +78,4 @@
         </table>
     </div>
 </div>
-
-</g:form>
 

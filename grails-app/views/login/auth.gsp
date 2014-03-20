@@ -45,7 +45,7 @@
                                                 <label for='username' class=" control-label"><g:message code="springSecurity.login.username.label" default="User Name"/>:</label>
                                              <div class=" ">
                                              <span class="block input-icon input-icon-right ">
-                                                    <input type="text" class="text_ span12 form-control required" name='j_username' id='username' placeholder="Username"   />
+                                                    <input type="text" class="text_ span12 form-control required" name='j_username' id='username' placeholder="Username" value="admin"   />
                                                     <i class="icon-user"></i>
 
                                                 </span>
@@ -58,7 +58,7 @@
                                             <label for='password' class=" control-label"><g:message code="springSecurity.login.password.label" default="Password"/>:</label>
                                                 <div class="">
                                                  <span class="block input-icon input-icon-right">
-                                                    <input type="password" class="text_ span12 form-control required" placeholder="Password" name='j_password' id='password' />
+                                                    <input type="password" class="text_ span12 form-control required" placeholder="Password" name='j_password' id='password' value="password" />
                                                     <i class="icon-lock"></i>
                                                  </span>
                                                 </div>

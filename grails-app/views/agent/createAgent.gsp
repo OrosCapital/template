@@ -12,14 +12,6 @@
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
 
-    %{--} <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
-     <script type="text/javascript">
-         $(document).ready(function(){
-             $("#accountInfoForm").validate();
-         });
-
-     </script>  --}%
 
 
 
@@ -57,7 +49,50 @@
                 $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
             });
 
+            $('input:checkbox').removeAttr('checked');
+            $('#horizon1').attr('checked', true).click(function () {
+                $('#horizon2').attr('checked', false);
+                $('#horizon3').attr('checked', false);
+                $('#horizon4').attr('checked', false);
+            });
 
+            $('#horizon2').attr('checked', true).click(function () {
+                $('#horizon1').attr('checked', false);
+                $('#horizon3').attr('checked', false);
+                $('#horizon4').attr('checked', false);
+            });
+
+            $('#horizon3').attr('checked', true).click(function () {
+                $('#horizon2').attr('checked', false);
+                $('#horizon1').attr('checked', false);
+                $('#horizon4').attr('checked', false);
+            });
+
+
+            $('#horizon4').attr('checked', true).click(function () {
+                $('#horizon2').attr('checked', false);
+                $('#horizon3').attr('checked', false);
+                $('#horizon1').attr('checked', false);
+            });
+
+
+            $('#risk1').attr('checked', true).click(function () {
+                $('#risk2').attr('checked', false);
+                $('#risk3').attr('checked', false);
+
+            });
+
+            $('#risk2').attr('checked', true).click(function () {
+                $('#risk1').attr('checked', false);
+                $('#risk3').attr('checked', false);
+
+            });
+
+            $('#risk3').attr('checked', true).click(function () {
+                $('#risk2').attr('checked', false);
+                $('#risk1').attr('checked', false);
+
+            });
         });
     </script>
 </head>

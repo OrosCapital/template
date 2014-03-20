@@ -19,15 +19,17 @@
     <script>
 
         $(document).ready(function () {
+
             $("#datepicker").datepicker();
 
 
-            $.datepicker.setDefaults({
+
+           %{-- $.datepicker.setDefaults({
                 showOn: "both",
                 buttonImageOnly: true,
-                buttonImage: "/template/static/images/date.jpg",
+                buttonImage: "/template/static/images/date.png",
                 buttonText: "Calendar"
-            });
+            });  --}%
 
 
             $("#recipt").blur(function () {
@@ -83,7 +85,7 @@
                 $.ajax({
                    type:"POST",
                     dataType:'json',
-                    url:"${createLink(controller: 'bankDeposit', action: 'check')}",//assign controller
+                    url:"${createLink(controller: 'bankDepositCheck', action: 'search')}",//assign controller
                     data:{checkNo:checkNo},//passing variable checkNo to the controller
                     success: function (data) {
                       var checkValue=data.checkValue //catch variable sending from controller bankDepositCheck
@@ -97,7 +99,7 @@
                             row+="<tr><td>Customer Name :" + data.value.customerName + "</td><td>" ;
                             row+="<tr><td>Customer Name :" + data.value.accountNumber + "</td><td>";
                             row+="<tr><td>Account Type :"  + data.value.accountType + "</td></tr></table>";
-                            $('#checkTable').append(row);
+                                        $('#checkTable').append(row);
 
                             }
                            }
@@ -128,7 +130,7 @@
                   $.ajax({
                    type:"POST",
                     dataType:'json',
-                    url:"${createLink(controller: 'bankDeposit', action: 'bankTransfer')}",
+                    url:"${createLink(controller: 'bankDepositBankTransfer', action: 'search')}",
                     data:{btCheckNo:btCheckNo},
                     success: function (data) {
                      var errorCode=data.btnErrorMessage
@@ -170,7 +172,7 @@
                  type:"POST",
                     cache:false,
                     dataType:'json',
-                    url:"${createLink(controller: 'bankDeposit', action: 'creditCard')}",
+                    url:"${createLink(controller: 'creditCard', action: 'search')}",
                     data:{creditCardHolderFirstName:creditCardHolderFirstName},
                         success: function (data) {
                          var error=data.error;
@@ -206,7 +208,7 @@
     <label for="recipt" class="col-md-6 control-label">Recipt Account no</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="recipt" placeholder="" required="required">
+        <input type="text" class="form-control" id="recipt" placeholder="Recipt Account no" required="required">
     </div>
 </div>
 
@@ -214,7 +216,7 @@
     <label for="bId" class="col-md-6 control-label">Branch ID</label>
 
     <div class="col-md-6">
-        <input type="text" class="form-control" id="bId" placeholder="" required="required">
+        <input type="text" class="form-control" id="bId" placeholder="Branch ID" required="required">
     </div>
 </div>
 
@@ -235,15 +237,20 @@
 
     <div class="col-md-6 ">
         <input type="text" id="datepicker">
+         <img src="/template/static/images/date.png">
+
     </div>
 
+
+   %{-- <g:datePicker name="myDate" value="${new Date()}"  precision="day" noSelection="['':'-Choose-']"/>  --}%
 </div>
 
     <div class="form-group">
         <label class="col-md-6 control-label">Recipt Currency Code</label>
 
         <div class="col-md-6">
-
+            %{--}<select class="form-control"id="rcc">
+            <option>USD</option>  </select>  --}%
             <g:currencySelect name="myCurrency" value="${currency}"/>
         </div>
     </div>
@@ -252,7 +259,8 @@
         <label class="col-md-6 control-label">Deposit Currency Code</label>
 
         <div class="col-md-6">
-
+            %{--} <select class="form-control"id="dcc">
+            <option>BDT</option>  </select>    --}%
             <g:currencySelect name="myCurrency" value="${currency}"/>
         </div>
     </div>
@@ -261,7 +269,7 @@
         <label for="dAmount" class="col-md-6 control-label">Deposit Amount</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" id="dAmount" placeholder="" required="required">
+            <input type="text" class="form-control" id="dAmount" placeholder="Deposit Amount" required="required">
         </div>
     </div>
 
@@ -283,7 +291,7 @@
                 <label for="pacc" class="col-md-6 control-label">Paid Account no</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="pacc" placeholder="" required="required">
+                    <input type="text" class="form-control" id="pacc" placeholder="Account no" required="required">
                 </div>
             </div>
 
@@ -291,7 +299,7 @@
                 <label for="pname" class="col-md-6 control-label">Name</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="pname" placeholder="" required="required">
+                    <input type="text" class="form-control" id="pname" placeholder="Name" required="required">
                 </div>
             </div>
 
@@ -299,7 +307,7 @@
                 <label for="add" class="col-md-6 control-label">Address</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="add" placeholder="" required="required">
+                    <input type="text" class="form-control" id="add" placeholder="Address" required="required">
                 </div>
             </div>
 

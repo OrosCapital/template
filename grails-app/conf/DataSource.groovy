@@ -16,7 +16,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'createVendorGeneralAddress', 'createVendorGeneralAddress-drop', 'update', 'validate', ''
+            dbCreate = "create-drop" // one of 'create-drop','update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/orostemplate"
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/oros"

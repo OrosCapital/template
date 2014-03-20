@@ -16,24 +16,90 @@ class CountryController {
     }
 
     def save() {
-        println(params)
-        Country country = new Country(params)
-        country.save(failOnError: true)
-        render(view: '/coreBanking/settings/createCountry')
+        Map result
+        long countCountry = Country.countByName(params.name)
+        if (countCountry > 0) {
+            result = [isError: true, message: "Country name " + params.name + ' already exist.']
+            render(result as JSON)
+            return
+        } else {
+            Country country = new Country(params)
+            country.save(failOnError: true)
+            GridEntity object = new GridEntity()
+            object.id = country.id
+            object.cell = [
+                    country.id,
+                    country.name,
+                    country.numcode,
+                    country.iso2,
+                    country.iso3,
+                    country.printablename
+            ]
+            result = [updateEntity: object]
+            String output = result as JSON
+            render(output)
+        }
+    }
+
+    def delete() {
+        long countryId = Long.parseLong(params.countryId.toString())
+        Country country = Country.get(countryId)
+        country.delete(flush: true)
+        Map result = [isSuccess: true, message: "Country deleted successfully."]
+        render result as JSON
+        return
     }
 
     def list() {
-        // set grid params
         (start, resultPerPage, pageNumber) = initGridParams(params)
 
-        List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order:sortOrder ])
+        if (params._search == "true") {
+            long numcode = 0
+            if (params.numcode) {
+                numcode = Long.parseLong(params.numcode)
+            }
+            List<Country> lstCountry = Country.withCriteria {
+                if (params.name) ilike('name', '%' + params.name + '%')
+                if (params.numcode) {
+                    eq('numcode', numcode)
+                }
+                if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
+                if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
+                if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
 
-        List<Country> resultList = wrapGridEntityList(lstCountry, start)
-        int recordsCount = Country.count()
-        def maxRows = Integer.valueOf(params.rows ?: resultPerPage)
-        def numberOfPages = Math.ceil(recordsCount / maxRows)
-        Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
-        render(gridOutput as JSON)
+                maxResults(resultPerPage)
+                firstResult(start)
+                order(sortColumn, sortOrder)
+                setReadOnly(true)
+            }
+
+            List counts = Country.withCriteria {
+                if (params.name) ilike('name', '%' + params.name + '%')
+                if (params.numcode) {
+                    eq('numcode', numcode)
+                }
+                if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
+                if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
+                if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
+                projections { rowCount() }
+            }
+            List<Country> resultList = wrapGridEntityList(lstCountry, start)
+            int recordsCount = counts[0] as int
+            int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
+            int numberOfPages = Math.ceil(recordsCount / maxRows)
+            Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
+            render(gridOutput as JSON)
+            return
+        } else {
+            List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order: sortOrder])
+
+            List<Country> resultList = wrapGridEntityList(lstCountry, start)
+            int recordsCount = Country.count()
+            int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
+            int numberOfPages = Math.ceil(recordsCount / maxRows)
+            Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
+            render(gridOutput as JSON)
+        }
     }
 
     private List initGridParams(def params) {
@@ -56,7 +122,8 @@ class CountryController {
         // calculating the start offset
         start = ((pageNumber - 1) * resultPerPage);
         if (start > 0) {
-            start = start - (resultPerPage - resultPerPage);
+//            start = start - (resultPerPage - resultPerPage);
+            start = start - resultPerPage;
         }
         return [start, resultPerPage, pageNumber]
     }
@@ -70,7 +137,6 @@ class CountryController {
             Country country = countryList[i]
             obj.id = country.id
             obj.cell = [
-                    counter,
                     country.id,
                     country.name,
                     country.numcode,
@@ -82,5 +148,57 @@ class CountryController {
             counter++
         }
         return lstCountry
+    }
+
+    def edit() {
+        Map result
+        long countryId = Long.parseLong(params.id.toString())
+        Country country = Country.read(countryId)
+        if (!country) {
+            result = [isError: true, message: "Country not found to edit or someone deleted."]
+            render result as JSON
+            return
+        }
+        result = [entity: country, version: country.version]
+        String output = result as JSON
+        render(result as JSON)
+    }
+
+    def update() {
+        Map result
+        long countryId = Long.parseLong(params.id.toString())
+        int countName = Country.countByNameIlikeAndIdNotEqual(params.name, countryId)
+        if (countName > 0) {
+            result = [isError: true, message: params.name + ' name already exist.']
+            render(result as JSON)
+            return
+        }
+        int countIso2 = Country.countByIso2IlikeAndIdNotEqual(params.iso2, countryId)
+        if (countIso2 > 0) {
+            result = [isError: true, message: params.iso2 + ' already exist']
+            render(result as JSON)
+            return
+        }
+        Country country = Country.get(countryId)
+        country.name = params.name
+        country.printablename = params.printablename
+        country.iso2 = params.iso2
+        country.iso3 = params.iso3
+        country.numcode = Long.parseLong(params.numcode.toString())
+        country.version = country.version + 1
+        country.save(flush: true)
+        GridEntity object = new GridEntity()
+        object.id = country.id
+        object.cell = [
+                country.id,
+                country.name,
+                country.numcode,
+                country.iso2,
+                country.iso3,
+                country.printablename
+        ]
+        result = [updateEntity: object]
+        String output = result as JSON
+        render(output)
     }
 }

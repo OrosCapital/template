@@ -202,6 +202,26 @@ class BootStrap {
                     createCountrySubmit = new Events(name: 'SAVE_CREATE_COUNTRY',description:'Country Save',fmenuText:'Save',controllerName: 'country',actionName:'save', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     settingsMgmt.addToEvents(createCountrySubmit)
                 }
+                // edit country
+                Events editCountrySubmit = Events.findByName('EDIT_COUNTRY')
+                if(!editCountrySubmit){
+                    editCountrySubmit = new Events(name: 'EDIT_COUNTRY',description:'Edit country event',fmenuText:'Edit',controllerName: 'country',actionName:'edit', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(editCountrySubmit )
+                }
+
+                // edit country
+                Events deleteCountrySubmit = Events.findByName('DELETE_COUNTRY')
+                if(!deleteCountrySubmit){
+                    deleteCountrySubmit = new Events(name: 'DELETE_COUNTRY',description:'Delete country event',fmenuText:'Delete',controllerName: 'country',actionName:'delete', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(deleteCountrySubmit)
+                }
+
+                 // udpate country
+                Events updateCountrySubmit = Events.findByName('UPDATE_COUNTRY')
+                if(!updateCountrySubmit ){
+                    updateCountrySubmit  = new Events(name: 'UPDATE_COUNTRY',description:'Update Country',fmenuText:'Update',controllerName: 'country',actionName:'update', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    settingsMgmt.addToEvents(updateCountrySubmit )
+                }
 
                 Events showListOfCountry = Events.findByName('SHOW_LIST_COUNTRY')
                 if(!showListOfCountry){
@@ -509,6 +529,12 @@ class BootStrap {
                 if(!createRetailClient){
                     createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createRetailClient)
+                }
+
+                Events saveRetailClientSignature = Events.findByName('SAVE_RETAIL_CLIENT_SIGNATURE')
+                if(!saveRetailClientSignature){
+                    saveRetailClientSignature = new Events(name: 'SAVE_RETAIL_CLIENT_SIGNATURE',description:'Save New Retail Client Signature',fmenuText:'Save Retail Client Signature',controllerName: 'retailClient',actionName:'saveRetailClientSignature', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+                    clientsMgmt.addToEvents(saveRetailClientSignature)
                 }
                 // <-- create retail account for client end -->
 

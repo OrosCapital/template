@@ -1,4 +1,5 @@
-<g:form name="retailOtherBankAccountInformationForm" method="post" role="form" class="form-horizontal">
+<g:form name="retailOtherBankAccountInformationForm" method="post" role="form" class="form-horizontal"
+        controller="retailClient" action="create">
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->

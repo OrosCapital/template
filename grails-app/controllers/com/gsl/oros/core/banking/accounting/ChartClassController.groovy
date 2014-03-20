@@ -37,22 +37,23 @@ class ChartClassController {
             new ChartClassType(classType: 'Expanse',status: 1).save(flush: true)
         }
 
-        def chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
-        render (view: '/coreBanking/settings/accounting/chart/createChartClass', model: [chartClassTypeList: chartClassTypeList])
+        List<ChartClass> chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
+        render (view: '/coreBanking/settings/accounting/chart/createChartClass',
+                model: [chartClassTypeList: chartClassTypeList])
     }
 
     def save() {
         try{
-            // :::: Save ::::
             def aChartClass = new ChartClass(params)  // rename var accordingly
-            if (params.id == '' && aChartClass.save(flush: true)){
+            Long id = params.getLong(ID)
+
+            // :::: Save ::::
+            if (id == null && aChartClass.save(flush: true)){
                 flash.success = "Chart Class Add Successfully"
                 redirect(controller: 'chartMaster', action: "treeView")
             }
             // :::: Update ::::
-            else if (params.id != ''){
-                //println params.id
-                Long id = params.getLong(ID)
+            else if (id != null){
                 def aChartClassEdit = aChartClass.get(id)
                 aChartClassEdit.properties = aChartClass
                 if (aChartClassEdit.save(flush: true)){
@@ -77,7 +78,7 @@ class ChartClassController {
     def edit(){
         Long id = params.getLong(ID) // use constant
         ChartClass chartClass = ChartClass.get(id)
-        List<ChartClassType> chartClassTypeList = ChartClassType.list(order : 'asc', readOnly :true)
+        List<ChartClassType> chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
         render (view: "/coreBanking/settings/accounting/chart/createChartClass",
                 model: [chartClass: chartClass, chartClassTypeList : chartClassTypeList ])
 

@@ -5,30 +5,30 @@
 
             <div class="form-group">
                 <label for="nomineeFirstName" class="col-sm-5 control-label">First Name</label>
-                <input type="text" class="col-sm-7" placeholder="First Name" id="nomineeFirstName" name="nomineeFirstName" value="">
+                <input type="text" class="col-sm-7" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" id="nomineeFirstName" name="nomineeFirstName" value="">
             </div>
 
             <div class="form-group">
                 <label for="nomineeLastName" class="col-sm-5 control-label">Last Name</label>
-                <input type="text" class="col-sm-7" placeholder="Last Name" id="nomineeLastName"
+                <input type="text" class="col-sm-7" placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" id="nomineeLastName"
                        name="nomineeLastName" value="">
             </div>
 
             <div class="form-group">
                 <label for="nomineeEmail" class="col-sm-5 control-label">Email</label>
-                <input type="email" class="col-sm-7" placeholder="Email" id="nomineeEmail"
+                <input type="email" class="col-sm-7" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" id="nomineeEmail"
                        name="nomineeEmail">
             </div>
 
             <div class="form-group">
                 <label for="nomineeAddressLine2" class="col-sm-5 control-label">Address Line2</label>
-                <input type="text" class="col-sm-7" placeholder="Second Address" id="nomineeAddressLine2"
+                <input type="text" class="col-sm-7" placeholder="Second Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Second Address'" id="nomineeAddressLine2"
                        name="nomineeAddressLine2">
             </div>
 
             <div class="form-group">
                 <label for="nomineeAccountNo" class="col-sm-5 control-label">Account No</label>
-                <input type="text" class="col-sm-7" placeholder="Account No" id="nomineeAccountNo"
+                <input type="text" class="col-sm-7" placeholder="Account No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Account No'" id="nomineeAccountNo"
                        name="nomineeAccountNo">
             </div>
 
@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 <label for="nomineeBranchName" class="col-sm-5 control-label">Branch name</label>
-                <input type="text" class="col-sm-7" placeholder="Branch Name Where Account is Held" id="nomineeBranchName"
+                <input type="text" class="col-sm-7" placeholder="Branch Name Where Account is Held" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Branch Name Where Account is Held'" id="nomineeBranchName"
                        name="nomineeBranchName">
             </div>
 
@@ -52,20 +52,20 @@
 
             <div class="form-group">
                 <label for="nomineeMiddleName" class="col-sm-5 control-label">Middle Name</label>
-                <input type="text" class="col-sm-7" placeholder="Middle Name" id="nomineeMiddleName"
+                <input type="text" class="col-sm-7" placeholder="Middle Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Middle Name'" id="nomineeMiddleName"
                        name="nomineeMiddleName" value="">
             </div>
 
 
             <div class="form-group">
                 <label for="nomineePhoneNo" class="col-sm-5 control-label">Contact No</label>
-                <input type="text" class="col-sm-7" placeholder="Contact No" id="nomineePhoneNo"
+                <input type="text" class="col-sm-7" placeholder="Contact No" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact No'" id="nomineePhoneNo"
                        name="nomineePhoneNo">
             </div>
 
             <div class="form-group">
                 <label for="nomineeAddressLine1" class="col-sm-5 control-label">Address Line1</label>
-                <input type="text" class="col-sm-7" placeholder="First Address" id="nomineeAddressLine1"
+                <input type="text" class="col-sm-7" placeholder="First Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Address'" id="nomineeAddressLine1"
                        name="nomineeAddressLine1">
             </div>
 
@@ -93,7 +93,7 @@
 
             <div class="form-group">
                 <label for="nomineeRelation" class="col-sm-5 control-label">Relationship with A/C holder</label>
-                <input type="text" class="col-sm-7" placeholder="Relationship with A/C holder" id="nomineeRelation"
+                <input type="text" class="col-sm-7" placeholder="Relationship with A/C holder" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Relationship with A/C holder'" id="nomineeRelation"
                        name="nomineeRelation">
             </div>
 
