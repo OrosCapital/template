@@ -11,7 +11,9 @@ class AccountOpenController {
         render (view: '/coreBanking/settings/operation/accountOpen')
     }
 
-
+    def createAccount(){
+        render (view: '/coreBanking/settings/operation/createAccount')
+    }
 
     def save(){
         MultipartHttpServletRequest mpr = (MultipartHttpServletRequest)request;

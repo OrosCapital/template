@@ -33,13 +33,14 @@
                 mtype: 'GET',
                 height: 326,
                 width: 750,
+                colNames:['ID','Country Name', 'Code', 'ISO-2','ISO-3','Printable Name'],
                 colModel:[
-                    {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
-                    {name:'Country Name',index:'name', width:175, sortable:false, editable:false},
-                    {name:'Code',index:'numcode', width:75,editable:false,sortable:false, align:'center'},
-                    {name:'ISO-2',index:'iso2', width:75,editable:false,sortable:false, align:'center'},
-                    {name:'ISO-3',index:'iso3', width:75,editable:false,sortable:false,align:'center'},
-                    {name:'Printable Name',index:'printablename', width:175,editable:false,sortable:false}
+                    {name:'id',index:'id', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'name',index:'name', width:175, sortable:true, editable:false},
+                    {name:'numcode',index:'numcode', width:75,editable:false,sortable:true, align:'center'},
+                    {name:'iso2',index:'iso2', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'iso3',index:'iso3', width:75,editable:false,sortable:false,align:'center'},
+                    {name:'printablename',index:'printablename', width:175,editable:false,sortable:false}
                 ],
                 jsonReader : {
                  repeatitems:true
@@ -94,7 +95,7 @@
     function editCountry(){
         var gridEntity = $('#grid');
         var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
-        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'id');
         $.ajax({
             url: "${createLink(controller: 'country', action: 'edit')}?id=" + countryId,
             success: afterSuccessEditEvent,
@@ -175,7 +176,7 @@
     function returnCountryId(){
         var gridEntity = $('#grid');
         var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
-        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'id');
         if(countryId)
         return countryId;
         else
@@ -185,12 +186,12 @@
     function deleteCountry(){
         var gridEntity = $('#grid');
         var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
-        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
-        var countryName = gridEntity.jqGrid ('getCell', selRowId, 'Country Name');
+        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'id');
+        var countryName = gridEntity.jqGrid ('getCell', selRowId, 'name');
         var strURL = "${createLink(controller: 'country', action: 'delete')}";
             strURL = strURL + "?countryId=" + countryId;
         if( selRowId != null ) $("#grid").jqGrid('delGridRow',selRowId,
-            {url:strURL,reloadAfterSubmit:true, width:350, top:500, left:350, beforeShowForm:function ($form) {
+            {url:strURL,reloadAfterSubmit:true, width:400, top:500, left:350, beforeShowForm:function ($form) {
             $("td.delmsg", $form[0]).html("Do you really want to delete the <b>" + countryName + "</b>?");
             }});
         else alert("Please select country to delete!");

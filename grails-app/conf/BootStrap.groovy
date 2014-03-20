@@ -303,10 +303,16 @@ class BootStrap {
                 }
 
 
-                Events createAccountOpen = Events.findByName('CREATE_ACCOUNT')
-                if(!createAccountOpen){
-                    createAccountOpen = new Events(name: 'CREATE_ACCOUNT',description:'Create Account Open',fmenuText:'Account Open',controllerName: 'accountOpen',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
-                    bankMgmt.addToEvents(createAccountOpen)
+                Events accountOpenEvent = Events.findByName('ACCOUNT_OPEN')
+                if(!accountOpenEvent){
+                    accountOpenEvent = new Events(name: 'ACCOUNT_OPEN',description:'Create Account Open',fmenuText:'Account Open',controllerName: 'accountOpen',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(accountOpenEvent)
+                }
+
+                Events createAccountEvent = Events.findByName('CREATE_ACCOUNT')
+                if(!createAccountEvent){
+                    createAccountEvent = new Events(name: 'CREATE_ACCOUNT',description:'Create Account',fmenuText:'Create Account',controllerName: 'accountOpen',actionName:'createAccount', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(createAccountEvent)
                 }
 
                 Events checkDeposit = Events.findByName('CHECK_DEPOSIT')
@@ -620,6 +626,14 @@ class BootStrap {
             showVoucher = new Events(name: 'SHOW_VOUCHER',description:'Show deposit voucher',fmenuText:'Show Voucher',controllerName: 'product',actionName:'showVoucher', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
             productMgmt.addToEvents(showVoucher)
         }
+
+                Events saveProduct = Events.findByName('SAVE_PRODUCT')
+                if(!saveProduct){
+                    saveProduct = new Events(name: 'SAVE_PRODUCT',description:'SAVE Product',
+                            fmenuText:'Create Savings Product',controllerName: 'product',actionName:'save',
+                            showOnMenu: false, isPermitToAll:false, status: true).save(failOnError: true)
+                    productMgmt.addToEvents(saveProduct)
+                }
 
 
 
