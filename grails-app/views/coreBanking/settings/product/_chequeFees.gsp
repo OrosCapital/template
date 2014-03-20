@@ -11,8 +11,9 @@
                     "<tr>"+
                             "<td>"+chequeStartAm+"</td>"+
                             "<td>"+chequeEndAm+"</td>"+
-                            "<td>"+chequeRate+"</td>"+
                             "<td>"+chequeRateType+"</td>"+
+                            "<td>"+chequeRate+"</td>"+
+
                             "</tr>");
 
 
@@ -27,8 +28,9 @@
                     "<tr>"+
                             "<td>"+chequeWithdrwlStartAm+"</td>"+
                             "<td>"+chequeWithdrwlEndAm+"</td>"+
-                            "<td>"+chequeWithdrwlRate+"</td>"+
                             "<td>"+chequeWithdrwlRateType+"</td>"+
+                            "<td>"+chequeWithdrwlRate+"</td>"+
+
                             "</tr>");
 
 
@@ -43,8 +45,9 @@
                     "<tr>"+
                             "<td>"+chequeTransferStartAm +"</td>"+
                             "<td>"+chequeTransferEndAm+"</td>"+
-                            "<td>"+chequeTransferRate+"</td>"+
                             "<td>"+chequeTransferRateType+"</td>"+
+                            "<td>"+chequeTransferRate+"</td>"+
+
                             "</tr>");
 
 
