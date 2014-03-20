@@ -50,7 +50,7 @@
             });
 
             $('#DateOfBirthOfAgent').datepicker();
-
+            $('#DateOfBirthOfThirdParty').datepicker();
             $('input:checkbox').removeAttr('checked');
             $('#horizon1').attr('checked', true).click(function () {
                 $('#horizon2').attr('checked', false);

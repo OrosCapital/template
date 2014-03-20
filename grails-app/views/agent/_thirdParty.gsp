@@ -25,11 +25,14 @@
             </div>
 
             <div class="form-group">
-                <label for="DOB"
+                <label for="DateOfBirthOfThirdParty"
                        class="col-sm-5 control-label">Date of Birth</label>
-
-                <g:datePicker name="DOB"  id="DOB" value="${new Date()}"
-                              precision="day"/>
+                <div class="input-append date" id="DateOfBirthOfThirdParty" data-date="dateValue: Agent.DateOfBirth" data-date-format="dd-mm-yyyy">
+                    <input class="col-sm-6" type="text" data-bind="value: Agent.DateOfBirth" readonly="readonly" required/>
+                    <span class="add-on col-sm-1"><i class="icon-calendar"></i></span>
+                </div>
+                %{--<g:datePicker name="DOB"  id="DOB" value="${new Date()}"--}%
+                              %{--precision="day"/>--}%
             </div>
 
             <div class="form-group">
