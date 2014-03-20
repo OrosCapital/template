@@ -6,4 +6,9 @@ class ProductController {
 
         render(view: '/coreBanking/settings/product/createSavingsProduct')
     }
+
+    def showVoucher() {
+
+        render(view: '/coreBanking/settings/product/showVoucher')
+    }
 }

@@ -8,7 +8,24 @@
     <r:script>
         $(document).ready(function () {
 //       alert("jquery is working");
+
+        $(function () {
+            $("#sol").tooltip();
+            $("#ind").tooltip();
+            $("#nonSol").tooltip();
+            $("#corp").tooltip();
+
         });
+
+            $('input:checkbox').removeAttr('checked');
+             $(function () {
+                $('#all').on('click', function () {
+                 $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+                    });
+});
+
+        });
+
 
     </r:script>
 </head>
@@ -42,7 +59,7 @@
                     </li>
 
                     <li class="">
-                        <a href="#termDeposit" data-toggle="tab">Term deposit</a>
+                        <a href="#termSetup" data-toggle="tab">Term Setup</a>
                     </li>
 
                 </ul>
@@ -63,6 +80,10 @@
                     <div class="tab-pane" id="overdraft">
                         <g:render template='/coreBanking/settings/product/overdraft'/>
                     </div>
+                    <div class="tab-pane" id="termSetup">
+                        <g:render template='/coreBanking/settings/product/termSetup'/>
+                    </div>
+
                 </div>
             </div>
         </g:form>

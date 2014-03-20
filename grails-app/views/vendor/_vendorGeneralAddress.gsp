@@ -5,7 +5,7 @@
         <div class="col-md-6">
             <g:hiddenField name="vendorId" value="${avendorMaster?.id}"/>
             <div class="form-group">
-                <label for="contactPersonName" class="col-sm-5 control-label">Contact Person Name*</label>
+                <label for="contactPersonName" class="col-sm-5 control-label">Contact Person Name<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Contact Person Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Person Name'" id="contactPersonName"
                        name="contactPersonName" required/>
             </div>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="form-group">
-                <label for="postalCode" class="col-sm-5 control-label">Postal Code*</label>
+                <label for="postalCode" class="col-sm-5 control-label">Postal Code<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Postal Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Postal Code'" id="postalCode"
                        name="postalCode" required/>
             </div>
@@ -50,8 +50,8 @@
                 <label for="status"
                        class="col-sm-5 control-label">Status</label>
                 <div class="col-sm-7">
-                    <select id="status" class="form-control" name="status">
-                        <option>-Select-</option>
+                    <select id="status" class="form-control" name="status" required>
+                        <option value="">-Select-</option>
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
 
@@ -101,7 +101,7 @@
 
             <div class="form-group">
                 <label for="countryId"
-                       class="col-sm-5 control-label">Country*</label>
+                       class="col-sm-5 control-label">Country<span class="red">*</span></label>
 
                 <g:countrySelect name="countryId" class="col-sm-7"
                                  noSelection="['':'-Choose your country-']"/>

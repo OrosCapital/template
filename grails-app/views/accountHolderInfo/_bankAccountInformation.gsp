@@ -1,4 +1,6 @@
-<div class="row">
+<g:form name="BankAccountInfoForm" method="post" role="form" class="form-horizontal">
+
+    <div class="row">
     <div class="col-xs-6">
         <!-- PAGE CONTENT BEGINS -->
         <div class="form-group">
@@ -46,3 +48,5 @@
         </i>Update</button>
     </div>
 </div>
+
+</g:form>

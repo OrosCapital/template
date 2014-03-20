@@ -2,6 +2,7 @@ package com.gsl.oros.core.banking.settings
 
 import com.gsl.oros.banking.common.GridEntity
 import grails.converters.JSON
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 class CountryController {
     public int start = 0;
@@ -50,58 +51,65 @@ class CountryController {
         return
     }
 
-    def list() {
-        (start, resultPerPage, pageNumber) = initGridParams(params)
-
-        if (params._search == "true") {
-            long numcode = 0
-            if (params.numcode) {
-                numcode = Long.parseLong(params.numcode)
-            }
-            List<Country> lstCountry = Country.withCriteria {
-                if (params.name) ilike('name', '%' + params.name + '%')
-                if (params.numcode) {
-                    eq('numcode', numcode)
-                }
-                if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
-                if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
-                if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
-
-                maxResults(resultPerPage)
-                firstResult(start)
-                order(sortColumn, sortOrder)
-                setReadOnly(true)
-            }
-
-            List counts = Country.withCriteria {
-                if (params.name) ilike('name', '%' + params.name + '%')
-                if (params.numcode) {
-                    eq('numcode', numcode)
-                }
-                if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
-                if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
-                if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
-                projections { rowCount() }
-            }
-            List<Country> resultList = wrapGridEntityList(lstCountry, start)
-            int recordsCount = counts[0] as int
-            int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
-            int numberOfPages = Math.ceil(recordsCount / maxRows)
-            Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
-            render(gridOutput as JSON)
+    def list(int rows, String _search, int page, String sidx, String sord) {
+        if (_search == "true") {
+            search(params)
             return
         } else {
-            List<Country> lstCountry = Country.list([offset: start, max: resultPerPage, sort: sortColumn, order: sortOrder])
-
-            List<Country> resultList = wrapGridEntityList(lstCountry, start)
+            List<Country> lstCountry = Country.list([offset: getOffset(page,rows), max: rows, sort: sidx, order: sord])
             int recordsCount = Country.count()
-            int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
-            int numberOfPages = Math.ceil(recordsCount / maxRows)
-            Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: resultList]
+            int numberOfPages = Math.ceil(recordsCount / rows)
+            Map gridOutput = [page: page, records: recordsCount, total: numberOfPages, rows: lstCountry]
             render(gridOutput as JSON)
         }
     }
 
+    def search(def params) {
+        (start, resultPerPage, pageNumber) = initGridParams(params)
+        long numcode = 0
+        if (params.numcode) {
+            numcode = Long.parseLong(params.numcode)
+        }
+        List<Country> lstCountry = Country.withCriteria {
+            if (params.name) ilike('name', '%' + params.name + '%')
+            if (params.numcode) {
+                eq('numcode', numcode)
+            }
+            if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
+            if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
+            if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
+
+            maxResults(resultPerPage)
+            firstResult(start)
+            order(sortColumn, sortOrder)
+            setReadOnly(true)
+        }
+
+        List counts = Country.withCriteria {
+            if (params.name) ilike('name', '%' + params.name + '%')
+            if (params.numcode) {
+                eq('numcode', numcode)
+            }
+            if (params.iso2) ilike('iso2', '%' + params.iso2 + '%')
+            if (params.iso3) ilike('iso3', '%' + params.iso3 + '%')
+            if (params.printablename) ilike('printablename', '%' + params.printablename + '%')
+            projections { rowCount() }
+        }
+
+        int recordsCount = counts[0] as int
+        int maxRows = Integer.valueOf(params.rows ?: resultPerPage)
+        int numberOfPages = Math.ceil(recordsCount / maxRows)
+        Map gridOutput = [page: pageNumber, records: recordsCount, total: numberOfPages, rows: lstCountry]
+        render(gridOutput as JSON)
+
+    }
+    private int getOffset(pageNumber, resultPerPage) {
+        int start = ((pageNumber - 1) * resultPerPage);
+        if (start > 0) {
+            start = start - resultPerPage;
+        }
+        return start
+    }
     private List initGridParams(def params) {
         if (params.page) {
             pageNumber = Integer.parseInt(params.page);
@@ -119,35 +127,11 @@ class CountryController {
             sortOrder = params.sord;
         }
 
-        // calculating the start offset
         start = ((pageNumber - 1) * resultPerPage);
         if (start > 0) {
-//            start = start - (resultPerPage - resultPerPage);
             start = start - resultPerPage;
         }
         return [start, resultPerPage, pageNumber]
-    }
-
-    private List<Country> wrapGridEntityList(List<Country> countryList, int start) {
-        List<Country> lstCountry = []
-
-        int counter = start + 1
-        for (int i = 0; i < countryList.size(); i++) {
-            GridEntity obj = new GridEntity()
-            Country country = countryList[i]
-            obj.id = country.id
-            obj.cell = [
-                    country.id,
-                    country.name,
-                    country.numcode,
-                    country.iso2,
-                    country.iso3,
-                    country.printablename
-            ]
-            lstCountry << obj
-            counter++
-        }
-        return lstCountry
     }
 
     def edit() {

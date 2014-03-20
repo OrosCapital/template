@@ -49,6 +49,8 @@
                 $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
             });
 
+            $('#DateOfBirthOfAgent').datepicker();
+            $('#DateOfBirthOfThirdParty').datepicker();
             $('input:checkbox').removeAttr('checked');
             $('#horizon1').attr('checked', true).click(function () {
                 $('#horizon2').attr('checked', false);
@@ -102,7 +104,6 @@
 
 <div class="row">
     <div class="col-md-12">
-<g:form name="accountInfoForm" method="post" id="accountInfo" role="form" class="form-horizontal">
 
     <div class="tabbable">
         <ul id="myTab4" class="nav nav-tabs padding-12 tab-color-blue background-blue">
@@ -129,7 +130,7 @@
             </li>
 
             <li class="">
-                <a href="#thirdparty" data-toggle="tab">Correspondence & Administration</a>
+                <a href="#thirdParty" data-toggle="tab">Correspondence & Administration</a>
             </li>
 
 
@@ -149,7 +150,7 @@
             </div>
 
             <div class="tab-pane" id="residence">
-                <g:render template='/agent/residentialaddress'/>
+                <g:render template='/agent/residentialAddress'/>
             </div>
 
             <div class="tab-pane" id="additional">
@@ -167,7 +168,7 @@
 
             </div>
 
-            <div class="tab-pane" id="thirdparty">
+            <div class="tab-pane" id="thirdParty">
                 <g:render template='/agent/thirdParty'/>
 
             </div>
@@ -180,7 +181,7 @@
         </div>
     </div>
 
-</g:form>
+
     </div>
 </div>
 </body>

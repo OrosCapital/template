@@ -6,7 +6,7 @@
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="vendorCode" class="col-sm-5 control-label">Vendor Code</label>
+                <label for="vendorCode" class="col-sm-5 control-label">Vendor Code<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Vendor Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vendor Code'" id="vendorCode" name="vendorCode" value="${avendorMaster?.vendorCode}" required/>
             </div>
 
@@ -40,11 +40,10 @@
 
             <div class="form-group">
                 <label for="paymentTermId"
-                       class="col-sm-5 control-label">Payment Term*</label>
+                       class="col-sm-5 control-label">Payment Term<span class="red">*</span></label>
                 <div class="col-sm-7">
-                    <select id="paymentTermId" class="form-control" name="paymentTermId">
-                        <option>-Select-</option>
-
+                    <select id="paymentTermId" class="form-control" name="paymentTermId" required>
+                        <option value="">-Select-</option>
                         <option value="1">1SS week</option>
                         <option value="2">2SS week</option>
 
@@ -63,7 +62,7 @@
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="vendorName" class="col-sm-5 control-label">Vendor Name*</label>
+                <label for="vendorName" class="col-sm-5 control-label">Vendor Name<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Vendor Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vendor Name'" id="vendorName"
                        name="vendorName" value="${avendorMaster?.vendorName}" required/>
             </div>
@@ -76,9 +75,9 @@
 
             <div class="form-group">
                 <label for="gender"
-                       class="col-sm-5 control-label">Gender</label>
+                       class="col-sm-5 control-label">Gender<span class="red">*</span></label>
                 <div class="col-sm-7">
-                    <select id="gender" class="form-control" name="gender">
+                    <select id="gender" class="form-control" name="gender" required>
                         <option value="Male" selected>Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -89,8 +88,8 @@
                 <label for="defaultGlAccount"
                        class="col-sm-5 control-label">Default GI Account</label>
                 <div class="col-sm-7">
-                    <select id="defaultGlAccount" class="form-control" name="defaultGlAccount">
-                        <option>-Select-</option>
+                    <select id="defaultGlAccount" class="form-control" name="defaultGlAccount" required>
+                        <option value="">-Select-</option>
                         <g:each var="vendorMaster" in="${vendorMasterList}">
                             <option value="${vendorMaster.defaultGlAccount}">${vendorMaster.defaultGlAccount}</option>
                         </g:each>
@@ -102,7 +101,7 @@
                 <label for="vat"
                        class="col-sm-5 control-label">Vat</label>
                 <div class="col-sm-7">
-                    <select id="vat" class="form-control" name="vat">
+                    <select id="vat" class="form-control" name="vat" required>
                         <g:if test="${avendorMaster?.vat != null}">
                             <option  value="${avendorMaster?.vat}">${avendorMaster?.vat}</option>
                         </g:if>
@@ -117,10 +116,10 @@
 
             <div class="form-group">
                 <label for="vendorType"
-                       class="col-sm-5 control-label">Type*</label>
+                       class="col-sm-5 control-label">Type<span class="red">*</span></label>
                 <div class="col-sm-7">
-                    <select id="vendorType" class="form-control" name="vendorType">
-                        <option>-Select-</option>
+                    <select id="vendorType" class="form-control" name="vendorType" required>
+                        <option value="">-Select-</option>
                         <g:each var="vendorMaster" in="${vendorMasterList}">
                             <option value="${vendorMaster.vendorType}">${vendorMaster.vendorType}</option>
                         </g:each>
@@ -132,9 +131,9 @@
                 <label for="status"
                        class="col-sm-5 control-label">Status</label>
                 <div class="col-sm-7">
-                    <select id="status" class="form-control" name="status">
+                    <select id="status" class="form-control" name="status" required>
 
-                        <option>-Select-</option>
+                        <option value="">-Select-</option>
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
 
@@ -148,7 +147,7 @@
 </div>
 <div class="clearfix form-actions">
     <div class="col-md-offset-9 col-md-3">
-        <button class="btn btn-primary btn-sm" type="submit" name="update" id="button-update">Update</button>
+        %{--<button class="btn btn-primary btn-sm" type="submit" name="update" id="button-update">Update</button>--}%
 
         <g:actionSubmit class="btn btn-primary btn-sm"  name="next" value="Next" id="button-next" controller="vendor" action="saveVendorBasic"/>
 

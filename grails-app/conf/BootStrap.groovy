@@ -303,10 +303,17 @@ class BootStrap {
                 }
 
 
-                Events createAccountOpen = Events.findByName('CREATE_ACCOUNT')
-                if(!createAccountOpen){
-                    createAccountOpen = new Events(name: 'CREATE_ACCOUNT',description:'Create Account Open',fmenuText:'Account Open',controllerName: 'accountOpen',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
-                    bankMgmt.addToEvents(createAccountOpen)
+                Events accountOpenEvent = Events.findByName('ACCOUNT_OPEN')
+                if(!accountOpenEvent){
+                    accountOpenEvent = new Events(name: 'ACCOUNT_OPEN',description:'Create Account Open',fmenuText:'Account Open',controllerName: 'accountOpen',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(accountOpenEvent)
+                }
+
+
+                Events createAccountEvent = Events.findByName('CREATE_ACCOUNT')
+                if(!createAccountEvent){
+                    createAccountEvent = new Events(name: 'CREATE_ACCOUNT',description:'Create Account',fmenuText:'Create Account',controllerName: 'accountOpen',actionName:'createAccount', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                    bankMgmt.addToEvents(createAccountEvent)
                 }
 
                 Events checkDeposit = Events.findByName('CHECK_DEPOSIT')
@@ -599,11 +606,6 @@ class BootStrap {
                     clientsMgmt.addToEvents(saveBankAccountInfo )
                 }
 
-
-
-
-
-
                 Feature productMgmt = Feature.findByName('PRODUCT_MGMT')
                 if(!productMgmt){
                     productMgmt = new Feature(name: 'PRODUCT_MGMT',description:'Manage Different products',fmenuText:'Products',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
@@ -614,6 +616,15 @@ class BootStrap {
                 if(!createProduct){
                     createProduct = new Events(name: 'CREATE_PRODUCT',description:'Create Product',fmenuText:'Create Savings Product',controllerName: 'product',actionName:'index', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
                     productMgmt.addToEvents(createProduct)
+                }
+
+
+                Events saveProduct = Events.findByName('SAVE_PRODUCT')
+                if(!saveProduct){
+                    saveProduct = new Events(name: 'SAVE_PRODUCT',description:'SAVE Product',
+                            fmenuText:'Create Savings Product',controllerName: 'product',actionName:'save',
+                            showOnMenu: false, isPermitToAll:false, status: true).save(failOnError: true)
+                    productMgmt.addToEvents(saveProduct)
                 }
 
 

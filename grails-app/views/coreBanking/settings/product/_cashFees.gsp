@@ -11,8 +11,9 @@
                     "<tr>"+
                             "<td>"+CashStartAm+"</td>"+
                             "<td>"+CashEndAm+"</td>"+
-                            "<td>"+cashRate+"</td>"+
                             "<td>"+cashRateType+"</td>"+
+                            "<td>"+cashRate+"</td>"+
+
                             "</tr>");
 
 
@@ -27,8 +28,9 @@
                     "<tr>"+
                             "<td>"+withdrwlStartAm+"</td>"+
                             "<td>"+withdrwlEndAm+"</td>"+
-                            "<td>"+withdrwlRate+"</td>"+
                             "<td>"+withdrwlRateType+"</td>"+
+                            "<td>"+withdrwlRate+"</td>"+
+
                             "</tr>");
 
 
@@ -43,8 +45,9 @@
                     "<tr>"+
                             "<td>"+transferStartAm+"</td>"+
                             "<td>"+transferEndAm+"</td>"+
-                            "<td>"+transferRate+"</td>"+
                             "<td>"+transferRateType+"</td>"+
+                            "<td>"+transferRate+"</td>"+
+
                             "</tr>");
 
 

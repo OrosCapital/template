@@ -5,7 +5,7 @@
         <div class="col-md-6">
             <g:hiddenField name="vendorId" value="${avendorMaster?.id}"/>
             <div class="form-group">
-                <label for="postalContactPersonName" class="col-sm-5 control-label">Contact Person Name*</label>
+                <label for="postalContactPersonName" class="col-sm-5 control-label">Contact Person Name<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Contact Person Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Person Name'" id="postalContactPersonName"
                        name="postalContactPersonName" value="${aPostalAddress?.postalContactPersonName}" required/>
             </div>
@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 <label for="postalCountryId"
-                       class="col-sm-5 control-label">Postal Country*</label>
+                       class="col-sm-5 control-label">Postal Country<span class="red">*</span></label>
 
                 <g:countrySelect name="postalCountryId" value="" class="col-sm-7"
                                  noSelection="['':'-Choose your country-']"/>
@@ -59,8 +59,8 @@
                 <label for="status"
                        class="col-sm-5 control-label">Status</label>
                 <div class="col-sm-7">
-                    <select id="status" class="form-control" name="status">
-                        <option>-Select-</option>
+                    <select id="status" class="form-control" name="status" required>
+                        <option value="">-Select-</option>
                         <option value="1">Active</option>
                         <option value="0">Inactive</option>
                     </select>

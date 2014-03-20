@@ -9,4 +9,8 @@ class Country {
     static constraints = {
         name(unique: true)
     }
+    static mapping = {
+        sort "name"
+        order "asc"
+    }
 }

@@ -1,6 +1,6 @@
 
 <div class="col-md-12">
-    Withdrawal Fees:
+   <h5> Withdrawal Fees:</h5>
 
 
 
@@ -21,12 +21,6 @@
                 <input type="text" class="form-control col-sm-4" name="cardWithdrwlEndAmount" id="cardWithdrwlEndAmount" value="" placeholder="">
 
             </th>
-            <th class="col-xs-2">
-                <label for="cardWithdrwlRate" class="control-label col-sm-6" >Rate</label>
-
-                <input type="text" class="form-control col-sm-6" name="cardWithdrwlRate" id="cardWithdrwlRate" value="" placeholder="">
-
-            </th>
             <th class="col-xs-3">
                 <label for="cardWithdrwlRateType" class="control-label col-sm-8" >Rate Type</label>
 
@@ -40,6 +34,13 @@
                 </select>
 
             </th>
+            <th class="col-xs-2">
+                <label for="cardWithdrwlRate" class="control-label col-sm-6" >Rate</label>
+
+                <input type="text" class="form-control col-sm-6" name="cardWithdrwlRate" id="cardWithdrwlRate" value="" placeholder="">
+
+            </th>
+
 
             <th class="col-xs-1">
                 <button type="button" class="btn btn-default navbar-btn" id="cardWithdrawlAdd">Add</button>

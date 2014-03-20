@@ -1,3 +1,4 @@
+<g:form name="AgentResidentialAddressForm" method="post" role="form" class="form-horizontal">
 <div class="row">
     <div class="col-md-12">
 
@@ -16,7 +17,7 @@
             </div>
 
             <div class="form-group">
-                <label for="city" class="col-sm-5 control-label">City</label>
+                <label for="city" class="col-sm-5 control-label">City<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" id="city"
                        name="city" required="required">
             </div>
@@ -34,13 +35,13 @@
             </div>
 
             <div class="form-group">
-                <label for="postCode" class="col-sm-5 control-label">Post Code</label>
+                <label for="postCode" class="col-sm-5 control-label">Post Code<span class="red">*</span></label>
                 <input type="text" class="col-sm-7" placeholder="Post Code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Post Code'" id="postCode" name="postCode" required="required">
             </div>
 
             <div class="form-group">
                 <label for="countryId"
-                       class="col-sm-5 control-label">Country*</label>
+                       class="col-sm-5 control-label">Country<span class="red">*</span></label>
 
                 <g:countrySelect name="countryId" class="col-sm-7"
                                  noSelection="['':'-Choose your country-']"/>
@@ -61,6 +62,6 @@
 
     </div>
 </div>
-
+</g:form>
 
 
