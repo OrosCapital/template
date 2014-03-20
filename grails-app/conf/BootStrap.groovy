@@ -309,6 +309,7 @@ class BootStrap {
                     bankMgmt.addToEvents(accountOpenEvent)
                 }
 
+
                 Events createAccountEvent = Events.findByName('CREATE_ACCOUNT')
                 if(!createAccountEvent){
                     createAccountEvent = new Events(name: 'CREATE_ACCOUNT',description:'Create Account',fmenuText:'Create Account',controllerName: 'accountOpen',actionName:'createAccount', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
@@ -604,11 +605,6 @@ class BootStrap {
                     saveBankAccountInfo  = new Events(name: 'SAVE_BANK_ACCOUNT_INFO',description:'Save Bank Account Info',fmenuText:'SAVE_BANK_ACCOUNT_INFO',controllerName: 'vendor',actionName:'saveVendorBankAccountInfo', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(saveBankAccountInfo )
                 }
-
-
-
-
-
 
                 Feature productMgmt = Feature.findByName('PRODUCT_MGMT')
                 if(!productMgmt){
