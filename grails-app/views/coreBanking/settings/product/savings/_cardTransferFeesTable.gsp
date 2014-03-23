@@ -4,7 +4,7 @@
 
 
 
-    <table class="table table-bordered table-condensed" id="cardTransferTableData">
+    <table class="display dataTable table table-striped table-bordered table-hover" id="cardTransferTableData">
         <thead>
         <tr>
 

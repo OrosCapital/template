@@ -3,7 +3,7 @@
 
 
 
-    <table class="table table-bordered table-condensed" id="cardTableData">
+    <table class="display dataTable table table-striped table-bordered table-hover" id="cardTableData">
         <thead>
         <tr>
 

@@ -4,7 +4,7 @@
 
 
 
-    <table class="table table-bordered table-condensed" id="withdrawalTableData">
+    <table class="display dataTable table table-striped table-bordered table-hover" id="withdrawalTableData">
         <thead>
         <tr>
 

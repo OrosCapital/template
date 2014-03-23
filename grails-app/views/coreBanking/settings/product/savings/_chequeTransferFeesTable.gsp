@@ -4,7 +4,7 @@
 
 
 
-    <table class="table table-bordered table-condensed" id="chequeTransferTableData">
+    <table class="display dataTable table table-striped table-bordered table-hover" id="chequeTransferTableData">
         <thead>
         <tr>
 

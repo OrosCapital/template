@@ -4,7 +4,7 @@
 
 
 
-    <table class="table table-bordered table-condensed" id="cashTableData">
+    <table class="display dataTable table table-striped table-bordered table-hover" id="cashTableData">
         <thead>
         <tr>
 

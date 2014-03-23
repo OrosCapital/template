@@ -1,4 +1,4 @@
-<table class="table table-bordered table-condensed" id="reopenTableData">
+<table class="display dataTable table table-striped table-bordered table-hover" id="reopenTableData">
     <thead>
     <tr>
 
