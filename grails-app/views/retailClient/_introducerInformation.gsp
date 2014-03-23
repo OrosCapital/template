@@ -5,21 +5,6 @@
             <!-- PAGE CONTENT BEGINS -->
 
             <div class="form-group">
-                <label for="introducerName" class="col-sm-2 control-label no-padding-right no-padding-left">
-                    Name</label>
-                <div class="col-sm-7">
-                    <input type="text" class="col-xs-10 col-sm-12" placeholder="Name"
-                           id="introducerName" name="introducerName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="address" class="col-sm-2 control-label no-padding-right no-padding-left">
-                    Address</label>
-                <div class="col-sm-7">
-                    <textarea name="address" id="address" class="col-sm-12"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="accountNo" class="col-sm-2 control-label no-padding-right no-padding-left">
                     Account No</label>
                 <div class="col-sm-7">
@@ -28,11 +13,25 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="contactNo" class="col-sm-2 control-label no-padding-right no-padding-left">
-                    Contact No</label>
-                <div class="col-sm-7">
-                    <input type="text" class="col-xs-10 col-sm-12" placeholder="Contact No"
-                           id="contactNo" name="contactNo">
+                <div class="col-sm-2 control-label no-padding-right no-padding-left">
+                    Name</div>
+                <div class="col-sm-7 control-label align-left">
+                    Name
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label no-padding-right no-padding-left">
+                    Address</div>
+                <div class="col-sm-7 control-label align-left">
+                    Address
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label no-padding-right no-padding-left">
+                    Contact No
+                </div>
+                <div class="col-sm-7 control-label align-left">
+                    Contact No
                 </div>
             </div>
             <div class="form-group">

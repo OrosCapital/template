@@ -517,7 +517,7 @@ class BootStrap {
             // clients
             Feature clientsMgmt = Feature.findByName('CLIENTS_MGMT')
             if(!clientsMgmt){
-                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for clients',fmenuText:'clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
+                clientsMgmt = new Feature(name: 'CLIENTS_MGMT',description:'Create Different Types of Account for Clients',fmenuText:'Clients',controllerName: 'coreBanking',actionName:'index', showOnMenu: true, status: true).save(failOnError: true)
                 coreBank.addToFeature(clientsMgmt)
             }
                 // <-- create account holder info start -->
@@ -602,7 +602,7 @@ class BootStrap {
                 // <-- create retail account for client start -->
                 Events createRetailClient = Events.findByName('CREATE_RETAIL_CLIENT')
                 if(!createRetailClient){
-                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client',fmenuText:'Create Retail Client',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
+                    createRetailClient = new Events(name: 'CREATE_RETAIL_CLIENT',description:'Create New Retail Client Account',fmenuText:'Create Retail Account',controllerName: 'retailClient',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                     clientsMgmt.addToEvents(createRetailClient)
                 }
 

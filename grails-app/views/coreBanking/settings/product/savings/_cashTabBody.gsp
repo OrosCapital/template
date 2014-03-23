@@ -59,10 +59,5 @@
     </div>
 
 
-        <div class="col-md-offset-11 ">
-            <button class="btn btn-info" type="button">
-                <i class="icon-ok bigger-110"></i>
-                Save
-            </button>
-            </div>
+
         </div>

@@ -11,7 +11,7 @@
 <html>
     <head>
         <style>
-            .form-control, label, textarea, input[type="text"], input[type="password"],
+            .form-control,.control-label, label, textarea, input[type="text"], input[type="password"],
             input[type="datetime"], input[type="datetime-local"], input[type="date"],
             input[type="month"], input[type="time"], input[type="week"], input[type="number"],
             input[type="email"], input[type="url"], input[type="search"], input[type="tel"],
@@ -23,6 +23,32 @@
         <r:script>
             $(document).ready(function () {
                 // alert("jquery is working");
+
+                $("#openingDate").datepicker({
+                showOtherMonths: true,
+                selectOtherMonths: false
+                //isRTL:true,
+
+
+                /*
+                 changeMonth: true,
+                 changeYear: true,
+
+                 showButtonPanel: true,
+                 beforeShow: function() {
+                 //change button colors
+                 var datepicker = $(this).datepicker( "widget" );
+                 setTimeout(function(){
+                 var buttons = datepicker.find('.ui-datepicker-buttonpane')
+                 .find('button');
+                 buttons.eq(0).addClass('btn btn-xs');
+                 buttons.eq(1).addClass('btn btn-xs btn-success');
+                 buttons.wrapInner('<span class="bigger-110" />');
+                 }, 0);
+                 }
+                 */
+            });
+
                 $("#signaturePreview").hide();
                 $("#retailClientSignature").submit(function(e)  {
                     //var formObj = $(this);
@@ -70,9 +96,9 @@
                     <li class="active">
                         <a href="#retailAccountInformation" data-toggle="tab">Account Information</a>
                     </li>
-                    <li class="">
-                        <a href="#necessaryPersonalInfo" data-toggle="tab">Necessary Personal Info</a>
-                    </li>
+                    %{--<li class="">--}%
+                        %{--<a href="#necessaryPersonalInfo" data-toggle="tab">Necessary Personal Info</a>--}%
+                    %{--</li>--}%
                     <li class="">
                         <a href="#retailIntroducerInformation" data-toggle="tab">Introducer Information</a>
                     </li>
