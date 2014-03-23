@@ -1,6 +1,6 @@
 package com.gsl.oros.core.banking.clients
 
-import com.gsl.oros.core.banking.clients.vendor.VendorBankAccountInfo
+import com.gsl.oros.core.banking.clients.vendor.VendorBankAccount
 import com.gsl.oros.core.banking.clients.vendor.VendorGeneralAddress
 import com.gsl.oros.core.banking.clients.vendor.VendorMaster
 import com.gsl.oros.core.banking.clients.vendor.VendorPostalAddress
@@ -110,23 +110,27 @@ class VendorController {
     }
 
     def saveVendorBankAccountInfo(){
-        if(request.method=="POST"){
-
-            println "bank account name=" + bankAccountName
-            VendorBankAccountInfo vendorBankAccountInfo = new VendorBankAccountInfo()
 
 
-            vendorBankAccountInfo.save(flush: true)
-            println "VendorGeneralAddress ID"+ vendorBankAccountInfo.vendorId
-            if(!vendorBankAccountInfo.save()){
-                vendorBankAccountInfo.errors.each {
+            println "params=" + params
+            VendorBankAccount vendorBankAccount = new VendorBankAccount(params)
+//            vendorBankAccount.vendorId = 37
+            vendorBankAccount.save(flush: true)
+
+            if(!vendorBankAccount.save()){
+                vendorBankAccount.errors.each {
                     println it
                 }
             }
+//            else {
+//                redirect(controller: 'vendor', action: 'createVendorBankAccountInfo', params: [ id :vendorBankAccount.id] )
+//            }
             else {
-                redirect(controller: 'vendor', action: 'createVendorBankAccountInfo', params: [ id :vendorBankAccountInfo.id] )
-            }
+                println"save done:)"
+                render params.bankAccountName}
+                return
+
         }
-    }
+
 
 }
