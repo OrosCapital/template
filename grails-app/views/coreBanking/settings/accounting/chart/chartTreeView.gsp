@@ -17,7 +17,6 @@
 
     %{--another one css--}%
     <link rel="stylesheet" href="${resource(dir: 'css/tree2',file:'style.css')}" />
-
 </head>
 
 <body>
@@ -38,22 +37,6 @@
     </div>
 </g:if>
 %{-- End --}%
-%{-- try --}%
-
-%{--<g:each var="chartClass" in="${chartClassLists}" status="i">
-    <g:each in="${chartClassLists.chartGroups[i]}" var="chartGroup" status="j">
-        --}%%{--<g:each in="${chartClassLists.chartGroups[i].parentGroups[j]}" var="parentGroup" status="k">--}%%{--
-        <g:if test="${chartGroup.position == 'parent'}">
-
-        </g:if>
-        --}%%{--<g:else>
-            <h1>${chartGroup.name}</h1>
-        </g:else>--}%%{--
-        --}%%{--</g:each>--}%%{--
-    </g:each>
-</g:each>--}%
-%{-- try--}%
-
 
 <div class="col-sm-6">
     <div class="widget-box">
@@ -76,47 +59,47 @@
                                         <g:if test="${chartGroup.parentGroupId == null}">
                                             <li>%{-- A group --}%
                                             <g:link controller="chartGroup" action="edit" id="${chartGroup.id}">${chartGroup.name}</g:link>
-                                                <a href="<g:createLink controller="chartGroup" id="${chartGroup.id}" action="create"/>" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
-                                                <a href="<g:createLink controller="chartMaster" id="${chartGroup.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                <a href="<g:createLink controller="chartGroup" id="${chartGroup.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                <a href="<g:createLink controller="chartMaster" id="${chartGroup.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                 <ul>
                                                     %{-- A1 --}%
                                                     <g:each in="${chartClassLists.chartGroups[i].parentGroups[j]}" var="parentGroup" status="k">
                                                         <li>
                                                             <g:link controller="chartGroup" action="edit" id="${parentGroup.id}">${parentGroup.name}</g:link>
-                                                            <a href="<g:createLink controller="chartGroup" id="${parentGroup.id}" action="create"/>" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
-                                                            <a href="<g:createLink controller="chartMaster" id="${parentGroup.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                            <a href="<g:createLink controller="chartGroup" id="${parentGroup.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                            <a href="<g:createLink controller="chartMaster" id="${parentGroup.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                             %{-- A2 --}%
                                                             <ul>
                                                                 <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k]}" var="parentGrouP" status="n">
                                                                     <li>
                                                                         <g:link controller="chartGroup" action="edit" id="${parentGrouP.id}">${parentGrouP.name}</g:link>
-                                                                        <a href="<g:createLink controller="chartGroup" id="${parentGrouP.id}" action="create"/>" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
-                                                                        <a href="<g:createLink controller="chartMaster" id="${parentGrouP.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                        <a href="<g:createLink controller="chartGroup" id="${parentGrouP.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                        <a href="<g:createLink controller="chartMaster" id="${parentGrouP.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                                         <ul>%{-- A3 group --}%
                                                                             <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k].parentGroups[n]}" var="parentGroupThird" status="m">
                                                                                 <li><g:link controller="chartGroup" action="edit" id="${parentGroupThird.id}">${parentGroupThird.name}</g:link>
-                                                                                    <a href="<g:createLink controller="chartGroup" id="${parentGroupThird.id}" action="create"/>" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
-                                                                                    <a href="<g:createLink controller="chartMaster" id="${parentGroupThird.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                    <a href="<g:createLink controller="chartGroup" id="${parentGroupThird.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                    <a href="<g:createLink controller="chartMaster" id="${parentGroupThird.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                                                     <ul>
                                                                                         %{-- A4 group --}%
                                                                                         <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k].parentGroups[n].parentGroups[m]}" var="parentGroupFourth" status="o">
                                                                                             <li>
                                                                                                 <g:link controller="chartGroup" action="edit" id="${parentGroupFourth.id}">${parentGroupFourth.name}</g:link>
-                                                                                                <a href="<g:createLink controller="chartGroup" id="${parentGroupFourth.id}" action="create"/>" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
-                                                                                                <a href="<g:createLink controller="chartMaster" id="${parentGroupFourth.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                                <a href="<g:createLink controller="chartGroup" id="${parentGroupFourth.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                                <a href="<g:createLink controller="chartMaster" id="${parentGroupFourth.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                                                                 <ul>
                                                                                                     %{-- A5 group --}%
                                                                                                     <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k].parentGroups[n].parentGroups[m].parentGroups[o]}" var="parentGroupFifth" status="p">
                                                                                                         <li>
                                                                                                             <g:link controller="chartGroup" action="edit" id="${parentGroupFifth.id}">${parentGroupFifth.name}</g:link>
-                                                                                                            <a href="<g:createLink controller="chartGroup" id="${parentGroupFifth.id}" action="create"/>" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
-                                                                                                            <a href="<g:createLink controller="chartMaster" id="${parentGroupFifth.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                                            <a href="<g:createLink controller="chartGroup" id="${parentGroupFifth.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                                            <a href="<g:createLink controller="chartMaster" id="${parentGroupFifth.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                                                                             <ul>
                                                                                                                 %{-- A6 group --}%
                                                                                                                 <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k].parentGroups[n].parentGroups[m].parentGroups[o].parentGroups[p]}" var="parentGroupSixth" status="q">
                                                                                                                     <li>
                                                                                                                         <g:link controller="chartGroup" action="edit" id="${parentGroupSixth.id}">${parentGroupSixth.name}</g:link>
-                                                                                                                        <a href="<g:createLink controller="chartMaster" id="${parentGroupSixth.id}" action="create"/>" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
+                                                                                                                        <a href="<g:createLink controller="chartMaster" id="${parentGroupSixth.id}" action="create"/>" class="show-option" title="Add Chart Master" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                                                                                                                         <ul>
                                                                                                                             %{-- A6 master --}%
                                                                                                                             <g:each in="${chartClassLists.chartGroups[i].parentGroups[j].parentGroups[k].parentGroups[n].parentGroups[m].parentGroups[o].parentGroups[p].chartMasters[q]}" var="chartMaster">
@@ -372,6 +355,18 @@
     });
 </script>
 %{-- end here --}%
+    <r:script>
+
+        $(function() {
+            $( ".show-option").tooltip({
+                show: {
+                    effect: "slideDown",
+                    delay: 300
+                }
+            })
+        });
+    </r:script>
+
 
 
 <script src="${resource(dir: 'js/tree', file:'jquery.js')}" type="text/javascript"></script>
