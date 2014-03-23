@@ -207,17 +207,17 @@
 
 <div class="tab-content">
 <div id="cashTab" class="tab-pane active" style="display: none">
-        <g:render template='/coreBanking/settings/product/cashTabBody'/>
+        <g:render template='/coreBanking/settings/product/savings/cashTabBody'/>
     </div>
 
 
     <div id="chequeTab" class="tab-pane " style="display: none">
-        <g:render template='/coreBanking/settings/product/chequeTabBody'/>
+        <g:render template='/coreBanking/settings/product/savings/chequeTabBody'/>
     </div>
 
 
     <div id="cardTab" class="tab-pane " style="display: none">
-        <g:render template='/coreBanking/settings/product/cardTabBody'/>
+        <g:render template='/coreBanking/settings/product/savings/cardTabBody'/>
     </div>
   %{--}  <div class="align-right">
     <button class="btn btn-info " type="submit">

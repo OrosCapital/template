@@ -13,7 +13,12 @@
                             "<td>"+reopenMax+"</td>"+
                             "<td>"+reopenRateType+"</td>"+
                             "<td>"+reopenValue+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 
@@ -26,4 +31,4 @@
     });
 </script>
 
-<g:render template='/coreBanking/settings/product/reopenFeesTable'/>
+<g:render template='/coreBanking/settings/product/savings/reopenFeesTable'/>

@@ -1,25 +1,25 @@
-<div class=row style="background:#d3d3d3">
+<div class=row style="background:#E8E8E8 ">
     <div class="col-sm-4">
 
-        <div class="col-md-12"><h5>Cheque Deposit</h5></div>
+        <div class="col-md-12"><h5>Card Deposit</h5></div>
 
 
         <br/><br/>
 
         <div class="col-md-3">Min</div>
-        <div class="col-md-9"><input type="text" placeholder="0.00" ></div>  <br/><br/> <br/>
+        <div class="col-md-9"><input type="text" placeholder="0.00" ></div> <br/><br/><br/>
 
 
         <div class="col-md-3">Max</div>
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/coreBanking/settings/product/chequeFees'/>
+        <g:render template='/coreBanking/settings/product/savings/cardFees'/>
     </div>
 </div>
  <hr>
 <br/>
-<div class=row>
+<div class=row >
     <div class="col-sm-4">
 
         <div class="col-md-12"><h5>Withdrawing</h5></div>
@@ -28,18 +28,18 @@
         <br/><br/>
 
         <div class="col-md-3">Min</div>
-        <div class="col-md-9"><input type="text" placeholder="0.00" ></div> <br/><br/> <br/>
+        <div class="col-md-9"><input type="text" placeholder="0.00" ></div> <br/><br/><br/>
 
 
         <div class="col-md-3">Max</div>
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/coreBanking/settings/product/chequeWithdrawalFeesTable'/>
+        <g:render template='/coreBanking/settings/product/savings/cardWithdrawalFeesTable'/>
     </div>
 </div>
  <hr>
-<div class=row style="background:#d3d3d3">
+<div class=row style="background:#E8E8E8 ">
     <div class="col-sm-4">
 
         <div class="col-md-12"><h5>Transfer</h5></div>
@@ -48,14 +48,14 @@
         <br/><br/>
 
         <div class="col-md-3">Min</div>
-        <div class="col-md-9"><input type="text" placeholder="0.00" ></div><br/><br/> <br/>
+        <div class="col-md-9"><input type="text" placeholder="0.00" ></div> <br/><br/><br/>
 
 
         <div class="col-md-3">Max</div>
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/coreBanking/settings/product/chequeTransferFeesTable'/>
+        <g:render template='/coreBanking/settings/product/savings/cardTransferFeesTable'/>
     </div>
 
         <div class="col-md-offset-11 ">
@@ -65,5 +65,3 @@
             </button>
         </div>
     </div>
-
-

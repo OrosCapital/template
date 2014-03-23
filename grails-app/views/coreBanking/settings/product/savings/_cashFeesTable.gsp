@@ -46,6 +46,7 @@
                 <button type="button" class="btn btn-default navbar-btn" id="cashAdd">Add</button>
 
             </th>
+
         </tr>
         </thead>
         <tbody>

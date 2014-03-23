@@ -1,4 +1,4 @@
-<div class=row style="background:#d3d3d3">
+<div class=row style="background:#E8E8E8 ">
     <div class="col-sm-4" >
 
         <div class="col-md-12"><h5>Cash Deposit</h5></div>
@@ -14,7 +14,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/coreBanking/settings/product/cashFees'/>
+        <g:render template='/coreBanking/settings/product/savings/cashFees'/>
     </div>
 </div>
  <hr>
@@ -35,11 +35,11 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/coreBanking/settings/product/withdrawalFeesTable'/>
+        <g:render template='/coreBanking/settings/product/savings/withdrawalFeesTable'/>
     </div>
 </div>
  <hr>
-<div class=row style="background:#d3d3d3">
+<div class=row style="background:#E8E8E8 ">
     <div class="col-sm-4">
 
         <div class="col-md-12"><h5>Transfer</h5></div>
@@ -55,7 +55,7 @@
         <div class="col-md-9"><input type="text" placeholder="0.00"></div>
     </div>
     <div class="col-sm-8">
-        <g:render template='/coreBanking/settings/product/transferFeesTable'/>
+        <g:render template='/coreBanking/settings/product/savings/transferFeesTable'/>
     </div>
 
 

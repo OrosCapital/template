@@ -7,27 +7,27 @@
             <legend class="blue"><small>Entry fees</small></legend>
 
 
-            <g:render template='/coreBanking/settings/product/entryFees'/>
+            <g:render template='/coreBanking/settings/product/savings/entryFees'/>
 
         </fieldset>
         %{-- Reopen fees --}%
         <fieldset>
             <legend class="blue"><small>Reopen fees</small></legend>
 
-            <g:render template='/coreBanking/settings/product/reopenFees'/>
+            <g:render template='/coreBanking/settings/product/savings/reopenFees'/>
         </fieldset>
         %{-- Close fees --}%
         <fieldset>
             <legend class="blue"><small>Close fees</small></legend>
 
-            <g:render template='/coreBanking/settings/product/closeFees'/>
+            <g:render template='/coreBanking/settings/product/savings/closeFees'/>
         </fieldset>
         %{-- Management fees --}%
         <fieldset>
             <legend class="blue"><small>Management fees</small></legend>
 
 
-            <g:render template='/coreBanking/settings/product/managementFees'/>
+            <g:render template='/coreBanking/settings/product/savings/managementFees'/>
         </fieldset>
 
 </div> %{-- main 12 md.xs--}%

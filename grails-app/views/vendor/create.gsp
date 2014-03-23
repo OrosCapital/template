@@ -57,28 +57,40 @@
 
             }
 
-
-
             $('#accountInfoButton').click(function(){
-                var bankAccountName = $( "#vendorBankAccountName" ).val();
-                var ibanPrefix = $( "#vendorIbanPrefix" ).val();
-                var bankAccountNo = $( "#vendorBankAccountNo" ).val();
-                var status = $( "#vendorStatus" ).val();
-
+                var oData = new FormData(document.forms.namedItem("vendorBankAccountInfoForm"));
+                var url="${createLink(controller:'vendor',action:'saveVendorBankAccountInfo')}";
                 $.ajax({
-                type: 'POST',
-                url: "${createLink(action:'saveVendorBankAccountInfo', controller:'vendor', params: [b])}/"
-                });
-
-
-
+                url:url,
+                type:'POST',
+                data:oData,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false ,
+                success:function (req) {
                 $('#td1').html($('#vendorBankAccountName').val());
                 $('#td2').html($('#vendorIbanPrefix').val());
                 $('#td3').html($('#vendorBankAccountNo').val());
                 $('#td4').html($("#vendorStatus option:selected").text());
                 $('#vendorBankAccountInfoTable').show();
-
+                }
+                });
             });
+
+
+            %{--$('#accountInfoButton').click(function(){--}%
+                %{--var bankAccountName = $( "#vendorBankAccountName" ).val();--}%
+                %{--var ibanPrefix = $( "#vendorIbanPrefix" ).val();--}%
+                %{--var bankAccountNo = $( "#vendorBankAccountNo" ).val();--}%
+                %{--var status = $( "#vendorStatus" ).val();--}%
+
+
+                %{--$('#td1').html($('#vendorBankAccountName').val());--}%
+                %{--$('#td2').html($('#vendorIbanPrefix').val());--}%
+                %{--$('#td3').html($('#vendorBankAccountNo').val());--}%
+                %{--$('#td4').html($("#vendorStatus option:selected").text());--}%
+                %{--$('#vendorBankAccountInfoTable').show();--}%
+
+            %{--});--}%
         });
 
     </r:script>

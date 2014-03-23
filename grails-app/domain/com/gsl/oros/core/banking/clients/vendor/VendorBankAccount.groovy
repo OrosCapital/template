@@ -1,6 +1,6 @@
 package com.gsl.oros.core.banking.clients.vendor
 
-class VendorBankAccountInfo {
+class VendorBankAccount {
     String bankAccountName
     String bankAccountNo
     String ibanPrefix
