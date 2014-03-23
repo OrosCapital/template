@@ -76,13 +76,16 @@
                 });
             });
 
+            $("#editBankAccountInfo").on("click", function (e) {
+                e.preventDefault();
+                $('#vendorBankAccountName').focus();
+            });
 
             %{--$('#accountInfoButton').click(function(){--}%
                 %{--var bankAccountName = $( "#vendorBankAccountName" ).val();--}%
                 %{--var ibanPrefix = $( "#vendorIbanPrefix" ).val();--}%
                 %{--var bankAccountNo = $( "#vendorBankAccountNo" ).val();--}%
                 %{--var status = $( "#vendorStatus" ).val();--}%
-
 
                 %{--$('#td1').html($('#vendorBankAccountName').val());--}%
                 %{--$('#td2').html($('#vendorIbanPrefix').val());--}%

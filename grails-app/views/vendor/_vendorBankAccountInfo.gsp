@@ -72,7 +72,10 @@
                 <td id="td2"></td>
                 <td id="td3"></td>
                 <td id="td4"></td>
-                <td><span class="glyphicon glyphicon-pencil"></span></td>
+                <td><a href="#" id="editBankAccountInfo">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>
