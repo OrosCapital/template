@@ -21,7 +21,7 @@
             </div>
 
             <form name="multiform" id="multiform" action="" method="POST" enctype="multipart/form-data">
-                <input type="text" value="abc" name="name">
+                <input type="text" value="123" name="name">
                 <input type="file" name="photo" id="imgId"  style="width: 100px;display: inline;background: darkolivegreen"/>
                 <input type="submit" value="Upload" id="upload" style="background: #696969"/><br/>
             </form>
