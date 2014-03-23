@@ -4,7 +4,7 @@ class ExchangeRate {
     static belongsTo = [currency:Currency]
     Double buyPrice
     Double sellPrice
-    Date date=new Date()
+    Date date
     static constraints = {
         currency(unique: true)
     }

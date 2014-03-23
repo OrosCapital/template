@@ -74,6 +74,7 @@
 						searchicon : 'icon-search orange',
 						refresh: true,
 						refreshicon : 'icon-refresh green',
+						gridview: true,
 						autoencode: true
             });
 
@@ -123,6 +124,8 @@
          $("#countryForm").removeAttr('method');
         $('#submitCountry').text("Update");
     }
+
+
         function updatePagerIcons(table) {
             var replacement =
             {
@@ -144,8 +147,6 @@
             $("#version").val('');
             $("input[type=text],input[type=number], input[type=select], textarea").val('');
             $('#submitCountry').text("Create");
-//            var createUrl = "${createLink(controller: 'country', action: 'save')}";
-//            $("#countryForm").attr('action', createUrl);
         }
 
         function onSubmitCountry(){
