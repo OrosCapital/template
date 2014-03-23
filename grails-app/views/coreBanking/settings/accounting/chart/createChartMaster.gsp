@@ -38,7 +38,18 @@
 
 
 <form class="form-horizontal" action="${createLink(controller: 'chartMaster', action: 'save')}">
-    <input type="hidden" name="id" value="${aChartMaster?.id}">
+
+    <input type="hidden" name="id" value="${chartMaster?.id}">
+
+
+    <g:if test="${actionName == 'create'}">
+        <input type="hidden" name="chartGroup" value="${chartGroup}">
+    </g:if>
+    <g:elseif test="${actionName == 'edit'}">
+        <input type="hidden" name="chartGroup" value="${chartMaster?.chartGroup?.id}"/>
+    </g:elseif>
+
+
 
     %{-- Ordering default value 1 --}%
     <input type="hidden" name="ordering" value=1 />
@@ -51,7 +62,7 @@
                 <label class="control-label col-md-8">Account code <sup class="red">*</sup></label>
 
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="accountCode" value="${aChartMaster?.accountCode}" required/>
+                    <input type="text" class="form-control" name="accountCode" value="${chartMaster?.accountCode}" required/>
                 </div>
             </div>
 
@@ -59,47 +70,31 @@
                 <label class="control-label col-md-8">Account Code2</label>
 
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="accountCode2" value="${aChartMaster?.accountCode2}"/>
+                    <input type="text" class="form-control" name="accountCode2" value="${chartMaster?.accountCode2}"/>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-5">Status <sup class="red">*</sup></label>
-                <div class="col-md-7">
-                    <select class="form-control" name="status" required>
-                        <option value="">-Select-</option>
-                        <option value="1" ${aChartMaster?.status == 1 ? 'selected' : ''}>Active</option>
-                        <option value="0" ${aChartMaster?.status == 0 ? 'selected' : ''}>In Active</option>
-                    </select>
-                </div>
-
-            </div>
         </div>
         %{-- End First Rows --}%
 
         %{-- Second Rows --}%
-        <div class="col-xs-6 col-md-5 col-sm-5">
+        <div class="col-xs-6 col-md-4 col-sm-5">
             <div class="form-group">
-                <label class="control-label col-md-5">Account Name<sup class="red">*</sup></label>
+                <label class="control-label col-md-6">Account Name<sup class="red">*</sup></label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="accountName" value="${aChartMaster?.accountName}" required/>
+                    <input type="text" class="form-control" name="accountName" value="${chartMaster?.accountName}" required/>
                 </div>
             </div>
-
             <div class="form-group">
-                <label class="control-label col-md-5">Chart Group<sup class="red">*</sup></label>
+                <label class="control-label col-md-6">Status <sup class="red">*</sup></label>
                 <div class="col-md-6">
-                    <select class="form-control" name="chartGroup" required>
-                        <option value="" selected>-Select-</option>
-                        <g:each var="chartGroup" in="${chartGroupList}">
-                            <option value="${chartGroup.id}"
-                                ${aChartMaster?.chartGroup?.id== chartGroup?.id ? 'selected' : ''}>
-                                ${chartGroup.name}</option>
-                        </g:each>
+                    <select class="form-control" name="status" required>
+                        <option value="">-Select-</option>
+                        <option value="1" ${chartMaster?.status == 1 ? 'selected' : ''}>Active</option>
+                        <option value="0" ${chartMaster?.status == 0 ? 'selected' : ''}>In Active</option>
                     </select>
                 </div>
-                <a href="<g:createLink controller="chartGroup" action="create"/>" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
             </div>
         </div>
         %{-- End Second Rows --}%
@@ -110,7 +105,7 @@
                 <label class="control-label col-md-7">Accountant Name</label>
 
                 <div class="col-md-5">
-                    <input type="text" class="form-control" name="accountantName" value="${aChartMaster?.accountantName}" required/>
+                    <input type="text" class="form-control" name="accountantName" value="${chartMaster?.accountantName}" required/>
                 </div>
             </div>
 
@@ -133,7 +128,7 @@
         </div>
         <div class="col-md-offset-10 col-md-1">
         %{--<input type="submit" value="Create" class="btn btn-info">--}%
-            <g:if test="${aChartMaster?.id}">
+            <g:if test="${chartMaster?.id}">
                 <input type="submit" class="btn btn-danger" value="Update"/>
             </g:if>
             <g:else>

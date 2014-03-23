@@ -50,26 +50,36 @@
 
 <form class="form-horizontal" action="${createLink(controller: 'chartGroup', action: 'save')}">
 
-    %{-- hidden field --}%
-    <input type="hidden" name="id" id="chartGroupId" value="${aChartGroup?.id}">
+    %{-- hidden field set for edit only --}%
+    <input type="hidden" name="id" value="${chartGroup?.id}">
+
+    %{-- when add child group default set the parentGroup id --}%
+    <g:if test="${parentGroup}">
+        <input type="hidden" name="parentGroup" value="${parentGroup.id}">
+    </g:if>
+
+    %{-- when edit in child group --}%
+    <g:elseif test="${actionName == 'edit'}">
+        <input type="hidden" name="parentGroup" value="${chartGroup?.parentGroup?.id}"/>
+    </g:elseif>
 
     <div class="tabbable">
         <div class="col-md-12">
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="name" class="control-label col-sm-4">Name<sup class="red">*</sup></label>
-                    <div class="col-sm-8">
-                        <input type="text"  class="form-control" name="name"  value="${aChartGroup?.name}" />
+                    <label for="name" class="control-label col-md-3">Name<sup class="red">*</sup></label>
+                    <div class="col-md-9">
+                        <input type="text"  class="form-control" name="name"  value="${chartGroup?.name}" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="status" class="control-label col-sm-4">Status<sup class="red">*</sup></label>
-                    <div class="col-sm-8">
-                        <select class="form-control " name="status" />
-                        <option value="">-Select-</option>
-                        <option value="1" ${aChartGroup?.status == 1 ? 'selected' : ''}>Active</option>
-                        <option value="0" ${aChartGroup?.status == 0 ? 'selected' : ''}>In Active</option>
-                    </select>
+                    <label for="status" class="control-label col-md-3">Status<sup class="red">*</sup></label>
+                    <div class="col-md-9">
+                        <select class="form-control" name="status" />
+                            <option value="">-Select-</option>
+                            <option value="1" ${chartGroup?.status == 1 ? 'selected' : ''}>Active</option>
+                            <option value="0" ${chartGroup?.status == 0 ? 'selected' : ''}>In Active</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -78,42 +88,46 @@
                 <div class="form-group">
                     <label for="accountantName" class="control-label col-sm-6">Accountant Name</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="accountantName" value="${aChartGroup?.accountantName}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="chartClassType" class="control-label col-sm-6" >Parent Group</label>
-                    <div class="col-sm-6">
-                        <select class="form-control" name="parentGroup" id="chartGroup">
-                            <option value="">-Select-</option>
-                            <option value="${aChartGroup?.parentGroup?.id}" ${aChartGroup?.parentGroup?.name ? 'selected' : ''}>${aChartGroup?.parentGroup?.name}</option>
-                      </select>
+                        <input type="text" class="form-control" name="accountantName" value="${chartGroup?.accountantName}">
                     </div>
                 </div>
             </div>
+
+            %{-- chart Class --}%
 
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="chartClassType" class="control-label col-sm-6" >Chart Class<sup class="red">*</sup></label>
                     <div class="col-sm-5">
-                        <select class="form-control" name="chartClass" id="chartClassId">
-                            <option>-Select-</option>
-                            <g:each var="chartClass" in="${chartClassList}">
-                                <option value="${chartClass.id}"
-                                    ${aChartGroup?.chartClass?.id == chartClass?.id ? 'selected' : ''}>
-                                    ${chartClass.name}</option>
-                            </g:each>
-                        </select>
+                        <g:if test="${!chartGroup?.parentGroup?.id && !parentGroup}">
+                            <select class="form-control" name="chartClass">
+                                <option>-Select-</option>
+                                <g:each var="chartClass" in="${chartClassList}">
+                                    <option value="${chartClass.id}"
+                                        ${chartGroup?.chartClass?.id == chartClass?.id ? 'selected' : ''}>
+                                        ${chartClass.name}</option>
+                                </g:each>
+                            </select>
+                        </g:if>
+                        <g:elseif test="${parentGroup}">
+                            <input type="hidden" value="${parentGroup?.chartClass?.id}" name="chartClass"/>
+                            <input type="text" class="form-control" value="${parentGroup?.chartClass?.name}" disabled/>
+                        </g:elseif>
+                        <g:else>
+                            <input type="hidden" value="${chartGroup?.chartClass?.id}" name="chartClass"/>
+                            <input type="text" class="form-control" value="${chartGroup?.chartClass?.name}" disabled/>
+                        </g:else>
                     </div>
-                    <a href="<g:createLink controller="chartClass" action="create"/>" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
                 </div>
             </div>
+
+
         </div>
 
 
 
         <div class="clearfix">
-            <g:if test="${aChartGroup?.id}">
+            <g:if test="${chartGroup?.id}">
                 <div class="col-md-offset-10 col-md-1">
                     <input type="submit" class="btn btn-danger" value="Update"/>
                 </div>

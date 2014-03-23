@@ -13,13 +13,22 @@ class ChartMasterController {
     def index() {}
 
     def create(){
+        def chartGroup = null
+        Long id = params.getLong(ID)
+        if(id != null){
+            chartGroup = id     // ROOT
+        }
         List<ChartGroup> chartGroupList = ChartGroup.list(sort :sortColumn, order : ASC, readOnly :true)
-        render (view: '/coreBanking/settings/accounting/chart/createChartMaster', model: [chartGroupList: chartGroupList])
+        render (view: '/coreBanking/settings/accounting/chart/createChartMaster',
+                model: [chartGroupList: chartGroupList,chartGroup:chartGroup])
     }
 
     def save() {
         try{
             Long id = params.getLong(ID)
+
+            println "id >>>"+id
+
             def chartMaster = new ChartMaster(params)
             // :::: Save ::::
             if (id == null  && chartMaster.save(flush: true)){
@@ -55,7 +64,7 @@ class ChartMasterController {
         ChartMaster chartMaster = ChartMaster.get(id)
         List<ChartGroup> chartGroupList = ChartGroup.list(sort :sortColumn, order : ASC, readOnly :true)
         render (view: "/coreBanking/settings/accounting/chart/createChartMaster",
-                model: [aChartMaster : chartMaster,chartGroupList : chartGroupList])
+                model: [chartMaster : chartMaster,chartGroupList : chartGroupList])
     }
 
     def treeView(){

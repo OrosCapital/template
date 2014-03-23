@@ -81,6 +81,5 @@ class ChartClassController {
         List<ChartClassType> chartClassTypeList = ChartClassType.list(sort :CLASS_TYPE, order : ASC, readOnly :true)
         render (view: "/coreBanking/settings/accounting/chart/createChartClass",
                 model: [chartClass: chartClass, chartClassTypeList : chartClassTypeList ])
-
     }
 }

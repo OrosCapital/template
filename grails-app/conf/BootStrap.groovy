@@ -417,6 +417,12 @@ class BootStrap {
                 createChartGroup= new Events(name: 'CREATE_CHART_GROUP',description:'Create Chart Group',fmenuText:'Create Chart Group',controllerName: 'chartGroup',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                 accountingMgmt.addToEvents(createChartGroup)
             }
+            // .:: chart group create with param (FK) ::.
+            Events createChartGroupWithParam = Events.findByName('CREATE_CHART_GROUP_WITH_PARAM')
+            if(!createChartGroupWithParam){
+                createChartGroupWithParam= new Events(name: 'CREATE_CHART_GROUP_WITH_PARAM',description:'Create Chart Group with param',fmenuText:'Create Chart Group',controllerName: 'chartGroup',actionName:'create/**', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartGroupWithParam)
+            }
             // .:: chart group save ::.
             Events createChartGroupSubmit = Events.findByName('SAVE_CREATE_CHART_GROUP')
             if(!createChartGroupSubmit ){
@@ -442,6 +448,12 @@ class BootStrap {
             if(!createChartMaster){
                 createChartMaster= new Events(name: 'CREATE_CHART_MASTER',description:'Create Chart Master',fmenuText:'Create Chart Master',controllerName: 'chartMaster',actionName:'create', showOnMenu: true,isPermitToAll:true, status: true).save(failOnError: true)
                 accountingMgmt.addToEvents(createChartMaster)
+            }
+            // .:: chart master create with param (FK) ::.
+            Events createChartMasterWithParam = Events.findByName('CREATE_CHART_MASTER_WITH_PARAM')
+            if(!createChartMasterWithParam){
+                createChartMasterWithParam= new Events(name: 'CREATE_CHART_MASTER_WITH_PARAM',description:'Create Chart Master',fmenuText:'Create Chart Master',controllerName: 'chartMaster',actionName:'create/**', showOnMenu: true,isPermitToAll:false, status: true).save(failOnError: true)
+                accountingMgmt.addToEvents(createChartMasterWithParam)
             }
             // .:: chart master save ::.
             Events createChartMasterSubmit = Events.findByName('SAVE_CREATE_CHART_MASTER')

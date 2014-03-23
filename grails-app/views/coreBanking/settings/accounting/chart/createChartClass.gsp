@@ -29,7 +29,7 @@
 <form class="form-horizontal" action="${createLink(controller: 'chartClass', action: 'save')}">
 
     %{-- hidden field --}%
-    <input type="hidden" name="id" value="${aChartClass?.id}">
+    <input type="hidden" name="id" value="${chartClass?.id}">
 
     <div class="tabbable">
         <div class="col-xs-12 col-md-12">
@@ -37,17 +37,17 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="name" class="control-label col-md-4">Name<sup class="red">*</sup></label>
-                    <div class="col-md-8">
-                        <input type="text"  class="form-control" name="name" value="${aChartClass?.name}" />
+                    <div class="col-md-7">
+                        <input type="text"  class="form-control" name="name" value="${chartClass?.name}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="status" class="control-label col-md-4">Status</label>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <select class="form-control " name="status" />
                         <option value="">-Select-</option>
-                        <option value="1" ${aChartClass?.status == 1 ? 'selected' : ''}>Active</option>
-                        <option value="0" ${aChartClass?.status == 0 ? 'selected' : ''}>In Active</option>
+                        <option value="1" ${chartClass?.status == 1 ? 'selected' : ''}>Active</option>
+                        <option value="0" ${chartClass?.status == 0 ? 'selected' : ''}>In Active</option>
                     </select>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label for="accountantName" class="control-label col-md-6" >Accountant Name</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="accountantName" value="${aChartClass?.accountantName}">
+                        <input type="text" class="form-control" name="accountantName" value="${chartClass?.accountantName}">
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                             <option>-Select-</option>
                             <g:each var="chartClassType" in="${chartClassTypeList}">
                                 <option value="${chartClassType.id}"
-                                    ${aChartClass?.chartClassType?.id == chartClassType?.id ? 'selected' : ''}>
+                                    ${chartClass?.chartClassType?.id == chartClassType?.id ? 'selected' : ''}>
                                     ${chartClassType.classType}</option>
                             </g:each>
                         </select>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="clearfix">
-                <g:if test="${aChartClass?.id}">
+                <g:if test="${chartClass?.id}">
                     <div class="col-md-offset-10 col-md-1">
                         <input type="submit" class="btn btn-danger" value="Update"/>
                     </div>
@@ -98,6 +98,7 @@
     </div>%{--end class=tabbale--}%
 
 </form>
+
 
 <script src="${resource(dir: 'js/resource/', file: 'jquery.dataTables.min.js')}"></script>
 <script src="${resource(dir: 'js/resource/', file: 'jquery.dataTables.bootstrap.js')}"></script>

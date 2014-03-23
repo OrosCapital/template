@@ -19,14 +19,22 @@ class ChartGroupController {
 
 
     def create(){
+
+        Long id = params.getLong(ID)
+        def parentGroup = null
+        if(id != null){
+            parentGroup = ChartGroup.get(id)
+        }
+
         List<ChartClass> chartClassList = ChartClass.list(sort :sortColumn, order : ASC, readOnly :true)
         List<ChartGroup> chartGroupList = ChartGroup.list(sort :'name', order : ASC, readOnly :true)
-        render (view: '/coreBanking/settings/accounting/chart/createChartGroup', model: [chartClassList: chartClassList, chartGroupList :chartGroupList])
+        render (view: '/coreBanking/settings/accounting/chart/createChartGroup',
+                model: [chartClassList: chartClassList, chartGroupList :chartGroupList, parentGroup:parentGroup])
     }
-
 
     def save() {
         try{
+
             Long id = params.getLong(ID)
             def aChartGroup = new ChartGroup(params)
 
@@ -48,7 +56,6 @@ class ChartGroupController {
                     redirect(action: "edit", id: id)
                 }
             }
-
             else {
                 flash.error = "Chart Group not added!"
                 redirect(action: "create")
@@ -65,23 +72,12 @@ class ChartGroupController {
     def edit(){
         Long id = params.getLong(ID)
         ChartGroup chartGroup = ChartGroup.get(id)
+
         List<ChartClass> chartClassList = ChartClass.list(sort: sortColumn, order : ASC, readOnly :true)
         render (view: "/coreBanking/settings/accounting/chart/createChartGroup",
                 model: [chartGroup: chartGroup,chartClassList : chartClassList])
     }
 
-    // parent group check
-    def checkGroup(){
-        // chart class id
-        Long chartClassId = params.getLong('chartClassId')
-        ChartClass chartClass = ChartClass.read(chartClassId)
-        // chart group id
-        Long chartGroupId = params.getLong('chartGroupId')
-        //def result = ChartGroup.findByChartClassId(id)
-        def chartGroupList = ChartGroup.findAllByChartClassAndIdNotEqual(chartClass,chartGroupId)
 
-        def chart=[success:true,value:chartGroupList]
-        render chart as JSON
-    }
 }
 
