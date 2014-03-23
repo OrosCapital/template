@@ -13,7 +13,12 @@
                             "<td>"+cardEndAm+"</td>"+
                             "<td>"+cardRateType+"</td>"+
                             "<td>"+cardRate+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 
@@ -30,7 +35,12 @@
                             "<td>"+cardWithdrwlEndAm+"</td>"+
                             "<td>"+cardWithdrwlRateType+"</td>"+
                             "<td>"+cardWithdrwlRate+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 
@@ -47,7 +57,12 @@
                             "<td>"+cardTransferEndAm+"</td>"+
                             "<td>"+cardTransferRateType+"</td>"+
                             "<td>"+cardTransferRate+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 

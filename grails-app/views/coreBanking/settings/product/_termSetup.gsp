@@ -2,7 +2,7 @@
 
     <div class=container>
         <input class="ace" type="checkbox"  name="termSetup" id="deposit" value="1">
-        <span class="lbl">Deposit</span>
+        <span class="lbl">   Deposit</span>
     </div>
     <br/>
 
@@ -41,7 +41,7 @@
 
     <div class=container>
         <input class="ace" type="checkbox"  name="termSetup" id="withdrawal" value="1">
-        <span class="lbl">Withdrawal</span>
+        <span class="lbl">   Withdrawal</span>
 
     </div>
     <br/>

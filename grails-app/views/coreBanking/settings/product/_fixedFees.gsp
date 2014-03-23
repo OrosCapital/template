@@ -13,13 +13,17 @@
                             "<td>"+fixedMax+"</td>"+
                             "<td>"+fixedRateType+"</td>"+
                             "<td>"+fixedValue+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons' id='btnEdit'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 
 
         });
-
 
 
 

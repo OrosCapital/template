@@ -1,4 +1,4 @@
-<div class=row style="background:#d3d3d3">
+<div class=row style="background:#E8E8E8 ">
     <div class="col-sm-4">
 
         <div class="col-md-12"><h5>Card Deposit</h5></div>
@@ -39,7 +39,7 @@
     </div>
 </div>
  <hr>
-<div class=row style="background:#d3d3d3">
+<div class=row style="background:#E8E8E8 ">
     <div class="col-sm-4">
 
         <div class="col-md-12"><h5>Transfer</h5></div>

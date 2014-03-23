@@ -13,6 +13,12 @@
                             "<td>"+CashEndAm+"</td>"+
                             "<td>"+cashRateType+"</td>"+
                             "<td>"+cashRate+"</td>"+
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
 
                             "</tr>");
 
@@ -30,7 +36,12 @@
                             "<td>"+withdrwlEndAm+"</td>"+
                             "<td>"+withdrwlRateType+"</td>"+
                             "<td>"+withdrwlRate+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 
@@ -47,7 +58,12 @@
                             "<td>"+transferEndAm+"</td>"+
                             "<td>"+transferRateType+"</td>"+
                             "<td>"+transferRate+"</td>"+
-
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 

@@ -12,10 +12,16 @@
                     "<tr>"+
                             "<td>"+manageMin+"</td>"+
                             "<td>"+manageMax+"</td>"+
-                            "<td>"+manageRateType+"</td>"+
                             "<td>"+manageCircleType+"</td>"+
-                            "<td>"+manageValue+"</td>"+
+                            "<td>"+manageRateType+"</td>"+
 
+                            "<td>"+manageValue+"</td>"+
+                            "<td>" +
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
+                            "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
+                            "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
+                            "</div>"+
+                            "</td>"+
                             "</tr>");
 
 
