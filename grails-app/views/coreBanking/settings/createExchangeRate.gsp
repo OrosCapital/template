@@ -31,6 +31,10 @@
             $("#date").datepicker({
                 showOtherMonths: true,
                 selectOtherMonths: false
+
+            });
+            $('#date').on('changeDate', function(ev){
+                $(this).datepicker('hide');
             });
 
             $(".chosen-select").chosen();
@@ -46,13 +50,13 @@
                 mtype: 'GET',
                 height:326,
                 width: 750,
+                colNames:['ID','Currency', 'Buy Price', 'Sell Price','Date'],
                 colModel:[
-                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
-                    {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
-                    {name:'Currency',index:'currency', width:150, sortable:false, editable:false},
-                    {name:'Buy Price',index:'buyPrice', width:50, sortable:false, editable:false},
-                    {name:'Sell Price',index:'sellPrice', width:75,editable:false,sortable:false, align:'center'},
-                    {name:'Date',index:'date', width:100,editable:false,sortable:false, align:'center'}
+                    {name:'id',index:'id', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'currency',index:'currency', width:150, sortable:false, editable:false},
+                    {name:'buyPrice',index:'buyPrice', width:50, sortable:false},
+                    {name:'sellPrice',index:'sellPrice', width:75,editable:false,sortable:false, align:'center'},
+                    {name:'date',index:'date', width:100,editable:false,sortable:false, align:'center'}
 
                 ],
                 jsonReader : {
@@ -132,20 +136,6 @@
             $('#date').datepicker('update',exchangeRateDate);
             $("select#currencyId").prop("selectedIndex",currencyId);
             $('#submitExchangeRate').text("Update");
-        }
-
-        function deleteCountry(){
-        var gridEntity = $('#grid');
-        var selRowId = gridEntity.jqGrid ('getGridParam', 'selrow');
-        var countryId = gridEntity.jqGrid ('getCell', selRowId, 'ID');
-        var countryName = gridEntity.jqGrid ('getCell', selRowId, 'Country Name');
-        var strURL = "${createLink(controller: 'country', action: 'delete')}";
-            strURL = strURL + "?countryId=" + countryId;
-        if( selRowId != null ) $("#grid").jqGrid('delGridRow',selRowId,
-            {url:strURL,reloadAfterSubmit:true, width:350, top:500, left:350, beforeShowForm:function ($form) {
-            $("td.delmsg", $form[0]).html("Do you really want to delete the <b>" + countryName + "</b>?");
-            }});
-        else alert("Please select country to delete!");
         }
 
        function deleteExchangeRate(){

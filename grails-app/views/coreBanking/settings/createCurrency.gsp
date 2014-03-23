@@ -94,14 +94,15 @@
                 mtype: 'GET',
                 height:326,
                 width: 750,
+                colNames:['ID','Name', 'Abbreviation', 'Country','Symbol','Hundred Name'],
                 colModel:[
-                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
-                    {name:'ID',index:'id', width:50, sortable:false, editable:false, hidden:true},
-                    {name:'Name',index:'name', width:100, sortable:false, editable:false},
-                    {name:'Abbreviation',index:'abbreviation', width:145, sortable:false, editable:false},
-                    {name:'Country',index:'country', width:65,editable:false,sortable:false, align:'center'},
-                    {name:'Symbol',index:'symbol', width:65,editable:false,sortable:false, align:'center'},
-                    {name:'Hundred Name',index:'hundredName', width:75,editable:false,sortable:false,align:'center'}
+//                    {name: "Sl No.",index:'serial', width:50, sortable:false, editable:false, align:'center'},
+                    {name:'id',index:'id', width:50, sortable:false, editable:false, hidden:true},
+                    {name:'name',index:'name', width:100, sortable:false, editable:false},
+                    {name:'abbreviation',index:'abbreviation', width:145, sortable:false, editable:false},
+                    {name:'country',index:'country', width:65,editable:false,sortable:false, align:'center'},
+                    {name:'symbol',index:'symbol', width:65,editable:false,sortable:false, align:'center'},
+                    {name:'hundredName',index:'hundredName', width:75,editable:false,sortable:false,align:'center'}
                 ],
                 jsonReader : {
                  repeatitems:true

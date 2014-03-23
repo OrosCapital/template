@@ -501,6 +501,13 @@ class BootStrap {
             showFiscalYearList = new Events(name: 'SHOW_FISCALYEAR_LIST',description:'Fiscal Year List',fmenuText:'list',controllerName: 'fiscalYear',actionName:'list', showOnMenu: false,isPermitToAll:false, status: true).save(failOnError: true)
             settingsMgmt.addToEvents(showFiscalYearList)
         }
+
+        // Delete Fiscal Year
+        Events deleteFiscalYearSubmit = Events.findByName('DELETE_FISCALYEAR')
+        if(!deleteFiscalYearSubmit){
+            deleteFiscalYearSubmit = new Events(name: 'DELETE_FISCALYEAR',description:'Delete Fiscal year event',fmenuText:'Delete',controllerName: 'fiscalYear',actionName:'delete', showOnMenu: false,isPermitToAll:true, status: true).save(failOnError: true)
+            settingsMgmt.addToEvents(deleteFiscalYearSubmit)
+        }
         // edit FiscalYear
         Events  editFiscalYear= Events.findByName('EDIT_FISCALYEAR')
         if(!editFiscalYear){

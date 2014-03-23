@@ -179,8 +179,9 @@
 <![endif]-->
 
 
-
+%{--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>--}%
 <script src="${resource(dir: 'js/uncompressed', file: 'jquery-ui-1.10.3.custom.js')}"></script>
+%{--<script src="${resource(dir: 'js/compressed', file: 'jquery-ui-1.10.3.full.min.js')}"></script>--}%
 <script src="${resource(dir: 'js/uncompressed', file: 'jquery.ui.touch-punch.js')}"></script>
 
 <script src="${resource(dir: 'js/uncompressed', file: 'chosen.jquery.js')}"></script>

@@ -20,16 +20,19 @@ class FiscalYearController {
         def beginDate=params.beginingDate
         def endDate=params.endingDate
         FiscalYear fiscalYear=new FiscalYear()
-        fiscalYear.beginingDate=Date.parse("d/M/yyyy",beginDate)
-        fiscalYear.endingDate=Date.parse("d/M/YYYY",endDate)
+        fiscalYear.beginingDate=Date.parse("dd/mm/yyyy",beginDate)
+
+        fiscalYear.endingDate=Date.parse("dd/mm/yyyy",endDate)
+
         fiscalYear.closed=params.closed as Integer
+
         fiscalYear.save(failOnError: true)
         GridEntity object = new GridEntity()
         object.id = fiscalYear.id
         object.cell = [
                 fiscalYear.id,
-                fiscalYear.beginingDate.format("d/M/yyyy"),
-                fiscalYear.endingDate.format("d/M/yyyy"),
+                fiscalYear.beginingDate.format("dd/mm/yyyy"),
+                fiscalYear.endingDate.format("dd/mm/yyyy"),
                 fiscalYear.closed,
         ]
         result = [updateEntity: object]
@@ -87,8 +90,8 @@ class FiscalYearController {
             obj.cell = [
                     counter,
                     fiscalYear.id,
-                    fiscalYear.beginingDate.format("d/M/yyyy"),
-                    fiscalYear.endingDate.format("d/M/yyyy"),
+                    fiscalYear.beginingDate.format("dd/mm/yyyy"),
+                    fiscalYear.endingDate.format("dd/mm/yyyy"),
                     fiscalYear.closed,
             ]
             lstExchangeRate << obj
@@ -106,21 +109,30 @@ class FiscalYearController {
             render result as JSON
             return
         }
-        result = [entity: fiscalYear, version: fiscalYear.version]
+        result = [entity: fiscalYear,beginingDate:fiscalYear.beginingDate.format("dd/mm/yyyy"),endingDate:fiscalYear.endingDate.format("dd/mm/yyyy"), version: fiscalYear.version]
         String output = result as JSON
         println "result as JSON > " + output
         render(result as JSON)
+    }
+
+    def delete() {
+        long fiscalYearId = Long.parseLong(params.fiscalYearId.toString())
+        FiscalYear fiscalYear = FiscalYear.get(fiscalYearId)
+        fiscalYear.delete(flush: true)
+        Map result = [isSuccess: true, message: "FiscalYear deleted successfully."]
+        render result as JSON
+        return
     }
 
     def update() {
 
         Map result
         long fiscalYearId = Long.parseLong(params.id.toString())
-
+        println(params)
         FiscalYear fiscalYear = FiscalYear.get(fiscalYearId)
-        fiscalYear.beginingDate = Date.parse("d/M/yyyy",params.beginingDate)
-        fiscalYear.endingDate = Date.parse("d/M/yyyy",params.endingDate)
-        fiscalYear.closed = params.closed
+        fiscalYear.beginingDate = Date.parse("dd/mm/yyyy",params.beginingDate)
+        fiscalYear.endingDate = Date.parse("dd/mm/yyyy",params.endingDate)
+        fiscalYear.closed = params.closed as Integer
         fiscalYear.version = fiscalYear.version + 1
         fiscalYear.save(flush: true)
         GridEntity object = new GridEntity()
