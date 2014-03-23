@@ -28,7 +28,7 @@
             var cardWithdrwlStartAm = $( "#cardWithdrwlStartAmount" ).val();
             var cardWithdrwlEndAm = $( "#cardWithdrwlEndAmount" ).val();
             var cardWithdrwlRate = $( "#cardWithdrwlRate" ).val();
-            var cardWithdrwlRateType = $( "#cardeWithdrwlRateType" ).val();
+            var cardWithdrwlRateType = $( "#cardWithdrwlRateType" ).val();
             $("#cardWithdrawalTableData tbody").append(
                     "<tr>"+
                             "<td>"+cardWithdrwlStartAm+"</td>"+
