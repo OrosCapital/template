@@ -32,7 +32,7 @@
 </head>
 
 <body>
-%{--<g:render template="/breadcumb" model="${[myparams:['home','www', 'eeee']]}" />--}%
+
 <div class="page-header">
     <h1>Savings Product</h1>
 </div><!-- /.page-header -->
