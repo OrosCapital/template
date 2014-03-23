@@ -38,22 +38,22 @@
                     Any of Us
                 </div>
             </div>
-            <div class="form-group">
-                <label for="sourceOfFund" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">
-                    Source Of Fund</label>
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <input type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Source Of Fund"
-                           id="sourceOfFund" name="sourceOfFund">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="initialDeposit" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">
-                    Initial Deposit</label>
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <input type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Initial Deposit"
-                           id="initialDeposit" name="initialDeposit">
-                </div>
-            </div>
+            %{--<div class="form-group">--}%
+                %{--<label for="sourceOfFund" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">--}%
+                    %{--Source Of Fund</label>--}%
+                %{--<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">--}%
+                    %{--<input type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Source Of Fund"--}%
+                           %{--id="sourceOfFund" name="sourceOfFund">--}%
+                %{--</div>--}%
+            %{--</div>--}%
+            %{--<div class="form-group">--}%
+                %{--<label for="initialDeposit" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">--}%
+                    %{--Initial Deposit</label>--}%
+                %{--<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">--}%
+                    %{--<input type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Initial Deposit"--}%
+                           %{--id="initialDeposit" name="initialDeposit">--}%
+                %{--</div>--}%
+            %{--</div>--}%
             <div class="form-group">
                 <label for="paymentMethod" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">
                     Package Name</label>
