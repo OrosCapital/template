@@ -47,7 +47,6 @@
         <div class="widget-body">
             <div class="widget-main padding-8">
                 <div id="main">
-                    %{--<ul id="navigation">--}%
                     <ul id="navigation">
                         <g:each var="chartClass" in="${chartClassLists}" status="i">
                             <li class="tree-folder-name">
@@ -55,8 +54,7 @@
                                 <g:link controller="chartClass" action="edit" id="${chartClass.id}">${chartClass?.name}</g:link>
                                 <ul>
                                     <g:each in="${chartClassLists.chartGroups[i]}" var="chartGroup" status="j">
-                                    %{--<g:if test="${chartGroup.position == 'parent'}">--}%
-                                        <g:if test="${chartGroup.parentGroupId == null}">
+                                       <g:if test="${chartGroup.parentGroupId == null}">
                                             <li>%{-- A group --}%
                                             <g:link controller="chartGroup" action="edit" id="${chartGroup.id}">${chartGroup.name}</g:link>
                                                 <a href="<g:createLink controller="chartGroup" id="${chartGroup.id}" action="create"/>" class="show-option" title="Add Chart Group" class="inline"><span class="glyphicon glyphicon-plus"></span></a>
