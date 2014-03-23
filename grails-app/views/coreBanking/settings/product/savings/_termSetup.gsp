@@ -1,32 +1,35 @@
 <div class=row>
 
-    <div class=container>
+    <div class="container form-group">
+
         <input class="ace" type="checkbox"  name="termSetup" id="deposit" value="1">
         <span class="lbl">   Deposit</span>
+
     </div>
+
     <br/>
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-md-4 col-xs-6 col-lg-4">
         Number of Periods: <br/> <br/>
 
         <div class="form-group">
-            <label class="control-label col-md-4">Min :</label>
-            <div class="col-md-8">
+            <label class="control-label col-md-4 ">Min :</label>
+            <div class="col-md-8 ">
                 <input type="text"  class="form-control" name="name" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-4">Max :</label>
-            <div class="col-md-8">
+            <label class="control-label col-md-4 ">Max :</label>
+            <div class=" col-md-8 ">
                 <input type="text"  class="form-control" name="name"/>
             </div>
         </div>
 
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-md-4 col-xs-6 col-lg-4">
         Posting frequency: <br/> <br/>
 
-        <select id="postFreqDep" class="form-control col-sm-3" name="postFreqDep">
+        <select id="postFreqDep" class="form-control  col-md-3 " name="postFreqDep">
             <option>-Select-</option>
             <option value="Daily">Daily</option>
             <option value="Weekly">Weekly</option>
@@ -39,33 +42,33 @@
 <hr>
 <div class=row>
 
-    <div class=container>
+    <div class="container form-group">
         <input class="ace" type="checkbox"  name="termSetup" id="withdrawal" value="1">
         <span class="lbl">   Withdrawal</span>
 
     </div>
     <br/>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-md-4 col-xs-6 col-lg-4">
         Number of Periods: <br/> <br/>
 
         <div class="form-group">
-            <label class="control-label col-md-4">Min :</label>
-            <div class="col-md-8">
+            <label class="control-label col-md-4 ">Min :</label>
+            <div class=" col-md-8 ">
                 <input type="text"  class="form-control" name="name" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-4">Max :</label>
-            <div class="col-md-8">
+            <label class="control-label col-md-4 ">Max :</label>
+            <div class=" col-md-8 ">
                 <input type="text"  class="form-control" name="name"/>
             </div>
         </div>
 
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-md-4 col-xs-6 col-lg-4">
         Posting frequency <br/> <br/>
 
-        <select id="postFreqWithdrwl" class="form-control col-sm-3" name="postFreqWithdrwl">
+        <select id="postFreqWithdrwl" class="form-control col-md-3 " name="postFreqWithdrwl">
             <option>-Select-</option>
             <option value="Daily">Daily</option>
             <option value="Weekly">Weekly</option>
@@ -77,33 +80,33 @@
 </div>
 <div class=row>
 
-    <div class=container>
+    <div class="container form-group">
         <input class="ace" type="checkbox"  name="termSetup" id="transfer" value="1">
         <span class="lbl">   Transfer</span>
 
     </div>
     <br/>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-md-4 col-xs-6 col-lg-4">
         Number of Periods: <br/> <br/>
 
         <div class="form-group">
-            <label class="control-label col-md-4">Min :</label>
-            <div class="col-md-8">
+            <label class="control-label col-md-4 ">Min :</label>
+            <div class=" col-md-8 ">
                 <input type="text"  class="form-control" name="name" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-4">Max :</label>
-            <div class="col-md-8">
+            <label class="control-label col-md-4 ">Max :</label>
+            <div class="col-md-8 ">
                 <input type="text"  class="form-control" name="name"/>
             </div>
         </div>
 
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-md-4 col-xs-6 col-lg-4">
         Posting frequency <br/> <br/>
 
-        <select id="postFreqTransfer" class="form-control col-sm-3" name="postFreqTransfer">
+        <select id="postFreqTransfer" class="form-control  col-md-3 " name="postFreqTransfer">
             <option>-Select-</option>
             <option value="Daily">Daily</option>
             <option value="Weekly">Weekly</option>

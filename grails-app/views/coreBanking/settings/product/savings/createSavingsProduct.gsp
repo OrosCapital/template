@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta name="layout" content="oros">
+
     <title>OrosCapital - Client</title>
 
     <r:script>
@@ -88,7 +89,7 @@
             </div>
             <div class="clearfix form-actions">
                 <div class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info" type="button" id="savingProducts"><i class="icon-ok bigger-110"></i>Submit</button>
+                    <button class="btn btn-info" type="submit" id="savingProducts"><i class="icon-ok bigger-110"></i>Submit</button>
                     <button class="btn" type="reset"><i class="icon-undo bigger-110"></i>Reset</button>
                 </div>
             </div>
