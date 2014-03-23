@@ -74,11 +74,11 @@ class VendorController {
     def createVendorPostalAddress(){
         println "ID"+params.id
         long id = Long.parseLong(params.id)
-        VendorGeneralAddress anGeneralAddress = VendorGeneralAddress.get(id)
-        VendorMaster avendorMaster = VendorMaster.get(anGeneralAddress.vendorId)
+        VendorGeneralAddress aGeneralAddress = VendorGeneralAddress.get(id)
+        VendorMaster avendorMaster = VendorMaster.get(aGeneralAddress.vendorId)
         //model: [avendorMaster:avendorMaster]
         def tabSelector=3
-        render(view: '/vendor/create', model: [anGeneralAddress:anGeneralAddress,avendorMaster:avendorMaster, tabSelectIndicator:tabSelector])
+        render(view: '/vendor/create', model: [aGeneralAddress:aGeneralAddress,avendorMaster:avendorMaster, tabSelectIndicator:tabSelector])
 
     }
 
@@ -104,32 +104,38 @@ class VendorController {
         long id = Long.parseLong(params.id)
         VendorPostalAddress aPostalAddress = VendorPostalAddress.get(id)
         VendorMaster avendorMaster = VendorMaster.get(aPostalAddress.vendorId)
-        VendorGeneralAddress anGeneralAddress = VendorGeneralAddress.findByVendorId(aPostalAddress.vendorId)
+        VendorGeneralAddress aGeneralAddress = VendorGeneralAddress.findByVendorId(aPostalAddress.vendorId)
         def tabSelector=4
-        render(view: '/vendor/create', model: [aPostalAddress:aPostalAddress, avendorMaster: avendorMaster, anGeneralAddress: anGeneralAddress, tabSelectIndicator:tabSelector])
+        render(view: '/vendor/create', model: [aPostalAddress:aPostalAddress, avendorMaster: avendorMaster, aGeneralAddress: aGeneralAddress, tabSelectIndicator:tabSelector])
     }
 
     def saveVendorBankAccountInfo(){
 
 
             println "params=" + params
-            VendorBankAccount vendorBankAccount = new VendorBankAccount(params)
-//            vendorBankAccount.vendorId = 37
-            vendorBankAccount.save(flush: true)
+            def existedAccount = VendorBankAccount.findByVendorId(params.vendorId)
 
-            if(!vendorBankAccount.save()){
+            if(existedAccount!=null){
+                flash.message = "A vendor with this ID already exists!"
+                println"A vendor with VendorId "+params.vendorId+" exists"
+                render flash.message
+                return
+            }
+            else {
+                VendorBankAccount vendorBankAccount = new VendorBankAccount(params)
+                vendorBankAccount.save(flush: true)
+                if(!vendorBankAccount.save()){
                 vendorBankAccount.errors.each {
                     println it
                 }
-            }
-//            else {
-//                redirect(controller: 'vendor', action: 'createVendorBankAccountInfo', params: [ id :vendorBankAccount.id] )
-//            }
-            else {
-                println"save done:)"
-                render params.bankAccountName}
-                return
+                }
 
+                else {
+                println"save done:)"
+                render params.bankAccountName
+                return
+                }
+            }
         }
 
 
