@@ -30,4 +30,4 @@
     });
 </script>
 
-<g:render template='/coreBanking/settings/product/fixedFeesTable'/>
+<g:render template='/coreBanking/settings/product/savings/fixedFeesTable'/>

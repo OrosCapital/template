@@ -67,21 +67,21 @@
                 <div class="tab-content">
 
                     <div class="tab-pane active" id="mainParameters">
-                        <g:render template="/coreBanking/settings/product/mainParameters"/>
+                        <g:render template="/coreBanking/settings/product/savings/mainParameters"/>
                     </div>
                     <div class="tab-pane " id="transactions">
-                        <g:render template='/coreBanking/settings/product/transactions'/>
+                        <g:render template='/coreBanking/settings/product/savings/transactions'/>
                     </div>
 
                     <div class="tab-pane" id="fees">
-                        <g:render template='/coreBanking/settings/product/fees'/>
+                        <g:render template='/coreBanking/settings/product/savings/fees'/>
                     </div>
 
                     <div class="tab-pane" id="overdraft">
-                        <g:render template='/coreBanking/settings/product/overdraft'/>
+                        <g:render template='/coreBanking/settings/product/savings/overdraft'/>
                     </div>
                     <div class="tab-pane" id="termSetup">
-                        <g:render template='/coreBanking/settings/product/termSetup'/>
+                        <g:render template='/coreBanking/settings/product/savings/termSetup'/>
                     </div>
 
                 </div>

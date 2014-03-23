@@ -2,17 +2,17 @@
 </script>
 <script>
     $(document).ready(function(){
-        $("#entryAdd").click(function(){
-            var entryMin = $( "#entryMin" ).val();
-            var entryMax = $( "#entryMax" ).val();
-            var entryValue = $( "#entryValue" ).val();
-            var entryRateType = $( "#entryRateType" ).val();
-            $("#entryTableData tbody").append(
+        $("#reopenAdd").click(function(){
+            var reopenMin = $( "#reopenMin" ).val();
+            var reopenMax = $( "#reopenMax" ).val();
+            var reopenValue = $( "#reopenValue" ).val();
+            var reopenRateType = $( "#reopenRateType" ).val();
+            $("#reopenTableData tbody").append(
                     "<tr>"+
-                            "<td>"+entryMin+"</td>"+
-                            "<td>"+entryMax+"</td>"+
-                            "<td>"+entryRateType+"</td>"+
-                            "<td>"+entryValue+"</td>"+
+                            "<td>"+reopenMin+"</td>"+
+                            "<td>"+reopenMax+"</td>"+
+                            "<td>"+reopenRateType+"</td>"+
+                            "<td>"+reopenValue+"</td>"+
                             "<td>" +
                             "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
                             "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
@@ -31,4 +31,4 @@
     });
 </script>
 
-<g:render template='/coreBanking/settings/product/enrtyFeesTable'/>
+<g:render template='/coreBanking/settings/product/savings/reopenFeesTable'/>

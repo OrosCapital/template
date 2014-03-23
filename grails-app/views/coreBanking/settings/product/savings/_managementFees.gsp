@@ -34,4 +34,4 @@
     });
 </script>
 
-<g:render template='/coreBanking/settings/product/managementFeesTable'/>
+<g:render template='/coreBanking/settings/product/savings/managementFeesTable'/>

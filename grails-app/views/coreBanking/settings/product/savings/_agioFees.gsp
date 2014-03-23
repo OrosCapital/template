@@ -16,7 +16,7 @@
                             "<td>"+agioRateType+"</td>"+
                             "<td>"+agioValue+"</td>"+
                             "<td>" +
-                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons' id='btnEdit'>"+
+                            "<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>"+
                             "<a  href='#'><i class='icon-pencil bigger-130 green'></i></a>"+
                             "<a class='red' href='#'><i class='icon-trash bigger-130'></i></a>"+
                             "</div>"+
@@ -34,4 +34,4 @@
     });
 </script>
 
-<g:render template='/coreBanking/settings/product/agioFeesTable'/>
+<g:render template='/coreBanking/settings/product/savings/agioFeesTable'/>

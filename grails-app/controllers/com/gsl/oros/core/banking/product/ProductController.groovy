@@ -4,7 +4,7 @@ class ProductController {
 
     def index() {
 
-        render(view: '/coreBanking/settings/product/createSavingsProduct')
+        render(view: '/coreBanking/settings/product/savings/createSavingsProduct')
     }
 
     def showVoucher() {

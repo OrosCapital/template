@@ -5,14 +5,14 @@
         %{-- Fixed overdraft fees --}%
         <fieldset>
             <legend class="blue"><small>Fixed overdraft fees</small></legend>
-        <g:render template='/coreBanking/settings/product/fixedFees'/>
+        <g:render template='/coreBanking/settings/product/savings/fixedFees'/>
 
 
         %{-- Agio fees --}%
         <fieldset>
             <legend class="blue"><small>Agio fees</small></legend>
 
-            <g:render template='/coreBanking/settings/product/agioFees'/>
+            <g:render template='/coreBanking/settings/product/savings/agioFees'/>
 
     </div> %{-- main 12 md.xs--}%
 
