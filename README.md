@@ -1,4 +1,4 @@
 template
 ========
 
-initial Template
+initial Template. Development progress included here
